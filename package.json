@@ -1,6 +1,6 @@
 {
-  "name": "stackly-ui",
-  "repository": "https://github.com/SwaprHQ/stackly-ui",
+  "name": "@useolive/monorepo",
+  "repository": "https://github.com/moojok/olive",
   "version": "1.4.0",
   "license": "MIT",
   "private": true,
@@ -33,5 +33,14 @@
   },
   "dependencies": {
     "fathom-client": "^3.6.0"
-  }
+  },
+  "trustedDependencies": [
+    "bufferutil",
+    "es5-ext",
+    "keccak",
+    "protobufjs",
+    "secp256k1",
+    "sharp",
+    "utf-8-validate"
+  ]
 }
