@@ -1,4 +1,4 @@
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 import { createConfig, fallback, http } from "wagmi";
 import { getDefaultConfig } from "connectkit";
 import { gnosis, mainnet, arbitrum, base } from "wagmi/chains";

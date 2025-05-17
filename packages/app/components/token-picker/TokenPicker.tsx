@@ -29,7 +29,7 @@ import { TokenFromTokenlist } from "@/models/token";
 
 import { TOKEN_PICKER_COMMON_TOKENS } from "./constants";
 import { isAddress } from "viem";
-import { getERC20Contract } from "@stackly/sdk";
+import { getERC20Contract } from "@useolive/sdk";
 import { getExplorerLink, useEthersSigner } from "../../utils";
 
 const HALF_SECOND = 500;

@@ -23,7 +23,7 @@
     "test": "echo 'No tests yet, implement them'"
   },
   "dependencies": {
-    "@stackly/sdk": "workspace:^"
+    "@useolive/sdk": "workspace:^"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.78.0",

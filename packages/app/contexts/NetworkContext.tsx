@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import type { Chain } from "viem/chains";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 import { arbitrum } from "wagmi/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 

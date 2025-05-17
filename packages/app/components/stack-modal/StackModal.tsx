@@ -41,7 +41,7 @@ import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgres
 import { StackFrequencyAndDates } from "@/components/stack-modal/StackFrequencyAndDates";
 
 import { formatTokenValue } from "@/utils/token";
-import { getDCAOrderContract } from "@stackly/sdk";
+import { getDCAOrderContract } from "@useolive/sdk";
 import { getExplorerLink } from "@/utils/transaction";
 import { useEthersSigner } from "@/utils/ethers";
 

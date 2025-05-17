@@ -11,8 +11,8 @@ import {
   useState,
 } from "react";
 
-import { ChainId, MULTICALL_ADDRESS } from "@stackly/sdk";
-import { Erc20Abi, MulticallAbi } from "@stackly/sdk/abis";
+import { ChainId, MULTICALL_ADDRESS } from "@useolive/sdk";
+import { Erc20Abi, MulticallAbi } from "@useolive/sdk/abis";
 import { ethers } from "ethers";
 import { formatUnits, hexToBigInt, isAddress } from "viem";
 import { useAccount } from "wagmi";

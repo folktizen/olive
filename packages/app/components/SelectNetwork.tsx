@@ -7,7 +7,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { Button, Icon } from "@/ui";
 import { useNetworkContext } from "@/contexts";
 import Image from "next/image";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 const CustomChainIcon = ({ id, size }: { id: number; size: number }) => {
   if (id === ChainId.BASE) {

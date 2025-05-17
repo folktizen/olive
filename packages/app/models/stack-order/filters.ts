@@ -1,5 +1,5 @@
 import { currentTimestampInSeconds } from "@/utils/datetime";
-import { Order } from "@stackly/sdk";
+import { Order } from "@useolive/sdk";
 
 export const filterCompletedOrders = (orders: Order[]) =>
   orders.filter(

@@ -16,7 +16,7 @@ import {
   getCompleteOrders,
   getOrders,
 } from "@/models/order";
-import { ChainId, Order } from "@stackly/sdk";
+import { ChainId, Order } from "@useolive/sdk";
 import { ButtonLink, HeadingText } from "@/ui";
 import { EmptyState, StacksTable, tabButtonStyles } from "@/components";
 import EmptyStatePage from "./empty-state";

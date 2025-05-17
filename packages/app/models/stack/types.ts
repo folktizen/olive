@@ -1,4 +1,4 @@
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 export enum FREQUENCY_OPTIONS {
   hour = "hour",

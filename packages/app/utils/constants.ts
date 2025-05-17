@@ -5,7 +5,7 @@ import {
   TokenFromTokenlist,
   baseTokens,
 } from "@/models/token";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 interface DefaultTokens {
   from: TokenFromTokenlist;

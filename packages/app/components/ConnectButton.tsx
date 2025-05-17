@@ -1,6 +1,6 @@
 "use client";
 
-import { ChainId, WETH, WXDAI } from "@stackly/sdk";
+import { ChainId, WETH, WXDAI } from "@useolive/sdk";
 import { ConnectKitButton } from "connectkit";
 import { useBalance } from "wagmi";
 import { formatUnits } from "viem";

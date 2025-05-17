@@ -5,7 +5,7 @@ import {
   baseTokens,
   TokenFromTokenlist,
 } from "@/models/token";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 export const TOKEN_PICKER_COMMON_TOKENS: {
   [chainId: number]: TokenFromTokenlist[];

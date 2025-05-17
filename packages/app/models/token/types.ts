@@ -1,4 +1,4 @@
-import { TokenSubgraph } from "@stackly/sdk";
+import { TokenSubgraph } from "@useolive/sdk";
 
 export type Token = TokenSubgraph | Omit<TokenSubgraph, "id">;
 

@@ -1,4 +1,4 @@
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 // RPC endpoints
 export const RPC_LIST: { [chainId: number]: string } = {

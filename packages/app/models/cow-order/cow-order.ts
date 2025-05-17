@@ -1,4 +1,4 @@
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 const COW_API_BASE_URL = "https://api.cow.fi";
 const API_VERSION_PATH = "api/v1";

@@ -1,6 +1,6 @@
 import { convertedAmount } from "@/utils/numbers";
 import { currentTimestampInSeconds } from "@/utils/datetime";
-import { Order } from "@stackly/sdk";
+import { Order } from "@useolive/sdk";
 
 export const totalOrderSlotsDone = (order: Order) => {
   /**

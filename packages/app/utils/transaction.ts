@@ -1,4 +1,4 @@
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 const EXPLORER_URL_BY_CHAIN = {
   [ChainId.ETHEREUM]: "https://etherscan.io",

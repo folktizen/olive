@@ -6,7 +6,7 @@ import {
   baseTokens,
 } from "@/models/token";
 import { Strategy } from "@/contexts";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 type ChainStrategy = {
   label: string;

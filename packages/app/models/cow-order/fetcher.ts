@@ -1,5 +1,5 @@
 import { COW_API_URL } from "@/models/cow-order/cow-order";
-import { ChainId } from "@stackly/sdk";
+import { ChainId } from "@useolive/sdk";
 
 const buildUrl = (chainId: ChainId, address: string) =>
   `${COW_API_URL[chainId]}/account/${address}/orders/?limit=500`;
