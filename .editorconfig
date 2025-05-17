@@ -1,9 +1,14 @@
+# EditorConfig helps maintain consistent coding styles between different editors and IDEs.
+# See https://editorconfig.org for more information.
+
 root = true
 
+# Global settings (applies to all files)
 [*]
 end_of_line = lf
 insert_final_newline = true
 
+# Settings for JavaScript, JSON, and YAML files
 [*.{js,json,yml}]
 charset = utf-8
 indent_style = space

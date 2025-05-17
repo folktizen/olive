@@ -1,17 +1,28 @@
+# Node.js dependencies
 node_modules
+
+# Next.js build output
 .next
 out
 dist
+
+# Vercel & Turbo build artifacts
 .vercel
 .turbo
 
+# macOS system files
 .DS_Store
+
+# TypeScript build info
 tsconfig.tsbuildinfo
 
-.env.local
+# Environment variables
 .env
+.env.local
 
-# subgraph
+# Subgraph build artifacts
 packages/subgraph/build
 generated
 subgraph.yaml
+
+# Add more patterns below as needed
