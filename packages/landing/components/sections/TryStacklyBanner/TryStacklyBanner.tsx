@@ -1,6 +1,6 @@
 "use client";
 
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 
 import { EVENTS } from "@/analytics";
 import { ButtonLink, HeadingText } from "@/ui";

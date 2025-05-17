@@ -7,7 +7,7 @@ export * from "./token-picker";
 export * from "./ConnectButton";
 export * from "./DatePicker";
 export * from "./DialogConfirmTransactionLoading";
-export * from "./FathomAnalytics";
+export * from "./UmamiAnalytics";
 export * from "./FromToStackTokenPair";
 export * from "./SelectNetwork";
 export * from "./StacksTable";

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { format } from "date-fns";
 import { parseUnits } from "viem";
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 import { useAccount } from "wagmi";
 
 import {

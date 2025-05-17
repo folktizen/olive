@@ -12,7 +12,7 @@ import { add, formatDistance } from "date-fns";
 import { cx } from "class-variance-authority";
 import { formatUnits, parseUnits } from "viem";
 import Link from "next/link";
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 import { useAccount, useBalance } from "wagmi";
 
 import {

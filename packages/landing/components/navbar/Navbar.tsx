@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 
 import { EVENTS } from "@/analytics";
 import { ButtonLink } from "@/ui";

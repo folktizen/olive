@@ -1,7 +1,7 @@
 "use client";
 
 import { cx } from "class-variance-authority";
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 
 import { Button, CaptionText, Icon } from "@/ui";
 import { EVENTS } from "@/analytics";

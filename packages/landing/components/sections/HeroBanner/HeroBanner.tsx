@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { trackEvent } from "fathom-client";
+import { trackEvent } from "@/analytics";
 
 import {
   BodyText,
