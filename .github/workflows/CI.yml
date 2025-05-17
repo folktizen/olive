@@ -1,4 +1,14 @@
-name: Continous Integration
+name: 🚦 Continuous Integration
+
+# This workflow runs on pushes and pull requests to main, production, and develop branches.
+# It uses Bun as the package manager and task runner.
+#
+# Actions used:
+#   - actions/checkout@v4.2.2 (latest: v4.2.2)
+#   - actions/setup-node@v4.4.0 (latest: v4.4.0)
+#   - oven-sh/setup-bun@v2.0.2 (latest: v2.0.2)
+#
+# Update these versions as new releases become available for best security and features.
 
 on:
   push:
@@ -19,28 +29,41 @@ concurrency:
 
 jobs:
   build:
+    name: 🏗️ Build & Test
     runs-on: ubuntu-latest
+
     steps:
       - name: 🧑🏻‍💻 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 1
 
-      - name: 🥷 Setup node and bun
-        uses: actions/setup-node@v4
+      - name: 🥷 Setup Node.js
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: 22.14.0
 
-      - uses: oven-sh/setup-bun@v1
+      - name: 🍞 Setup Bun
+        uses: oven-sh/setup-bun@v2.0.2
         with:
           bun-version: latest
 
-      - name: 🎪 Install dependencies
+      - name: 📦 Install dependencies (bun)
         run: bun install --immutable
 
-      - name: 🛠️ Build
+      - name: 🛠️ Build project
         run: bun run build
 
       - name: 🚑 Typecheck
         run: bun typecheck
 
-      - name: 🔬 Lint
+      - name: 🔬 Lint code
         run: bun lint
+
+      # Add your tests here if needed
+      # - name: 🧪 Run tests
+      #   run: bun test
+
+    # ℹ️ This workflow uses Bun as the package manager and task runner.
+    #    It checks out the code, installs dependencies, builds, typechecks, and lints your project.
+    #    Add or adjust steps as needed for your project!
