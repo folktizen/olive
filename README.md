@@ -23,7 +23,7 @@ git clone https://github.com/moojok/olive.git
 2. Install the dependencies:
 
 ```
-cd stackly-ui
+cd olive
 bun install
 bun build:dev
 ```
