@@ -1,6 +1,6 @@
 # 🚀 Olive
 
-Olive is a Next.js + Cloudflare monorepo project that implements Dollar Cost Averaging using the CoW Protocol. 
+Olive is a Next.js + Cloudflare monorepo project that implements Dollar Cost Averaging using the CoW Protocol.
 
 ---
 
@@ -16,11 +16,17 @@ Before you can run this project, make sure you have the following software insta
 
 ## 🏁 Getting Started
 
-1. **Clone the repository:**
+1. **Clone the repository with submodules:**
 
    ```bash
-   git clone https://github.com/moojok/olive.git
+   git clone --recurse-submodules https://github.com/moojok/olive.git
    ```
+
+   > If you already cloned without `--recurse-submodules`, run:
+   >
+   > ```bash
+   > git submodule update --init --recursive
+   > ```
 
 2. **Install the dependencies:**
 
@@ -110,12 +116,15 @@ React Context checks values using simple equality (`==`).
 ## 🛠️ Troubleshooting
 
 - **Unhandled Runtime Error (Next.js):**
+
   - On Next.js v13.2.4+, exporting a client component with a normal function can cause this. Use an arrow function instead.
 
 - **Warning: Extra attributes from the server:**
+
   - Caused by browser extensions (e.g., Grammarly, LanguageTool) injecting attributes. Disable/configure extensions for dev ports (like `3000`).
 
 - **Cannot read properties of undefined (reading Component):**
+
   - Likely due to circular dependencies. Check for import cycles and adjust exports (see `packages/app/components/index.ts`).
 
 - **Error fetching `generated/contracts`:**
@@ -141,6 +150,7 @@ We welcome contributions! To get started:
    bun lint
    bun typecheck
    ```
+
 4. Submit a pull request 🚀
 
 ---
