@@ -12,8 +12,8 @@
     "./abis": "./abis"
   },
   "scripts": {
-    "lint": "npx prettier --check . !./dist !./.turbo && eslint \"./**!(dist|.turbo)/*+(.tsx|.ts)\"",
-    "format": "npx prettier --write . !./dist !./.turbo && eslint --fix \"./**!(dist|.turbo)/*+(.tsx|.ts)\"",
+    "lint": "bun x prettier --check . !./dist !./.turbo && eslint \"./**!(dist|.turbo)/*+(.tsx|.ts)\"",
+    "format": "bun x prettier --write . !./dist !./.turbo && eslint --fix \"./**!(dist|.turbo)/*+(.tsx|.ts)\"",
     "typechain": "node --experimental-specifier-resolution=node ./bin/typechain.js",
     "clean": "rimraf ./dist",
     "build": "bun clean && tsc",
