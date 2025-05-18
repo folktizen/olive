@@ -1,0 +1,46 @@
+{
+  "folders": [
+    {
+      "name": "⏏ ~/root",
+      "path": "../"
+    },
+    {
+      "name": "◆ @useolive/app",
+      "path": "../packages/app"
+    },
+    {
+      "name": "◆ @useolive/landing",
+      "path": "../packages/landing"
+    },
+    {
+      "name": "◆ @useolive/sdk",
+      "path": "../packages/sdk"
+    },
+    {
+      "name": "◆ @useolive/contracts",
+      "path": "../packages/contracts"
+    },
+    {
+      "name": "◆ @useolive/subgraph",
+      "path": "../packages/subgraph"
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "packages/": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.yarn": true,
+      "**/.cache": true,
+      "**/build": true,
+      "**/cache": true,
+      "**/artifacts": true,
+      "*-lock.yaml": true,
+      "*.lock": true
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  }
+}
