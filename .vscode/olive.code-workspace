@@ -48,7 +48,8 @@
       "source.organizeImports": "always",
       "source.fixAll": "always"
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "solidity.formatter": "forge"
   },
   "extensions": {
     "recommendations": [
