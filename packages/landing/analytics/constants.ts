@@ -19,8 +19,8 @@ export const EVENTS = {
   SECTIONS: {
     FAQ: {
       HOW_CANCEL_STACK: `${FAQ_HOW}-cancel-stack`,
-      HOW_STACKLY_WORKS: `${FAQ_HOW}-stackly-works`,
-      WHAT_IS_STACKLY_CLICK: `${FAQ_WHAT_IS}-stackly`,
+      HOW_OLIVE_WORKS: `${FAQ_HOW}-stackly-works`,
+      WHAT_IS_OLIVE_CLICK: `${FAQ_WHAT_IS}-stackly`,
       WHAT_IS_STACK_CLICK: `${FAQ_WHAT_IS}-stack`,
       WHAT_IS_DCA: `${FAQ_WHAT_IS}-dca`,
       WHY_TO_DCA: `${FAQ}-why-to-dca`,
@@ -29,8 +29,8 @@ export const EVENTS = {
     HERO_BANNER: {
       STACK_NOW_CLICK: `${LAUNCH_APP}-hero-banner`,
     },
-    TRY_STACKLY_BANNER: {
-      TRY_STACKLY_NOW_CLICK: `${LAUNCH_APP}-try-stackly-banner`,
+    TRY_OLIVE_BANNER: {
+      TRY_OLIVE_NOW_CLICK: `${LAUNCH_APP}-try-stackly-banner`,
     },
   },
 };

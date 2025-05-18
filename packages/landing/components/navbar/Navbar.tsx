@@ -7,7 +7,7 @@ import { trackEvent } from "@/analytics";
 
 import { EVENTS } from "@/analytics";
 import { ButtonLink } from "@/ui";
-import { DUNE_ANALYTICS_URL, STACKLY_APP_URL } from "@/constants";
+import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants";
 
 import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
@@ -68,7 +68,7 @@ export function Navbar() {
           <ButtonLink
             target="_blank"
             variant={passedThresholdHeight ? "primary" : "quaternary"}
-            href={STACKLY_APP_URL}
+            href={OLIVE_APP_URL}
             onClick={() => {
               trackEvent(EVENTS.NAVBAR.DESKTOP.LAUNCH_APP_CLICK);
             }}

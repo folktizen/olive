@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { Button, Icon } from "@/ui";
 import { ConnectButton, SelectNetwork } from "@/components";
-import { PATHNAMES, STACKLY_LANDING_URL } from "@/constants";
+import { PATHNAMES, OLIVE_LANDING_URL } from "@/constants";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,13 +42,13 @@ export default function MobileMenu() {
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
             <Link
-              href={`${STACKLY_LANDING_URL}#how-it-works`}
+              href={`${OLIVE_LANDING_URL}#how-it-works`}
               className="block py-3 text-em-med"
             >
               How it works
             </Link>
             <Link
-              href={`${STACKLY_LANDING_URL}#faqs`}
+              href={`${OLIVE_LANDING_URL}#faqs`}
               className="block py-3 text-em-med"
             >
               FAQ&apos;s

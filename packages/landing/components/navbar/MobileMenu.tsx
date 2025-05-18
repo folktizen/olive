@@ -7,7 +7,7 @@ import { trackEvent } from "@/analytics";
 
 import { Button, ButtonLink } from "@/ui";
 import { EVENTS } from "@/analytics";
-import { DUNE_ANALYTICS_URL, STACKLY_APP_URL } from "@/constants";
+import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants";
 
 export default function MobileMenu({
   passedThresholdHeight,
@@ -23,7 +23,7 @@ export default function MobileMenu({
       <ButtonLink
         target="_blank"
         variant={passedThresholdHeight ? "primary" : "secondary"}
-        href={STACKLY_APP_URL}
+        href={OLIVE_APP_URL}
         onClick={() => {
           trackEvent(EVENTS.NAVBAR.MOBILE.LAUNCH_APP_CLICK);
         }}

@@ -5,8 +5,8 @@ import Image from "next/image";
 
 import { BodyText, ButtonLink, HeadingText, Icon } from "@/ui";
 import {
-  STACKLY_DISCORD_URL,
-  STACKLY_TWITTER_URL,
+  OLIVE_DISCORD_URL,
+  OLIVE_TWITTER_URL,
   SWAPR_URL,
 } from "@/constants";
 import { StacklyLogoIcon } from "@/public/assets";
@@ -114,7 +114,7 @@ const SocialBanner = () => (
         size="lg"
         variant="secondary"
         iconLeft="discord"
-        href={STACKLY_DISCORD_URL}
+        href={OLIVE_DISCORD_URL}
         target="_blank"
       >
         Join our Discord
@@ -124,7 +124,7 @@ const SocialBanner = () => (
         size="lg"
         variant="secondary"
         iconLeft="twitter"
-        href={STACKLY_TWITTER_URL}
+        href={OLIVE_TWITTER_URL}
         target="_blank"
       >
         Follow us on Twitter

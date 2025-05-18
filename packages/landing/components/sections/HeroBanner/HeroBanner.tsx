@@ -13,7 +13,7 @@ import {
   TitleText,
 } from "@/ui";
 import { EVENTS } from "@/analytics";
-import { STACKLY_APP_URL } from "@/constants";
+import { OLIVE_APP_URL } from "@/constants";
 
 export const SUPPORTED_NETWORKS = [
   {
@@ -61,7 +61,7 @@ export const HeroBanner = () => {
       </div>
       <ButtonLink
         target="_blank"
-        href={STACKLY_APP_URL}
+        href={OLIVE_APP_URL}
         size="lg"
         width="fit"
         className="!py-4 mx-auto text-lg !px-16 md:!px-28 mt-8"
@@ -74,7 +74,7 @@ export const HeroBanner = () => {
       <div className="relative mx-auto mt-12 mb-24 max-w-4xl md:my-20">
         <Link
           passHref
-          href={STACKLY_APP_URL}
+          href={OLIVE_APP_URL}
           className="block relative mx-auto w-fit"
         >
           <div className="invisible sm:visible absolute w-[3px] h-[26px] bg-em-med bottom-[60px] left-[17px] animate-cursor-blink"></div>

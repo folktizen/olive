@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 import { UmamiAnalytics, Navbar } from "@/components";
 import { Providers } from "@/providers";
-import { STACKLY_APP_URL } from "@/constants";
+import { OLIVE_APP_URL } from "@/constants";
 
 import "@/styles/global.css";
 
@@ -32,7 +32,7 @@ const stabilGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(STACKLY_APP_URL),
+  metadataBase: new URL(OLIVE_APP_URL),
   title: "Stackly | Stack crypto over time.",
   description:
     "Stackly is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",

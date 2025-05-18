@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import { Metadata } from "next";
 
 import { UmamiAnalytics, Navbar } from "@/components";
-import { STACKLY_LANDING_URL } from "@/constants";
+import { OLIVE_LANDING_URL } from "@/constants";
 
 import "@/styles/global.css";
 
@@ -29,7 +29,7 @@ const stabilGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(STACKLY_LANDING_URL),
+  metadataBase: new URL(OLIVE_LANDING_URL),
   title: "Stackly | Stack crypto over time.",
   description:
     "Stackly is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA",

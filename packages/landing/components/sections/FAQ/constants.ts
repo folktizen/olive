@@ -17,7 +17,7 @@ export const FAQ_QUESTIONS_AND_ANSWERS: FaqQa[] = [
       swaps of any token.`,
     ],
     startOpen: true,
-    trackEventName: EVENTS.SECTIONS.FAQ.WHAT_IS_STACKLY_CLICK,
+    trackEventName: EVENTS.SECTIONS.FAQ.WHAT_IS_OLIVE_CLICK,
   },
   {
     question: "What is a stack?",
@@ -37,7 +37,7 @@ export const FAQ_QUESTIONS_AND_ANSWERS: FaqQa[] = [
       and uses CoW protocol to place recurring orders (stacks) at the frequency 
       you choose.`,
     ],
-    trackEventName: EVENTS.SECTIONS.FAQ.HOW_STACKLY_WORKS,
+    trackEventName: EVENTS.SECTIONS.FAQ.HOW_OLIVE_WORKS,
   },
   {
     question: "What is DCA?",

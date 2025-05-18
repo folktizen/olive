@@ -4,7 +4,7 @@ import { trackEvent } from "@/analytics";
 
 import { EVENTS } from "@/analytics";
 import { ButtonLink, HeadingText } from "@/ui";
-import { STACKLY_APP_URL } from "@/constants";
+import { OLIVE_APP_URL } from "@/constants";
 
 export const TryStacklyBanner = () => {
   return (
@@ -32,12 +32,12 @@ export const TryStacklyBanner = () => {
         <ButtonLink
           target="_blank"
           size="lg"
-          href={STACKLY_APP_URL}
+          href={OLIVE_APP_URL}
           width="fit"
           className="px-6 mt-8 md:px-8 md:mt-20"
           onClick={() => {
             trackEvent(
-              EVENTS.SECTIONS.TRY_STACKLY_BANNER.TRY_STACKLY_NOW_CLICK
+              EVENTS.SECTIONS.TRY_OLIVE_BANNER.TRY_OLIVE_NOW_CLICK
             );
           }}
         >
