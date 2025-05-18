@@ -33,9 +33,11 @@
     "turbo": "^2.0.14"
   },
   "trustedDependencies": [
+    "@trufflesuite/bigint-buffer",
     "bufferutil",
     "es5-ext",
     "keccak",
+    "leveldown",
     "protobufjs",
     "secp256k1",
     "sharp",
