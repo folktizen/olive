@@ -1,28 +1,67 @@
-# Node.js dependencies
-node_modules
+# --- Node.js & Yarn ---
+node_modules/
+yarn-error.log
+*.tgz
 
-# Next.js build output
-.next
-out
-dist
+# --- Build & Output ---
+.next/
+out/
+dist/
+bin/
 
-# Vercel & Turbo build artifacts
-.vercel
-.turbo
+# --- Turbo ---
+.turbo/
 
-# macOS system files
-.DS_Store
-
-# TypeScript build info
+# --- TypeScript ---
 tsconfig.tsbuildinfo
 
-# Environment variables
+# --- macOS System Files ---
+.DS_Store
+
+# --- Environment Variables ---
 .env
-.env.local
+.env.*
+!.env.example
 
-# Subgraph build artifacts
-packages/subgraph/build
-generated
-subgraph.yaml
+# --- Foundry (Solidity) ---
+cache/
+artifacts/
+coverage*
+.gas-snapshot*
+broadcast/
 
-# Add more patterns below as needed
+# --- Typechain (Solidity TS Bindings) ---
+typechain/
+typechain-types/
+
+# --- Subgraph ---
+packages/subgraph/build/
+packages/subgraph/generated/
+packages/subgraph/subgraph.yaml
+
+# --- Contracts ---
+/packages/contracts/abis/
+/packages/contracts/out/
+/packages/contracts/generated/
+
+# --- Custom & Misc ---
+/packages/landing/dist/
+/packages/landing/generated/
+/packages/sdk/abis/
+/packages/sdk/bin/
+/packages/sdk/dist/
+/packages/sdk/generated/
+
+# --- Solidity Sources (if not tracked) ---
+/*.sol
+/interfaces/*.sol
+
+# --- Ignore everything in generated folders ---
+generated/
+
+# --- Ignore all output folders in packages ---
+packages/*/dist/
+packages/*/out/
+packages/*/generated/
+
+# --- End ---
