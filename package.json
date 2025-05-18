@@ -4,9 +4,9 @@
   "version": "1.4.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "bun@1.0.6",
+  "packageManager": "bun@1.2.13",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "workspaces": [
     "packages/*"
