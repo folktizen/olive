@@ -8,25 +8,33 @@ import "../src/OrderFactory.sol";
 contract Deploy is Script {
   function run() external {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-    vm.startBroadcast(deployerPrivateKey);
 
-    DCAOrder dcaOrder = new DCAOrder();
-    OrderFactory orderFactory = new OrderFactory();
+    // List of chain names as in foundry.toml [rpc_endpoints]
+    string[3] memory chains = ["ethereum", "gnosis", "arbitrum"];
 
-    vm.stopBroadcast();
-
-    console2.log("\n--- DEPLOYED FOLKSY CONTRACTS ---\n");
-    console2.log(
-      string.concat(
-        "{\n",
-        '  "dcaOrder": "',
-        vm.toString(address(dcaOrder)),
-        '",\n',
-        '  "orderFactory": "',
-        vm.toString(address(orderFactory)),
-        '",\n',
-        "}"
-      )
-    );
+    for (uint256 i = 0; i < chains.length; i++) {
+      string memory chain = chains[i];
+      vm.createSelectFork(chain);
+      vm.startBroadcast(deployerPrivateKey);
+      DCAOrder dcaOrder = new DCAOrder();
+      OrderFactory orderFactory = new OrderFactory();
+      vm.stopBroadcast();
+      console2.log("\n--- DEPLOYED FOLKSY CONTRACTS ON ", chain, " ---\n");
+      console2.log(
+        string.concat(
+          "{\n",
+          '  "chain": "',
+          chain,
+          '",\n',
+          '  "dcaOrder": "',
+          vm.toString(address(dcaOrder)),
+          '",\n',
+          '  "orderFactory": "',
+          vm.toString(address(orderFactory)),
+          '"\n',
+          "}"
+        )
+      );
+    }
   }
 }
