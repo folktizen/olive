@@ -33,12 +33,16 @@
       "**/node_modules": true,
       "**/.yarn": true,
       "**/.cache": true,
+      "**/.next": true,
       "**/build": true,
+      "**/dist": true,
       "**/cache": true,
       "**/artifacts": true,
+      "**/lib": true,
+      "**/out": true,
+      "**/broadcast": true,
       "*-lock.yaml": true,
-      "*.lock": true,
-      "packages/contracts/lib": true
+      "*.lock": true
     },
     "editor.quickSuggestions": {
       "strings": true
