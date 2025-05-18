@@ -23,7 +23,7 @@
     {
       "name": "◆ @useolive/subgraph",
       "path": "../packages/subgraph"
-    },
+    }
   ],
   "settings": {
     "files.exclude": {
@@ -37,10 +37,27 @@
       "**/cache": true,
       "**/artifacts": true,
       "*-lock.yaml": true,
-      "*.lock": true
+      "*.lock": true,
+      "packages/contracts/lib": true
     },
     "editor.quickSuggestions": {
       "strings": true
-    }
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+      "source.fixAll": "always"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-typescript-next",
+      "NomicFoundation.hardhat-solidity",
+      "GraphQL.vscode-graphql",
+      "bradlc.vscode-tailwindcss"
+    ]
   }
 }
