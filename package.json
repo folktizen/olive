@@ -13,8 +13,9 @@
   ],
   "scripts": {
     "build": "cd packages/sdk && bun typechain && cd ../.. && turbo run build lint",
-    "build:app": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=app",
-    "build:landing": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=landing",
+    "build:app": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=@useolive/app",
+    "build:landing": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=@useolive/landing",
+    "build:contracts": "turbo run build --filter=@useolive/contracts",
     "dev": "turbo run dev",
     "dev:app": "cd packages/app && turbo run dev",
     "dev:landing": "cd packages/landing && turbo run dev",
