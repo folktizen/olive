@@ -19,22 +19,25 @@ contract Deploy is Script {
       DCAOrder dcaOrder = new DCAOrder();
       OrderFactory orderFactory = new OrderFactory();
       vm.stopBroadcast();
-      console2.log("\n--- DEPLOYED FOLKSY CONTRACTS ON ", chain, " ---\n");
-      console2.log(
-        string.concat(
-          "{\n",
-          '  "chain": "',
-          chain,
-          '",\n',
-          '  "dcaOrder": "',
-          vm.toString(address(dcaOrder)),
-          '",\n',
-          '  "orderFactory": "',
-          vm.toString(address(orderFactory)),
-          '"\n',
-          "}"
-        )
+      string memory json = string.concat(
+        "{\n",
+        '  "chain": "',
+        chain,
+        '",\n',
+        '  "dcaOrder": "',
+        vm.toString(address(dcaOrder)),
+        '",\n',
+        '  "orderFactory": "',
+        vm.toString(address(orderFactory)),
+        '"\n',
+        "}"
       );
+      console2.log("\n--- DEPLOYED OLIVE CONTRACTS ON ", chain, " ---\n");
+      console2.log(json);
+      // Save to storage folder with timestamp
+      string memory timestamp = vm.toString(block.timestamp);
+      string memory filename = string.concat("storage/deploy_", chain, "_", timestamp, ".json");
+      vm.writeFile(filename, json);
     }
   }
 }
