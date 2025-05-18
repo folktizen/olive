@@ -5,8 +5,8 @@ import Script from "next/script";
 
 import { usePathname, useSearchParams } from "next/navigation";
 
-const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? "";
-const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ?? "";
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_APP_WEBSITE_ID ?? "";
+const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_APP_SCRIPT_URL ?? "";
 
 const TrackPageView = () => {
   const pathname = usePathname();
