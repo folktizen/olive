@@ -1,8 +1,8 @@
 export const OLIVE_LANDING_URL =
-  process.env.OLIVE_LANDING_URL ?? "https://stackly.app/";
+  process.env.OLIVE_LANDING_URL ?? "https://olive.moojok.space/";
 
 export const OLIVE_APP_URL =
-  process.env.OLIVE_APP_URL ?? "https://stackly.eth.limo/";
+  process.env.OLIVE_APP_URL ?? "https://olive.moojok.eth.limo/";
 
 export const SWAPR_URL = process.env.SWAPR_URL ?? "https://swapr.eth.limo/";
 

@@ -18,8 +18,8 @@ const defaultConfig = getDefaultConfig({
   },
   appName: "Stackly",
   appDescription: "Empower your portfolio with DCA.",
-  appUrl: "https://stackly.app",
-  appIcon: "https://stackly.app/favicon.ico",
+  appUrl: "https://olive.moojok.space",
+  appIcon: "https://olive.moojok.space/favicon.ico",
   ssr: true,
 });
 
