@@ -18,7 +18,8 @@
     "test:gasreport": "forge test --gas-report",
     "snapshot": "forge snapshot",
     "export:abis": "node ./bin/export-abis.js",
-    "deploy": "dotenv -e .env -- forge script script/Deploy.s.sol --ffi --slow --multi --broadcast --verify --private-key $PRIVATE_KEY"
+    "deploy": "dotenv -e .env -- forge script scripts/Deploy.s.sol --ffi --slow --multi --broadcast --private-key $PRIVATE_KEY",
+    "verify": "bun run ./scripts/verify.ts"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
