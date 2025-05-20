@@ -60,11 +60,6 @@ contract Deploy is Script {
       // Print deployment info to console
       console2.log("\n--- DEPLOYED OLIVE CONTRACTS ON ", chain, " ---\n");
       console2.log(json);
-
-      // Save deployment info to storage folder with timestamp
-      string memory timestamp = vm.toString(block.timestamp);
-      string memory filename = string.concat("storage/mainnet/deploy_", chain, "_", timestamp, ".json");
-      vm.writeFile(filename, json);
     }
   }
 }

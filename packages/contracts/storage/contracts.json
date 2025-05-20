@@ -1,0 +1,17 @@
+[
+  {
+    "chain": "optimism",
+    "dcaOrder": "0xCBcB2473eE3A31Dd2d27C9Fae14A49433fbE13B4",
+    "orderFactory": "0xefc25aa869B78DcF9A33De4D39bD09C6B6F916dF"
+  },
+  {
+    "chain": "polygon",
+    "dcaOrder": "0x7E2337daF1b113E55a3Bb1597be77Efd12583104",
+    "orderFactory": "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8"
+  },
+  {
+    "chain": "base",
+    "dcaOrder": "0xdc6de6C828A97681a389190658BDb05caCFC8Ef2",
+    "orderFactory": "0x61d1C74DA0bdA3b26bC54Dc742Cf0bb88dCb8122"
+  }
+]

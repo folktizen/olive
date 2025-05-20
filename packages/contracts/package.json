@@ -18,7 +18,7 @@
     "test:gasreport": "forge test --gas-report",
     "snapshot": "forge snapshot",
     "export:abis": "node ./bin/export-abis.js",
-    "deploy": "forge script script/Deploy.s.sol --slow --multi --broadcast --verify --private-key $PRIVATE_KEY"
+    "deploy": "dotenv -e .env -- forge script script/Deploy.s.sol --ffi --slow --multi --broadcast --verify --private-key $PRIVATE_KEY"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
@@ -28,6 +28,7 @@
     "@ethersproject/wallet": "^5.7.0",
     "chalk": "^5.1.2",
     "commander": "^9.4.1",
+    "dotenv-cli": "^8.0.0",
     "ganache": "^7.5.0"
   }
 }
