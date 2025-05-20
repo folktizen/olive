@@ -9,13 +9,13 @@ evm_version = 'london'
 
 [rpc_endpoints]
 ethereum = "${ETHEREUM_RPC_URL}"
-gnosis = "${GNOSIS_RPC_URL}"
-arbitrum = "${ARBITRUM_RPC_URL}"
+polygon = "${POLYGON_RPC_URL}"
+base = "${BASE_RPC_URL}"
 
 [etherscan]
 ethereum = { key = "${ETHERSCAN_API_KEY}" }
-gnosis = { key = "${GNOSISSCAN_API_KEY}" }
-arbitrum = { key = "${ARBITRUM_API_KEY}" }
+polygon = { key = "${POLYSCAN_API_KEY}" }
+base = { key = "${BASESCAN_API_KEY}" }
 
 [fmt]
 tab_width = 2
