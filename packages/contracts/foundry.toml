@@ -13,9 +13,9 @@ polygon = "${POLYGON_RPC_URL}"
 base = "${BASE_RPC_URL}"
 
 [etherscan]
-optimism = { key = "${OPTIMISTIC_API_KEY}", url = "${OPTIMISTIC_API_URL}" }
-polygon = { key = "${POLYSCAN_API_KEY}", url = "${POLYSCAN_API_URL}" }
-base = { key = "${BASESCAN_API_KEY}", url = "${BASESCAN_API_URL}" }
+optimism = { key = "${ETHERSCAN_API_KEY_V2}" }
+polygon = { key = "${ETHERSCAN_API_KEY_V2}" }
+base = { key = "${ETHERSCAN_API_KEY_V2}" }
 
 [fmt]
 tab_width = 2
