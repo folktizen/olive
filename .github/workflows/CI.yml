@@ -4,9 +4,9 @@ name: 🚦 Continuous Integration
 # It uses Bun as the package manager and task runner.
 #
 # Actions used:
-#   - actions/checkout@v4.2.2 (latest: v4.2.2)
-#   - actions/setup-node@v4.4.0 (latest: v4.4.0)
-#   - oven-sh/setup-bun@v2.0.2 (latest: v2.0.2)
+#   - actions/checkout@v4 (latest: v4.2.2)
+#   - actions/setup-node@v4 (latest: v4.4.0)
+#   - oven-sh/setup-bun@v2 (latest: v2.0.2)
 #
 # Update these versions as new releases become available for best security and features.
 
@@ -34,19 +34,25 @@ jobs:
 
     steps:
       - name: 🧑🏻‍💻 Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          submodules: recursive
 
       - name: 🥷 Setup Node.js
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
 
       - name: 🍞 Setup Bun
-        uses: oven-sh/setup-bun@v2.0.2
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: 🛠️ Install Foundry (forge)
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
 
       - name: 📦 Install dependencies (bun)
         run: bun install --immutable
