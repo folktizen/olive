@@ -11,11 +11,23 @@ evm_version = 'london'
 ethereum = "${ETHEREUM_RPC_URL}"
 polygon = "${POLYGON_RPC_URL}"
 base = "${BASE_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
+polygon-mumbai = "${MUMBAI_RPC_URL}"
+base-sepolia = "${BASE_SEPOLIA_RPC_URL}"
 
 [etherscan]
 ethereum = { key = "${ETHERSCAN_API_KEY}" }
 polygon = { key = "${POLYSCAN_API_KEY}" }
 base = { key = "${BASESCAN_API_KEY}" }
+sepolia = { key = "${SEPOLIA_ETHERSCAN_API_KEY}" }
+polygon-mumbai = { key = "${MUMBAI_POLYGONSCAN_API_KEY}" }
+base-sepolia = { key = "${BASE_SEPOLIA_BASESCAN_API_KEY}" }
 
 [fmt]
 tab_width = 2
+line_length = 120
+bracket_spacing = true
+quote_style = "double"
+number_underscore = "thousands"
+multiline_func_header = "params_first"
+ignore = ["lib/**"]

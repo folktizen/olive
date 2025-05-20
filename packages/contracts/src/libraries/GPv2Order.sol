@@ -2,7 +2,7 @@
 // Signature: 817b854143c203570e69446f8df6653c
 pragma solidity 0.8.20;
 
-import {IERC20} from "oz/interfaces/IERC20.sol";
+import { IERC20 } from "oz/interfaces/IERC20.sol";
 
 /// @title Gnosis Protocol v2 Order Library
 /// @author Gnosis Developers
@@ -207,11 +207,9 @@ library GPv2Order {
   /// parameters.
   /// @return owner The address of the user who owns this order.
   /// @return validTo The epoch time at which the order will stop being valid.
-  function extractOrderUidParams(bytes calldata orderUid)
-    internal
-    pure
-    returns (bytes32 orderDigest, address owner, uint32 validTo)
-  {
+  function extractOrderUidParams(
+    bytes calldata orderUid
+  ) internal pure returns (bytes32 orderDigest, address owner, uint32 validTo) {
     require(orderUid.length == UID_LENGTH, "GPv2: invalid uid");
 
     // Use assembly to efficiently decode packed calldata.

@@ -2,18 +2,18 @@
 // Signature: 817b854143c203570e69446f8df6653c
 pragma solidity 0.8.20;
 
-import {Clones} from "oz/proxy/Clones.sol";
-import {IERC20} from "oz/token/ERC20/IERC20.sol";
-import {IERC721} from "oz/token/ERC721/IERC721.sol";
-import {Ownable2Step} from "oz/access/Ownable2Step.sol";
-import {SafeERC20} from "oz/token/ERC20/utils/SafeERC20.sol";
+import { Clones } from "oz/proxy/Clones.sol";
+import { IERC20 } from "oz/token/ERC20/IERC20.sol";
+import { IERC721 } from "oz/token/ERC721/IERC721.sol";
+import { Ownable2Step } from "oz/access/Ownable2Step.sol";
+import { SafeERC20 } from "oz/token/ERC20/utils/SafeERC20.sol";
 
 error ForbiddenValue();
 
 contract OrderFactory is Ownable2Step {
   using SafeERC20 for IERC20;
 
-  uint16 private constant HUNDRED_PERCENT = 10000;
+  uint16 private constant HUNDRED_PERCENT = 10_000;
   uint16 public protocolFee = 25; // default 0.25% (range: 0-500 / 0-5%)
 
   event OrderCreated(address indexed order);
@@ -22,10 +22,11 @@ contract OrderFactory is Ownable2Step {
   /// @param _singleton Address of singleton contract. Must be deployed at the time of execution.
   /// @param _initializer Payload for a message call to be sent to a new proxy contract.
   /// @param _saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy contract.
-  function createProxy(address _singleton, bytes memory _initializer, uint256 _saltNonce)
-    internal
-    returns (address order)
-  {
+  function createProxy(
+    address _singleton,
+    bytes memory _initializer,
+    uint256 _saltNonce
+  ) internal returns (address order) {
     // If the initializer changes the proxy address should change too. Hashing the initializer data is cheaper than just concatinating it
     bytes32 salt = keccak256(abi.encodePacked(keccak256(_initializer), _saltNonce));
     order = Clones.cloneDeterministic(_singleton, salt);
@@ -93,14 +94,18 @@ contract OrderFactory is Ownable2Step {
 
   /// @dev Set the protocol fee percent
   /// @param _fee The new protocol fee percent 0-5% (range: 0-500)
-  function setProtocolFee(uint16 _fee) external onlyOwner {
+  function setProtocolFee(
+    uint16 _fee
+  ) external onlyOwner {
     if (_fee > 500) revert ForbiddenValue();
     protocolFee = _fee;
   }
 
   /// @dev Withdraw protocol fee share
   /// @param tokens Tokens' addresses transferred to the owner as protocol fee
-  function withdrawTokens(address[] calldata tokens) external onlyOwner {
+  function withdrawTokens(
+    address[] calldata tokens
+  ) external onlyOwner {
     for (uint256 i = 0; i < tokens.length; i++) {
       IERC20(tokens[i]).safeTransfer(owner(), IERC20(tokens[i]).balanceOf(address(this)));
     }

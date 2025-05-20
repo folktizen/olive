@@ -2,15 +2,17 @@
 pragma solidity 0.8.20;
 
 import "forge-std/Test.sol";
-import {ERC20Mintable} from "./common/ERC20Mintable.sol";
-import {ERC721Mintable} from "./common/ERC721Mintable.sol";
-import {MockSettlement} from "./common/MockSettlement.sol";
+import { ERC20Mintable } from "./common/ERC20Mintable.sol";
+import { ERC721Mintable } from "./common/ERC721Mintable.sol";
+import { MockSettlement } from "./common/MockSettlement.sol";
 
-import {DCAOrder, AlreadyInitialized} from "../src/DCAOrder.sol";
-import {OrderFactory} from "../src/OrderFactory.sol";
+import { DCAOrder, AlreadyInitialized } from "../src/DCAOrder.sol";
+import { OrderFactory } from "../src/OrderFactory.sol";
 
 interface CheatCodes {
-  function prank(address) external;
+  function prank(
+    address
+  ) external;
 }
 
 error NotWhitelisted();
@@ -23,7 +25,7 @@ contract OrderFactoryTest is Test {
   OrderFactory public factory;
   CheatCodes public cheatCodes;
 
-  uint16 private constant HUNDRED_PERCENT = 10000;
+  uint16 private constant HUNDRED_PERCENT = 10_000;
 
   address public _owner;
   address public _receiver;
@@ -58,7 +60,7 @@ contract OrderFactoryTest is Test {
     );
 
     whitelistNFT.mint(address(this), 1);
-    sellToken.mint(address(this), 10000 ether);
+    sellToken.mint(address(this), 10_000 ether);
     _owner = address(this);
     _receiver = address(0x2);
     _sellToken = address(sellToken);
@@ -142,7 +144,7 @@ contract OrderFactoryTest is Test {
     factory.withdrawTokens(tokens);
     uint256 afterBalance = sellToken.balanceOf(address(this));
 
-    assertEq(afterBalance - beforeBalance, 25000000000000000);
+    assertEq(afterBalance - beforeBalance, 25_000_000_000_000_000);
     assertEq(afterBalance - beforeBalance, (_amount * _fee) / HUNDRED_PERCENT);
 
     // Set caller to a different address

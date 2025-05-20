@@ -2,16 +2,16 @@
 // Signature: 817b854143c203570e69446f8df6653c
 pragma solidity 0.8.20;
 
-import {IERC20} from "oz/token/ERC20/IERC20.sol";
-import {SafeERC20} from "oz/token/ERC20/utils/SafeERC20.sol";
-import {IGPv2Settlement} from "./interfaces/IGPv2Settlement.sol";
-import {IConditionalOrder} from "./interfaces/IConditionalOrder.sol";
-import {IDCAOrder} from "./interfaces/IDCAOrder.sol";
-import {GPv2Order} from "./libraries/GPv2Order.sol";
-import {GPv2EIP1271, EIP1271Verifier} from "./interfaces/EIP1271Verifier.sol";
-import {BokkyPooBahsDateTimeLibrary} from "date/BokkyPooBahsDateTimeLibrary.sol";
-import {SafeMath} from "oz/utils/math/SafeMath.sol";
-import {Math} from "oz/utils/math/Math.sol";
+import { IERC20 } from "oz/token/ERC20/IERC20.sol";
+import { SafeERC20 } from "oz/token/ERC20/utils/SafeERC20.sol";
+import { IGPv2Settlement } from "./interfaces/IGPv2Settlement.sol";
+import { IConditionalOrder } from "./interfaces/IConditionalOrder.sol";
+import { IDCAOrder } from "./interfaces/IDCAOrder.sol";
+import { GPv2Order } from "./libraries/GPv2Order.sol";
+import { GPv2EIP1271, EIP1271Verifier } from "./interfaces/EIP1271Verifier.sol";
+import { BokkyPooBahsDateTimeLibrary } from "date/BokkyPooBahsDateTimeLibrary.sol";
+import { SafeMath } from "oz/utils/math/SafeMath.sol";
+import { Math } from "oz/utils/math/Math.sol";
 
 error OrderCancelled();
 error NotOwner();

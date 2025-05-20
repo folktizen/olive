@@ -3,14 +3,14 @@ pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
 
-import {GasMeter} from "./helper/GasMeter.sol";
-import {ERC20Mintable} from "./common/ERC20Mintable.sol";
-import {MockSettlement} from "./common/MockSettlement.sol";
-import {SafeMath} from "oz/utils/math/SafeMath.sol";
+import { GasMeter } from "./helper/GasMeter.sol";
+import { ERC20Mintable } from "./common/ERC20Mintable.sol";
+import { MockSettlement } from "./common/MockSettlement.sol";
+import { SafeMath } from "oz/utils/math/SafeMath.sol";
 
-import {GPv2Order} from "../src/libraries/GPv2Order.sol";
-import {DCAOrder, NotOwner, NotWithinStartAndEndTimes} from "../src/DCAOrder.sol";
-import {IConditionalOrder} from "../src/interfaces/IConditionalOrder.sol";
+import { GPv2Order } from "../src/libraries/GPv2Order.sol";
+import { DCAOrder, NotOwner, NotWithinStartAndEndTimes } from "../src/DCAOrder.sol";
+import { IConditionalOrder } from "../src/interfaces/IConditionalOrder.sol";
 
 contract DCAOrderTest is Test, GasMeter {
   using GPv2Order for GPv2Order.Data;
@@ -38,7 +38,7 @@ contract DCAOrderTest is Test, GasMeter {
     mockSettlement = new MockSettlement();
     dcaOrder = new DCAOrder();
     sellToken = new ERC20Mintable("Test Token", "TEST");
-    sellToken.mint(address(this), 10000 ether);
+    sellToken.mint(address(this), 10_000 ether);
 
     _owner = address(this);
     _receiver = address(0x2);
@@ -272,7 +272,7 @@ contract DCAOrderTest is Test, GasMeter {
     dcaOrder.getTradeableOrder();
     uint256 gas = gasMeterStop();
 
-    assertLt(gas, 40000);
+    assertLt(gas, 40_000);
   }
 
   function testGetTradeableOrder_GasUsage_2_years() public {
@@ -290,7 +290,7 @@ contract DCAOrderTest is Test, GasMeter {
     dcaOrder.getTradeableOrder();
     uint256 gas = gasMeterStop();
 
-    assertLt(gas, 40000);
+    assertLt(gas, 40_000);
   }
 
   function testGetTradeableOrder_OrderCancelled() public {
