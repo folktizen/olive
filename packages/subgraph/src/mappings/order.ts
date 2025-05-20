@@ -1,12 +1,12 @@
 import { Address, BigInt } from "@graphprotocol/graph-ts";
-import { Token, DCAOrder } from "../../generated/schema";
-import { ERC20 as ERC20Contract } from "../../generated/templates/DCAOrder/ERC20";
+import { OrderFactory } from "../../generated/OrderFactory/OrderFactory";
+import { DCAOrder, Token } from "../../generated/schema";
 import {
-  Initialized,
   Cancelled,
   DCAOrder as DCAOrderContract,
+  Initialized,
 } from "../../generated/templates/DCAOrder/DCAOrder";
-import { OrderFactory } from "../../generated/OrderFactory/OrderFactory";
+import { ERC20 as ERC20Contract } from "../../generated/templates/DCAOrder/ERC20";
 
 const HUNDRED_PERCENT = BigInt.fromI32(10000);
 

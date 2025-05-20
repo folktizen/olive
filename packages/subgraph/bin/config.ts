@@ -7,28 +7,22 @@ export const config: Record<
     };
   }
 > = {
-  gnosis: {
+  optimism: {
     orderFactory: {
-      address: "0x45B91Da2834010751b17F1eadE0a5a7B64233add",
-      startBlock: 28800393,
+      address: "0xefc25aa869B78DcF9A33De4D39bD09C6B6F916dF",
+      startBlock: 136062765,
     },
   },
-  mainnet: {
+  polygon: {
     orderFactory: {
-      address: "0x8B1A70fecCC6c2aE6017dDD8D0BeBDd1bD6eB261",
-      startBlock: 18241414,
-    },
-  },
-  "arbitrum-one": {
-    orderFactory: {
-      address: "0xf4cd605e5fef8618ac450e84b7e912c870927922",
-      startBlock: 218655333,
+      address: "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8",
+      startBlock: 71739422,
     },
   },
   base: {
     orderFactory: {
-      address: "0xf4cd605e5fef8618ac450e84b7e912c870927922",
-      startBlock: 23650573,
+      address: "0x61d1C74DA0bdA3b26bC54Dc742Cf0bb88dCb8122",
+      startBlock: 30467493,
     },
   },
 };

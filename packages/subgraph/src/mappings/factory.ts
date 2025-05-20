@@ -1,6 +1,6 @@
 import { OrderCreated } from '../../generated/OrderFactory/OrderFactory';
-import { DCAOrder as DCAOrderTemplate } from '../../generated/templates';
 import { OrderFactory } from '../../generated/schema';
+import { DCAOrder as DCAOrderTemplate } from '../../generated/templates';
 
 // This handler is called by block handlers
 export function handleDCAOrderCreated(event: OrderCreated): void {
