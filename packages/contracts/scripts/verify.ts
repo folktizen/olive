@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
 /**
- * Usage: bun run scripts/verify.ts <verifier> <api-key>
+ * Usage: bun run verify <verifier> <api-key>
  * <verifier>: etherscan | oklink
  * <api-key>: Your API key for the selected verifier
  */
