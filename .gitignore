@@ -40,7 +40,6 @@ packages/subgraph/generated/
 packages/subgraph/subgraph.yaml
 
 # --- Contracts ---
-/packages/contracts/abis/
 /packages/contracts/out/
 /packages/contracts/generated/
 

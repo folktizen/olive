@@ -1,11 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
-  "exclude": ["node_modules", "dist", "./src/**/*.test.ts"],
-  "include": ["./src/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "./src/**/*.test.ts"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ],
   "compilerOptions": {
     "outDir": "./dist",
-    "lib": ["ES2015"],
+    "lib": [
+      "ES2015"
+    ],
     "target": "ES2015",
     "composite": false,
     "declaration": true,
@@ -23,7 +31,9 @@
     "strict": true,
     "useUnknownInCatchVariables": false,
     "paths": {
-      "tslib": ["./node_modules/tslib/"]
+      "tslib": [
+        "./node_modules/tslib/"
+      ]
     }
   }
 }
