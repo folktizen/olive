@@ -24,11 +24,27 @@ import "../src/DCAOrder.sol";
 import "../src/OrderFactory.sol";
 
 contract Deploy is Script {
+  function getChains() internal pure returns (string[] memory) {
+    string[] memory arr = new string[](5);
+    uint256 idx = 0;
+    arr[idx++] = "ethereum";
+    arr[idx++] = "optimism";
+    arr[idx++] = "polygon";
+    arr[idx++] = "base";
+    arr[idx++] = "linea";
+    // Resize to enabled chains
+    string[] memory enabled = new string[](idx);
+    for (uint256 i = 0; i < idx; i++) {
+      enabled[i] = arr[i];
+    }
+    return enabled;
+  }
+
   function run() external {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
 
     // List of chain names as in foundry.toml [rpc_endpoints]
-    string[3] memory chains = ["optimism", "polygon", "base"];
+    string[] memory chains = getChains();
 
     for (uint256 i = 0; i < chains.length; i++) {
       string memory chain = chains[i];
