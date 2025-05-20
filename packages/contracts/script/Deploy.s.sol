@@ -28,7 +28,7 @@ contract Deploy is Script {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
 
     // List of chain names as in foundry.toml [rpc_endpoints]
-    string[3] memory chains = ["ethereum", "polygon", "base"];
+    string[3] memory chains = ["optimism", "polygon", "base"];
 
     for (uint256 i = 0; i < chains.length; i++) {
       string memory chain = chains[i];
@@ -63,7 +63,7 @@ contract Deploy is Script {
 
       // Save deployment info to storage folder with timestamp
       string memory timestamp = vm.toString(block.timestamp);
-      string memory filename = string.concat("storage/deploy_", chain, "_", timestamp, ".json");
+      string memory filename = string.concat("storage/mainnet/deploy_", chain, "_", timestamp, ".json");
       vm.writeFile(filename, json);
     }
   }

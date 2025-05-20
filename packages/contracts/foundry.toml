@@ -8,20 +8,14 @@ solc_version = '0.8.20'
 evm_version = 'london'
 
 [rpc_endpoints]
-ethereum = "${ETHEREUM_RPC_URL}"
+optimism = "${OPTIMISTIC_RPC_URL}"
 polygon = "${POLYGON_RPC_URL}"
 base = "${BASE_RPC_URL}"
-sepolia = "${SEPOLIA_RPC_URL}"
-polygon-mumbai = "${MUMBAI_RPC_URL}"
-base-sepolia = "${BASE_SEPOLIA_RPC_URL}"
 
 [etherscan]
-ethereum = { key = "${ETHERSCAN_API_KEY}" }
-polygon = { key = "${POLYSCAN_API_KEY}" }
-base = { key = "${BASESCAN_API_KEY}" }
-sepolia = { key = "${SEPOLIA_ETHERSCAN_API_KEY}" }
-polygon-mumbai = { key = "${MUMBAI_POLYGONSCAN_API_KEY}" }
-base-sepolia = { key = "${BASE_SEPOLIA_BASESCAN_API_KEY}" }
+optimism = { key = "${OPTIMISTIC_API_KEY}", url = "${OPTIMISTIC_API_URL}" }
+polygon = { key = "${POLYSCAN_API_KEY}", url = "${POLYSCAN_API_URL}" }
+base = { key = "${BASESCAN_API_KEY}", url = "${BASESCAN_API_URL}" }
 
 [fmt]
 tab_width = 2
