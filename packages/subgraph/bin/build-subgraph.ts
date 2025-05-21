@@ -7,7 +7,7 @@ import { config } from "./config";
  * @see https://thegraph.com/docs/en/developing/supported-networks/
  * for supported chain names
  */
-const SUPPORTED_NETWORKS = ["ethereum", "optimism", "polygon", "base"];
+const SUPPORTED_NETWORKS = ["mainnet", "optimism", "polygon", "base"];
 
 async function main() {
   // get network from command line

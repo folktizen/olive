@@ -7,7 +7,7 @@ export const config: Record<
     };
   }
 > = {
-  ethereum: {
+  mainnet: {
     orderFactory: {
       address: "0x01c4B69C897C8936B7F0E361d91e2C78F35082A5",
       startBlock: 22527750,
