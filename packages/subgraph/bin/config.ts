@@ -7,6 +7,12 @@ export const config: Record<
     };
   }
 > = {
+  ethereum: {
+    orderFactory: {
+      address: "0x01c4B69C897C8936B7F0E361d91e2C78F35082A5",
+      startBlock: 22527750,
+    },
+  },
   optimism: {
     orderFactory: {
       address: "0xefc25aa869B78DcF9A33De4D39bD09C6B6F916dF",
