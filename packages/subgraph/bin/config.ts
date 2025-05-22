@@ -19,6 +19,12 @@ export const config: Record<
       startBlock: 136062765,
     },
   },
+  "arbitrum-one": {
+    orderFactory: {
+      address: "0xb31BA189b09F82C8920E7f7144e81dFfE85fFBa6",
+      startBlock: 339477623,
+    },
+  },
   polygon: {
     orderFactory: {
       address: "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8",
