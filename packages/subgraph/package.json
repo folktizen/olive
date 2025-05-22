@@ -28,7 +28,7 @@
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.97.1",
     "@graphprotocol/graph-ts": "0.38.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^22.15.21",
     "ts-node": "^10.8.2",
     "yaml": "^2.2.1"
   }
