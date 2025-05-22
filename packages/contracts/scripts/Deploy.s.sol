@@ -29,6 +29,7 @@ contract Deploy is Script {
     uint256 idx = 0;
     arr[idx++] = "ethereum";
     arr[idx++] = "optimism";
+    arr[idx++] = "arbitrum";
     arr[idx++] = "polygon";
     arr[idx++] = "base";
     arr[idx++] = "linea";

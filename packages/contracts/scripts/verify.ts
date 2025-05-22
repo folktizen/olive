@@ -27,6 +27,7 @@ const CHAIN_INFO: Record<string, { chainId: number; oklinkUrl: string }> = {
   optimism: { chainId: 10, oklinkUrl: 'https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/optimism' },
   polygon: { chainId: 137, oklinkUrl: 'https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon' },
   base: { chainId: 8453, oklinkUrl: 'https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/base' },
+  arbitrum: { chainId: 42161, oklinkUrl: 'https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/arbitrum' },
 };
 
 // Prints usage instructions and exits. Update if you add more CLI options.

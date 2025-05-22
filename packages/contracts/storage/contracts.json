@@ -10,6 +10,11 @@
     "orderFactory": "0xefc25aa869B78DcF9A33De4D39bD09C6B6F916dF"
   },
   {
+    "chain": "arbitrum",
+    "dcaOrder": "0x685df1256537CB5dA595aAAFAE0a3d932a48b9e9",
+    "orderFactory": "0xb31BA189b09F82C8920E7f7144e81dFfE85fFBa6"
+  },
+  {
     "chain": "polygon",
     "dcaOrder": "0x7E2337daF1b113E55a3Bb1597be77Efd12583104",
     "orderFactory": "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8"
