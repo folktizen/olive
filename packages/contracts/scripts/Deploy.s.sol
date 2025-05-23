@@ -32,7 +32,6 @@ contract Deploy is Script {
     arr[idx++] = "arbitrum";
     arr[idx++] = "polygon";
     arr[idx++] = "base";
-    arr[idx++] = "linea";
     // Resize to enabled chains
     string[] memory enabled = new string[](idx);
     for (uint256 i = 0; i < idx; i++) {
