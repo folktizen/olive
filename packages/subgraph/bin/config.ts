@@ -25,7 +25,7 @@ export const config: Record<
       startBlock: 339477623,
     },
   },
-  polygon: {
+  matic: {
     orderFactory: {
       address: "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8",
       startBlock: 71739422,
