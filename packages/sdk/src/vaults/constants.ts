@@ -64,8 +64,7 @@ export const COW_SETTLEMENT_ADDRESS_LIST: Record<ChainId, string> = {
 
 const API_BASE_URL = "https://gateway-arbitrum.network.thegraph.com/api";
 
-const SUBGRAPH_API_KEY =
-  process.env.OLIVE_SUBGRAPH_API_KEY ?? "e7b7ff845e506590498946cd6bf83bf6";
+const SUBGRAPH_API_KEY = process.env.OLIVE_SUBGRAPH_API_KEY;
 const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ETHEREUM_SUBGRAPH_API_URL ??
   `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/35bL4ohk2tnXqDnrp7NSyAKW8bbUmGDapyfe2ddCxV8H`;
