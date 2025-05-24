@@ -1,27 +1,22 @@
 [
   {
-    "chain": "ethereum",
-    "dcaOrder": "0x4b04c40173283D047C0b626C61A5b10E9C10bC4b",
-    "orderFactory": "0x01c4B69C897C8936B7F0E361d91e2C78F35082A5"
-  },
-  {
     "chain": "optimism",
-    "dcaOrder": "0xCBcB2473eE3A31Dd2d27C9Fae14A49433fbE13B4",
-    "orderFactory": "0xefc25aa869B78DcF9A33De4D39bD09C6B6F916dF"
+    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
+    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
   },
   {
     "chain": "arbitrum",
-    "dcaOrder": "0x685df1256537CB5dA595aAAFAE0a3d932a48b9e9",
-    "orderFactory": "0xb31BA189b09F82C8920E7f7144e81dFfE85fFBa6"
+    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
+    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
   },
   {
     "chain": "polygon",
-    "dcaOrder": "0x7E2337daF1b113E55a3Bb1597be77Efd12583104",
-    "orderFactory": "0x2884Fb2b529Cff99906E2521DF6328EEEfFdeea8"
+    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
+    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
   },
   {
     "chain": "base",
-    "dcaOrder": "0xdc6de6C828A97681a389190658BDb05caCFC8Ef2",
-    "orderFactory": "0x61d1C74DA0bdA3b26bC54Dc742Cf0bb88dCb8122"
+    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
+    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
   }
 ]
