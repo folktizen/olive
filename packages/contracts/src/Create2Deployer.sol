@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-pragma abicoder v2;
 
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
@@ -21,13 +20,24 @@ pragma abicoder v2;
 //
 //////////////////////////////////////////////////////////////////
 
-import { GPv2Order } from "../libraries/GPv2Order.sol";
+/**
+ * @title Create2Deployer
+ * @notice Deploys contracts using CREATE2 for deterministic addresses.
+ */
+contract Create2Deployer {
+  event Deployed(address addr, bytes32 salt);
 
-interface IConditionalOrder {
-  /// Event that should be emitted in constructor so that the service "watching" for conditional orders can start indexing it
-  event ConditionalOrderCreated(address indexed);
+  function deploy(bytes memory bytecode, bytes32 salt) public returns (address) {
+    address addr;
+    assembly {
+      addr := create2(0, add(bytecode, 0x20), mload(bytecode), salt)
+      if iszero(extcodesize(addr)) { revert(0, 0) }
+    }
+    emit Deployed(addr, salt);
+    return addr;
+  }
 
-  /// Returns an order that if posted to the CoW Protocol API would pass signature validation
-  /// Reverts in case current order condition is not met
-  function getTradeableOrder() external view returns (GPv2Order.Data memory);
+  function computeAddress(bytes32 salt, bytes32 bytecodeHash) public view returns (address) {
+    return address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xff), address(this), salt, bytecodeHash)))));
+  }
 }
