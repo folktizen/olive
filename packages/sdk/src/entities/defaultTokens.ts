@@ -44,23 +44,23 @@ export const USDC: Readonly<Record<ChainId, Token>> = {
 // );
 
 export const WETH: Readonly<Record<ChainId, Token>> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    18,
-    "WETH",
-    "Wrapped Ether"
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
+  [ChainId.OPTIMISM]: new Token(
+    ChainId.OPTIMISM,
+    "0x4200000000000000000000000000000000000006",
     18,
     "WETH",
     "Wrapped Ether"
   ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
-    "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    18,
+    "WETH",
+    "Wrapped Ether"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
     18,
     "WETH",
     "Wrapped Ether"
@@ -103,23 +103,36 @@ export const WPOL = new Token(
   "Wrapped POL"
 );
 
-export const DAI: Readonly<Record<ChainId.ETHEREUM | ChainId.ARBITRUM, Token>> =
-  {
-    [ChainId.ETHEREUM]: new Token(
-      ChainId.ETHEREUM,
-      "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-      18,
-      "DAI",
-      "Dai Stablecoin"
-    ),
-    [ChainId.ARBITRUM]: new Token(
-      ChainId.ARBITRUM,
-      "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-      18,
-      "DAI",
-      "Dai Stablecoin"
-    ),
-  };
+export const DAI: Readonly<Record<ChainId, Token>> = {
+  [ChainId.OPTIMISM]: new Token(
+    ChainId.OPTIMISM,
+    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+    18,
+    "DAI",
+    "Dai Stablecoin"
+  ),
+  [ChainId.ARBITRUM]: new Token(
+    ChainId.ARBITRUM,
+    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+    18,
+    "DAI",
+    "Dai Stablecoin"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+    18,
+    "DAI",
+    "Dai Stablecoin"
+  ),
+  [ChainId.BASE]: new Token(
+    ChainId.BASE,
+    "0x50c5725949a6f0c72e6c4a641f24049a917db0cb",
+    18,
+    "DAI",
+    "Dai Stablecoin"
+  ),
+};
 
 export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
   [ChainId.ETHEREUM]: new Token(
