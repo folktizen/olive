@@ -3,21 +3,21 @@ import { ChainId } from "../constants";
 import { Token } from "./token";
 
 export const USDC: Readonly<Record<ChainId, Token>> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    6,
-    "USDC"
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
+  [ChainId.OPTIMISM]: new Token(
+    ChainId.OPTIMISM,
+    "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
     6,
     "USDC"
   ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
     "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    6,
+    "USDC"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
     6,
     "USDC"
   ),
@@ -29,19 +29,19 @@ export const USDC: Readonly<Record<ChainId, Token>> = {
   ),
 };
 
-export const SETH2 = new Token(
-  ChainId.ETHEREUM,
-  "0xFe2e637202056d30016725477c5da089Ab0A043A",
-  18,
-  "sETH2"
-);
+// export const SETH2 = new Token(
+//   ChainId.ETHEREUM,
+//   "0xFe2e637202056d30016725477c5da089Ab0A043A",
+//   18,
+//   "sETH2"
+// );
 
-export const RETH2 = new Token(
-  ChainId.ETHEREUM,
-  "0x20bc832ca081b91433ff6c17f85701b6e92486c5",
-  18,
-  "rETH2"
-);
+// export const RETH2 = new Token(
+//   ChainId.ETHEREUM,
+//   "0x20bc832ca081b91433ff6c17f85701b6e92486c5",
+//   18,
+//   "rETH2"
+// );
 
 export const WETH: Readonly<Record<ChainId, Token>> = {
   [ChainId.ETHEREUM]: new Token(
