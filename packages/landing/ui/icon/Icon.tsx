@@ -50,11 +50,6 @@ export const Icon = ({ alt, className, name, size = 20 }: IconProps) => {
   const IconComponent = iconMap[name];
 
   return (
-    <IconComponent
-      className={className}
-      height={size}
-      title={alt ? alt : name}
-      width={size}
-    />
+    <IconComponent className={className} height={size} title={alt ? alt : name} width={size} />
   );
 };

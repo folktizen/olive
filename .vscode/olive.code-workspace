@@ -49,6 +49,7 @@
     "editor.quickSuggestions": {
       "strings": true
     },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "always",
@@ -59,7 +60,6 @@
   },
   "extensions": {
     "recommendations": [
-      "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
       "ms-vscode.vscode-typescript-next",
       "NomicFoundation.hardhat-solidity",

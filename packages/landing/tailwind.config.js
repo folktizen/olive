@@ -107,8 +107,7 @@ module.exports = {
       },
       animation: {
         "cursor-blink": "cursor-blink 1.3s steps(2) infinite",
-        "wiggle-alert":
-          "wiggle 0.2s ease-in-out 0s 3, red-alert 2s ease-in-out",
+        "wiggle-alert": "wiggle 0.2s ease-in-out 0s 3, red-alert 2s ease-in-out",
         wiggle: "wiggle 0.2s ease-in-out 0s 3",
       },
       backgroundImage: {

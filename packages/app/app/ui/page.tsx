@@ -37,8 +37,7 @@ export default function Page() {
   const [isErrorDialogOpen, setErrorDialogOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-  const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] =
-    useState(false);
+  const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] = useState(false);
   const dialogBtnRef = useRef<HTMLButtonElement>(null);
   const { closeModal, isModalOpen, openModal } = useModalContext();
 
@@ -145,12 +144,7 @@ export default function Page() {
           <Button size="sm" onClick={() => console.log("hey")}>
             Connect wallet
           </Button>
-          <Button
-            size="sm"
-            iconRight="caret-down"
-            active={true}
-            onClick={() => console.log("hey")}
-          >
+          <Button size="sm" iconRight="caret-down" active={true} onClick={() => console.log("hey")}>
             Active
           </Button>
           <Button size="sm" disabled={true} onClick={() => console.log("hey")}>
@@ -158,12 +152,7 @@ export default function Page() {
           </Button>
         </UISubSection>
         <UISubSection title="Secondary">
-          <Button
-            variant="secondary"
-            iconLeft="plus"
-            onClick={() => console.log("hey")}
-            size="lg"
-          >
+          <Button variant="secondary" iconLeft="plus" onClick={() => console.log("hey")} size="lg">
             Try Stackly now
           </Button>
           <Button
@@ -186,27 +175,15 @@ export default function Page() {
           >
             Try Stackly now
           </Button>
-          <Button
-            variant="tertiary"
-            active={true}
-            onClick={() => console.log("hey")}
-          >
+          <Button variant="tertiary" active={true} onClick={() => console.log("hey")}>
             Cancel
           </Button>
         </UISubSection>
         <UISubSection title="Quaternary">
-          <Button
-            variant="quaternary"
-            iconLeft="blocks"
-            onClick={() => console.log("hey")}
-          >
+          <Button variant="quaternary" iconLeft="blocks" onClick={() => console.log("hey")}>
             Your stacks
           </Button>
-          <Button
-            variant="quaternary"
-            active={true}
-            onClick={() => console.log("hey")}
-          >
+          <Button variant="quaternary" active={true} onClick={() => console.log("hey")}>
             Cancel
           </Button>
         </UISubSection>
@@ -233,10 +210,7 @@ export default function Page() {
             <Icon name="blocks" />
             <span>Eu tenho um icon</span>
           </ChipButton>
-          <ChipButton
-            onClick={() => console.log("Eu tenho um icon")}
-            disabled={true}
-          >
+          <ChipButton onClick={() => console.log("Eu tenho um icon")} disabled={true}>
             SWPR
           </ChipButton>
         </div>
@@ -275,10 +249,7 @@ export default function Page() {
       <UISection title="Icons">
         <div className="flex flex-wrap space-x-4 space-y-2 md:space-y-0">
           {Object.keys(iconMap).map((iconName) => (
-            <div
-              className="flex flex-col items-center space-y-2"
-              key={iconName}
-            >
+            <div className="flex flex-col items-center space-y-2" key={iconName}>
               <Icon name={iconName as IconName} size={24} />
               <div className="p-1 rounded-lg bg-surface-75">
                 <BodyText weight="medium">{iconName}</BodyText>
@@ -290,11 +261,7 @@ export default function Page() {
       <UISection title="Modal">
         <UISubSection title="Examples">
           {modalButtons.map((modal) => (
-            <DialogModalButton
-              key={modal.label}
-              label={modal.label}
-              onClick={modal.onClick}
-            />
+            <DialogModalButton key={modal.label} label={modal.label} onClick={modal.onClick} />
           ))}
           <ConfirmStackModal
             fromToken={{
@@ -327,11 +294,7 @@ export default function Page() {
       <UISection title="Dialog">
         <UISubSection title="Examples">
           {dialogButtons.map((dialog) => (
-            <DialogModalButton
-              key={dialog.label}
-              label={dialog.label}
-              onClick={dialog.onClick}
-            />
+            <DialogModalButton key={dialog.label} label={dialog.label} onClick={dialog.onClick} />
           ))}
           <Dialog
             initialFocusRef={dialogBtnRef}
@@ -351,10 +314,7 @@ export default function Page() {
               ref={dialogBtnRef}
             />
           </Dialog>
-          <Dialog
-            isOpen={isErrorDialogOpen}
-            closeAction={() => setErrorDialogOpen(false)}
-          >
+          <Dialog isOpen={isErrorDialogOpen} closeAction={() => setErrorDialogOpen(false)}>
             <Icon name="warning" className="text-danger-500" size={38} />
             <DialogContent
               className="!text-danger-200"
@@ -404,16 +364,10 @@ export default function Page() {
           severity={toastSeverity}
           title="This is the Toast title"
         >
-          <BodyText className="text-em-med">
-            This is the Toast child, used as description.
-          </BodyText>
+          <BodyText className="text-em-med">This is the Toast child, used as description.</BodyText>
         </Toast>
         <UISubSection title="Examples">
-          <Button
-            variant="tertiary"
-            size="sm"
-            onClick={() => setShowToast(true)}
-          >
+          <Button variant="tertiary" size="sm" onClick={() => setShowToast(true)}>
             show toast
           </Button>
         </UISubSection>
@@ -452,20 +406,14 @@ interface ExampleTextComponentProps {
   title: string;
 }
 
-const ExampleTextComponents = ({
-  sizes,
-  TextComponent,
-  title,
-}: ExampleTextComponentProps) => (
+const ExampleTextComponents = ({ sizes, TextComponent, title }: ExampleTextComponentProps) => (
   <UISubSection title={title}>
     <div className="space-y-2">
       {sizes ? (
         sizes.map((size) => (
           <div className="flex items-baseline space-x-4" key={size}>
             <p>{size}.</p>
-            <TextComponent size={size}>
-              I want to DCA with Stackly
-            </TextComponent>
+            <TextComponent size={size}>I want to DCA with Stackly</TextComponent>
           </div>
         ))
       ) : (

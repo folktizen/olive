@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AnimationEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { AnimationEventHandler, useCallback, useEffect, useRef, useState } from "react";
 
 import { add, formatDistance } from "date-fns";
 import { cx } from "class-variance-authority";
@@ -15,23 +9,8 @@ import Link from "next/link";
 import { trackEvent } from "@/analytics";
 import { useAccount, useBalance } from "wagmi";
 
-import {
-  BodyText,
-  Button,
-  CaptionText,
-  Icon,
-  RadioButton,
-  Severity,
-  TitleText,
-  Toast,
-} from "@/ui";
-import {
-  ConfirmStackModal,
-  ConnectButton,
-  DatePicker,
-  TokenIcon,
-  TokenPicker,
-} from "@/components";
+import { BodyText, Button, CaptionText, Icon, RadioButton, Severity, TitleText, Toast } from "@/ui";
+import { ConfirmStackModal, ConnectButton, DatePicker, TokenIcon, TokenPicker } from "@/components";
 import { EVENTS } from "@/analytics";
 import {
   ModalId,
@@ -42,12 +21,7 @@ import {
   useStrategyContext,
   useTokenListContext,
 } from "@/contexts";
-import {
-  FREQUENCY_OPTIONS,
-  INITAL_ORDER,
-  Token,
-  frequencySeconds,
-} from "@/models";
+import { FREQUENCY_OPTIONS, INITAL_ORDER, Token, frequencySeconds } from "@/models";
 import { PATHNAMES } from "@/constants";
 import { checkIsValidChainId } from "@/utils";
 import { Checkbox } from "@/ui";
@@ -113,8 +87,7 @@ export const Stackbox = () => {
   const [isNearStartDate, setIsNearStartDate] = useState(false);
   const [showFromTokenError, setShowFromTokenError] = useState(false);
   const [showToTokenError, setShowToTokenError] = useState(false);
-  const [showInsufficentBalanceError, setShowInsufficentBalanceError] =
-    useState(false);
+  const [showInsufficentBalanceError, setShowInsufficentBalanceError] = useState(false);
 
   const { data: balance } = useBalance({
     address: fromToken && address ? address : undefined,
@@ -128,18 +101,12 @@ export const Stackbox = () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     const fromTokenParam = searchParams.get("fromToken");
-    if (
-      fromTokenParam &&
-      fromToken.address.toLowerCase() != fromTokenParam.toLowerCase()
-    ) {
+    if (fromTokenParam && fromToken.address.toLowerCase() != fromTokenParam.toLowerCase()) {
       setFromToken(getTokenFromList(fromTokenParam));
     }
 
     const toTokenParam = searchParams.get("toToken");
-    if (
-      toTokenParam &&
-      toToken.address.toLowerCase() != toTokenParam.toLowerCase()
-    ) {
+    if (toTokenParam && toToken.address.toLowerCase() != toTokenParam.toLowerCase()) {
       setToToken(getTokenFromList(toTokenParam));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -153,15 +120,11 @@ export const Stackbox = () => {
     if (selectedStrategy) {
       const getStrategyToken = (strategyToken: Token) => {
         const tokenListToIterate =
-          address && isConnected && tokenListWithBalances
-            ? tokenListWithBalances
-            : tokenList;
+          address && isConnected && tokenListWithBalances ? tokenListWithBalances : tokenList;
 
         return (
           tokenListToIterate.find(
-            (token) =>
-              token.address.toUpperCase() ===
-              strategyToken.address.toUpperCase()
+            (token) => token.address.toUpperCase() === strategyToken.address.toUpperCase(),
           ) ?? null
         );
       };
@@ -252,15 +215,7 @@ export const Stackbox = () => {
       openModal(ModalId.CONFIRM_STACK);
       trackEvent(EVENTS.CREATE_FLOW.STACKBOX_CONFIRM_CLICK);
     }
-  }, [
-    balance,
-    endDateTime,
-    fromToken,
-    openModal,
-    startDateTime,
-    toToken,
-    tokenAmount,
-  ]);
+  }, [balance, endDateTime, fromToken, openModal, startDateTime, toToken, tokenAmount]);
 
   const selectToken = (selectedToken: TokenWithBalance) => {
     deselectStrategy();
@@ -283,9 +238,7 @@ export const Stackbox = () => {
     const [integer] = balanceData.formatted.split(".");
 
     const significantDigits =
-      integer === "0"
-        ? SIGNIFICANT_DIGITS
-        : integer.length + SIGNIFICANT_DIGITS;
+      integer === "0" ? SIGNIFICANT_DIGITS : integer.length + SIGNIFICANT_DIGITS;
 
     let valueString = "0";
 
@@ -304,10 +257,7 @@ export const Stackbox = () => {
     setShowTokenAmountError(false);
     setShowInsufficentBalanceError(false);
 
-    let formattedBalance = formatUnits(
-      balance.value / BigInt(divider),
-      fromToken.decimals
-    );
+    let formattedBalance = formatUnits(balance.value / BigInt(divider), fromToken.decimals);
 
     if (divider != BalanceDivider.MAX) {
       formattedBalance = Number(formattedBalance).toFixed(6);
@@ -319,8 +269,7 @@ export const Stackbox = () => {
   const handleStartDateTimeChange = (newDateTime: Date) => {
     deselectStrategy();
 
-    const newStartDate =
-      newDateTime.getTime() <= Date.now() ? new Date(Date.now()) : newDateTime;
+    const newStartDate = newDateTime.getTime() <= Date.now() ? new Date(Date.now()) : newDateTime;
 
     setStartDateTime(newStartDate);
   };
@@ -328,12 +277,10 @@ export const Stackbox = () => {
   const estimatedNumberOfOrders =
     Math.floor(
       (endDateTime.getTime() - startDateTime.getTime()) /
-        frequencySeconds[frequency as FREQUENCY_OPTIONS]
+        frequencySeconds[frequency as FREQUENCY_OPTIONS],
     ) + INITAL_ORDER;
 
-  const amountPerOrder = (
-    parseFloat(tokenAmount) / estimatedNumberOfOrders
-  ).toFixed(2);
+  const amountPerOrder = (parseFloat(tokenAmount) / estimatedNumberOfOrders).toFixed(2);
 
   const isStrategySelected = Boolean(selectedStrategy);
 
@@ -392,12 +339,10 @@ export const Stackbox = () => {
               {
                 "animate-wiggle-alert bg-transparent placeholder:text-current text-gray-400":
                   showTokenAmountError,
-              }
+              },
             )}
             value={tokenAmount}
-            onKeyDown={(evt) =>
-              ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
-            }
+            onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
             onChange={(event) => {
               deselectStrategy();
               setShowTokenAmountError(false);
@@ -405,8 +350,7 @@ export const Stackbox = () => {
               setTokenAmount(event.target.value);
             }}
             onAnimationEnd={(e) => {
-              if (e.animationName === "red-alert")
-                setShowTokenAmountError(false);
+              if (e.animationName === "red-alert") setShowTokenAmountError(false);
             }}
           />
           {fromToken && balance && (
@@ -427,14 +371,10 @@ export const Stackbox = () => {
               <div className="flex items-center space-x-1">
                 <TokenIcon token={fromToken} size="2xs" />
                 <div className="flex items-center space-x-1">
-                  <BodyText className="flex items-center text-em-low">
-                    Balance:
-                  </BodyText>
+                  <BodyText className="flex items-center text-em-low">Balance:</BodyText>
                   <button
                     className="hover:underline"
-                    onClick={() =>
-                      setTokenAmountBasedOnBalance(BalanceDivider.MAX)
-                    }
+                    onClick={() => setTokenAmountBasedOnBalance(BalanceDivider.MAX)}
                   >
                     <BodyText>{formattedBalance(balance)}</BodyText>
                   </button>
@@ -465,10 +405,7 @@ export const Stackbox = () => {
                       setFrequency(event.target.value as FREQUENCY_OPTIONS);
                     }}
                   >
-                    <BodyText
-                      size={2}
-                      className={!isSelected ? "text-em-med" : ""}
-                    >
+                    <BodyText size={2} className={!isSelected ? "text-em-med" : ""}>
                       {name}
                     </BodyText>
                   </RadioButton>
@@ -482,10 +419,7 @@ export const Stackbox = () => {
               label="Choose custom date and time"
             />
             {!showCustomDateRange && (
-              <FrequencyOptionsCard
-                frequency={frequency}
-                setEndDate={setEndDateTime}
-              />
+              <FrequencyOptionsCard frequency={frequency} setEndDate={setEndDateTime} />
             )}
             {showCustomDateRange && (
               <div className="!mb-[25px] md:!mb-[46px]">
@@ -503,17 +437,15 @@ export const Stackbox = () => {
                     className={cx(
                       "flex flex-col w-full pl-4 pr-3 py-2 lg:py-3 space-y-2 hover:bg-surface-25",
                       {
-                        "!border !border-danger-200 !rounded-r-2xl":
-                          showPastEndDateError,
-                      }
+                        "!border !border-danger-200 !rounded-r-2xl": showPastEndDateError,
+                      },
                     )}
                   >
                     <BodyText size={2}>Until</BodyText>
                     <DatePicker
                       dateTime={endDateTime}
                       setDateTime={(date: Date) => {
-                        const isEndTimeBeforeStartTime =
-                          date.getTime() <= startDateTime.getTime();
+                        const isEndTimeBeforeStartTime = date.getTime() <= startDateTime.getTime();
 
                         setShowPastEndDateError(isEndTimeBeforeStartTime);
                         deselectStrategy();
@@ -528,9 +460,7 @@ export const Stackbox = () => {
                 {showPastEndDateError && (
                   <div className="flex items-center space-x-1 text-danger-500">
                     <Icon name="warning" size={12} />
-                    <BodyText size={1}>
-                      Please select an end time after start time.
-                    </BodyText>
+                    <BodyText size={1}>Please select an end time after start time.</BodyText>
                   </div>
                 )}
               </div>
@@ -543,13 +473,9 @@ export const Stackbox = () => {
           parseFloat(tokenAmount) > 0 &&
           endDateTime > startDateTime && (
             <div
-              className={cx(
-                "p-2 text-center bg-surface-25 text-em-low rounded-xl",
-                {
-                  "!bg-primary-50 flex items-center justify-between pr-3":
-                    isStrategySelected,
-                }
-              )}
+              className={cx("p-2 text-center bg-surface-25 text-em-low rounded-xl", {
+                "!bg-primary-50 flex items-center justify-between pr-3": isStrategySelected,
+              })}
             >
               {isStrategySelected ? (
                 <>
@@ -557,9 +483,7 @@ export const Stackbox = () => {
                     <Icon className="mr-2" name="sparkles" size={14} />
                     <StackDetailsTileText
                       amountPerOrder={amountPerOrder}
-                      frequency={
-                        FREQUENCY_OPTIONS[frequency as FREQUENCY_OPTIONS]
-                      }
+                      frequency={FREQUENCY_OPTIONS[frequency as FREQUENCY_OPTIONS]}
                       toTokenSymbol={toToken.symbol}
                       fromTokenSymbol={fromToken.symbol}
                       timeLength={formatDistance(endDateTime, startDateTime)}
@@ -595,16 +519,10 @@ export const Stackbox = () => {
             onClick={openConfirmStack}
             className={cx({ "animate-wiggle": showInsufficentBalanceError })}
           >
-            {showInsufficentBalanceError
-              ? "Insufficent Balance"
-              : "Confirm Stack"}
+            {showInsufficentBalanceError ? "Insufficent Balance" : "Confirm Stack"}
           </Button>
         ) : (
-          <ConnectButton
-            size="lg"
-            className="w-full"
-            text="Connect Wallet to Stack"
-          />
+          <ConnectButton size="lg" className="w-full" text="Connect Wallet to Stack" />
         )}
       </div>
       <TokenPicker
@@ -619,9 +537,7 @@ export const Stackbox = () => {
           fromToken={fromToken}
           amount={tokenAmount}
           frequency={frequency}
-          startTime={
-            isNearStartDate ? new Date(getDateNowPlus10Mins()) : startDateTime
-          }
+          startTime={isNearStartDate ? new Date(getDateNowPlus10Mins()) : startDateTime}
           endTime={endDateTime}
           isOpen={isModalOpen(ModalId.CONFIRM_STACK)}
           closeAction={() => {

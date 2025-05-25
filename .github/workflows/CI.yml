@@ -60,16 +60,16 @@ jobs:
       - name: 🛠️ Build project
         run: bun run build
 
-      - name: 🚑 Typecheck
+      - name: 🧑‍💻 Typecheck
         run: bun typecheck
 
-      - name: 🔬 Lint code
-        run: bun lint
+      - name: 🧹 Format code
+        run: bun format
 
       # Add your tests here if needed
       # - name: 🧪 Run tests
       #   run: bun test
 
     # ℹ️ This workflow uses Bun as the package manager and task runner.
-    #    It checks out the code, installs dependencies, builds, typechecks, and lints your project.
+    #    It checks out the code, installs dependencies, builds, typechecks, and formats your project.
     #    Add or adjust steps as needed for your project!

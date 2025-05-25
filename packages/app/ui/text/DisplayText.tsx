@@ -18,21 +18,10 @@ interface DisplayTextProps extends TextProps {
   size?: 1 | 2 | 3;
 }
 
-export const DisplayText = ({
-  children,
-  size,
-  className,
-  weight,
-  as,
-}: DisplayTextProps) => {
+export const DisplayText = ({ children, size, className, weight, as }: DisplayTextProps) => {
   const TextComponent = as || "h2";
   return (
-    <TextComponent
-      className={cx(
-        boldStyles({ weight }),
-        displayTextStyles({ size, className })
-      )}
-    >
+    <TextComponent className={cx(boldStyles({ weight }), displayTextStyles({ size, className }))}>
       {children}
     </TextComponent>
   );

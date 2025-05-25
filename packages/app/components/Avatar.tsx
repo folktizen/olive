@@ -21,12 +21,7 @@ const mainnetConfigForENS = createConfig({
   },
 });
 
-export const Avatar = ({
-  address,
-  ensName,
-  className,
-  size = 24,
-}: AvatarProps) => {
+export const Avatar = ({ address, ensName, className, size = 24 }: AvatarProps) => {
   const { data: ensAvatar } = useEnsAvatar({
     name: ensName ?? undefined,
     chainId: mainnet.id,
@@ -46,10 +41,7 @@ export const Avatar = ({
       alt={`${ensName} avatar`}
       width={size}
       height={size}
-      className={twMerge(
-        "bg-cover rounded-full size-6 bg-outline-low-em",
-        className
-      )}
+      className={twMerge("bg-cover rounded-full size-6 bg-outline-low-em", className)}
     />
   );
 };

@@ -34,12 +34,8 @@ interface StrategyContextProviderProps {
   children: ReactNode;
 }
 
-export const StrategyContextProvider = ({
-  children,
-}: StrategyContextProviderProps) => {
-  const [selectedStrategy, setSelectedStrategy] = useState<Strategy | null>(
-    null
-  );
+export const StrategyContextProvider = ({ children }: StrategyContextProviderProps) => {
+  const [selectedStrategy, setSelectedStrategy] = useState<Strategy | null>(null);
 
   const strategyContext = useMemo(() => {
     const deselectStrategy = () => {
@@ -53,11 +49,7 @@ export const StrategyContextProvider = ({
     };
   }, [selectedStrategy]);
 
-  return (
-    <StrategyContext.Provider value={strategyContext}>
-      {children}
-    </StrategyContext.Provider>
-  );
+  return <StrategyContext.Provider value={strategyContext}>{children}</StrategyContext.Provider>;
 };
 
 export const useStrategyContext = () => useContext(StrategyContext);

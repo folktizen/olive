@@ -78,7 +78,7 @@ export const buttonStyles = cva(
       width: "normal",
       disabled: false,
     },
-  }
+  },
 );
 
 export type SizeProps = "xs" | "sm" | "md" | "lg" | "icon";
@@ -106,5 +106,4 @@ export const iconSizeMap: Record<SizeProps, any> = {
   lg: 20,
 };
 
-export const getIconSize = (size?: SizeProps) =>
-  size ? iconSizeMap[size] : iconSizeMap["icon"];
+export const getIconSize = (size?: SizeProps) => (size ? iconSizeMap[size] : iconSizeMap["icon"]);

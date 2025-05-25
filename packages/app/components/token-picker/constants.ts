@@ -23,11 +23,6 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
     arbitrumTokens.ARB,
     arbitrumTokens.SWPR,
   ],
-  [ChainId.GNOSIS]: [
-    gnosisTokens.GNO,
-    gnosisTokens.SWPR,
-    gnosisTokens.WETH,
-    gnosisTokens.WXDAI,
-  ],
+  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.SWPR, gnosisTokens.WETH, gnosisTokens.WXDAI],
   [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
 };

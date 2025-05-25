@@ -17,21 +17,10 @@ interface TitleTextProps extends TextProps {
   size?: 1 | 2;
 }
 
-export const TitleText = ({
-  children,
-  size,
-  className,
-  weight,
-  as,
-}: TitleTextProps) => {
+export const TitleText = ({ children, size, className, weight, as }: TitleTextProps) => {
   const TextComponent = as || "p";
   return (
-    <TextComponent
-      className={cx(
-        boldStyles({ weight }),
-        titleTextStyles({ size, className })
-      )}
-    >
+    <TextComponent className={cx(boldStyles({ weight }), titleTextStyles({ size, className }))}>
       {children}
     </TextComponent>
   );

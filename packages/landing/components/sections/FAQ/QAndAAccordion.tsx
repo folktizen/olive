@@ -10,12 +10,7 @@ interface QAndAAccordionProps extends PropsWithChildren {
   startOpen?: boolean;
 }
 
-export const QAndAAccordion = ({
-  children,
-  onClick,
-  question,
-  startOpen,
-}: QAndAAccordionProps) => {
+export const QAndAAccordion = ({ children, onClick, question, startOpen }: QAndAAccordionProps) => {
   const [isOpen, setIsOpen] = useState(startOpen ?? false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -39,11 +34,7 @@ export const QAndAAccordion = ({
         <p className="text-lg font-semibold md:text-xl">{question}</p>
         <Icon name={isOpen ? "caret-up" : "caret-down"} />
       </div>
-      {isOpen && (
-        <div className="space-y-3 text-lg font-medium text-em-med">
-          {children}
-        </div>
-      )}
+      {isOpen && <div className="space-y-3 text-lg font-medium text-em-med">{children}</div>}
     </div>
   );
 };

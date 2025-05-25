@@ -78,7 +78,7 @@ export const StackModal = ({
   const [cancellationTx, setCancellationTx] = useState<Transaction>();
 
   const stackRemainingFundsWithTokenText = `${stackRemainingFunds(
-    stackOrder
+    stackOrder,
   )} ${stackOrder.sellToken.symbol}`;
 
   const remainingFundsText = `The ${stackRemainingFundsWithTokenText} will be sent to your wallet.`;
@@ -110,10 +110,7 @@ export const StackModal = ({
 
     try {
       openModal(ModalId.CANCEL_STACK_PROCESSING);
-      const tx = await getDCAOrderContract(
-        stackOrder.id,
-        signerInstance
-      ).cancel();
+      const tx = await getDCAOrderContract(stackOrder.id, signerInstance).cancel();
       setCancellationTx(tx);
       await tx.wait();
       closeModal(ModalId.CANCEL_STACK_PROCESSING);
@@ -124,8 +121,7 @@ export const StackModal = ({
     }
   };
 
-  const stackNotCancelledAndNotComplete =
-    !stackOrder.cancelledAt && !stackIsComplete(stackOrder);
+  const stackNotCancelledAndNotComplete = !stackOrder.cancelledAt && !stackIsComplete(stackOrder);
 
   return (
     <>
@@ -144,25 +140,15 @@ export const StackModal = ({
         <ModalHeader>
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-2">
-              <TokenLogoPair
-                buyToken={stackOrder.buyToken}
-                sellToken={stackOrder.sellToken}
-              />
+              <TokenLogoPair buyToken={stackOrder.buyToken} sellToken={stackOrder.sellToken} />
               {chainId && (
                 <Link
                   passHref
                   target="_blank"
-                  href={getExplorerLink(
-                    chainId,
-                    stackOrder.id,
-                    "address",
-                    "#tokentxns"
-                  )}
+                  href={getExplorerLink(chainId, stackOrder.id, "address", "#tokentxns")}
                   className="flex items-center space-x-0.5 hover:border-em-low border-b-2 border-em-disabled group"
                 >
-                  <BodyText className="text-em-med">
-                    {stackOrder.id.substring(0, 7)}
-                  </BodyText>
+                  <BodyText className="text-em-med">{stackOrder.id.substring(0, 7)}</BodyText>
                   <Icon
                     className="text-em-med group-hover:animate-bounce"
                     name="arrow-external"
@@ -171,12 +157,7 @@ export const StackModal = ({
                 </Link>
               )}
             </div>
-            <Button
-              variant="quaternary"
-              iconLeft="close"
-              size="icon"
-              onClick={closeAction}
-            />
+            <Button variant="quaternary" iconLeft="close" size="icon" onClick={closeAction} />
           </div>
         </ModalHeader>
         <ModalContent className="px-0 space-y-4 md:px-0">

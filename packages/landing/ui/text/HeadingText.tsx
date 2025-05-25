@@ -21,21 +21,10 @@ interface HeadingTextProps extends TextProps {
   size?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-export const HeadingText = ({
-  children,
-  size,
-  className,
-  weight,
-  as,
-}: HeadingTextProps) => {
+export const HeadingText = ({ children, size, className, weight, as }: HeadingTextProps) => {
   const TextComponent = as || "h4";
   return (
-    <TextComponent
-      className={cx(
-        boldStyles({ weight }),
-        headingTextStyles({ size, className })
-      )}
-    >
+    <TextComponent className={cx(boldStyles({ weight }), headingTextStyles({ size, className }))}>
       {children}
     </TextComponent>
   );

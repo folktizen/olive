@@ -41,16 +41,10 @@ export default function MobileMenu() {
               <span className="ml-4">Your Stacks</span>
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
-            <Link
-              href={`${OLIVE_LANDING_URL}#how-it-works`}
-              className="block py-3 text-em-med"
-            >
+            <Link href={`${OLIVE_LANDING_URL}#how-it-works`} className="block py-3 text-em-med">
               How it works
             </Link>
-            <Link
-              href={`${OLIVE_LANDING_URL}#faqs`}
-              className="block py-3 text-em-med"
-            >
+            <Link href={`${OLIVE_LANDING_URL}#faqs`} className="block py-3 text-em-med">
               FAQ&apos;s
             </Link>
           </div>

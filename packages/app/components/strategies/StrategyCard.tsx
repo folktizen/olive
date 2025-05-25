@@ -43,7 +43,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         "p-3 bg-white group hover:outline-primary-200 hover:outline hover:outline-1 hover:shadow-lg shadow-md min-w-60 rounded-2xl cursor-pointer",
         {
           "!bg-primary-900": isSelected,
-        }
+        },
       )}
       onClick={() => {
         setSelectedStrategy(isSelected ? null : strategy);
@@ -64,9 +64,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         >
           <CaptionText>{`${strategy.sellAmountPerTimeframe} ${sellToken.symbol}`}</CaptionText>
           <Icon size={15} className="rotate-180" name="arrow-left" />
-          <CaptionText>{`${buyToken.symbol} ${
-            FREQUENCY_LABEL[strategy.frequency]
-          }`}</CaptionText>
+          <CaptionText>{`${buyToken.symbol} ${FREQUENCY_LABEL[strategy.frequency]}`}</CaptionText>
         </div>
       </div>
       <div className="flex items-center justify-between mt-2.5">

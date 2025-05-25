@@ -32,12 +32,7 @@ export function Navbar() {
         </div>
         <Divider />
         <div className="hidden gap-4 justify-end items-center w-full md:flex">
-          <ButtonLink
-            variant="quaternary"
-            size="sm"
-            iconLeft="blocks"
-            href={PATHNAMES.STACKS}
-          >
+          <ButtonLink variant="quaternary" size="sm" iconLeft="blocks" href={PATHNAMES.STACKS}>
             Your stacks
           </ButtonLink>
           <Divider />
@@ -50,6 +45,4 @@ export function Navbar() {
   );
 }
 
-const Divider = () => (
-  <div className="h-8 border-r border-solid border-b-gray-100"></div>
-);
+const Divider = () => <div className="h-8 border-r border-solid border-b-gray-100"></div>;

@@ -19,11 +19,7 @@ import {
 } from "@/ui";
 import { EmptyStateTokenPickerImg } from "@/public/assets";
 import { EmptyState, TokenIcon } from "@/components";
-import {
-  TokenWithBalance,
-  useNetworkContext,
-  useTokenListContext,
-} from "@/contexts";
+import { TokenWithBalance, useNetworkContext, useTokenListContext } from "@/contexts";
 import { formatTokenValue } from "@/utils/token";
 import { TokenFromTokenlist } from "@/models/token";
 
@@ -58,16 +54,14 @@ export const TokenPicker = ({
 
   const [tokenSearchQuery, setTokenSearchQuery] = useState("");
   const [commonTokens, setCommonTokens] = useState<TokenFromTokenlist[]>(
-    TOKEN_PICKER_COMMON_TOKENS[chainId]
+    TOKEN_PICKER_COMMON_TOKENS[chainId],
   );
 
   const [debouncedQuery, setDebouncedQuery] = useState(tokenSearchQuery);
   const trimmedQuery = debouncedQuery.trim();
 
-  const [isFetchingCustomToken, setIsFetchingCustomToken] =
-    useState<boolean>(false);
-  const [filteredTokenList, setFilteredTokenList] =
-    useState<TokenWithBalance[]>(tokenList);
+  const [isFetchingCustomToken, setIsFetchingCustomToken] = useState<boolean>(false);
+  const [filteredTokenList, setFilteredTokenList] = useState<TokenWithBalance[]>(tokenList);
 
   const tokenListSearchCleanup = () => {
     setDebouncedQuery("");
@@ -75,9 +69,7 @@ export const TokenPicker = ({
   };
 
   const tokenListCleanup = () => {
-    setFilteredTokenList(
-      isConnected && tokenListWithBalances ? tokenListWithBalances : tokenList
-    );
+    setFilteredTokenList(isConnected && tokenListWithBalances ? tokenListWithBalances : tokenList);
   };
 
   const handleTokenSearchInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -104,10 +96,7 @@ export const TokenPicker = ({
    * keystroke of 'debouncedTerm'
    */
   useEffect(() => {
-    const timer = setTimeout(
-      () => setTokenSearchQuery(debouncedQuery),
-      HALF_SECOND
-    );
+    const timer = setTimeout(() => setTokenSearchQuery(debouncedQuery), HALF_SECOND);
 
     return () => clearTimeout(timer);
   }, [debouncedQuery]);
@@ -134,16 +123,13 @@ export const TokenPicker = ({
 
   useEffect(() => {
     if (trimmedQuery) {
-      const newList =
-        isConnected && tokenListWithBalances
-          ? tokenListWithBalances
-          : tokenList;
+      const newList = isConnected && tokenListWithBalances ? tokenListWithBalances : tokenList;
 
       const filteredList = newList.filter(
         (token) =>
           token.symbol.toLowerCase().includes(trimmedQuery.toLowerCase()) ||
           token.name.toLowerCase().includes(trimmedQuery.toLowerCase()) ||
-          token.address.toLowerCase().includes(trimmedQuery.toLowerCase())
+          token.address.toLowerCase().includes(trimmedQuery.toLowerCase()),
       );
 
       setFilteredTokenList(filteredList);
@@ -157,10 +143,7 @@ export const TokenPicker = ({
         if (!signerInstance) return;
         setIsFetchingCustomToken(true);
 
-        const sellTokenContract = getERC20Contract(
-          trimmedQuery,
-          signerInstance
-        );
+        const sellTokenContract = getERC20Contract(trimmedQuery, signerInstance);
 
         const address = sellTokenContract.address;
         try {
@@ -189,11 +172,7 @@ export const TokenPicker = ({
   }, [chainId, trimmedQuery, filteredTokenList.length, signer]);
 
   return (
-    <Modal
-      closeAction={handleModalClose}
-      isOpen={isOpen}
-      initialFocusRef={initialFocusRef}
-    >
+    <Modal closeAction={handleModalClose} isOpen={isOpen} initialFocusRef={initialFocusRef}>
       <ModalHeaderTitle closeAction={handleModalClose} title="Select a token" />
       <ModalContent className="px-0 md:px-0">
         <div className="px-4 md:px-6">
@@ -202,10 +181,7 @@ export const TokenPicker = ({
             onSearch={handleTokenSearchInput}
             value={debouncedQuery}
           />
-          <CommonTokens
-            commonTokens={commonTokens}
-            onTokenSelect={handleTokenSelect}
-          />
+          <CommonTokens commonTokens={commonTokens} onTokenSelect={handleTokenSelect} />
         </div>
         <TokenList
           onClearSearch={onClearSearch}
@@ -219,21 +195,19 @@ export const TokenPicker = ({
   );
 };
 
-const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
-  ({ onSearch, value }, ref) => (
-    <div className="flex items-center px-3 py-2 border bg-surface-50 border-surface-75 rounded-xl text-em-low">
-      <Icon className="text-em-med" name="search" size={18} />
-      <input
-        className="flex-grow ml-2 text-sm font-semibold outline-none bg-surface-50"
-        onChange={onSearch}
-        value={value}
-        placeholder="Search token name or paste address"
-        type="text"
-        ref={ref}
-      />
-    </div>
-  )
-);
+const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(({ onSearch, value }, ref) => (
+  <div className="flex items-center px-3 py-2 border bg-surface-50 border-surface-75 rounded-xl text-em-low">
+    <Icon className="text-em-med" name="search" size={18} />
+    <input
+      className="flex-grow ml-2 text-sm font-semibold outline-none bg-surface-50"
+      onChange={onSearch}
+      value={value}
+      placeholder="Search token name or paste address"
+      type="text"
+      ref={ref}
+    />
+  </div>
+));
 SearchBar.displayName = "Token Picker Search";
 
 interface CommonTokensProps {
@@ -242,9 +216,7 @@ interface CommonTokensProps {
 }
 const CommonTokens = ({ commonTokens, onTokenSelect }: CommonTokensProps) => (
   <div className="mt-5">
-    <BodyText className="text-xs font-semibold text-em-low">
-      Common tokens
-    </BodyText>
+    <BodyText className="text-xs font-semibold text-em-low">Common tokens</BodyText>
     <div className="flex flex-wrap gap-2 mt-2">
       {commonTokens.map((token: TokenWithBalance) => (
         <ChipButton
@@ -285,11 +257,7 @@ const TokenList = ({
         <EmptyState className="animate-pulse" text="Loading..." />
       ) : tokenList.length ? (
         tokenList.map((token) => (
-          <TokenListRow
-            onTokenSelect={onTokenSelect}
-            key={token.address}
-            token={token}
-          />
+          <TokenListRow onTokenSelect={onTokenSelect} key={token.address} token={token} />
         ))
       ) : (
         tokenSearchQuery && (
@@ -322,9 +290,7 @@ const TokenListRow = ({ onTokenSelect, token }: TokenListRowProps) => {
     <div
       className="flex items-center justify-between w-full h-16 px-4 cursor-pointer hover:bg-surface-50"
       key={token.address}
-      onClick={() =>
-        token.isImported ? setIsDialogOpen(true) : onTokenSelect(token)
-      }
+      onClick={() => (token.isImported ? setIsDialogOpen(true) : onTokenSelect(token))}
     >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center space-x-3">
@@ -338,9 +304,7 @@ const TokenListRow = ({ onTokenSelect, token }: TokenListRowProps) => {
         </div>
         {token.balance && (
           <BodyText>
-            {token.balance === "0"
-              ? token.balance
-              : formatTokenValue(token.balance as string)}
+            {token.balance === "0" ? token.balance : formatTokenValue(token.balance as string)}
           </BodyText>
         )}
         {token.isImported && (
@@ -392,8 +356,7 @@ const DialogImportToken = ({
           href={getExplorerLink(token.chainId, token.address, "address")}
           target="blank"
         >
-          {token.address}{" "}
-          <Icon size={16} name="arrow-external" className="ml-1" />
+          {token.address} <Icon size={16} name="arrow-external" className="ml-1" />
         </a>
       </BodyText>
     </div>

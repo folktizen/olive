@@ -29,10 +29,7 @@ const maxCustomFrequencies = {
 };
 const postiveIntegerOnlyRegex = /^[1-9][0-9]*$/;
 
-const getDefaultEndDateFrequency = (
-  frequency: FREQUENCY_OPTIONS,
-  timeAmount: number
-) => {
+const getDefaultEndDateFrequency = (frequency: FREQUENCY_OPTIONS, timeAmount: number) => {
   switch (frequency) {
     case FREQUENCY_OPTIONS.hour:
       return add(new Date(), { hours: timeAmount });
@@ -55,10 +52,7 @@ const getCroppedFrequency = (frequency: FREQUENCY_OPTIONS) => {
   return isMonthFrequency ? frequency.substring(0, 2) : frequency.charAt(0);
 };
 
-const parseDaysToFrequencyAmount = (
-  days: number,
-  frequency: FREQUENCY_OPTIONS
-) => {
+const parseDaysToFrequencyAmount = (days: number, frequency: FREQUENCY_OPTIONS) => {
   switch (frequency) {
     case FREQUENCY_OPTIONS.hour:
       return days * 24;
@@ -75,20 +69,13 @@ const parseDaysToFrequencyAmount = (
   }
 };
 
-export const FrequencyOptionsCard = ({
-  frequency,
-  setEndDate,
-}: FrequencyOptionsCardProps) => {
-  const [defaultFrequency, setDefaultFrequency] = useState(
-    defaultFrequencyOptions[frequency][0]
-  );
+export const FrequencyOptionsCard = ({ frequency, setEndDate }: FrequencyOptionsCardProps) => {
+  const [defaultFrequency, setDefaultFrequency] = useState(defaultFrequencyOptions[frequency][0]);
   const [customFrequency, setCustomFrequency] = useState("");
 
   const { deselectStrategy, selectedStrategy } = useStrategyContext();
 
-  const handleCustomFrequencyChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleCustomFrequencyChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
 
     if (!newValue) {
@@ -98,8 +85,7 @@ export const FrequencyOptionsCard = ({
     }
 
     const isWithinRange = Number(newValue) <= maxCustomFrequencies[frequency];
-    const isValidNumber =
-      postiveIntegerOnlyRegex.test(newValue) && isWithinRange;
+    const isValidNumber = postiveIntegerOnlyRegex.test(newValue) && isWithinRange;
 
     if (isValidNumber) {
       setDefaultFrequency("");
@@ -126,11 +112,10 @@ export const FrequencyOptionsCard = ({
     if (selectedStrategy) {
       const frequencyAmount = parseDaysToFrequencyAmount(
         selectedStrategy.daysAmount,
-        frequency
+        frequency,
       ).toString();
 
-      const isDefaultStrategy =
-        defaultFrequencyOptions[frequency].includes(frequencyAmount);
+      const isDefaultStrategy = defaultFrequencyOptions[frequency].includes(frequencyAmount);
 
       if (isDefaultStrategy) {
         setDefaultFrequency(frequencyAmount);
@@ -169,10 +154,7 @@ export const FrequencyOptionsCard = ({
                 }}
                 value={freqOption}
               >
-                <BodyText
-                  className={cx({ "text-em-med": !isSelected })}
-                  size={2}
-                >
+                <BodyText className={cx({ "text-em-med": !isSelected })} size={2}>
                   {`${freqOption} ${getCroppedFrequency(frequency)}`}
                 </BodyText>
               </RadioButton>

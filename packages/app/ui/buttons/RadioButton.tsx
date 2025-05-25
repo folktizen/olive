@@ -30,7 +30,7 @@ export const radioButtonStyles = cva(
     defaultVariants: {
       checked: false,
     },
-  }
+  },
 );
 
 export function RadioButton({

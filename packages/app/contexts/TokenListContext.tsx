@@ -47,10 +47,7 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
     "https://files.cow.fi/tokens/CoinGecko.json",
     "https://files.cow.fi/tokens/CowSwap.json",
   ],
-  [ChainId.GNOSIS]: [
-    "https://tokens.honeyswap.org/",
-    "https://files.cow.fi/tokens/CowSwap.json",
-  ],
+  [ChainId.GNOSIS]: ["https://tokens.honeyswap.org/", "https://files.cow.fi/tokens/CowSwap.json"],
   [ChainId.ARBITRUM]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/ArbitrumOneUniswapTokensList.json",
     "https://tokens.coingecko.com/arbitrum-one/all.json",
@@ -78,16 +75,13 @@ const TokenListContext = createContext<{
 export const TokenListProvider = ({ children }: PropsWithChildren) => {
   const { address, chainId: wagmiChainId, isConnected } = useAccount();
   const { chainId: contextChainId } = useNetworkContext();
-  const chainId = isConnected
-    ? wagmiChainId ?? ChainId.ARBITRUM
-    : contextChainId;
+  const chainId = isConnected ? (wagmiChainId ?? ChainId.ARBITRUM) : contextChainId;
   const abortControllerRef = useRef(new AbortController());
 
   const [tokenList, setTokenList] = useState<TokenFromTokenlist[]>(
-    DEFAULT_TOKEN_LIST_BY_CHAIN[chainId]
+    DEFAULT_TOKEN_LIST_BY_CHAIN[chainId],
   );
-  const [tokenListWithBalances, setTokenListWithBalances] =
-    useState<TokenWithBalance[]>();
+  const [tokenListWithBalances, setTokenListWithBalances] = useState<TokenWithBalance[]>();
   const [isLoading, setIsLoading] = useState(true);
 
   const defaultTokenList = DEFAULT_TOKEN_LIST_BY_CHAIN[chainId];
@@ -122,10 +116,7 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
           data: multicallInterface.encodeFunctionData("aggregate", [callArray]),
         })
         .then((response: any) => {
-          const callResult = multicallInterface.decodeFunctionResult(
-            "aggregate",
-            response
-          );
+          const callResult = multicallInterface.decodeFunctionResult("aggregate", response);
           const balances = callResult.returnData;
 
           const listWithBalances = tokenList
@@ -133,13 +124,10 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
               ...token,
               balance: formatUnits(
                 hexToBigInt(balances[index] !== "0x" ? balances[index] : 0),
-                token.decimals
+                token.decimals,
               ),
             }))
-            .sort(
-              (tokenA, tokenB) =>
-                Number(tokenB.balance) - Number(tokenA.balance)
-            );
+            .sort((tokenA, tokenB) => Number(tokenB.balance) - Number(tokenA.balance));
 
           setTokenListWithBalances(listWithBalances);
         })
@@ -158,33 +146,33 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
       return res.json();
     }
 
-    await Promise.allSettled(
-      fetchTokenlistUrls.map((list) => getTokenListData(list))
-    ).then((results) => {
-      results.forEach((result) => {
-        if (result.status === "fulfilled") {
-          const mergedTokenlist = [...defaultTokenList, ...result.value.tokens];
+    await Promise.allSettled(fetchTokenlistUrls.map((list) => getTokenListData(list))).then(
+      (results) => {
+        results.forEach((result) => {
+          if (result.status === "fulfilled") {
+            const mergedTokenlist = [...defaultTokenList, ...result.value.tokens];
 
-          const tokenUniqueAddressesSet = new Set<string>();
-          const tokenListNoDuplicates = mergedTokenlist.filter((token) => {
-            if (
-              isAddress(token.address) &&
-              token.chainId === chainId &&
-              !tokenUniqueAddressesSet.has(token.address.toLowerCase())
-            ) {
-              tokenUniqueAddressesSet.add(token.address.toLowerCase());
-              return true;
-            }
-            return false;
-          });
+            const tokenUniqueAddressesSet = new Set<string>();
+            const tokenListNoDuplicates = mergedTokenlist.filter((token) => {
+              if (
+                isAddress(token.address) &&
+                token.chainId === chainId &&
+                !tokenUniqueAddressesSet.has(token.address.toLowerCase())
+              ) {
+                tokenUniqueAddressesSet.add(token.address.toLowerCase());
+                return true;
+              }
+              return false;
+            });
 
-          setTokenList(tokenListNoDuplicates);
-          setIsLoading(false);
-        } else {
-          console.error("Error fetching tokenlist data:", result.reason);
-        }
-      });
-    });
+            setTokenList(tokenListNoDuplicates);
+            setIsLoading(false);
+          } else {
+            console.error("Error fetching tokenlist data:", result.reason);
+          }
+        });
+      },
+    );
   }, [chainId, defaultTokenList, fetchTokenlistUrls]);
 
   useEffect(() => {
@@ -205,22 +193,16 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
       tokenList,
       tokenListWithBalances,
       getTokenFromList: (tokenAddress: string) =>
-        tokenList.find(
-          (token) => token.address.toUpperCase() === tokenAddress?.toUpperCase()
-        ) ?? null,
+        tokenList.find((token) => token.address.toUpperCase() === tokenAddress?.toUpperCase()) ??
+        null,
       getTokenLogoURL: (tokenAddress: string) =>
-        tokenList.find(
-          (token) => token.address.toUpperCase() === tokenAddress?.toUpperCase()
-        )?.logoURI ?? "#",
+        tokenList.find((token) => token.address.toUpperCase() === tokenAddress?.toUpperCase())
+          ?.logoURI ?? "#",
     }),
-    [isLoading, tokenList, tokenListWithBalances]
+    [isLoading, tokenList, tokenListWithBalances],
   );
 
-  return (
-    <TokenListContext.Provider value={tokenListContext}>
-      {children}
-    </TokenListContext.Provider>
-  );
+  return <TokenListContext.Provider value={tokenListContext}>{children}</TokenListContext.Provider>;
 };
 
 export const useTokenListContext = () => useContext(TokenListContext);

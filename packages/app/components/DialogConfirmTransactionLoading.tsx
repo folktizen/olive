@@ -2,8 +2,7 @@ import { DotsSpinnerImg } from "@/public/assets";
 import { Dialog, DialogContent, ModalBaseProps } from "@/ui";
 import { ReactNode } from "react";
 
-interface DialogConfirmTransactionLoadingProps
-  extends Omit<ModalBaseProps, "closeAction"> {
+interface DialogConfirmTransactionLoadingProps extends Omit<ModalBaseProps, "closeAction"> {
   closeAction?: () => void;
   children?: ReactNode;
   title?: string;

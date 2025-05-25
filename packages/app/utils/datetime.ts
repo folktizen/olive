@@ -1,10 +1,8 @@
 type Timestamp = string | number;
 
-const getDateFromTimeStamp = (timeStamp: Timestamp) =>
-  new Date(Number(timeStamp) * 1000);
+const getDateFromTimeStamp = (timeStamp: Timestamp) => new Date(Number(timeStamp) * 1000);
 
-export const dateToUnixTimestamp = (date: Date) =>
-  Math.round(date.getTime() / 1000);
+export const dateToUnixTimestamp = (date: Date) => Math.round(date.getTime() / 1000);
 
 export const currentTimestampInSeconds = dateToUnixTimestamp(new Date());
 

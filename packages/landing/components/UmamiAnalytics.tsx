@@ -34,11 +34,7 @@ const TrackPageView = () => {
 export const UmamiAnalytics = () => {
   return (
     <>
-      <Script
-        src={umamiScriptUrl}
-        data-website-id={umamiWebsiteId}
-        strategy="afterInteractive"
-      />
+      <Script src={umamiScriptUrl} data-website-id={umamiWebsiteId} strategy="afterInteractive" />
       <Suspense fallback={null}>
         <TrackPageView />
       </Suspense>

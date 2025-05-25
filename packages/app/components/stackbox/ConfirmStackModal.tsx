@@ -21,13 +21,7 @@ import {
   TransactionLink,
 } from "@/components";
 import { EVENTS } from "@/analytics";
-import {
-  FREQUENCY_OPTIONS,
-  INITAL_ORDER,
-  Token,
-  Transaction,
-  frequencySeconds,
-} from "@/models";
+import { FREQUENCY_OPTIONS, INITAL_ORDER, Token, Transaction, frequencySeconds } from "@/models";
 import {
   Modal,
   ModalFooter,
@@ -88,17 +82,13 @@ export const ConfirmStackModal = ({
 
   const rawAmount = parseUnits(amount, fromToken.decimals);
   const estimatedNumberOfOrders =
-    Math.floor(
-      (endTime.getTime() - startTime.getTime()) / frequencySeconds[frequency]
-    ) + INITAL_ORDER;
+    Math.floor((endTime.getTime() - startTime.getTime()) / frequencySeconds[frequency]) +
+    INITAL_ORDER;
 
-  const amountPerOrder = (parseFloat(amount) / estimatedNumberOfOrders).toFixed(
-    2
-  );
+  const amountPerOrder = (parseFloat(amount) / estimatedNumberOfOrders).toFixed(2);
 
   useEffect(() => {
-    if (allowance && BigInt(allowance) >= rawAmount)
-      setStep(CREATE_STACK_STEPS.create);
+    if (allowance && BigInt(allowance) >= rawAmount) setStep(CREATE_STACK_STEPS.create);
   }, [allowance, rawAmount]);
 
   useEffect(() => {
@@ -121,16 +111,13 @@ export const ConfirmStackModal = ({
     const signerInstance = await signer;
     if (!signerInstance || !address || !chainId) return;
 
-    const sellTokenContract = getERC20Contract(
-      fromToken.address,
-      signerInstance
-    );
+    const sellTokenContract = getERC20Contract(fromToken.address, signerInstance);
 
     try {
       openModal(ModalId.STACK_APPROVE_PROCESSING);
       const approveFactoryTransaction = await sellTokenContract.approve(
         getOrderFactoryAddress(chainId),
-        rawAmount
+        rawAmount,
       );
       setApproveTx(approveFactoryTransaction);
 
@@ -160,18 +147,12 @@ export const ConfirmStackModal = ({
       interval: frequencyIntervalInHours[frequency],
     };
 
-    const orderFactory = getOrderFactory(
-      getOrderFactoryAddress(chainId),
-      signerInstance
-    );
+    const orderFactory = getOrderFactory(getOrderFactoryAddress(chainId), signerInstance);
 
     try {
       openModal(ModalId.STACK_CREATION_PROCESSING);
 
-      const createOrderTransaction = await createDCAOrderWithNonce(
-        orderFactory,
-        initParams
-      );
+      const createOrderTransaction = await createDCAOrderWithNonce(orderFactory, initParams);
       setStackCreationTx(createOrderTransaction);
 
       await createOrderTransaction.wait();
@@ -184,11 +165,7 @@ export const ConfirmStackModal = ({
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      closeAction={closeAction}
-      initialFocusRef={focusBtnRef}
-    >
+    <Modal isOpen={isOpen} closeAction={closeAction} initialFocusRef={focusBtnRef}>
       <ModalHeaderTitle closeAction={closeAction} title="Confirm Stack" />
       <ModalContent>
         <div className="space-y-6">
@@ -202,15 +179,12 @@ export const ConfirmStackModal = ({
           </div>
           <div>
             <TitleText size={2} className="text-center text-em-low">
-              Stacks <span className="text-em-high">{toToken.symbol}</span>,
-              swapping{" "}
+              Stacks <span className="text-em-high">{toToken.symbol}</span>, swapping{" "}
               <span className="text-em-high">
                 {amountPerOrder} {fromToken.symbol}
               </span>
               <br />
-              <span className="text-em-high">
-                every {FREQUENCY_OPTIONS[frequency]}
-              </span>
+              <span className="text-em-high">every {FREQUENCY_OPTIONS[frequency]}</span>
             </TitleText>
           </div>
           <div className="w-full p-5 space-y-2 bg-surface-25 rounded-xl">
@@ -237,12 +211,7 @@ export const ConfirmStackModal = ({
       </ModalContent>
       <ModalFooter>
         {step === CREATE_STACK_STEPS.create && (
-          <Button
-            size="lg"
-            variant="tertiary"
-            onClick={closeAction}
-            width="full"
-          >
+          <Button size="lg" variant="tertiary" onClick={closeAction} width="full">
             Cancel
           </Button>
         )}
@@ -277,9 +246,7 @@ export const ConfirmStackModal = ({
         title={approveTx && "Proceeding approval"}
         description={approveTx && "Waiting for transaction confirmation."}
       >
-        {approveTx?.hash && chainId && (
-          <TransactionLink chainId={chainId} hash={approveTx.hash} />
-        )}
+        {approveTx?.hash && chainId && <TransactionLink chainId={chainId} hash={approveTx.hash} />}
       </DialogConfirmTransactionLoading>
       <DialogConfirmTransactionLoading
         closeAction={() => closeModal(ModalId.STACK_CREATION_PROCESSING)}

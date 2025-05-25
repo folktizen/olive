@@ -36,26 +36,20 @@ const CustomConnectButton = ({
   });
 
   const truncatedAddress = (size: number) =>
-    `${address.slice(0, size)}...${address.slice(
-      address.length - size,
-      address.length
-    )}`;
+    `${address.slice(0, size)}...${address.slice(address.length - size, address.length)}`;
 
   const formattedBalance = (balanceData: NonNullable<typeof balance>) =>
     balanceData.value === BigInt(0)
       ? `0 ${balanceData.symbol}`
       : `${formatUnits(balanceData.value, balanceData.decimals).substring(
           0,
-          5
+          5,
         )} ${balanceData.symbol}`;
 
   return (
     <div className="flex bg-gray-alpha-50 rounded-xl p-0.5 justify-center items-center md:space-x-3">
       {balance && (
-        <BodyText
-          size={2}
-          className="hidden ml-3 min-w-max text-em-med md:block"
-        >
+        <BodyText size={2} className="hidden ml-3 min-w-max text-em-med md:block">
           {formattedBalance(balance)}
         </BodyText>
       )}
@@ -107,12 +101,7 @@ export const ConnectButton = ({
           );
 
         return (
-          <CustomConnectButton
-            size={size}
-            address={address}
-            ensName={ensName}
-            onClick={show}
-          />
+          <CustomConnectButton size={size} address={address} ensName={ensName} onClick={show} />
         );
       }}
     </ConnectKitButton.Custom>

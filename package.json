@@ -22,6 +22,7 @@
     "setup": "bun install && bun run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
+    "format": "turbo run format",
     "clean": "turbo run clean",
     "export": "turbo run export",
     "typecheck": "turbo run typecheck"
@@ -29,8 +30,8 @@
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
     "@types/umami": "^2.10.0",
-    "eslint": "^8.28.0",
-    "eslint-config-turbo": "^2.5.3",
+    "@useolive/config": "workspace:^",
+    "prettier": "^3.0.0",
     "turbo": "^2.5.3"
   },
   "trustedDependencies": [

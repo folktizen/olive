@@ -8,8 +8,7 @@ import { RPC_LIST } from "@/constants";
 
 const defaultConfig = getDefaultConfig({
   chains: [gnosis, mainnet, arbitrum, base],
-  walletConnectProjectId:
-    process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
+  walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
   transports: {
     [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
     [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()]),
@@ -30,7 +29,5 @@ const safeConnector = safe({
 
 export const config = createConfig({
   ...defaultConfig,
-  connectors: defaultConfig.connectors
-    ? defaultConfig.connectors
-    : [safeConnector],
+  connectors: defaultConfig.connectors ? defaultConfig.connectors : [safeConnector],
 });

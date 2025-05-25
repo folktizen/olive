@@ -1,10 +1,5 @@
 import { FREQUENCY_OPTIONS } from "@/models/stack";
-import {
-  gnosisTokens,
-  mainnetTokens,
-  arbitrumTokens,
-  baseTokens,
-} from "@/models/token";
+import { gnosisTokens, mainnetTokens, arbitrumTokens, baseTokens } from "@/models/token";
 import { Strategy } from "@/contexts";
 import { ChainId } from "@useolive/sdk";
 

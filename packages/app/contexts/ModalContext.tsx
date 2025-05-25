@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  ReactNode,
-  useMemo,
-  useReducer,
-} from "react";
+import { createContext, useContext, ReactNode, useMemo, useReducer } from "react";
 
 export enum ModalId {
   WAITING_TRANSACTION = "waiting_transaction",
@@ -59,9 +53,7 @@ function ModalReducer(openModals: ModalId[], action: Action) {
   }
 }
 
-export const ModalContextProvider = ({
-  children,
-}: ModalContextProviderProps) => {
+export const ModalContextProvider = ({ children }: ModalContextProviderProps) => {
   const [openModals, dispatch] = useReducer(ModalReducer, []);
 
   const openModal = (modalId: ModalId) => {
@@ -88,11 +80,7 @@ export const ModalContextProvider = ({
     };
   }, [openModals]);
 
-  return (
-    <ModalContext.Provider value={modalContext}>
-      {children}
-    </ModalContext.Provider>
-  );
+  return <ModalContext.Provider value={modalContext}>{children}</ModalContext.Provider>;
 };
 
 export const useModalContext = () => useContext(ModalContext);

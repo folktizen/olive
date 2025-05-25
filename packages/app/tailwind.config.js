@@ -103,13 +103,11 @@ module.exports = {
         },
       },
       animation: {
-        "wiggle-alert":
-          "wiggle 0.2s ease-in-out 0s 3, red-alert 2s ease-in-out",
+        "wiggle-alert": "wiggle 0.2s ease-in-out 0s 3, red-alert 2s ease-in-out",
         wiggle: "wiggle 0.2s ease-in-out 0s 3",
       },
       backgroundImage: {
-        "matrix-and-green-gradient":
-          "url('/assets/images/matrix-gradient-bg.svg')",
+        "matrix-and-green-gradient": "url('/assets/images/matrix-gradient-bg.svg')",
         "green-gradient": "linear-gradient(180deg, #E3FFCA 0%, #FFF 31.77%)",
       },
     },

@@ -79,13 +79,12 @@ export const buttonStyles = cva(
       width: "normal",
       disabled: false,
     },
-  }
+  },
 );
 
 export type SizeProps = "xs" | "sm" | "md" | "lg" | "icon";
 
-export interface ButtonBaseProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   variant?: "caption" | "primary" | "secondary" | "tertiary" | "quaternary";
   className?: string;
@@ -107,5 +106,4 @@ export const iconSizeMap: Record<SizeProps, any> = {
   lg: 20,
 };
 
-export const getIconSize = (size?: SizeProps) =>
-  size ? iconSizeMap[size] : iconSizeMap["icon"];
+export const getIconSize = (size?: SizeProps) => (size ? iconSizeMap[size] : iconSizeMap["icon"]);

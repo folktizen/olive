@@ -9,8 +9,7 @@ export const totalOrderSlotsDone = (order: Order) => {
    * As it's not possible to use the slot timestamp, we use the start time
    * for this 1 slot order.
    */
-  if (!order.orderSlots.length)
-    return order.startTime < currentTimestampInSeconds ? 1 : 0;
+  if (!order.orderSlots.length) return order.startTime < currentTimestampInSeconds ? 1 : 0;
 
   return order.orderSlots.reduce((count, orderTimestamp) => {
     if (Number(orderTimestamp) < currentTimestampInSeconds) return ++count;
@@ -26,8 +25,7 @@ export const allOrderSlotsDone = (order: Order) => {
 };
 
 export const totalFundsAmount = (order: Order) => {
-  const total =
-    convertedAmount(order.amount, order.sellToken.decimals) + stacklyFee(order);
+  const total = convertedAmount(order.amount, order.sellToken.decimals) + stacklyFee(order);
 
   return total.toFixed(2);
 };

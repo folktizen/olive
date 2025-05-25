@@ -8,8 +8,7 @@ export enum ChainId {
 /**
  * Native token addresses. Same for all networks.
  */
-export const NATIVE_TOKEN_ADDRESS =
-  "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
+export const NATIVE_TOKEN_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
 /**
  * Multicall contract addresses. Same for all networks.

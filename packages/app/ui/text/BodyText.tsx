@@ -19,21 +19,10 @@ interface BodyTextProps extends TextProps {
   size?: 1 | 2 | 3 | "responsive";
 }
 
-export const BodyText = ({
-  children,
-  size,
-  className,
-  weight,
-  as,
-}: BodyTextProps) => {
+export const BodyText = ({ children, size, className, weight, as }: BodyTextProps) => {
   const TextComponent = as || "p";
   return (
-    <TextComponent
-      className={cx(
-        boldStyles({ weight }),
-        bodyTextStyles({ size, className })
-      )}
-    >
+    <TextComponent className={cx(boldStyles({ weight }), bodyTextStyles({ size, className }))}>
       {children}
     </TextComponent>
   );

@@ -6,10 +6,7 @@ export default function Logo() {
   return (
     <>
       <StacklyLogoIcon title="Stackly logo icon" />
-      <StacklyLogoNameImg
-        title="Stackly logo name"
-        className="hidden ml-3 md:block"
-      />
+      <StacklyLogoNameImg title="Stackly logo name" className="hidden ml-3 md:block" />
     </>
   );
 }

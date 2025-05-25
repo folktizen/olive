@@ -1,1 +1,6 @@
+# Ignore build and generated files for Prettier
+node_modules/
+dist/
+build/
+generated/
 src/generated/*

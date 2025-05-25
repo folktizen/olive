@@ -88,11 +88,7 @@ const OrderFragment = gql`
 
 const getUserOrdersQuery = gql`
   query getUserOrders($userAddress: String!) {
-    orders: dcaorders(
-      where: { owner: $userAddress }
-      orderBy: createdAt
-      orderDirection: desc
-    ) {
+    orders: dcaorders(where: { owner: $userAddress }, orderBy: createdAt, orderDirection: desc) {
       ...OrderFragment
     }
   }
@@ -107,11 +103,7 @@ const getUserActiveOrdersQuery = gql`
     $currentTimestamp: Int!
   ) {
     orders: dcaorders(
-      where: {
-        owner: $userAddress
-        cancelledAt: null
-        endTime_gt: $currentTimestamp
-      }
+      where: { owner: $userAddress, cancelledAt: null, endTime_gt: $currentTimestamp }
       first: $first
       skip: $skip
       limit: 10
@@ -132,11 +124,7 @@ const getUserCompleteOrdersQuery = gql`
     $currentTimestamp: Int!
   ) {
     orders: dcaorders(
-      where: {
-        owner: $userAddress
-        cancelledAt: null
-        endTime_lt: $currentTimestamp
-      }
+      where: { owner: $userAddress, cancelledAt: null, endTime_lt: $currentTimestamp }
       first: $first
       skip: $skip
       limit: 10
@@ -180,10 +168,7 @@ const getOrderQuery = gql`
  * @param userAddress - User address
  * @returns
  */
-export async function getUserOrders(
-  client: GraphQLClient,
-  userAddress: string
-) {
+export async function getUserOrders(client: GraphQLClient, userAddress: string) {
   const response = await client.request<{
     orders: Order[];
   }>(getUserOrdersQuery, {
@@ -206,7 +191,7 @@ export async function getUserActiveOrders(
   userAddress: string,
   currentTimestamp: number,
   skip?: number,
-  first?: number
+  first?: number,
 ) {
   const response = await client.request<{
     orders: Order[];
@@ -234,7 +219,7 @@ export async function getUserCompleteOrders(
   userAddress: string,
   currentTimestamp: number,
   skip?: number,
-  first?: number
+  first?: number,
 ) {
   const response = await client.request<{
     orders: Order[];
@@ -260,7 +245,7 @@ export async function getUserCancelledOrders(
   client: GraphQLClient,
   userAddress: string,
   skip?: number,
-  first?: number
+  first?: number,
 ) {
   const response = await client.request<{
     orders: Order[];

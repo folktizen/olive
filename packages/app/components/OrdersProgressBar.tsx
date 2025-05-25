@@ -9,9 +9,7 @@ const FULL_BAR_WIDTH = 100;
 
 export const OrdersProgressBar = ({ stackOrder }: StackOrderProps) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
-  const totalOrders = stackOrder.orderSlots.length
-    ? stackOrder.orderSlots.length
-    : 1;
+  const totalOrders = stackOrder.orderSlots.length ? stackOrder.orderSlots.length : 1;
 
   useEffect(() => {
     if (progressBarRef.current) {

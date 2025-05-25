@@ -15,7 +15,7 @@ export function ModalHeader({ children, className }: ModalHeaderProps) {
       as="div"
       className={twMerge(
         "flex items-center justify-between w-full px-4 py-4 border-b md:px-6 border-surface-50",
-        className
+        className,
       )}
     >
       {children}

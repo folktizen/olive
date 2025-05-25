@@ -1,0 +1,21 @@
+# Ignore build, cache, and generated files for Prettier
+node_modules/
+dist/
+build/
+.turbo/
+.next/
+out/
+cache/
+generated/
+abis/
+broadcast/
+storage/
+tests/
+scripts/
+lib/
+artifacts/
+coverage/
+public/
+.env*
+*.json
+*.lock

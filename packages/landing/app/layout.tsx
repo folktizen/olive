@@ -35,11 +35,7 @@ export const metadata: Metadata = {
     "Stackly is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={stabilGrotesk.variable}>
       <body className="font-sans bg-surface-25 text-em-high">

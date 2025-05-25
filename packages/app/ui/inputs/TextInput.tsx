@@ -10,13 +10,7 @@ interface TextInputProps extends InputProps {
   label?: string;
 }
 
-export const TextInput = ({
-  className,
-  error,
-  id,
-  label,
-  ...inputProps
-}: TextInputProps) => (
+export const TextInput = ({ className, error, id, label, ...inputProps }: TextInputProps) => (
   <Field className="flex flex-col gap-2">
     {label && (
       <Label htmlFor={id}>
@@ -31,12 +25,10 @@ export const TextInput = ({
           "placeholder:text-sm placeholder:text-em-low ",
           "w-full min-h-10 rounded-3xl px-3 py-2",
         ],
-        className
+        className,
       )}
       {...inputProps}
     />
-    {!!error && (
-      <CaptionText className="text-danger-500 font-bold">{error}</CaptionText>
-    )}
+    {!!error && <CaptionText className="text-danger-500 font-bold">{error}</CaptionText>}
   </Field>
 );

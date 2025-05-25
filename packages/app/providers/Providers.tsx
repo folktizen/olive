@@ -29,9 +29,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
             <TokenListProvider>
               <ModalContextProvider>
                 <StrategyContextProvider>
-                  <StackboxFormContextProvider>
-                    {children}
-                  </StackboxFormContextProvider>
+                  <StackboxFormContextProvider>{children}</StackboxFormContextProvider>
                 </StrategyContextProvider>
               </ModalContextProvider>
             </TokenListProvider>

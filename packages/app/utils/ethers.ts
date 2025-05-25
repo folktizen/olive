@@ -13,21 +13,16 @@ export function clientToProvider(client: Client<Transport, Chain>) {
   if (transport.type === "fallback")
     return new providers.FallbackProvider(
       (transport.transports as ReturnType<Transport>[]).map(
-        ({ value }) => new providers.JsonRpcProvider(value?.url, network)
-      )
+        ({ value }) => new providers.JsonRpcProvider(value?.url, network),
+      ),
     );
   return new providers.JsonRpcProvider(transport.url, network);
 }
 
 /** Hook to convert a viem Client to an ethers.js Provider. */
-export function useEthersProvider({
-  chainId,
-}: { chainId?: number | undefined } = {}) {
+export function useEthersProvider({ chainId }: { chainId?: number | undefined } = {}) {
   const client = useClient<Config>({ chainId });
-  return useMemo(
-    () => (client ? clientToProvider(client) : undefined),
-    [client]
-  );
+  return useMemo(() => (client ? clientToProvider(client) : undefined), [client]);
 }
 
 export function clientToSigner(client: Client<Transport, Chain, Account>) {

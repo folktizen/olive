@@ -13,13 +13,7 @@ interface CheckboxProps {
   onChange: (checked: boolean) => void;
 }
 
-export const Checkbox = ({
-  checked,
-  className,
-  id,
-  label,
-  onChange,
-}: CheckboxProps) => {
+export const Checkbox = ({ checked, className, id, label, onChange }: CheckboxProps) => {
   return (
     <Field className="flex items-center gap-2">
       <BaseCheckbox
@@ -29,7 +23,7 @@ export const Checkbox = ({
             "appearance-none border-2 border-em-low h-4 w-4 rounded-md cursor-pointer",
             "data-[checked]:bg-primary-800 data-[checked]:border-none",
           ],
-          className
+          className,
         )}
         id={id}
         onChange={onChange}

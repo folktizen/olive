@@ -20,11 +20,7 @@ export const TokenIcon = ({ className, size, token }: TokenIconProps) => {
   const { getTokenFromList, getTokenLogoURL } = useTokenListContext();
   const [isImgBroken, setIsImgBroken] = useState<Boolean>(false);
 
-  if (
-    !isAddress(token.address) ||
-    !getTokenFromList(token.address) ||
-    isImgBroken
-  )
+  if (!isAddress(token.address) || !getTokenFromList(token.address) || isImgBroken)
     return <DefaultTokenIcon token={token} className={className} size={size} />;
 
   return (
@@ -46,7 +42,7 @@ const DefaultTokenIcon = ({ token, size, className }: TokenIconProps) => (
     className={twMerge(
       tokenIconStyles({ size }),
       className,
-      "bg-primary-100 border border-primary-200 break-all"
+      "bg-primary-100 border border-primary-200 break-all",
     )}
   >
     {token.symbol}
@@ -69,5 +65,5 @@ export const tokenIconStyles = cva(
     defaultVariants: {
       size: "sm",
     },
-  }
+  },
 );

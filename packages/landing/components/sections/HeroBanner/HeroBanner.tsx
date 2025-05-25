@@ -4,14 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { trackEvent } from "@/analytics";
 
-import {
-  BodyText,
-  ButtonLink,
-  DisplayText,
-  HeadingText,
-  Icon,
-  TitleText,
-} from "@/ui";
+import { BodyText, ButtonLink, DisplayText, HeadingText, Icon, TitleText } from "@/ui";
 import { EVENTS } from "@/analytics";
 import { OLIVE_APP_URL } from "@/constants";
 
@@ -72,11 +65,7 @@ export const HeroBanner = () => {
         Start stacking now
       </ButtonLink>
       <div className="relative mx-auto mt-12 mb-24 max-w-4xl md:my-20">
-        <Link
-          passHref
-          href={OLIVE_APP_URL}
-          className="block relative mx-auto w-fit"
-        >
+        <Link passHref href={OLIVE_APP_URL} className="block relative mx-auto w-fit">
           <div className="invisible sm:visible absolute w-[3px] h-[26px] bg-em-med bottom-[60px] left-[17px] animate-cursor-blink"></div>
           <Image
             className="mx-auto rounded-2xl border shadow-xl hover:shadow-2xl border-surface-50"

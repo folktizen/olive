@@ -11,7 +11,7 @@ export const getExplorerLink = (
   chainId: ChainId,
   subPath: string,
   path: "tx" | "address",
-  fragment?: string
+  fragment?: string,
 ) => {
   const baseUrl = EXPLORER_URL_BY_CHAIN[chainId];
 

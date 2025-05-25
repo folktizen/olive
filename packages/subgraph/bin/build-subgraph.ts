@@ -14,9 +14,7 @@ async function main() {
   const network = process.argv[2] as string | undefined;
   // validate network
   if (!network || !SUPPORTED_NETWORKS.includes(network)) {
-    throw new Error(
-      `Invalid network. Must be one of: ${SUPPORTED_NETWORKS.join(", ")}`
-    );
+    throw new Error(`Invalid network. Must be one of: ${SUPPORTED_NETWORKS.join(", ")}`);
   }
 
   const subgraph = {

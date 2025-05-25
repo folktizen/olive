@@ -39,17 +39,9 @@ export abstract class BaseCurrency {
    * @param symbol symbol of the currency
    * @param name of the currency
    */
-  protected constructor(
-    chainId: number,
-    decimals: number,
-    symbol?: string,
-    name?: string
-  ) {
+  protected constructor(chainId: number, decimals: number, symbol?: string, name?: string) {
     invariant(Number.isSafeInteger(chainId), "CHAIN_ID");
-    invariant(
-      decimals >= 0 && decimals < 255 && Number.isInteger(decimals),
-      "DECIMALS"
-    );
+    invariant(decimals >= 0 && decimals < 255 && Number.isInteger(decimals), "DECIMALS");
 
     this.chainId = chainId;
     this.decimals = decimals;

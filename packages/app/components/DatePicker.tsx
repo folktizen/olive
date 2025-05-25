@@ -28,12 +28,8 @@ export function DatePicker({
   const [hours, setHours] = useState(format(currentDate, "HH"));
   const [minutes, setMinutes] = useState(format(currentDate, "mm"));
 
-  const [referenceElement, setReferenceElement] = useState<
-    HTMLButtonElement | undefined
-  >();
-  const [popperElement, setPopperElement] = useState<
-    HTMLDivElement | undefined
-  >();
+  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | undefined>();
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | undefined>();
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: "bottom",
@@ -62,7 +58,7 @@ export function DatePicker({
             ref={setReferenceElement as Ref<HTMLButtonElement>}
             className={twMerge(
               "flex justify-between items-center focus:border-0 outline-0",
-              className
+              className,
             )}
           >
             <span className="text-em-med">{formattedDate()}</span>
@@ -70,10 +66,7 @@ export function DatePicker({
           </Popover.Button>
           {open && (
             <>
-              <div
-                className="fixed inset-0 z-20 bg-black/30"
-                aria-hidden="true"
-              />
+              <div className="fixed inset-0 z-20 bg-black/30" aria-hidden="true" />
               <Popover.Panel
                 ref={setPopperElement as Ref<HTMLDivElement>}
                 style={styles.popper}
@@ -107,17 +100,12 @@ export function DatePicker({
                               pattern="[0-9]*"
                               value={hours}
                               onKeyDown={(evt) =>
-                                ["e", "E", "+", "-"].includes(evt.key) &&
-                                evt.preventDefault()
+                                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
                               }
                               onChange={(event) => {
                                 const hours = event.target.value;
                                 const hoursNumber = Number(hours);
-                                if (
-                                  hoursNumber >= 0 &&
-                                  hoursNumber < 24 &&
-                                  hours.length < 3
-                                ) {
+                                if (hoursNumber >= 0 && hoursNumber < 24 && hours.length < 3) {
                                   setHours(hours);
                                 }
                               }}
@@ -131,8 +119,7 @@ export function DatePicker({
                               pattern="[0-9]*"
                               value={minutes}
                               onKeyDown={(evt) =>
-                                ["e", "E", "+", "-"].includes(evt.key) &&
-                                evt.preventDefault()
+                                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
                               }
                               onChange={(event) => {
                                 const minutes = event.target.value;

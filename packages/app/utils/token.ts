@@ -1,10 +1,7 @@
 export const addressShortner = (address: string, elements: number = 4) =>
   address.slice(0, elements) + "..." + address.slice(-elements);
 
-export const formatTokenValue = (
-  value: number | string,
-  decimals: number = 4
-) => {
+export const formatTokenValue = (value: number | string, decimals: number = 4) => {
   if (value === 0) return value.toFixed(2);
 
   const relevantZeroDecimals = new Array(decimals - 1).fill(0).join("");

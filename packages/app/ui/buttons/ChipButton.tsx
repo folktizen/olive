@@ -49,7 +49,7 @@ export function ChipButton({
           active,
           className,
         }),
-        chipButtonStyles({ active, size })
+        chipButtonStyles({ active, size }),
       )}
       disabled={disabled}
       id={id}

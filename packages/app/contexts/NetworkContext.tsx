@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import type { Chain } from "viem/chains";
 import { ChainId } from "@useolive/sdk";
 import { arbitrum } from "wagmi/chains";
@@ -45,14 +39,11 @@ interface NetworkContextProviderProps {
 
 const INVALID_CHAIN_ID = 0;
 
-export const NetworkContextProvider = ({
-  children,
-}: NetworkContextProviderProps) => {
+export const NetworkContextProvider = ({ children }: NetworkContextProviderProps) => {
   const { chains } = config;
   const { isConnected, chain } = useAccount();
 
-  const [searchParamsChainId, setSearchParamsChainId] =
-    useQueryState("chainId");
+  const [searchParamsChainId, setSearchParamsChainId] = useQueryState("chainId");
 
   const [selectedChain, setSelectedChain] = useState<WagmiChain>(arbitrum);
   const [selectedChainId, setSelectedChainId] = useState<ChainId>(arbitrum.id);
@@ -61,9 +52,7 @@ export const NetworkContextProvider = ({
     config.setState((oldState: any) => {
       const { publicClient } = oldState;
 
-      const newChain: Chain | undefined = chains?.find(
-        (chain: any) => chain.id === newChainId
-      );
+      const newChain: Chain | undefined = chains?.find((chain: any) => chain.id === newChainId);
 
       if (!newChain) return oldState;
 
@@ -94,12 +83,9 @@ export const NetworkContextProvider = ({
       ? parseInt(searchParamsChainId)
       : INVALID_CHAIN_ID;
 
-    const newChainIsDiferentFromCurrent =
-      parsedSearchParamsChainId !== chain?.id;
+    const newChainIsDiferentFromCurrent = parsedSearchParamsChainId !== chain?.id;
 
-    const isValidSearchParamsChainId = checkIsValidChainId(
-      parsedSearchParamsChainId
-    );
+    const isValidSearchParamsChainId = checkIsValidChainId(parsedSearchParamsChainId);
 
     if (isValidSearchParamsChainId) {
       if (isConnected && switchChain && newChainIsDiferentFromCurrent) {
@@ -109,7 +95,7 @@ export const NetworkContextProvider = ({
 
       if (chains) {
         const chainFromSearchParams = chains.find(
-          (chain) => chain.id === parsedSearchParamsChainId
+          (chain) => chain.id === parsedSearchParamsChainId,
         );
 
         if (chainFromSearchParams) {
@@ -151,11 +137,7 @@ export const NetworkContextProvider = ({
     setChainId: setSelectedChainId,
   };
 
-  return (
-    <NetworkContext.Provider value={networkContext}>
-      {children}
-    </NetworkContext.Provider>
-  );
+  return <NetworkContext.Provider value={networkContext}>{children}</NetworkContext.Provider>;
 };
 
 export const useNetworkContext = () => useContext(NetworkContext);

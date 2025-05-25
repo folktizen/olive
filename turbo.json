@@ -26,6 +26,9 @@
     },
     "typecheck": {
       "cache": false
+    },
+    "format": {
+      "outputs": []
     }
   }
 }

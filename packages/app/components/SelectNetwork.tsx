@@ -45,9 +45,7 @@ export const SelectNetwork = () => {
         >
           <div className="flex items-center space-x-2">
             <CustomChainIcon size={20} id={chainId} />
-            <span className="hidden md:inline-block">
-              {selectedChain?.name}
-            </span>
+            <span className="hidden md:inline-block">{selectedChain?.name}</span>
           </div>
         </Listbox.Button>
         <Transition
@@ -72,10 +70,7 @@ export const SelectNetwork = () => {
                       </div>
                       {selected ? (
                         <div className="flex absolute inset-y-0 right-0 items-center pr-3 text-amber-600">
-                          <Icon
-                            name="check"
-                            className="w-4 h-4 text-primary-600"
-                          />
+                          <Icon name="check" className="w-4 h-4 text-primary-600" />
                         </div>
                       ) : null}
                     </>

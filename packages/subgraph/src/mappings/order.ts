@@ -55,14 +55,10 @@ export function handleDCAOrderInitialized(event: Initialized): void {
     : tryOwner.value;
 
   let trySellToken = orderContract.try_sellToken();
-  order.sellToken = trySellToken.reverted
-    ? ""
-    : createOrReturnTokenEntity(trySellToken.value).id;
+  order.sellToken = trySellToken.reverted ? "" : createOrReturnTokenEntity(trySellToken.value).id;
 
   let tryBuyToken = orderContract.try_buyToken();
-  order.buyToken = tryBuyToken.reverted
-    ? ""
-    : createOrReturnTokenEntity(tryBuyToken.value).id;
+  order.buyToken = tryBuyToken.reverted ? "" : createOrReturnTokenEntity(tryBuyToken.value).id;
 
   let tryReceiver = orderContract.try_receiver();
   order.receiver = tryReceiver.reverted
@@ -76,9 +72,7 @@ export function handleDCAOrderInitialized(event: Initialized): void {
   if (event.transaction.to !== null) {
     orderFactoryAddress = event.transaction.to as Address;
   } else {
-    orderFactoryAddress = Address.fromString(
-      "0x0000000000000000000000000000000000000000"
-    );
+    orderFactoryAddress = Address.fromString("0x0000000000000000000000000000000000000000");
   }
 
   const factory = OrderFactory.bind(orderFactoryAddress);
@@ -96,9 +90,7 @@ export function handleDCAOrderInitialized(event: Initialized): void {
   order.amount = tryAmount.reverted ? BigInt.fromI32(0) : tryAmount.value;
 
   order.fee = protocolFee;
-  order.feeAmount = order.amount
-    .times(protocolFee)
-    .div(HUNDRED_PERCENT.minus(protocolFee));
+  order.feeAmount = order.amount.times(protocolFee).div(HUNDRED_PERCENT.minus(protocolFee));
 
   let tryEndTime = orderContract.try_endTime();
   order.endTime = tryEndTime.reverted ? 0 : tryEndTime.value.toI32();

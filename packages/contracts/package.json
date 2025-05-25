@@ -11,8 +11,7 @@
   "scripts": {
     "build": "forge build",
     "clean": "forge clean",
-    "lint": "forge fmt --check && prettier --check . !./src !./lib !./scripts !./tests !./.turbo !./abis !./out",
-    "format": "forge fmt && prettier --write . !./src !./lib !./scripts !./tests !./.turbo !./abis !./out",
+    "format": "prettier --write . --ignore-path ../../.prettierignore && forge fmt",
     "test": "forge test",
     "test:coverage": "forge coverage",
     "test:gasreport": "forge test --gas-report",

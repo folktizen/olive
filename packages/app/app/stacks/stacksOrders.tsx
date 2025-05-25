@@ -10,12 +10,7 @@ import {
   filterCompletedOrders,
   getStackOrders,
 } from "@/models/stack-order";
-import {
-  getActiveOrders,
-  getCancelledOrders,
-  getCompleteOrders,
-  getOrders,
-} from "@/models/order";
+import { getActiveOrders, getCancelledOrders, getCompleteOrders, getOrders } from "@/models/order";
 import { ChainId, Order } from "@useolive/sdk";
 import { ButtonLink, HeadingText } from "@/ui";
 import { EmptyState, StacksTable, tabButtonStyles } from "@/components";
@@ -60,9 +55,7 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
   const [allOrders, setAllOrders] = useState<Order[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [stackStateIndex, setStackStateIndex] = useState<StackStateIndex>(0);
-  const [currentStackOrders, setCurrentStackOrders] = useState<StackOrder[]>(
-    []
-  );
+  const [currentStackOrders, setCurrentStackOrders] = useState<StackOrder[]>([]);
 
   const resetState = () => {
     setLoadingStacks(true);
@@ -77,15 +70,11 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
 
   const totalStacksComplete = filterCompletedOrders(allOrders).length;
   const stackCompletedTotalPages =
-    totalStacksComplete > ITEMS_PER_PAGE
-      ? totalStacksComplete / ITEMS_PER_PAGE
-      : 1;
+    totalStacksComplete > ITEMS_PER_PAGE ? totalStacksComplete / ITEMS_PER_PAGE : 1;
 
   const totalStacksCancelled = filterCancelledOrders(allOrders).length;
   const stackCancelledTotalPages =
-    totalStacksCancelled > ITEMS_PER_PAGE
-      ? totalStacksCancelled / ITEMS_PER_PAGE
-      : 1;
+    totalStacksCancelled > ITEMS_PER_PAGE ? totalStacksCancelled / ITEMS_PER_PAGE : 1;
 
   const skipItems = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -166,13 +155,12 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
         .finally(() => setLoadingStacks(false));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [address, chainId, currentPage]
+    [address, chainId, currentPage],
   );
 
   useEffect(() => fetchStacks(stackStateIndex), [fetchStacks, stackStateIndex]);
 
-  if (!loadingStacks && !loadingAllStacks && allOrders.length === 0)
-    return <EmptyStatePage />;
+  if (!loadingStacks && !loadingAllStacks && allOrders.length === 0) return <EmptyStatePage />;
 
   return (
     <>
@@ -185,11 +173,7 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
             </div>
           )}
         </div>
-        <ButtonLink
-          iconLeft="plus"
-          href={PATHNAMES.HOME}
-          className="hidden sm:flex"
-        >
+        <ButtonLink iconLeft="plus" href={PATHNAMES.HOME} className="hidden sm:flex">
           Create New Stack
         </ButtonLink>
       </div>
@@ -206,12 +190,10 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
                 Active <span className="ml-1 text-xs">{totalStacksActive}</span>
               </Tab>
               <Tab as="button" className={tabButtonStyles}>
-                Completed{" "}
-                <span className="ml-1 text-xs">{totalStacksComplete}</span>
+                Completed <span className="ml-1 text-xs">{totalStacksComplete}</span>
               </Tab>
               <Tab as="button" className={tabButtonStyles}>
-                Cancelled{" "}
-                <span className="ml-1 text-xs">{totalStacksCancelled}</span>
+                Cancelled <span className="ml-1 text-xs">{totalStacksCancelled}</span>
               </Tab>
             </div>
           </Tab.List>
@@ -228,14 +210,9 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
                         hasLessPages={hasLessPages}
                         nextPage={() => nextPage(stacks.numberOfPages)}
                         previousPage={previousPage}
-                        stackOrders={sortedOrdersByTime(
-                          stacks.orders,
-                          stacks.sort
-                        )}
+                        stackOrders={sortedOrdersByTime(stacks.orders, stacks.sort)}
                         fetchAllOrders={fetchAllOrders}
-                        refetchStacks={() =>
-                          fetchStacks(index as StackStateIndex)
-                        }
+                        refetchStacks={() => fetchStacks(index as StackStateIndex)}
                       />
                     ) : (
                       <EmptyState text={stacks.emptyText} />

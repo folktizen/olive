@@ -36,7 +36,7 @@ export const dialogPanelStyles = cva(
     defaultVariants: {
       maxWidth: "md",
     },
-  }
+  },
 );
 
 export function Modal({
@@ -81,9 +81,7 @@ export function Modal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel
-                className={cx(dialogPanelStyles({ maxWidth }), className)}
-              >
+              <Dialog.Panel className={cx(dialogPanelStyles({ maxWidth }), className)}>
                 {children}
               </Dialog.Panel>
             </Transition.Child>

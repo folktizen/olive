@@ -14,27 +14,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/ui";
-import {
-  cowExplorerUrl,
-  orderPairSymbolsText,
-  StackOrder,
-  StackOrderProps,
-} from "@/models";
+import { cowExplorerUrl, orderPairSymbolsText, StackOrder, StackOrderProps } from "@/models";
 import { useNetworkContext } from "@/contexts";
 
 const INITIAL_NUMBER_OF_COW_ORDERS = 8;
 const MORE_ORDERS_NUMBER = 4;
 
 export const StackOrdersTable = ({ stackOrder }: StackOrderProps) => {
-  const initialCowOrders =
-    stackOrder?.cowOrders?.slice(0, INITIAL_NUMBER_OF_COW_ORDERS) ?? [];
+  const initialCowOrders = stackOrder?.cowOrders?.slice(0, INITIAL_NUMBER_OF_COW_ORDERS) ?? [];
 
   const [cowOrders, setCowOrders] = useState<CowOrder[]>(initialCowOrders);
 
   const addMoreOrders = () =>
-    setCowOrders(
-      stackOrder.cowOrders.slice(0, cowOrders.length + MORE_ORDERS_NUMBER)
-    );
+    setCowOrders(stackOrder.cowOrders.slice(0, cowOrders.length + MORE_ORDERS_NUMBER));
 
   const hasMoreOrders = stackOrder?.cowOrders?.length > cowOrders.length;
 
@@ -111,11 +103,11 @@ const TableCowBody = ({
       {cowOrders.map((cowOrder) => {
         const executedBuyAmount = convertedAmount(
           cowOrder.executedBuyAmount,
-          stackOrder.buyToken.decimals
+          stackOrder.buyToken.decimals,
         );
         const executedSellAmount = convertedAmount(
           cowOrder.executedSellAmount,
-          stackOrder.sellToken.decimals
+          stackOrder.sellToken.decimals,
         );
         const averagePrice = executedSellAmount / executedBuyAmount;
 
@@ -126,16 +118,9 @@ const TableCowBody = ({
                 size={1}
                 className="text-primary-700 hover:underline hover:underline-offset-2"
               >
-                <Link
-                  target="_blank"
-                  href={cowExplorerUrl(chainId, cowOrder.uid)}
-                >
-                  <span className="md:hidden">
-                    {addressShortner(cowOrder.uid, 2)}
-                  </span>
-                  <span className="hidden md:inline-block">
-                    {addressShortner(cowOrder.uid)}
-                  </span>
+                <Link target="_blank" href={cowExplorerUrl(chainId, cowOrder.uid)}>
+                  <span className="md:hidden">{addressShortner(cowOrder.uid, 2)}</span>
+                  <span className="hidden md:inline-block">{addressShortner(cowOrder.uid)}</span>
                 </Link>
               </BodyText>
             </TableCell>

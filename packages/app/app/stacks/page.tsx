@@ -13,11 +13,7 @@ export default function Page() {
 
   return (
     <div className="space-y-8">
-      {chainId && address ? (
-        <StackOrders chainId={chainId} address={address} />
-      ) : (
-        <Loading />
-      )}
+      {chainId && address ? <StackOrders chainId={chainId} address={address} /> : <Loading />}
     </div>
   );
 }

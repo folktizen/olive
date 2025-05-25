@@ -1,14 +1,13 @@
 import { AddressZero } from "@ethersproject/constants";
 import { ChainId } from "../constants";
 
-export const ORDER_FACTORY_ADDRESS =
-  "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A";
+export const ORDER_FACTORY_ADDRESS = "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A";
 export const DCA_ORDER_ADDRESS = "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244";
 
 const validateVaultInfo = (
   chainId: ChainId,
   map: Record<ChainId, string> | Readonly<Record<string, string>>,
-  mapName: string
+  mapName: string,
 ) => {
   const address = map[chainId];
   if (!address || address === AddressZero) {
@@ -54,12 +53,9 @@ export const COW_SETTLEMENT_ADDRESS_LIST: Record<ChainId, string> = {
   [ChainId.BASE]: COW_SETTLEMENT_ADDRESS,
 };
 
-const OPTIMISM_SUBGRAPH_ENDPOINT_URL =
-  process.env.OPTIMISM_SUBGRAPH_API_URL || "";
-const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
-  process.env.ARBITRUM_SUBGRAPH_API_URL || "";
-const POLYGON_SUBGRAPH_ENDPOINT_URL =
-  process.env.POLYGON_SUBGRAPH_API_URL || "";
+const OPTIMISM_SUBGRAPH_ENDPOINT_URL = process.env.OPTIMISM_SUBGRAPH_API_URL || "";
+const ARBITRUM_SUBGRAPH_ENDPOINT_URL = process.env.ARBITRUM_SUBGRAPH_API_URL || "";
+const POLYGON_SUBGRAPH_ENDPOINT_URL = process.env.POLYGON_SUBGRAPH_API_URL || "";
 const BASE_SUBGRAPH_ENDPOINT_URL = process.env.BASE_SUBGRAPH_API_URL || "";
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<string, string>> = {
@@ -75,11 +71,7 @@ export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<string, string>> = {
  * @returns
  */
 export function getOrderFactoryAddress(chainId: ChainId): string {
-  return validateVaultInfo(
-    chainId,
-    ORDER_FACTORY_ADDRESS_LIST,
-    "Order factory"
-  );
+  return validateVaultInfo(chainId, ORDER_FACTORY_ADDRESS_LIST, "Order factory");
 }
 
 /**
@@ -88,11 +80,7 @@ export function getOrderFactoryAddress(chainId: ChainId): string {
  * @returns
  */
 export function getDCAOrderSingletonAddress(chainId: ChainId): string {
-  return validateVaultInfo(
-    chainId,
-    DCAORDER_SINGLETON_ADDRESS_LIST,
-    "DCAOrder singleton"
-  );
+  return validateVaultInfo(chainId, DCAORDER_SINGLETON_ADDRESS_LIST, "DCAOrder singleton");
 }
 
 /**
@@ -101,11 +89,7 @@ export function getDCAOrderSingletonAddress(chainId: ChainId): string {
  * @returns The address of the settlement contract
  */
 export function getCOWProtocolSettlementAddress(chainId: ChainId): string {
-  return validateVaultInfo(
-    chainId,
-    COW_SETTLEMENT_ADDRESS_LIST,
-    "CoW Settlement"
-  );
+  return validateVaultInfo(chainId, COW_SETTLEMENT_ADDRESS_LIST, "CoW Settlement");
 }
 
 /**

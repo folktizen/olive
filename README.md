@@ -46,7 +46,7 @@ Before you can run this project, make sure you have the following software insta
 
 ---
 
-## 🔎 Subgraph
+## 🔍 Subgraph
 
 To update the `subgraph.yaml`, go to `bin/build-subgraph.ts` and update the subgraph JSON. This script runs before deployment to create a new `subgraph.yaml`.
 
@@ -144,10 +144,10 @@ We welcome contributions! To get started:
 
 1. Fork this repo 🍴
 2. Create a new branch for your changes 🌱
-3. Make your changes and ensure your code passes linting and formatting:
+3. Make your changes and ensure your code passes formatting and typechecking:
 
    ```bash
-   bun lint
+   bun format
    bun typecheck
    ```
 
@@ -158,3 +158,17 @@ We welcome contributions! To get started:
 ## 📄 License
 
 Olive is released into the public domain under the [MIT](LICENSE). Enjoy! 🎉
+
+---
+
+## 🧹 Formatting & Linting
+
+- **Formatting:**
+  - Run `bun format` in the root or any package to format code using Prettier.
+  - Each package can have its own `.prettierignore` for custom ignore rules.
+  - Prettier config is shared via `@useolive/config`.
+- **Linting:**
+  - ESLint is not used in this monorepo. All linting is handled by Prettier formatting rules.
+  - If you need linting, add ESLint config to the relevant package.
+
+---

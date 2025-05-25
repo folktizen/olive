@@ -14,8 +14,7 @@ export const estimatedTotalStack = (order: StackOrder) => {
   const avgStackPrice = calculateStackAveragePrice(order);
 
   if (order.cowOrders && order.cowOrders.length > 0) {
-    estimation =
-      convertedAmount(order.amount, order.sellToken.decimals) / avgStackPrice;
+    estimation = convertedAmount(order.amount, order.sellToken.decimals) / avgStackPrice;
   }
 
   return estimation;
@@ -31,13 +30,10 @@ export const calculateStackAveragePrice = (order: StackOrder) => {
     if (cowOrder.executedBuyAmount === "0") return;
     if (cowOrder.status !== OrderStatus.FULFILLED) return;
 
-    totalExecutedBuyAmount += convertedAmount(
-      cowOrder.executedBuyAmount,
-      order.buyToken.decimals
-    );
+    totalExecutedBuyAmount += convertedAmount(cowOrder.executedBuyAmount, order.buyToken.decimals);
     totalExecutedSellAmount += convertedAmount(
       cowOrder.executedSellAmount,
-      order.sellToken.decimals
+      order.sellToken.decimals,
     );
   });
   const averagePrice = totalExecutedSellAmount / totalExecutedBuyAmount;
@@ -47,10 +43,7 @@ export const calculateStackAveragePrice = (order: StackOrder) => {
 export const totalFundsUsed = (order: StackOrder) => {
   const total =
     order.cowOrders?.reduce((acc, cowOrder) => {
-      return (
-        acc +
-        convertedAmount(cowOrder.executedSellAmount, order.sellToken.decimals)
-      );
+      return acc + convertedAmount(cowOrder.executedSellAmount, order.sellToken.decimals);
     }, 0) ?? 0;
 
   return total + stacklyFee(order);
@@ -58,9 +51,7 @@ export const totalFundsUsed = (order: StackOrder) => {
 
 export const totalStacked = (order: StackOrder) =>
   order.cowOrders?.reduce((acc, cowOrder) => {
-    return (
-      acc + convertedAmount(cowOrder.executedBuyAmount, order.buyToken.decimals)
-    );
+    return acc + convertedAmount(cowOrder.executedBuyAmount, order.buyToken.decimals);
   }, 0) ?? 0;
 
 export const stackHasRemainingFunds = (stackOrder: StackOrder) =>
@@ -75,8 +66,7 @@ export const stackRemainingFunds = (stackOrder: StackOrder) => {
   )
     return 0;
   return (
-    convertedAmount(stackOrder.amount, stackOrder.sellToken.decimals) -
-    totalFundsUsed(stackOrder)
+    convertedAmount(stackOrder.amount, stackOrder.sellToken.decimals) - totalFundsUsed(stackOrder)
   );
 };
 
@@ -84,6 +74,4 @@ export const stackIsComplete = (stackOrder: StackOrder) =>
   allOrderSlotsDone(stackOrder) && !stackHasRemainingFunds(stackOrder);
 
 export const stackIsFinishedWithFunds = (stackOrder: StackOrder) =>
-  allOrderSlotsDone(stackOrder) &&
-  stackHasRemainingFunds(stackOrder) &&
-  !stackOrder.cancelledAt;
+  allOrderSlotsDone(stackOrder) && stackHasRemainingFunds(stackOrder) && !stackOrder.cancelledAt;

@@ -79,17 +79,10 @@ export const StacksTable = ({
           {stackOrders.map((order) => (
             <TableRow key={order.id}>
               <TableCell className="flex items-center font-medium w-max">
-                <TokenLogoPair
-                  buyToken={order.buyToken}
-                  sellToken={order.sellToken}
-                />
+                <TokenLogoPair buyToken={order.buyToken} sellToken={order.sellToken} />
                 <div className="ml-3 space-y-0.5">
-                  <BodyText weight="bold">
-                    {formatTokenValue(totalStacked(order))}
-                  </BodyText>
-                  <CaptionText className="text-em-low">
-                    {orderPairSymbolsText(order)}
-                  </CaptionText>
+                  <BodyText weight="bold">{formatTokenValue(totalStacked(order))}</BodyText>
+                  <CaptionText className="text-em-low">{orderPairSymbolsText(order)}</CaptionText>
                 </div>
               </TableCell>
               <TableCell className="text-right">
@@ -107,23 +100,15 @@ export const StacksTable = ({
                   <BodyText className="text-em-high">
                     {formatTokenValue(calculateStackAveragePrice(order))}
                   </BodyText>
-                  <BodyText className="text-em-low">
-                    {orderPairSymbolsText(order)}
-                  </BodyText>
+                  <BodyText className="text-em-low">{orderPairSymbolsText(order)}</BodyText>
                 </CellWrapper>
               </TableCell>
               <TableCell className="text-right">
                 <CellWrapper>
                   {stackIsFinishedWithFunds(order) ? (
                     <div className="flex items-center p-1 space-x-1.5 rounded">
-                      <Icon
-                        name="warning"
-                        size={14}
-                        className="text-danger-500"
-                      />
-                      <OverlineText className="text-danger-500">
-                        Widthdraw funds
-                      </OverlineText>
+                      <Icon name="warning" size={14} className="text-danger-500" />
+                      <OverlineText className="text-danger-500">Widthdraw funds</OverlineText>
                     </div>
                   ) : (
                     <OrdersProgressText stackOrder={order} />
@@ -178,9 +163,7 @@ export const StacksTable = ({
 };
 
 const CellWrapper = ({ children }: PropsWithChildren) => (
-  <div className="flex items-center justify-end space-x-1 w-max lg:w-auto">
-    {children}
-  </div>
+  <div className="flex items-center justify-end space-x-1 w-max lg:w-auto">{children}</div>
 );
 
 const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
@@ -195,9 +178,7 @@ const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
   if (totalOrderSlotsDone(stackOrder) !== 0) {
     return (
       <>
-        <BodyText className="text-em-high">
-          {totalStackOrdersDone(stackOrder).toString()}
-        </BodyText>
+        <BodyText className="text-em-high">{totalStackOrdersDone(stackOrder).toString()}</BodyText>
         <BodyText className="text-em-low">{`/ ${
           stackOrder.orderSlots.length || stackOrder.cowOrders.length
         } orders`}</BodyText>
@@ -209,9 +190,5 @@ const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
   const date = new Date(firtTimeSlot * 1000); // Convert seconds to milliseconds
   const distanceToNow = formatDistanceToNow(date, { addSuffix: true });
 
-  return (
-    <BodyText className="text-primary-700">
-      {`Starts ${distanceToNow}`}
-    </BodyText>
-  );
+  return <BodyText className="text-primary-700">{`Starts ${distanceToNow}`}</BodyText>;
 };

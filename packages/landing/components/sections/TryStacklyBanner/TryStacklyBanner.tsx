@@ -36,9 +36,7 @@ export const TryStacklyBanner = () => {
           width="fit"
           className="px-6 mt-8 md:px-8 md:mt-20"
           onClick={() => {
-            trackEvent(
-              EVENTS.SECTIONS.TRY_OLIVE_BANNER.TRY_OLIVE_NOW_CLICK
-            );
+            trackEvent(EVENTS.SECTIONS.TRY_OLIVE_BANNER.TRY_OLIVE_NOW_CLICK);
           }}
         >
           Try Stackly Now

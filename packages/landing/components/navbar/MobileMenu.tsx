@@ -9,11 +9,7 @@ import { Button, ButtonLink } from "@/ui";
 import { EVENTS } from "@/analytics";
 import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants";
 
-export default function MobileMenu({
-  passedThresholdHeight,
-}: {
-  passedThresholdHeight: boolean;
-}) {
+export default function MobileMenu({ passedThresholdHeight }: { passedThresholdHeight: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -56,18 +52,10 @@ export default function MobileMenu({
             >
               Analytics
             </Link>
-            <Link
-              href="#how-it-works"
-              className="block py-3 text-em-med"
-              onClick={toggle}
-            >
+            <Link href="#how-it-works" className="block py-3 text-em-med" onClick={toggle}>
               How it works
             </Link>
-            <Link
-              href="#faqs"
-              className="block py-3 text-em-med"
-              onClick={toggle}
-            >
+            <Link href="#faqs" className="block py-3 text-em-med" onClick={toggle}>
               FAQ&apos;s
             </Link>
           </div>
