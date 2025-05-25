@@ -23,6 +23,10 @@
     {
       "name": "◆ @useolive/subgraph",
       "path": "../packages/subgraph"
+    },
+    {
+      "name": "◆ @useolive/config",
+      "path": "../packages/config"
     }
   ],
   "settings": {
@@ -49,8 +53,7 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "always",
       "source.fixAll": "always"

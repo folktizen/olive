@@ -6,7 +6,6 @@
   "description": "Shared linting and formatting config for Olive monorepo",
   "keywords": [
     "prettier",
-    "eslint",
     "config",
     "monorepo"
   ],

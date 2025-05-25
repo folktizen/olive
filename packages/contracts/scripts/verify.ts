@@ -25,30 +25,26 @@ const CONTRACTS_SRC: Record<string, string> = {
 const CHAIN_INFO: Record<string, { chainId: number; oklinkUrl: string }> = {
   optimism: {
     chainId: 10,
-    oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/optimism",
+    oklinkUrl: "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/optimism",
   },
   polygon: {
     chainId: 137,
-    oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon",
+    oklinkUrl: "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon",
   },
   base: {
     chainId: 8453,
-    oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/base",
+    oklinkUrl: "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/base",
   },
   arbitrum: {
     chainId: 42161,
-    oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/arbitrum",
+    oklinkUrl: "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/arbitrum",
   },
 };
 
 // Prints usage instructions and exits. Update if you add more CLI options.
 function usage(): never {
   console.log(
-    `Usage: bun run scripts/verify.ts <verifier> <api-key>\n  <verifier>: etherscan | oklink\n  <api-key>: Your API key for the selected verifier\n  `
+    `Usage: bun run scripts/verify.ts <verifier> <api-key>\n  <verifier>: etherscan | oklink\n  <api-key>: Your API key for the selected verifier\n  `,
   );
   process.exit(1);
 }
