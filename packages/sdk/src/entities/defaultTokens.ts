@@ -95,12 +95,12 @@ export const SWPR: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
   ),
 };
 
-export const WXDAI = new Token(
-  ChainId.GNOSIS,
-  "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
+export const WPOL = new Token(
+  ChainId.POLYGON,
+  "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
   18,
-  "WXDAI",
-  "Wrapped xDAI"
+  "WPOL",
+  "Wrapped POL"
 );
 
 export const DAI: Readonly<Record<ChainId.ETHEREUM | ChainId.ARBITRUM, Token>> =

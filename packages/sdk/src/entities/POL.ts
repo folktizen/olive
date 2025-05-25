@@ -1,16 +1,16 @@
 import { Currency } from "./Currency";
 import { NativeCurrency } from "./NativeCurrency";
-import { WXDAI } from "./defaultTokens";
+import { WPOL } from "./defaultTokens";
 /**
- * xDAI is the native currency of the Gnosis Chain chain
+ * POL is the native currency of the Polygon chain
  */
-export class xDAI extends NativeCurrency {
+export class POL extends NativeCurrency {
   constructor() {
-    super(100, 18, "xDAI", "xDAI");
+    super(137, 18, "POL", "POL");
   }
 
   get wrapped() {
-    return WXDAI;
+    return WPOL;
   }
 
   /**

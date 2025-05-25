@@ -1,21 +1,21 @@
-import { AddressZero } from "@ethersproject/constants";
-import type { ContractReceipt } from "@ethersproject/contracts";
 import type { Provider } from "@ethersproject/abstract-provider";
 import type { Signer } from "@ethersproject/abstract-signer";
+import { AddressZero } from "@ethersproject/constants";
+import type { ContractReceipt } from "@ethersproject/contracts";
 
+import { ChainId, MULTICALL_ADDRESS } from "../constants";
+import {
+  DCAOrder__factory,
+  ERC20__factory,
+  ERC20Bytes32__factory,
+  Multicall__factory,
+  OrderFactory,
+  OrderFactory__factory,
+} from "../generated/contracts";
 import {
   getCOWProtocolSettlementAddress,
   getDCAOrderSingletonAddress,
 } from "./constants";
-import { ChainId, MULTICALL_ADDRESS } from "../constants";
-import {
-  OrderFactory__factory,
-  DCAOrder__factory,
-  ERC20__factory,
-  OrderFactory,
-  Multicall__factory,
-  ERC20Bytes32__factory,
-} from "../generated/contracts";
 
 /**
  * Creates a contract instance for a DCA order
