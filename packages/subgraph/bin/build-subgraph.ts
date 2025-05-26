@@ -1,27 +1,29 @@
-import { writeFile } from "fs/promises";
-import { stringify as yamlStringify } from "yaml";
+import { writeFile } from "fs/promises"
+import { stringify as yamlStringify } from "yaml"
 
-import { config } from "./config";
+import { config } from "./config"
 
 /**
  * @see https://thegraph.com/docs/en/developing/supported-networks/
  * for supported chain names
  */
-const SUPPORTED_NETWORKS = ["optimism", "arbitrum-one", "matic", "base"];
+const SUPPORTED_NETWORKS = ["optimism", "arbitrum-one", "matic", "base"]
 
 async function main() {
   // get network from command line
-  const network = process.argv[2] as string | undefined;
+  const network = process.argv[2] as string | undefined
   // validate network
   if (!network || !SUPPORTED_NETWORKS.includes(network)) {
-    throw new Error(`Invalid network. Must be one of: ${SUPPORTED_NETWORKS.join(", ")}`);
+    throw new Error(
+      `Invalid network. Must be one of: ${SUPPORTED_NETWORKS.join(", ")}`
+    )
   }
 
   const subgraph = {
     specVersion: "0.0.4",
     features: ["nonFatalErrors"],
     schema: {
-      file: "./schema.graphql",
+      file: "./schema.graphql"
     },
     dataSources: [
       {
@@ -31,7 +33,7 @@ async function main() {
         source: {
           address: config[network].orderFactory.address,
           startBlock: config[network].orderFactory.startBlock,
-          abi: "OrderFactory",
+          abi: "OrderFactory"
         },
         mapping: {
           kind: "ethereum/events",
@@ -42,17 +44,17 @@ async function main() {
           abis: [
             {
               name: "OrderFactory",
-              file: "./abis/OrderFactory.json",
-            },
+              file: "./abis/OrderFactory.json"
+            }
           ],
           eventHandlers: [
             {
               event: "OrderCreated(indexed address)",
-              handler: "handleDCAOrderCreated",
-            },
-          ],
-        },
-      },
+              handler: "handleDCAOrderCreated"
+            }
+          ]
+        }
+      }
     ],
     templates: [
       {
@@ -60,7 +62,7 @@ async function main() {
         kind: "ethereum/contract",
         network,
         source: {
-          abi: "DCAOrder",
+          abi: "DCAOrder"
         },
         mapping: {
           kind: "ethereum/events",
@@ -71,33 +73,33 @@ async function main() {
           abis: [
             {
               name: "DCAOrder",
-              file: "./abis/DCAOrder.json",
+              file: "./abis/DCAOrder.json"
             },
             {
               name: "ERC20",
-              file: "./abis/ERC20.json",
+              file: "./abis/ERC20.json"
             },
             {
               name: "OrderFactory",
-              file: "./abis/OrderFactory.json",
-            },
+              file: "./abis/OrderFactory.json"
+            }
           ],
           eventHandlers: [
             {
               event: "Initialized(indexed address)",
-              handler: "handleDCAOrderInitialized",
+              handler: "handleDCAOrderInitialized"
             },
             {
               event: "Cancelled(indexed address)",
-              handler: "handleDCAOrderCancelled",
-            },
-          ],
-        },
-      },
-    ],
-  };
+              handler: "handleDCAOrderCancelled"
+            }
+          ]
+        }
+      }
+    ]
+  }
 
-  await writeFile(`./subgraph.yaml`, yamlStringify(subgraph));
+  await writeFile(`./subgraph.yaml`, yamlStringify(subgraph))
 }
 
-main();
+main()

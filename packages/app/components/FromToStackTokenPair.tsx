@@ -1,19 +1,19 @@
-import { Icon, TitleText } from "@/ui";
-import { TokenIcon } from "@/components/TokenIcon";
-import { Token } from "@/models/token";
+import { Icon, TitleText } from "@/ui"
+import { TokenIcon } from "@/components/TokenIcon"
+import { Token } from "@/models/token"
 
 interface FromToStackTokenPairProps {
-  fromToken: Token;
-  toToken: Token;
-  fromText: string;
-  toText: string;
+  fromToken: Token
+  toToken: Token
+  fromText: string
+  toText: string
 }
 
 export const FromToStackTokenPair = ({
   fromToken,
   fromText,
   toToken,
-  toText,
+  toText
 }: FromToStackTokenPairProps) => (
   <div className="flex items-center space-x-4 rounded-3xl w-fit">
     <div className="flex items-center space-x-2">
@@ -28,4 +28,4 @@ export const FromToStackTokenPair = ({
       <TitleText>{toText}</TitleText>
     </div>
   </div>
-);
+)

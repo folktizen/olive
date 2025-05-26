@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import { Tab } from "@headlessui/react";
+import { Tab } from "@headlessui/react"
 
-import { Strategy, useNetworkContext } from "@/contexts";
-import { tabButtonStyles } from "@/components";
+import { Strategy, useNetworkContext } from "@/contexts"
+import { tabButtonStyles } from "@/components"
 
-import { StrategyCard } from "./StrategyCard";
-import { STRATEGY_CATEGORIES } from "./constants";
+import { StrategyCard } from "./StrategyCard"
+import { STRATEGY_CATEGORIES } from "./constants"
 
 export const Strategies = () => {
-  const { chainId } = useNetworkContext();
+  const { chainId } = useNetworkContext()
 
-  const chainStrategies = STRATEGY_CATEGORIES[chainId];
+  const chainStrategies = STRATEGY_CATEGORIES[chainId]
 
-  if (!chainStrategies) return null;
+  if (!chainStrategies) return null
 
-  const strategyCategories = Object.values(STRATEGY_CATEGORIES[chainId]);
+  const strategyCategories = Object.values(STRATEGY_CATEGORIES[chainId])
 
   return (
     <div className="max-w-lg mx-auto">
@@ -43,5 +43,5 @@ export const Strategies = () => {
         </Tab.Panels>
       </Tab.Group>
     </div>
-  );
-};
+  )
+}

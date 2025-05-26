@@ -1,4 +1,4 @@
-import * as IconList from "public/assets/icons";
+import * as IconList from "public/assets/icons"
 
 export type IconName =
   | "arrow-external"
@@ -18,13 +18,13 @@ export type IconName =
   | "sparkles"
   | "stackly"
   | "swap"
-  | "warning";
+  | "warning"
 
 interface IconProps {
-  alt?: string;
-  className?: string;
-  name: IconName;
-  size?: number;
+  alt?: string
+  className?: string
+  name: IconName
+  size?: number
 }
 
 export const iconMap: Record<IconName, any> = {
@@ -45,13 +45,18 @@ export const iconMap: Record<IconName, any> = {
   sparkles: IconList.SparklesIcon,
   stackly: IconList.StacklyLogoIcon,
   swap: IconList.SwapIcon,
-  warning: IconList.WarningIcon,
-};
+  warning: IconList.WarningIcon
+}
 
 export const Icon = ({ alt, className, name, size = 20 }: IconProps) => {
-  const IconComponent = iconMap[name];
+  const IconComponent = iconMap[name]
 
   return (
-    <IconComponent className={className} height={size} title={alt ? alt : name} width={size} />
-  );
-};
+    <IconComponent
+      className={className}
+      height={size}
+      title={alt ? alt : name}
+      width={size}
+    />
+  )
+}

@@ -1,4 +1,4 @@
-import { Stackbox, Strategies } from "@/components";
+import { Stackbox, Strategies } from "@/components"
 
 export default function Home() {
   return (
@@ -6,5 +6,5 @@ export default function Home() {
       <Stackbox />
       <Strategies />
     </div>
-  );
+  )
 }

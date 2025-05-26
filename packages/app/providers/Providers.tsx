@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"
 
-import { ConnectKitProvider } from "connectkit";
-import { WagmiProvider } from "wagmi";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ConnectKitProvider } from "connectkit"
+import { WagmiProvider } from "wagmi"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-import { config } from "./wagmi-config";
+import { config } from "./wagmi-config"
 import {
   ModalContextProvider,
   NetworkContextProvider,
   StackboxFormContextProvider,
   StrategyContextProvider,
-  TokenListProvider,
-} from "@/contexts";
+  TokenListProvider
+} from "@/contexts"
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
@@ -29,7 +29,9 @@ export const Providers = ({ children }: PropsWithChildren) => {
             <TokenListProvider>
               <ModalContextProvider>
                 <StrategyContextProvider>
-                  <StackboxFormContextProvider>{children}</StackboxFormContextProvider>
+                  <StackboxFormContextProvider>
+                    {children}
+                  </StackboxFormContextProvider>
                 </StrategyContextProvider>
               </ModalContextProvider>
             </TokenListProvider>
@@ -37,5 +39,5 @@ export const Providers = ({ children }: PropsWithChildren) => {
         </ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  );
-};
+  )
+}

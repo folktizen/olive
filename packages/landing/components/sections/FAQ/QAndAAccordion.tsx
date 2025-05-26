@@ -1,18 +1,23 @@
-"use client";
+"use client"
 
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useState } from "react"
 
-import { Icon } from "@/ui";
+import { Icon } from "@/ui"
 
 interface QAndAAccordionProps extends PropsWithChildren {
-  onClick?: (args?: any) => void;
-  question: string;
-  startOpen?: boolean;
+  onClick?: (args?: any) => void
+  question: string
+  startOpen?: boolean
 }
 
-export const QAndAAccordion = ({ children, onClick, question, startOpen }: QAndAAccordionProps) => {
-  const [isOpen, setIsOpen] = useState(startOpen ?? false);
-  const toggle = () => setIsOpen(!isOpen);
+export const QAndAAccordion = ({
+  children,
+  onClick,
+  question,
+  startOpen
+}: QAndAAccordionProps) => {
+  const [isOpen, setIsOpen] = useState(startOpen ?? false)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div
@@ -26,15 +31,19 @@ export const QAndAAccordion = ({ children, onClick, question, startOpen }: QAndA
       ${isOpen ? "shadow-md" : "shadow-sm"}
       `}
       onClick={() => {
-        if (onClick && !isOpen) onClick();
-        toggle();
+        if (onClick && !isOpen) onClick()
+        toggle()
       }}
     >
       <div className="flex items-center justify-between">
         <p className="text-lg font-semibold md:text-xl">{question}</p>
         <Icon name={isOpen ? "caret-up" : "caret-down"} />
       </div>
-      {isOpen && <div className="space-y-3 text-lg font-medium text-em-med">{children}</div>}
+      {isOpen && (
+        <div className="space-y-3 text-lg font-medium text-em-med">
+          {children}
+        </div>
+      )}
     </div>
-  );
-};
+  )
+}

@@ -5,7 +5,7 @@ export const arbitrumTokens = {
     symbol: "ARB",
     decimals: 18,
     logoURI: "/assets/images/tokens/arb.png",
-    chainId: 42161,
+    chainId: 42161
   },
 
   USDC: {
@@ -14,7 +14,7 @@ export const arbitrumTokens = {
     symbol: "USDC",
     decimals: 6,
     logoURI: "/assets/images/tokens/usdc.png",
-    chainId: 42161,
+    chainId: 42161
   },
   WBTC: {
     address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
@@ -22,7 +22,7 @@ export const arbitrumTokens = {
     symbol: "WBTC",
     decimals: 8,
     logoURI: "/assets/images/tokens/wbtc.png",
-    chainId: 42161,
+    chainId: 42161
   },
   WETH: {
     address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
@@ -30,7 +30,7 @@ export const arbitrumTokens = {
     symbol: "WETH",
     decimals: 18,
     logoURI: "/assets/images/tokens/weth.png",
-    chainId: 42161,
+    chainId: 42161
   },
   DAI: {
     address: "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
@@ -38,7 +38,7 @@ export const arbitrumTokens = {
     symbol: "DAI",
     decimals: 18,
     logoURI: "/assets/images/tokens/dai.png",
-    chainId: 42161,
+    chainId: 42161
   },
   SWPR: {
     address: "0xdE903E2712288A1dA82942DDdF2c20529565aC30",
@@ -46,6 +46,6 @@ export const arbitrumTokens = {
     symbol: "SWPR",
     decimals: 18,
     logoURI: "/assets/images/tokens/swapr.png",
-    chainId: 42161,
-  },
-};
+    chainId: 42161
+  }
+}

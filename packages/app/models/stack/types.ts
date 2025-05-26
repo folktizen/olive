@@ -1,13 +1,13 @@
-import { ChainId } from "@useolive/sdk";
+import { ChainId } from "@useolive/sdk"
 
 export enum FREQUENCY_OPTIONS {
   hour = "hour",
   day = "day",
   week = "week",
-  month = "month",
+  month = "month"
 }
 
 export interface Transaction {
-  chainId: ChainId;
-  hash: string;
+  chainId: ChainId
+  hash: string
 }

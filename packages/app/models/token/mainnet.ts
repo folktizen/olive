@@ -5,7 +5,7 @@ export const mainnetTokens = {
     symbol: "DAI",
     decimals: 18,
     logoURI: "/assets/images/tokens/dai.png",
-    chainId: 1,
+    chainId: 1
   },
   ETH: {
     address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
@@ -13,7 +13,7 @@ export const mainnetTokens = {
     symbol: "ETH",
     decimals: 18,
     logoURI: "/assets/images/tokens/eth.png",
-    chainId: 1,
+    chainId: 1
   },
   RETH: {
     address: "0xae78736cd615f374d3085123a210448e74fc6393",
@@ -21,7 +21,7 @@ export const mainnetTokens = {
     symbol: "rETH",
     decimals: 18,
     logoURI: "/assets/images/tokens/reth.png",
-    chainId: 1,
+    chainId: 1
   },
   SWPR: {
     address: "0x6cAcDB97e3fC8136805a9E7c342d866ab77D0957",
@@ -29,7 +29,7 @@ export const mainnetTokens = {
     symbol: "SWPR",
     decimals: 18,
     logoURI: "/assets/images/tokens/swapr.png",
-    chainId: 1,
+    chainId: 1
   },
   USDC: {
     address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -37,7 +37,7 @@ export const mainnetTokens = {
     symbol: "USDC",
     decimals: 6,
     logoURI: "/assets/images/tokens/usdc.png",
-    chainId: 1,
+    chainId: 1
   },
   USDT: {
     address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
@@ -45,7 +45,7 @@ export const mainnetTokens = {
     symbol: "USDT",
     decimals: 6,
     logoURI: "/assets/images/tokens/usdt.png",
-    chainId: 1,
+    chainId: 1
   },
   WBTC: {
     address: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
@@ -53,7 +53,7 @@ export const mainnetTokens = {
     symbol: "WBTC",
     decimals: 8,
     logoURI: "/assets/images/tokens/wbtc.png",
-    chainId: 1,
+    chainId: 1
   },
   WETH: {
     address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -61,6 +61,6 @@ export const mainnetTokens = {
     symbol: "WETH",
     decimals: 18,
     logoURI: "/assets/images/tokens/weth.png",
-    chainId: 1,
-  },
-};
+    chainId: 1
+  }
+}

@@ -1,53 +1,53 @@
-"use client";
+"use client"
 
-import { cx } from "class-variance-authority";
-import { trackEvent } from "@/analytics";
+import { cx } from "class-variance-authority"
+import { trackEvent } from "@/analytics"
 
-import { Button, CaptionText, Icon } from "@/ui";
-import { EVENTS } from "@/analytics";
+import { Button, CaptionText, Icon } from "@/ui"
+import { EVENTS } from "@/analytics"
 import {
   Strategy,
   useNetworkContext,
   useStackboxFormContext,
-  useStrategyContext,
-} from "@/contexts";
-import { TokenLogoPair } from "@/components";
+  useStrategyContext
+} from "@/contexts"
+import { TokenLogoPair } from "@/components"
 
-import { FREQUENCY_LABEL } from "./constants";
+import { FREQUENCY_LABEL } from "./constants"
 
 interface StrategyCardProps {
-  strategy: Strategy;
+  strategy: Strategy
 }
 
 export const StrategyCard = ({ strategy }: StrategyCardProps) => {
-  const { resetFormValues } = useStackboxFormContext();
-  const { selectedStrategy, setSelectedStrategy } = useStrategyContext();
-  const { chainId } = useNetworkContext();
+  const { resetFormValues } = useStackboxFormContext()
+  const { selectedStrategy, setSelectedStrategy } = useStrategyContext()
+  const { chainId } = useNetworkContext()
 
-  const { buyToken, sellToken } = strategy;
+  const { buyToken, sellToken } = strategy
 
   const strategyTotalDetails = [
     {
       label: "Total Amount",
-      totalAmount: `${strategy.totalSellAmount} ${sellToken.symbol}`,
+      totalAmount: `${strategy.totalSellAmount} ${sellToken.symbol}`
     },
-    { label: "No. of days", totalAmount: strategy.daysAmount },
-  ];
+    { label: "No. of days", totalAmount: strategy.daysAmount }
+  ]
 
-  const cardClickEventName = `${EVENTS.CLICK.STRATEGY_CARD}-chainID:${chainId}-${strategy.sellToken.symbol}/${strategy.buyToken.symbol}-${strategy.frequency}-${strategy.totalSellAmount}`;
-  const isSelected = selectedStrategy?.id === strategy.id;
+  const cardClickEventName = `${EVENTS.CLICK.STRATEGY_CARD}-chainID:${chainId}-${strategy.sellToken.symbol}/${strategy.buyToken.symbol}-${strategy.frequency}-${strategy.totalSellAmount}`
+  const isSelected = selectedStrategy?.id === strategy.id
 
   return (
     <div
       className={cx(
         "p-3 bg-white group hover:outline-primary-200 hover:outline hover:outline-1 hover:shadow-lg shadow-md min-w-60 rounded-2xl cursor-pointer",
         {
-          "!bg-primary-900": isSelected,
-        },
+          "!bg-primary-900": isSelected
+        }
       )}
       onClick={() => {
-        setSelectedStrategy(isSelected ? null : strategy);
-        !isSelected ? trackEvent(cardClickEventName) : resetFormValues(chainId);
+        setSelectedStrategy(isSelected ? null : strategy)
+        !isSelected ? trackEvent(cardClickEventName) : resetFormValues(chainId)
       }}
     >
       <div className="flex">
@@ -59,7 +59,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         />
         <div
           className={cx("flex items-center ml-2", {
-            "text-white": isSelected,
+            "text-white": isSelected
           })}
         >
           <CaptionText>{`${strategy.sellAmountPerTimeframe} ${sellToken.symbol}`}</CaptionText>
@@ -73,7 +73,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
             <div key={index}>
               <CaptionText
                 className={cx("text-em-low", {
-                  "text-white opacity-[.48]": isSelected,
+                  "text-white opacity-[.48]": isSelected
                 })}
                 size={1}
               >
@@ -81,7 +81,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
               </CaptionText>
               <CaptionText
                 className={cx("text-em-med", {
-                  "text-white opacity-[.76]": isSelected,
+                  "text-white opacity-[.76]": isSelected
                 })}
               >
                 {strategyDetails.totalAmount}
@@ -91,7 +91,7 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         </div>
         <Button
           className={cx("group-hover:bg-primary-400 group-hover:text-em-high", {
-            "p-[5px] rounded-md": isSelected,
+            "p-[5px] rounded-md": isSelected
           })}
           size={isSelected ? "icon" : "xs"}
           variant={isSelected ? "primary" : "secondary"}
@@ -100,5 +100,5 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,20 +1,20 @@
-const LAUNCH_APP = "click/launch-app";
-const LAUNCH_APP_NAVBAR = `${LAUNCH_APP}-navbar`;
-const FAQ = "click/faq";
-const FAQ_WHAT_IS = `${FAQ}-what-is`;
-const FAQ_HOW = `${FAQ}-how`;
-const DUNE_ANALYTICS = "click/dune";
+const LAUNCH_APP = "click/launch-app"
+const LAUNCH_APP_NAVBAR = `${LAUNCH_APP}-navbar`
+const FAQ = "click/faq"
+const FAQ_WHAT_IS = `${FAQ}-what-is`
+const FAQ_HOW = `${FAQ}-how`
+const DUNE_ANALYTICS = "click/dune"
 
 export const EVENTS = {
   NAVBAR: {
     DESKTOP: {
       LAUNCH_APP_CLICK: `${LAUNCH_APP_NAVBAR}-desktop`,
-      DUNE_ANALYTICS: `${DUNE_ANALYTICS}-desktop`,
+      DUNE_ANALYTICS: `${DUNE_ANALYTICS}-desktop`
     },
     MOBILE: {
       LAUNCH_APP_CLICK: `${LAUNCH_APP_NAVBAR}-mobile`,
-      DUNE_ANALYTICS: `${DUNE_ANALYTICS}-mobile`,
-    },
+      DUNE_ANALYTICS: `${DUNE_ANALYTICS}-mobile`
+    }
   },
   SECTIONS: {
     FAQ: {
@@ -24,13 +24,13 @@ export const EVENTS = {
       WHAT_IS_STACK_CLICK: `${FAQ_WHAT_IS}-stack`,
       WHAT_IS_DCA: `${FAQ_WHAT_IS}-dca`,
       WHY_TO_DCA: `${FAQ}-why-to-dca`,
-      NETWORKS_AVAILABLE: `${FAQ}-networks-available`,
+      NETWORKS_AVAILABLE: `${FAQ}-networks-available`
     },
     HERO_BANNER: {
-      STACK_NOW_CLICK: `${LAUNCH_APP}-hero-banner`,
+      STACK_NOW_CLICK: `${LAUNCH_APP}-hero-banner`
     },
     TRY_OLIVE_BANNER: {
-      TRY_OLIVE_NOW_CLICK: `${LAUNCH_APP}-try-stackly-banner`,
-    },
-  },
-};
+      TRY_OLIVE_NOW_CLICK: `${LAUNCH_APP}-try-stackly-banner`
+    }
+  }
+}

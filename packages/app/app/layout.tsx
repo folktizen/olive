@@ -1,35 +1,35 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"
 
-import localFont from "next/font/local";
-import { Metadata } from "next";
+import localFont from "next/font/local"
+import { Metadata } from "next"
 
-import { UmamiAnalytics, Navbar } from "@/components";
-import { Providers } from "@/providers";
-import { OLIVE_APP_URL } from "@/constants";
+import { UmamiAnalytics, Navbar } from "@/components"
+import { Providers } from "@/providers"
+import { OLIVE_APP_URL } from "@/constants"
 
-import "@/styles/global.css";
+import "@/styles/global.css"
 
 const stabilGrotesk = localFont({
   src: [
     {
       path: "./fonts/StabilGrotesk-Regular.woff2",
       weight: "500",
-      style: "normal",
+      style: "normal"
     },
     {
       path: "./fonts/StabilGrotesk-Medium.woff2",
       weight: "600",
-      style: "normal",
+      style: "normal"
     },
     {
       path: "./fonts/StabilGrotesk-Bold.woff2",
       weight: "700",
-      style: "normal",
-    },
+      style: "normal"
+    }
   ],
   display: "swap",
-  variable: "--sans-font",
-});
+  variable: "--sans-font"
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(OLIVE_APP_URL),
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
-    userScalable: false,
-  },
-};
+    userScalable: false
+  }
+}
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -55,5 +55,5 @@ export default function RootLayout({ children }: PropsWithChildren) {
         </Providers>
       </body>
     </html>
-  );
+  )
 }

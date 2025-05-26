@@ -1,13 +1,13 @@
-const { runTypeChain, glob } = require("typechain");
+const { runTypeChain, glob } = require("typechain")
 
 async function main() {
-  const cwd = process.cwd();
-  const allFiles = glob(cwd, [`./abis/**/*.json`]);
+  const cwd = process.cwd()
+  const allFiles = glob(cwd, [`./abis/**/*.json`])
 
   console.log({
     cwd,
-    allFiles,
-  });
+    allFiles
+  })
 
   const result = await runTypeChain({
     cwd,
@@ -15,8 +15,8 @@ async function main() {
     allFiles,
     outDir: "./src/generated/contracts",
     target: "ethers-v5",
-    prettier: undefined,
-  });
+    prettier: undefined
+  })
 }
 
-main().catch(console.error);
+main().catch(console.error)

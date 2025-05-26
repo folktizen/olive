@@ -1,10 +1,10 @@
-import { BodyText, HeadingText } from "@/ui";
-import { ReactNode } from "react";
+import { BodyText, HeadingText } from "@/ui"
+import { ReactNode } from "react"
 
 export interface SectionProps {
-  title: string;
-  children: ReactNode;
-  description?: string;
+  title: string
+  children: ReactNode
+  description?: string
 }
 
 export const UISection = ({ title, children, description }: SectionProps) => (
@@ -19,4 +19,4 @@ export const UISection = ({ title, children, description }: SectionProps) => (
     </div>
     {children}
   </div>
-);
+)

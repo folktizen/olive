@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import { format, isSameMinute, isToday, isTomorrow } from "date-fns";
+import { format, isSameMinute, isToday, isTomorrow } from "date-fns"
 
-import { Button, Calendar, Icon } from "@/ui";
-import { Popover } from "@headlessui/react";
+import { Button, Calendar, Icon } from "@/ui"
+import { Popover } from "@headlessui/react"
 
-import { Dispatch, Ref, SetStateAction, useEffect, useState } from "react";
-import { usePopper } from "react-popper";
-import { twMerge } from "tailwind-merge";
+import { Dispatch, Ref, SetStateAction, useEffect, useState } from "react"
+import { usePopper } from "react-popper"
+import { twMerge } from "tailwind-merge"
 
 interface DatePickerProps {
-  dateTime: Date;
-  setDateTime: Dispatch<SetStateAction<Date>> | ((date: Date) => void);
-  className?: string;
-  timeCaption: string;
-  fromDate?: Date;
+  dateTime: Date
+  setDateTime: Dispatch<SetStateAction<Date>> | ((date: Date) => void)
+  className?: string
+  timeCaption: string
+  fromDate?: Date
 }
 
 export function DatePicker({
@@ -22,33 +22,37 @@ export function DatePicker({
   setDateTime,
   className,
   timeCaption,
-  fromDate,
+  fromDate
 }: DatePickerProps) {
-  const [currentDate, setCurrentDate] = useState<Date>(new Date(dateTime));
-  const [hours, setHours] = useState(format(currentDate, "HH"));
-  const [minutes, setMinutes] = useState(format(currentDate, "mm"));
+  const [currentDate, setCurrentDate] = useState<Date>(new Date(dateTime))
+  const [hours, setHours] = useState(format(currentDate, "HH"))
+  const [minutes, setMinutes] = useState(format(currentDate, "mm"))
 
-  const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | undefined>();
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | undefined>();
+  const [referenceElement, setReferenceElement] = useState<
+    HTMLButtonElement | undefined
+  >()
+  const [popperElement, setPopperElement] = useState<
+    HTMLDivElement | undefined
+  >()
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement: "bottom",
-  });
+    placement: "bottom"
+  })
 
   const formattedDate = () => {
-    if (isSameMinute(dateTime, Date.now())) return "Now";
-    if (isToday(dateTime)) return format(dateTime, "'Today at' HH:mm");
-    if (isTomorrow(dateTime)) return format(dateTime, "'Tomorrow at' HH:mm");
+    if (isSameMinute(dateTime, Date.now())) return "Now"
+    if (isToday(dateTime)) return format(dateTime, "'Today at' HH:mm")
+    if (isTomorrow(dateTime)) return format(dateTime, "'Tomorrow at' HH:mm")
 
-    return format(dateTime, "dd MMM Y 'at' HH:mm");
-  };
+    return format(dateTime, "dd MMM Y 'at' HH:mm")
+  }
 
   useEffect(() => {
-    const newDate = new Date(dateTime);
-    setCurrentDate(newDate);
-    setHours(format(newDate, "HH"));
-    setMinutes(format(newDate, "mm"));
-  }, [dateTime]);
+    const newDate = new Date(dateTime)
+    setCurrentDate(newDate)
+    setHours(format(newDate, "HH"))
+    setMinutes(format(newDate, "mm"))
+  }, [dateTime])
 
   return (
     <Popover>
@@ -58,7 +62,7 @@ export function DatePicker({
             ref={setReferenceElement as Ref<HTMLButtonElement>}
             className={twMerge(
               "flex justify-between items-center focus:border-0 outline-0",
-              className,
+              className
             )}
           >
             <span className="text-em-med">{formattedDate()}</span>
@@ -66,7 +70,10 @@ export function DatePicker({
           </Popover.Button>
           {open && (
             <>
-              <div className="fixed inset-0 z-20 bg-black/30" aria-hidden="true" />
+              <div
+                className="fixed inset-0 z-20 bg-black/30"
+                aria-hidden="true"
+              />
               <Popover.Panel
                 ref={setPopperElement as Ref<HTMLDivElement>}
                 style={styles.popper}
@@ -80,10 +87,10 @@ export function DatePicker({
                       selected={currentDate}
                       defaultMonth={currentDate}
                       onSelect={(newDate: Date | undefined) => {
-                        if (!newDate) return;
-                        newDate.setHours(currentDate.getHours());
-                        newDate.setMinutes(currentDate.getMinutes());
-                        setCurrentDate(newDate);
+                        if (!newDate) return
+                        newDate.setHours(currentDate.getHours())
+                        newDate.setMinutes(currentDate.getMinutes())
+                        setCurrentDate(newDate)
                       }}
                       initialFocus
                       className=""
@@ -100,13 +107,18 @@ export function DatePicker({
                               pattern="[0-9]*"
                               value={hours}
                               onKeyDown={(evt) =>
-                                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+                                ["e", "E", "+", "-"].includes(evt.key) &&
+                                evt.preventDefault()
                               }
                               onChange={(event) => {
-                                const hours = event.target.value;
-                                const hoursNumber = Number(hours);
-                                if (hoursNumber >= 0 && hoursNumber < 24 && hours.length < 3) {
-                                  setHours(hours);
+                                const hours = event.target.value
+                                const hoursNumber = Number(hours)
+                                if (
+                                  hoursNumber >= 0 &&
+                                  hoursNumber < 24 &&
+                                  hours.length < 3
+                                ) {
+                                  setHours(hours)
                                 }
                               }}
                             />
@@ -119,17 +131,18 @@ export function DatePicker({
                               pattern="[0-9]*"
                               value={minutes}
                               onKeyDown={(evt) =>
-                                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+                                ["e", "E", "+", "-"].includes(evt.key) &&
+                                evt.preventDefault()
                               }
                               onChange={(event) => {
-                                const minutes = event.target.value;
-                                const minutesNumber = Number(minutes);
+                                const minutes = event.target.value
+                                const minutesNumber = Number(minutes)
                                 if (
                                   minutesNumber >= 0 &&
                                   minutesNumber < 60 &&
                                   minutes.length < 3
                                 ) {
-                                  setMinutes(minutes);
+                                  setMinutes(minutes)
                                 }
                               }}
                             />
@@ -139,11 +152,11 @@ export function DatePicker({
                       <Button
                         variant="primary"
                         onClick={() => {
-                          const newDate = new Date(currentDate);
-                          newDate.setHours(Number(hours));
-                          newDate.setMinutes(Number(minutes));
-                          setDateTime(newDate);
-                          close();
+                          const newDate = new Date(currentDate)
+                          newDate.setHours(Number(hours))
+                          newDate.setMinutes(Number(minutes))
+                          setDateTime(newDate)
+                          close()
                         }}
                       >
                         Set Date and Time
@@ -157,5 +170,5 @@ export function DatePicker({
         </>
       )}
     </Popover>
-  );
+  )
 }

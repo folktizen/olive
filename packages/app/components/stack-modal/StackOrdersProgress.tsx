@@ -1,20 +1,20 @@
 import {
   allOrderSlotsDone,
   totalFundsAmountWithTokenText,
-  totalOrderSlotsDone,
-} from "@/models/order";
-import { OrdersProgressBar } from "@/components/OrdersProgressBar";
-import { BodyText, TitleText } from "@/ui";
-import { TokenIcon } from "@/components/TokenIcon";
+  totalOrderSlotsDone
+} from "@/models/order"
+import { OrdersProgressBar } from "@/components/OrdersProgressBar"
+import { BodyText, TitleText } from "@/ui"
+import { TokenIcon } from "@/components/TokenIcon"
 import {
   StackOrderProps,
   totalStackOrdersDone,
   totalFundsUsed,
   estimatedTotalStack,
-  stackIsComplete,
-} from "@/models/stack-order";
-import { formatTokenValue } from "@/utils/token";
-import { StackOrdersTable } from "@/components/stack-modal/StackOrdersTable";
+  stackIsComplete
+} from "@/models/stack-order"
+import { formatTokenValue } from "@/utils/token"
+import { StackOrdersTable } from "@/components/stack-modal/StackOrdersTable"
 
 export const StackOrdersProgress = ({ stackOrder }: StackOrderProps) => (
   <>
@@ -30,7 +30,8 @@ export const StackOrdersProgress = ({ stackOrder }: StackOrderProps) => (
               Total funds used:{" "}
               <span className="text-em-high">
                 {formatTokenValue(totalFundsUsed(stackOrder), 2)}{" "}
-                <span className="text-xs">of</span> {totalFundsAmountWithTokenText(stackOrder)}
+                <span className="text-xs">of</span>{" "}
+                {totalFundsAmountWithTokenText(stackOrder)}
               </span>
             </BodyText>
             <TokenIcon size="xs" token={stackOrder.sellToken} />
@@ -40,13 +41,15 @@ export const StackOrdersProgress = ({ stackOrder }: StackOrderProps) => (
         <TotalStackEstimationText stackOrder={stackOrder} />
       </div>
     </div>
-    {totalStackOrdersDone(stackOrder) > 0 && <StackOrdersTable stackOrder={stackOrder} />}
+    {totalStackOrdersDone(stackOrder) > 0 && (
+      <StackOrdersTable stackOrder={stackOrder} />
+    )}
   </>
-);
+)
 
 const TotalStackEstimationText = ({ stackOrder }: StackOrderProps) => {
-  if (allOrderSlotsDone(stackOrder)) return;
-  if (totalStackOrdersDone(stackOrder) < 1) return;
+  if (allOrderSlotsDone(stackOrder)) return
+  if (totalStackOrdersDone(stackOrder) < 1) return
 
   return (
     <div className="flex flex-row-reverse">
@@ -56,18 +59,20 @@ const TotalStackEstimationText = ({ stackOrder }: StackOrderProps) => {
       >
         <BodyText size={1} className="space-x-1">
           <span className="text-em-low">Estimated total:</span>
-          <span className="text-em-med">{formatTokenValue(estimatedTotalStack(stackOrder))}</span>
+          <span className="text-em-med">
+            {formatTokenValue(estimatedTotalStack(stackOrder))}
+          </span>
           <span>{stackOrder.buyToken.symbol}</span>
         </BodyText>
         <TokenIcon size="2xs" token={stackOrder.buyToken} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const OrdersExecuted = ({ stackOrder }: StackOrderProps) => {
   if (!totalOrderSlotsDone(stackOrder))
-    return <BodyText className="text-em-low">No orders executed yet.</BodyText>;
+    return <BodyText className="text-em-low">No orders executed yet.</BodyText>
 
   return (
     <div className="flex items-center space-x-1">
@@ -84,5 +89,5 @@ const OrdersExecuted = ({ stackOrder }: StackOrderProps) => {
         )}
       </BodyText>
     </div>
-  );
-};
+  )
+}

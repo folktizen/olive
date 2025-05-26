@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { trackEvent } from "@/analytics";
+import { trackEvent } from "@/analytics"
 
-import { HeadingText } from "@/ui";
+import { HeadingText } from "@/ui"
 
-import { QAndAAccordion } from "./QAndAAccordion";
-import { FAQ_QUESTIONS_AND_ANSWERS, FaqQa } from "./constants";
+import { QAndAAccordion } from "./QAndAAccordion"
+import { FAQ_QUESTIONS_AND_ANSWERS, FaqQa } from "./constants"
 
 export const FAQ = () => {
   return (
@@ -32,5 +32,5 @@ export const FAQ = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

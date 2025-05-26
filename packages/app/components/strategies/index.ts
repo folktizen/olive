@@ -1,1 +1,1 @@
-export * from "./Strategies";
+export * from "./Strategies"

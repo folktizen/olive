@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 
-import { UISection } from "@/app/ui/sections/UISection";
-import { UISubSection } from "@/app/ui/sections/UISubSection";
-import { ConfirmStackModal, TokenPicker } from "@/components";
-import { ModalId, useModalContext } from "@/contexts";
+import { UISection } from "@/app/ui/sections/UISection"
+import { UISubSection } from "@/app/ui/sections/UISubSection"
+import { ConfirmStackModal, TokenPicker } from "@/components"
+import { ModalId, useModalContext } from "@/contexts"
 import {
   Button,
   ButtonLink,
@@ -25,95 +25,96 @@ import {
   DialogContent,
   Toast,
   Severity,
-  SizeProps,
-} from "@/ui";
-import { FREQUENCY_OPTIONS } from "@/models/stack";
+  SizeProps
+} from "@/ui"
+import { FREQUENCY_OPTIONS } from "@/models/stack"
 
 export default function Page() {
   //  radioButtons
-  const [activeRadionButton, setActiveRadioButton] = useState("0");
-  const [toastSeverity, setToastSeverity] = useState<Severity>();
+  const [activeRadionButton, setActiveRadioButton] = useState("0")
+  const [toastSeverity, setToastSeverity] = useState<Severity>()
   // dialogs
-  const [isErrorDialogOpen, setErrorDialogOpen] = useState(false);
-  const [showToast, setShowToast] = useState(false);
+  const [isErrorDialogOpen, setErrorDialogOpen] = useState(false)
+  const [showToast, setShowToast] = useState(false)
 
-  const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] = useState(false);
-  const dialogBtnRef = useRef<HTMLButtonElement>(null);
-  const { closeModal, isModalOpen, openModal } = useModalContext();
+  const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] =
+    useState(false)
+  const dialogBtnRef = useRef<HTMLButtonElement>(null)
+  const { closeModal, isModalOpen, openModal } = useModalContext()
 
   const dialogButtons = [
     {
       label: "Confirm",
-      onClick: () => setOpenCancelStackingDialog(true),
+      onClick: () => setOpenCancelStackingDialog(true)
     },
     {
       label: "Error",
-      onClick: () => setErrorDialogOpen(true),
-    },
-  ];
+      onClick: () => setErrorDialogOpen(true)
+    }
+  ]
 
   const modalButtons = [
     {
       label: "Confirm Stack",
-      onClick: () => openModal(ModalId.CONFIRM_STACK),
+      onClick: () => openModal(ModalId.CONFIRM_STACK)
     },
     {
       label: "Token Picker",
-      onClick: () => openModal(ModalId.TOKEN_PICKER),
-    },
-  ];
+      onClick: () => openModal(ModalId.TOKEN_PICKER)
+    }
+  ]
 
   const toastRadioButtons = [
     {
       name: "Error",
-      value: Severity.ERROR,
+      value: Severity.ERROR
     },
     {
       name: "Success",
-      value: Severity.SUCCESS,
+      value: Severity.SUCCESS
     },
     {
       name: "None (default)",
-      value: "",
-    },
-  ];
+      value: ""
+    }
+  ]
 
   const textComponents = [
     {
       sizes: [3, 2, 1],
       TextComponent: DisplayText,
-      title: "Display",
+      title: "Display"
     },
 
     {
       sizes: [6, 5, 4, 3, 2, 1],
       TextComponent: HeadingText,
-      title: "Heading",
+      title: "Heading"
     },
 
     {
       sizes: [2, 1],
       TextComponent: TitleText,
-      title: "Title",
+      title: "Title"
     },
 
     {
       sizes: [3, 2, 1],
       TextComponent: BodyText,
-      title: "Body",
+      title: "Body"
     },
 
     {
       sizes: [2, 1],
       TextComponent: CaptionText,
-      title: "Caption",
+      title: "Caption"
     },
 
     {
       TextComponent: OverlineText,
-      title: "Overline",
-    },
-  ];
+      title: "Overline"
+    }
+  ]
 
   return (
     <div className="px-5 mx-auto my-10 max-w-screen-2xl">
@@ -144,7 +145,12 @@ export default function Page() {
           <Button size="sm" onClick={() => console.log("hey")}>
             Connect wallet
           </Button>
-          <Button size="sm" iconRight="caret-down" active={true} onClick={() => console.log("hey")}>
+          <Button
+            size="sm"
+            iconRight="caret-down"
+            active={true}
+            onClick={() => console.log("hey")}
+          >
             Active
           </Button>
           <Button size="sm" disabled={true} onClick={() => console.log("hey")}>
@@ -152,7 +158,12 @@ export default function Page() {
           </Button>
         </UISubSection>
         <UISubSection title="Secondary">
-          <Button variant="secondary" iconLeft="plus" onClick={() => console.log("hey")} size="lg">
+          <Button
+            variant="secondary"
+            iconLeft="plus"
+            onClick={() => console.log("hey")}
+            size="lg"
+          >
             Try Stackly now
           </Button>
           <Button
@@ -175,15 +186,27 @@ export default function Page() {
           >
             Try Stackly now
           </Button>
-          <Button variant="tertiary" active={true} onClick={() => console.log("hey")}>
+          <Button
+            variant="tertiary"
+            active={true}
+            onClick={() => console.log("hey")}
+          >
             Cancel
           </Button>
         </UISubSection>
         <UISubSection title="Quaternary">
-          <Button variant="quaternary" iconLeft="blocks" onClick={() => console.log("hey")}>
+          <Button
+            variant="quaternary"
+            iconLeft="blocks"
+            onClick={() => console.log("hey")}
+          >
             Your stacks
           </Button>
-          <Button variant="quaternary" active={true} onClick={() => console.log("hey")}>
+          <Button
+            variant="quaternary"
+            active={true}
+            onClick={() => console.log("hey")}
+          >
             Cancel
           </Button>
         </UISubSection>
@@ -193,7 +216,7 @@ export default function Page() {
           <ChipButton
             active={true}
             onClick={() => {
-              console.log("I'm active");
+              console.log("I'm active")
             }}
           >
             Active
@@ -201,7 +224,7 @@ export default function Page() {
           <ChipButton
             active={false}
             onClick={() => {
-              console.log("I'm inactive");
+              console.log("I'm inactive")
             }}
           >
             Inactive
@@ -210,7 +233,10 @@ export default function Page() {
             <Icon name="blocks" />
             <span>Eu tenho um icon</span>
           </ChipButton>
-          <ChipButton onClick={() => console.log("Eu tenho um icon")} disabled={true}>
+          <ChipButton
+            onClick={() => console.log("Eu tenho um icon")}
+            disabled={true}
+          >
             SWPR
           </ChipButton>
         </div>
@@ -249,7 +275,10 @@ export default function Page() {
       <UISection title="Icons">
         <div className="flex flex-wrap space-x-4 space-y-2 md:space-y-0">
           {Object.keys(iconMap).map((iconName) => (
-            <div className="flex flex-col items-center space-y-2" key={iconName}>
+            <div
+              className="flex flex-col items-center space-y-2"
+              key={iconName}
+            >
               <Icon name={iconName as IconName} size={24} />
               <div className="p-1 rounded-lg bg-surface-75">
                 <BodyText weight="medium">{iconName}</BodyText>
@@ -261,20 +290,24 @@ export default function Page() {
       <UISection title="Modal">
         <UISubSection title="Examples">
           {modalButtons.map((modal) => (
-            <DialogModalButton key={modal.label} label={modal.label} onClick={modal.onClick} />
+            <DialogModalButton
+              key={modal.label}
+              label={modal.label}
+              onClick={modal.onClick}
+            />
           ))}
           <ConfirmStackModal
             fromToken={{
               address: "0x",
               decimals: 18,
               name: "USDC",
-              symbol: "USDC",
+              symbol: "USDC"
             }}
             toToken={{
               address: "0x",
               decimals: 18,
               name: "Wrapped ETH",
-              symbol: "WETH",
+              symbol: "WETH"
             }}
             amount="1000"
             frequency={FREQUENCY_OPTIONS.day}
@@ -294,7 +327,11 @@ export default function Page() {
       <UISection title="Dialog">
         <UISubSection title="Examples">
           {dialogButtons.map((dialog) => (
-            <DialogModalButton key={dialog.label} label={dialog.label} onClick={dialog.onClick} />
+            <DialogModalButton
+              key={dialog.label}
+              label={dialog.label}
+              onClick={dialog.onClick}
+            />
           ))}
           <Dialog
             initialFocusRef={dialogBtnRef}
@@ -314,7 +351,10 @@ export default function Page() {
               ref={dialogBtnRef}
             />
           </Dialog>
-          <Dialog isOpen={isErrorDialogOpen} closeAction={() => setErrorDialogOpen(false)}>
+          <Dialog
+            isOpen={isErrorDialogOpen}
+            closeAction={() => setErrorDialogOpen(false)}
+          >
             <Icon name="warning" className="text-danger-500" size={38} />
             <DialogContent
               className="!text-danger-200"
@@ -351,7 +391,7 @@ export default function Page() {
               checked={toastSeverity === radioButton.value}
               value={radioButton.value}
               onChange={(e) => {
-                setToastSeverity(e.target.value as Severity);
+                setToastSeverity(e.target.value as Severity)
               }}
             >
               {radioButton.name}
@@ -364,10 +404,16 @@ export default function Page() {
           severity={toastSeverity}
           title="This is the Toast title"
         >
-          <BodyText className="text-em-med">This is the Toast child, used as description.</BodyText>
+          <BodyText className="text-em-med">
+            This is the Toast child, used as description.
+          </BodyText>
         </Toast>
         <UISubSection title="Examples">
-          <Button variant="tertiary" size="sm" onClick={() => setShowToast(true)}>
+          <Button
+            variant="tertiary"
+            size="sm"
+            onClick={() => setShowToast(true)}
+          >
             show toast
           </Button>
         </UISubSection>
@@ -386,34 +432,40 @@ export default function Page() {
         ))}
       </UISection>
     </div>
-  );
+  )
 }
 
 interface DialogModalButtonProps {
-  label: string;
-  onClick: (args?: any) => void;
+  label: string
+  onClick: (args?: any) => void
 }
 
 const DialogModalButton = ({ label, onClick }: DialogModalButtonProps) => (
   <Button variant="tertiary" size="sm" onClick={onClick}>
     {label}
   </Button>
-);
+)
 
 interface ExampleTextComponentProps {
-  sizes?: number[];
-  TextComponent: any;
-  title: string;
+  sizes?: number[]
+  TextComponent: any
+  title: string
 }
 
-const ExampleTextComponents = ({ sizes, TextComponent, title }: ExampleTextComponentProps) => (
+const ExampleTextComponents = ({
+  sizes,
+  TextComponent,
+  title
+}: ExampleTextComponentProps) => (
   <UISubSection title={title}>
     <div className="space-y-2">
       {sizes ? (
         sizes.map((size) => (
           <div className="flex items-baseline space-x-4" key={size}>
             <p>{size}.</p>
-            <TextComponent size={size}>I want to DCA with Stackly</TextComponent>
+            <TextComponent size={size}>
+              I want to DCA with Stackly
+            </TextComponent>
           </div>
         ))
       ) : (
@@ -421,4 +473,4 @@ const ExampleTextComponents = ({ sizes, TextComponent, title }: ExampleTextCompo
       )}
     </div>
   </UISubSection>
-);
+)

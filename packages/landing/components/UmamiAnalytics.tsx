@@ -1,43 +1,47 @@
-"use client";
+"use client"
 
-import { useEffect, Suspense } from "react";
-import Script from "next/script";
+import { useEffect, Suspense } from "react"
+import Script from "next/script"
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation"
 
-const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_LANDING_WEBSITE_ID ?? "";
-const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_LANDING_SCRIPT_URL ?? "";
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_LANDING_WEBSITE_ID ?? ""
+const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_LANDING_SCRIPT_URL ?? ""
 
 /**
  * This is an approach suggested by Next maintainers.
  * @see https://umami.is/docs/tracker-api
  */
 const TrackPageView = () => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     if (!umamiWebsiteId || !umamiScriptUrl) {
-      console.log("Umami site ID or script URL not set, skipping analytics");
+      console.log("Umami site ID or script URL not set, skipping analytics")
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).umami) {
-      (window as any).umami.trackView(pathname + "?" + searchParams.toString());
+      ;(window as any).umami.trackView(pathname + "?" + searchParams.toString())
     }
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams])
 
-  return null;
-};
+  return null
+}
 
 export const UmamiAnalytics = () => {
   return (
     <>
-      <Script src={umamiScriptUrl} data-website-id={umamiWebsiteId} strategy="afterInteractive" />
+      <Script
+        src={umamiScriptUrl}
+        data-website-id={umamiWebsiteId}
+        strategy="afterInteractive"
+      />
       <Suspense fallback={null}>
         <TrackPageView />
       </Suspense>
     </>
-  );
-};
+  )
+}

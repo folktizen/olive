@@ -1,6 +1,6 @@
-import { PATHNAMES } from "@/constants";
-import { EmptyStateStacksImg } from "@/public/assets";
-import { ButtonLink, HeadingText } from "@/ui";
+import { PATHNAMES } from "@/constants"
+import { EmptyStateStacksImg } from "@/public/assets"
+import { ButtonLink, HeadingText } from "@/ui"
 
 export default function EmptyState() {
   return (
@@ -8,7 +8,9 @@ export default function EmptyState() {
       <div className="flex flex-col items-center space-y-6 md:space-y-8">
         <EmptyStateStacksImg />
         <div className="space-y-3 text-center">
-          <HeadingText size={3}>{"Looks like you haven't created any stacks yet."}</HeadingText>
+          <HeadingText size={3}>
+            {"Looks like you haven't created any stacks yet."}
+          </HeadingText>
           <HeadingText size={1} weight="medium" className="text-em-med">
             Once you have created a stack, you can view its progress here.
           </HeadingText>
@@ -20,5 +22,5 @@ export default function EmptyState() {
         </ButtonLink>
       </div>
     </div>
-  );
+  )
 }

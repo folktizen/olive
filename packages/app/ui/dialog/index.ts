@@ -1,3 +1,3 @@
-export * from "./Dialog";
-export * from "./DialogFooterActions";
-export * from "./DialogContent";
+export * from "./Dialog"
+export * from "./DialogFooterActions"
+export * from "./DialogContent"

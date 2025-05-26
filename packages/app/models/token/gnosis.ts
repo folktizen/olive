@@ -5,7 +5,7 @@ export const gnosisTokens = {
     symbol: "GNO",
     decimals: 18,
     logoURI: "/assets/images/tokens/gno.png",
-    chainId: 100,
+    chainId: 100
   },
   SWPR: {
     address: "0x532801ED6f82FFfD2DAB70A19fC2d7B2772C4f4b",
@@ -13,7 +13,7 @@ export const gnosisTokens = {
     symbol: "SWPR",
     decimals: 18,
     logoURI: "/assets/images/tokens/swapr.png",
-    chainId: 100,
+    chainId: 100
   },
   USDC: {
     address: "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
@@ -21,7 +21,7 @@ export const gnosisTokens = {
     symbol: "USDC",
     decimals: 6,
     logoURI: "/assets/images/tokens/usdc.png",
-    chainId: 100,
+    chainId: 100
   },
   WBTC: {
     address: "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252",
@@ -29,7 +29,7 @@ export const gnosisTokens = {
     symbol: "WBTC",
     decimals: 8,
     logoURI: "/assets/images/tokens/wbtc.png",
-    chainId: 100,
+    chainId: 100
   },
   WETH: {
     address: "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
@@ -37,7 +37,7 @@ export const gnosisTokens = {
     symbol: "WETH",
     decimals: 18,
     logoURI: "/assets/images/tokens/weth.png",
-    chainId: 100,
+    chainId: 100
   },
   WXDAI: {
     address: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
@@ -45,6 +45,6 @@ export const gnosisTokens = {
     symbol: "WXDAI",
     decimals: 18,
     logoURI: "/assets/images/tokens/wxdai.png",
-    chainId: 100,
-  },
-};
+    chainId: 100
+  }
+}

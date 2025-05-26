@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { trackEvent } from "@/analytics";
+import { trackEvent } from "@/analytics"
 
-import { EVENTS } from "@/analytics";
-import { ButtonLink, HeadingText } from "@/ui";
-import { OLIVE_APP_URL } from "@/constants";
+import { EVENTS } from "@/analytics"
+import { ButtonLink, HeadingText } from "@/ui"
+import { OLIVE_APP_URL } from "@/constants"
 
 export const TryStacklyBanner = () => {
   return (
@@ -36,12 +36,12 @@ export const TryStacklyBanner = () => {
           width="fit"
           className="px-6 mt-8 md:px-8 md:mt-20"
           onClick={() => {
-            trackEvent(EVENTS.SECTIONS.TRY_OLIVE_BANNER.TRY_OLIVE_NOW_CLICK);
+            trackEvent(EVENTS.SECTIONS.TRY_OLIVE_BANNER.TRY_OLIVE_NOW_CLICK)
           }}
         >
           Try Stackly Now
         </ButtonLink>
       </div>
     </div>
-  );
-};
+  )
+}

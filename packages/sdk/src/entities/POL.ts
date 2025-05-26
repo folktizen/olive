@@ -1,16 +1,16 @@
-import { Currency } from "./Currency";
-import { NativeCurrency } from "./NativeCurrency";
-import { WPOL } from "./defaultTokens";
+import { Currency } from "./Currency"
+import { NativeCurrency } from "./NativeCurrency"
+import { WPOL } from "./defaultTokens"
 /**
  * POL is the native currency of the Polygon chain
  */
 export class POL extends NativeCurrency {
   constructor() {
-    super(137, 18, "POL", "POL");
+    super(137, 18, "POL", "POL")
   }
 
   get wrapped() {
-    return WPOL;
+    return WPOL
   }
 
   /**
@@ -18,6 +18,10 @@ export class POL extends NativeCurrency {
    * @param other other token to compare
    */
   public equals(other: Currency): boolean {
-    return other.isNative && this.chainId === other.chainId && this.address === other.address;
+    return (
+      other.isNative &&
+      this.chainId === other.chainId &&
+      this.address === other.address
+    )
   }
 }

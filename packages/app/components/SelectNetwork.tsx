@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import { Fragment } from "react";
-import { ChainIcon } from "connectkit";
-import { Listbox, Transition } from "@headlessui/react";
+import { Fragment } from "react"
+import { ChainIcon } from "connectkit"
+import { Listbox, Transition } from "@headlessui/react"
 
-import { Button, Icon } from "@/ui";
-import { useNetworkContext } from "@/contexts";
-import Image from "next/image";
-import { ChainId } from "@useolive/sdk";
+import { Button, Icon } from "@/ui"
+import { useNetworkContext } from "@/contexts"
+import Image from "next/image"
+import { ChainId } from "@useolive/sdk"
 
 const CustomChainIcon = ({ id, size }: { id: number; size: number }) => {
   if (id === ChainId.BASE) {
@@ -19,20 +19,20 @@ const CustomChainIcon = ({ id, size }: { id: number; size: number }) => {
         height={size}
         className="rounded-full"
       />
-    );
+    )
   }
 
   // Fall back to ConnectKit's ChainIcon for other networks
-  return <ChainIcon size={size} id={id} />;
-};
+  return <ChainIcon size={size} id={id} />
+}
 
 export const SelectNetwork = () => {
-  const { chains, changeNetwork, chainId, selectedChain } = useNetworkContext();
+  const { chains, changeNetwork, chainId, selectedChain } = useNetworkContext()
   return (
     <Listbox
       value={chainId.toString()}
       onChange={(chainId) => {
-        changeNetwork(parseInt(chainId));
+        changeNetwork(parseInt(chainId))
       }}
     >
       <div className="relative">
@@ -45,7 +45,9 @@ export const SelectNetwork = () => {
         >
           <div className="flex items-center space-x-2">
             <CustomChainIcon size={20} id={chainId} />
-            <span className="hidden md:inline-block">{selectedChain?.name}</span>
+            <span className="hidden md:inline-block">
+              {selectedChain?.name}
+            </span>
           </div>
         </Listbox.Button>
         <Transition
@@ -70,11 +72,14 @@ export const SelectNetwork = () => {
                       </div>
                       {selected ? (
                         <div className="flex absolute inset-y-0 right-0 items-center pr-3 text-amber-600">
-                          <Icon name="check" className="w-4 h-4 text-primary-600" />
+                          <Icon
+                            name="check"
+                            className="w-4 h-4 text-primary-600"
+                          />
                         </div>
                       ) : null}
                     </>
-                  );
+                  )
                 }}
               </Listbox.Option>
             ))}
@@ -82,5 +87,5 @@ export const SelectNetwork = () => {
         </Transition>
       </div>
     </Listbox>
-  );
-};
+  )
+}

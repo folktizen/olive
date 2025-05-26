@@ -3,26 +3,31 @@ import {
   gnosisTokens,
   mainnetTokens,
   baseTokens,
-  TokenFromTokenlist,
-} from "@/models/token";
-import { ChainId } from "@useolive/sdk";
+  TokenFromTokenlist
+} from "@/models/token"
+import { ChainId } from "@useolive/sdk"
 
 export const TOKEN_PICKER_COMMON_TOKENS: {
-  [chainId: number]: TokenFromTokenlist[];
+  [chainId: number]: TokenFromTokenlist[]
 } = {
   [ChainId.ETHEREUM]: [
     mainnetTokens.USDC,
     mainnetTokens.WETH,
     mainnetTokens.WBTC,
-    mainnetTokens.SWPR,
+    mainnetTokens.SWPR
   ],
   [ChainId.ARBITRUM]: [
     arbitrumTokens.USDC,
     arbitrumTokens.WETH,
     arbitrumTokens.WBTC,
     arbitrumTokens.ARB,
-    arbitrumTokens.SWPR,
+    arbitrumTokens.SWPR
   ],
-  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.SWPR, gnosisTokens.WETH, gnosisTokens.WXDAI],
-  [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
-};
+  [ChainId.GNOSIS]: [
+    gnosisTokens.GNO,
+    gnosisTokens.SWPR,
+    gnosisTokens.WETH,
+    gnosisTokens.WXDAI
+  ],
+  [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC]
+}

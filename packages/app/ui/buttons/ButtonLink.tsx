@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import { Icon } from "@/ui/icon/Icon";
-import { useNetworkContext } from "@/contexts";
+import { Icon } from "@/ui/icon/Icon"
+import { useNetworkContext } from "@/contexts"
 
-import { ButtonBaseProps, buttonStyles, getIconSize } from "./base";
+import { ButtonBaseProps, buttonStyles, getIconSize } from "./base"
 
 interface ButtonLinkProps extends ButtonBaseProps {
-  href: string;
-  passHref?: boolean;
-  target?: string;
+  href: string
+  passHref?: boolean
+  target?: string
 }
 
 export function ButtonLink({
@@ -26,16 +26,16 @@ export function ButtonLink({
   iconRight,
   id,
   passHref,
-  target,
+  target
 }: ButtonLinkProps) {
-  const { chainId } = useNetworkContext();
+  const { chainId } = useNetworkContext()
 
   return (
     <Link
       id={id}
       href={{
         pathname: href,
-        query: `chainId=${chainId}`,
+        query: `chainId=${chainId}`
       }}
       tabIndex={0}
       className={buttonStyles({
@@ -44,7 +44,7 @@ export function ButtonLink({
         width,
         disabled,
         active,
-        className,
+        className
       })}
       passHref={passHref}
       target={target}
@@ -53,5 +53,5 @@ export function ButtonLink({
       {children && <div>{children}</div>}
       {iconRight && <Icon size={getIconSize(size)} name={iconRight} />}
     </Link>
-  );
+  )
 }

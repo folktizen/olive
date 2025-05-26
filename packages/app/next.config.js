@@ -5,18 +5,18 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   webpack(config) {
-    config.resolve.fallback = { "pino-pretty": false, lokijs: false };
+    config.resolve.fallback = { "pino-pretty": false, lokijs: false }
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
-    });
+      use: ["@svgr/webpack"]
+    })
 
-    return config;
+    return config
   },
   images: {
-    unoptimized: true,
-  },
-};
+    unoptimized: true
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

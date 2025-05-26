@@ -2,15 +2,15 @@ export enum ChainId {
   OPTIMISM = 10,
   ARBITRUM = 42161,
   POLYGON = 137,
-  BASE = 8453,
+  BASE = 8453
 }
 
 /**
  * Native token addresses. Same for all networks.
  */
-export const NATIVE_TOKEN_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
+export const NATIVE_TOKEN_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
 
 /**
  * Multicall contract addresses. Same for all networks.
  */
-export const MULTICALL_ADDRESS = "0xca11bde05977b3631167028862be2a173976ca11";
+export const MULTICALL_ADDRESS = "0xca11bde05977b3631167028862be2a173976ca11"

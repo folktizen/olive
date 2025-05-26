@@ -1,12 +1,13 @@
-import { DotsSpinnerImg } from "@/public/assets";
-import { Dialog, DialogContent, ModalBaseProps } from "@/ui";
-import { ReactNode } from "react";
+import { DotsSpinnerImg } from "@/public/assets"
+import { Dialog, DialogContent, ModalBaseProps } from "@/ui"
+import { ReactNode } from "react"
 
-interface DialogConfirmTransactionLoadingProps extends Omit<ModalBaseProps, "closeAction"> {
-  closeAction?: () => void;
-  children?: ReactNode;
-  title?: string;
-  description?: string;
+interface DialogConfirmTransactionLoadingProps
+  extends Omit<ModalBaseProps, "closeAction"> {
+  closeAction?: () => void
+  children?: ReactNode
+  title?: string
+  description?: string
 }
 
 export const DialogConfirmTransactionLoading = ({
@@ -14,11 +15,11 @@ export const DialogConfirmTransactionLoading = ({
   isOpen,
   children,
   title = "Waiting for confirmation",
-  description = "Confirm this transaction in your wallet.",
+  description = "Confirm this transaction in your wallet."
 }: DialogConfirmTransactionLoadingProps) => (
   <Dialog closeAction={closeAction} isOpen={isOpen}>
     <DotsSpinnerImg className="animate-spin" />
     <DialogContent description={description} title={title} />
     {children}
   </Dialog>
-);
+)

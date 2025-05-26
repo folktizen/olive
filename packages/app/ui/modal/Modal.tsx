@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, ReactNode, RefObject } from "react";
-import { cva, cx } from "class-variance-authority";
+import { Dialog, Transition } from "@headlessui/react"
+import { Fragment, ReactNode, RefObject } from "react"
+import { cva, cx } from "class-variance-authority"
 
 export interface ModalBaseProps {
-  isOpen: boolean;
-  closeAction: () => void;
+  isOpen: boolean
+  closeAction: () => void
 }
 interface ModalProps extends ModalBaseProps {
-  children: ReactNode;
-  className?: string;
-  initialFocusRef?: RefObject<HTMLButtonElement | HTMLInputElement>;
-  maxWidth?: "2xl" | "xl" | "lg" | "md" | "sm";
-  withOpacity?: boolean;
+  children: ReactNode
+  className?: string
+  initialFocusRef?: RefObject<HTMLButtonElement | HTMLInputElement>
+  maxWidth?: "2xl" | "xl" | "lg" | "md" | "sm"
+  withOpacity?: boolean
 }
 
 export const dialogPanelStyles = cva(
@@ -21,7 +21,7 @@ export const dialogPanelStyles = cva(
     "w-full",
     "overflow-hidden text-left align-middle",
     "bg-white shadow-xl rounded-2xl",
-    "transition-all transform ",
+    "transition-all transform "
   ],
   {
     variants: {
@@ -30,14 +30,14 @@ export const dialogPanelStyles = cva(
         xl: "max-w-xl",
         lg: "max-w-lg",
         md: "max-w-md",
-        sm: "max-w-sm",
-      },
+        sm: "max-w-sm"
+      }
     },
     defaultVariants: {
-      maxWidth: "md",
-    },
-  },
-);
+      maxWidth: "md"
+    }
+  }
+)
 
 export function Modal({
   children,
@@ -46,7 +46,7 @@ export function Modal({
   initialFocusRef,
   isOpen,
   maxWidth,
-  withOpacity = true,
+  withOpacity = true
 }: ModalProps) {
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -81,7 +81,9 @@ export function Modal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className={cx(dialogPanelStyles({ maxWidth }), className)}>
+              <Dialog.Panel
+                className={cx(dialogPanelStyles({ maxWidth }), className)}
+              >
                 {children}
               </Dialog.Panel>
             </Transition.Child>
@@ -89,5 +91,5 @@ export function Modal({
         </div>
       </Dialog>
     </Transition>
-  );
+  )
 }

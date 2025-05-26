@@ -1,31 +1,38 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import { trackEvent } from "@/analytics";
+import Link from "next/link"
+import Image from "next/image"
+import { trackEvent } from "@/analytics"
 
-import { BodyText, ButtonLink, DisplayText, HeadingText, Icon, TitleText } from "@/ui";
-import { EVENTS } from "@/analytics";
-import { OLIVE_APP_URL } from "@/constants";
+import {
+  BodyText,
+  ButtonLink,
+  DisplayText,
+  HeadingText,
+  Icon,
+  TitleText
+} from "@/ui"
+import { EVENTS } from "@/analytics"
+import { OLIVE_APP_URL } from "@/constants"
 
 export const SUPPORTED_NETWORKS = [
   {
     name: "Ethereum",
-    image: "/assets/images/ethereum-logo.svg",
+    image: "/assets/images/ethereum-logo.svg"
   },
   {
     name: "Gnosis",
-    image: "/assets/images/gnosis-logo.svg",
+    image: "/assets/images/gnosis-logo.svg"
   },
   {
     name: "Arbitrum",
-    image: "/assets/images/arbitrum-logo.svg",
+    image: "/assets/images/arbitrum-logo.svg"
   },
   {
     name: "Base",
-    image: "/assets/images/base-logo.svg",
-  },
-];
+    image: "/assets/images/base-logo.svg"
+  }
+]
 
 export const HeroBanner = () => {
   return (
@@ -59,13 +66,17 @@ export const HeroBanner = () => {
         width="fit"
         className="!py-4 mx-auto text-lg !px-16 md:!px-28 mt-8"
         onClick={() => {
-          trackEvent(EVENTS.SECTIONS.HERO_BANNER.STACK_NOW_CLICK);
+          trackEvent(EVENTS.SECTIONS.HERO_BANNER.STACK_NOW_CLICK)
         }}
       >
         Start stacking now
       </ButtonLink>
       <div className="relative mx-auto mt-12 mb-24 max-w-4xl md:my-20">
-        <Link passHref href={OLIVE_APP_URL} className="block relative mx-auto w-fit">
+        <Link
+          passHref
+          href={OLIVE_APP_URL}
+          className="block relative mx-auto w-fit"
+        >
           <div className="invisible sm:visible absolute w-[3px] h-[26px] bg-em-med bottom-[60px] left-[17px] animate-cursor-blink"></div>
           <Image
             className="mx-auto rounded-2xl border shadow-xl hover:shadow-2xl border-surface-50"
@@ -114,5 +125,5 @@ export const HeroBanner = () => {
         </div>
       )}
     </section>
-  );
-};
+  )
+}

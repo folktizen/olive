@@ -1,31 +1,31 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from "graphql-request"
 import {
   getUserOrders,
   getSubgraphEndpoint,
   getUserActiveOrders,
   getUserCancelledOrders,
   getUserCompleteOrders,
-  ChainId,
-} from "@useolive/sdk";
+  ChainId
+} from "@useolive/sdk"
 
 interface GetOrder {
-  chainId: ChainId;
-  address: string;
-  skip?: number;
-  first?: number;
-  currentTimestamp: number;
+  chainId: ChainId
+  address: string
+  skip?: number
+  first?: number
+  currentTimestamp: number
 }
 
 export async function getOrders(chainId: ChainId, address: string) {
   try {
-    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId));
-    const orders = await getUserOrders(graphqlClient, address);
+    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId))
+    const orders = await getUserOrders(graphqlClient, address)
 
-    if (!orders) throw "Failed to fetch subgraph data";
+    if (!orders) throw "Failed to fetch subgraph data"
 
-    return orders;
+    return orders
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 }
 
@@ -34,17 +34,23 @@ export async function getActiveOrders({
   address,
   currentTimestamp,
   skip,
-  first,
+  first
 }: GetOrder) {
   try {
-    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId));
-    const orders = await getUserActiveOrders(graphqlClient, address, currentTimestamp, skip, first);
+    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId))
+    const orders = await getUserActiveOrders(
+      graphqlClient,
+      address,
+      currentTimestamp,
+      skip,
+      first
+    )
 
-    if (!orders) throw "Failed to fetch active orders data from subgraph";
+    if (!orders) throw "Failed to fetch active orders data from subgraph"
 
-    return orders;
+    return orders
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 }
 
@@ -53,35 +59,45 @@ export async function getCompleteOrders({
   address,
   currentTimestamp,
   skip,
-  first,
+  first
 }: GetOrder) {
   try {
-    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId));
+    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId))
     const orders = await getUserCompleteOrders(
       graphqlClient,
       address,
       currentTimestamp,
       skip,
-      first,
-    );
+      first
+    )
 
-    if (!orders) throw "Failed to fetch active orders data from subgraph";
+    if (!orders) throw "Failed to fetch active orders data from subgraph"
 
-    return orders;
+    return orders
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 }
 
-export async function getCancelledOrders({ chainId, address, skip, first }: GetOrder) {
+export async function getCancelledOrders({
+  chainId,
+  address,
+  skip,
+  first
+}: GetOrder) {
   try {
-    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId));
-    const orders = await getUserCancelledOrders(graphqlClient, address, skip, first);
+    const graphqlClient = new GraphQLClient(getSubgraphEndpoint(chainId))
+    const orders = await getUserCancelledOrders(
+      graphqlClient,
+      address,
+      skip,
+      first
+    )
 
-    if (!orders) throw "Failed to fetch cancelled orders data from subgraph";
+    if (!orders) throw "Failed to fetch cancelled orders data from subgraph"
 
-    return orders;
+    return orders
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 }

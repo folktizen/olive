@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { PropsWithChildren, useState } from "react";
-import { formatDistanceToNow } from "date-fns";
+import { PropsWithChildren, useState } from "react"
+import { formatDistanceToNow } from "date-fns"
 import {
   BodyText,
   Button,
@@ -14,15 +14,15 @@ import {
   TableFooter,
   TableHead,
   TableHeader,
-  TableRow,
-} from "@/ui";
-import { StackModal, TokenLogoPair } from "@/components";
+  TableRow
+} from "@/ui"
+import { StackModal, TokenLogoPair } from "@/components"
 import {
   totalFundsAmountWithTokenText,
   orderPairSymbolsText,
-  totalOrderSlotsDone,
-} from "@/models/order";
-import { formatTimestampToDate } from "@/utils/datetime";
+  totalOrderSlotsDone
+} from "@/models/order"
+import { formatTimestampToDate } from "@/utils/datetime"
 import {
   StackOrder,
   StackOrderProps,
@@ -30,19 +30,19 @@ import {
   stackIsFinishedWithFunds,
   totalFundsUsed,
   totalStackOrdersDone,
-  totalStacked,
-} from "@/models/stack-order";
-import { formatTokenValue } from "@/utils/token";
-import { ModalId, useModalContext } from "@/contexts";
+  totalStacked
+} from "@/models/stack-order"
+import { formatTokenValue } from "@/utils/token"
+import { ModalId, useModalContext } from "@/contexts"
 
 interface StacksTableProps {
-  stackOrders: StackOrder[];
-  fetchAllOrders: () => void;
-  refetchStacks: () => void;
-  hasMorePages: boolean;
-  hasLessPages: boolean;
-  nextPage: () => void;
-  previousPage: () => void;
+  stackOrders: StackOrder[]
+  fetchAllOrders: () => void
+  refetchStacks: () => void
+  hasMorePages: boolean
+  hasLessPages: boolean
+  nextPage: () => void
+  previousPage: () => void
 }
 
 export const StacksTable = ({
@@ -52,16 +52,16 @@ export const StacksTable = ({
   hasMorePages,
   hasLessPages,
   nextPage,
-  previousPage,
+  previousPage
 }: StacksTableProps) => {
-  const [stackOrder, setStackOrder] = useState<StackOrder>();
+  const [stackOrder, setStackOrder] = useState<StackOrder>()
 
-  const { closeModal, isModalOpen, openModal } = useModalContext();
+  const { closeModal, isModalOpen, openModal } = useModalContext()
 
   const setupAndOpenModal = (stackOrder: StackOrder) => {
-    setStackOrder(stackOrder);
-    openModal(ModalId.STACK);
-  };
+    setStackOrder(stackOrder)
+    openModal(ModalId.STACK)
+  }
 
   return (
     <div className="w-full bg-white border shadow-xs rounded-3xl border-surface-50">
@@ -79,10 +79,17 @@ export const StacksTable = ({
           {stackOrders.map((order) => (
             <TableRow key={order.id}>
               <TableCell className="flex items-center font-medium w-max">
-                <TokenLogoPair buyToken={order.buyToken} sellToken={order.sellToken} />
+                <TokenLogoPair
+                  buyToken={order.buyToken}
+                  sellToken={order.sellToken}
+                />
                 <div className="ml-3 space-y-0.5">
-                  <BodyText weight="bold">{formatTokenValue(totalStacked(order))}</BodyText>
-                  <CaptionText className="text-em-low">{orderPairSymbolsText(order)}</CaptionText>
+                  <BodyText weight="bold">
+                    {formatTokenValue(totalStacked(order))}
+                  </BodyText>
+                  <CaptionText className="text-em-low">
+                    {orderPairSymbolsText(order)}
+                  </CaptionText>
                 </div>
               </TableCell>
               <TableCell className="text-right">
@@ -100,15 +107,23 @@ export const StacksTable = ({
                   <BodyText className="text-em-high">
                     {formatTokenValue(calculateStackAveragePrice(order))}
                   </BodyText>
-                  <BodyText className="text-em-low">{orderPairSymbolsText(order)}</BodyText>
+                  <BodyText className="text-em-low">
+                    {orderPairSymbolsText(order)}
+                  </BodyText>
                 </CellWrapper>
               </TableCell>
               <TableCell className="text-right">
                 <CellWrapper>
                   {stackIsFinishedWithFunds(order) ? (
                     <div className="flex items-center p-1 space-x-1.5 rounded">
-                      <Icon name="warning" size={14} className="text-danger-500" />
-                      <OverlineText className="text-danger-500">Widthdraw funds</OverlineText>
+                      <Icon
+                        name="warning"
+                        size={14}
+                        className="text-danger-500"
+                      />
+                      <OverlineText className="text-danger-500">
+                        Widthdraw funds
+                      </OverlineText>
                     </div>
                   ) : (
                     <OrdersProgressText stackOrder={order} />
@@ -159,12 +174,14 @@ export const StacksTable = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
 
 const CellWrapper = ({ children }: PropsWithChildren) => (
-  <div className="flex items-center justify-end space-x-1 w-max lg:w-auto">{children}</div>
-);
+  <div className="flex items-center justify-end space-x-1 w-max lg:w-auto">
+    {children}
+  </div>
+)
 
 const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
   if (stackOrder.cancelledAt) {
@@ -172,23 +189,27 @@ const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
       <BodyText className="text-em-low">
         Cancelled at {formatTimestampToDate(stackOrder.cancelledAt)}
       </BodyText>
-    );
+    )
   }
 
   if (totalOrderSlotsDone(stackOrder) !== 0) {
     return (
       <>
-        <BodyText className="text-em-high">{totalStackOrdersDone(stackOrder).toString()}</BodyText>
+        <BodyText className="text-em-high">
+          {totalStackOrdersDone(stackOrder).toString()}
+        </BodyText>
         <BodyText className="text-em-low">{`/ ${
           stackOrder.orderSlots.length || stackOrder.cowOrders.length
         } orders`}</BodyText>
       </>
-    );
+    )
   }
 
-  const firtTimeSlot = Number(stackOrder.orderSlots[0] ?? stackOrder.startTime);
-  const date = new Date(firtTimeSlot * 1000); // Convert seconds to milliseconds
-  const distanceToNow = formatDistanceToNow(date, { addSuffix: true });
+  const firtTimeSlot = Number(stackOrder.orderSlots[0] ?? stackOrder.startTime)
+  const date = new Date(firtTimeSlot * 1000) // Convert seconds to milliseconds
+  const distanceToNow = formatDistanceToNow(date, { addSuffix: true })
 
-  return <BodyText className="text-primary-700">{`Starts ${distanceToNow}`}</BodyText>;
-};
+  return (
+    <BodyText className="text-primary-700">{`Starts ${distanceToNow}`}</BodyText>
+  )
+}

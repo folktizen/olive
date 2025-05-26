@@ -1,6 +1,6 @@
-import { ConnectButton } from "@/components";
-import { EmptyStateNoWalletImg } from "@/public/assets";
-import { HeadingText } from "@/ui";
+import { ConnectButton } from "@/components"
+import { EmptyStateNoWalletImg } from "@/public/assets"
+import { HeadingText } from "@/ui"
 
 export default function NoWalletState() {
   return (
@@ -10,11 +10,16 @@ export default function NoWalletState() {
         <div className="space-y-3 text-center">
           <HeadingText size={2}>You need to connect your wallet</HeadingText>
           <HeadingText size={1} weight="medium" className="text-em-med">
-            Click the button below to connect your wallet and check your stacks or create new ones.
+            Click the button below to connect your wallet and check your stacks
+            or create new ones.
           </HeadingText>
         </div>
       </div>
-      <ConnectButton size="lg" className="mx-auto w-fit" text="Connect Wallet" />
+      <ConnectButton
+        size="lg"
+        className="mx-auto w-fit"
+        text="Connect Wallet"
+      />
     </div>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import { ButtonLink, HeadingText } from "@/ui";
-import { PATHNAMES } from "@/constants";
-import StacksImg from "@/public/assets/images/stacks.svg";
+import { ButtonLink, HeadingText } from "@/ui"
+import { PATHNAMES } from "@/constants"
+import StacksImg from "@/public/assets/images/stacks.svg"
 
 export default function NotFound() {
-  const discordLink = process.env.DISCORD_URL ? process.env.DISCORD_URL : "#";
+  const discordLink = process.env.DISCORD_URL ? process.env.DISCORD_URL : "#"
 
   return (
     <div className="flex flex-col items-center justify-center max-w-xl mx-auto my-32 space-y-7">
@@ -29,5 +29,5 @@ export default function NotFound() {
         <ButtonLink href={PATHNAMES.HOME}>Go back to homepage</ButtonLink>
       </div>
     </div>
-  );
+  )
 }

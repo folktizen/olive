@@ -53,7 +53,10 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "editor.codeActionsOnSave": {
       "source.organizeImports": "always",
       "source.fixAll": "always"

@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { useState } from "react"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import { Button, Icon } from "@/ui";
-import { ConnectButton, SelectNetwork } from "@/components";
-import { PATHNAMES, OLIVE_LANDING_URL } from "@/constants";
+import { Button, Icon } from "@/ui"
+import { ConnectButton, SelectNetwork } from "@/components"
+import { PATHNAMES, OLIVE_LANDING_URL } from "@/constants"
 
 export default function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div className="z-10 flex items-center justify-end w-full gap-4 md:hidden">
@@ -41,15 +41,21 @@ export default function MobileMenu() {
               <span className="ml-4">Your Stacks</span>
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
-            <Link href={`${OLIVE_LANDING_URL}#how-it-works`} className="block py-3 text-em-med">
+            <Link
+              href={`${OLIVE_LANDING_URL}#how-it-works`}
+              className="block py-3 text-em-med"
+            >
               How it works
             </Link>
-            <Link href={`${OLIVE_LANDING_URL}#faqs`} className="block py-3 text-em-med">
+            <Link
+              href={`${OLIVE_LANDING_URL}#faqs`}
+              className="block py-3 text-em-med"
+            >
               FAQ&apos;s
             </Link>
           </div>
         </>
       )}
     </div>
-  );
+  )
 }

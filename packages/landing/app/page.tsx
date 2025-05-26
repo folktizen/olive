@@ -1,18 +1,21 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
 
-import { BodyText, ButtonLink, HeadingText, Icon } from "@/ui";
-import { OLIVE_DISCORD_URL, OLIVE_TWITTER_URL, SWAPR_URL } from "@/constants";
-import { StacklyLogoIcon } from "@/public/assets";
-import { FAQ, HeroBanner, TryStacklyBanner } from "@/components";
+import { BodyText, ButtonLink, HeadingText, Icon } from "@/ui"
+import { OLIVE_DISCORD_URL, OLIVE_TWITTER_URL, SWAPR_URL } from "@/constants"
+import { StacklyLogoIcon } from "@/public/assets"
+import { FAQ, HeroBanner, TryStacklyBanner } from "@/components"
 
 export default function Home() {
   return (
     <main>
       <HeroBanner />
-      <section className="py-20 bg-white border-b border-gray-100 md:py-32" id="how-it-works">
+      <section
+        className="py-20 bg-white border-b border-gray-100 md:py-32"
+        id="how-it-works"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="max-w-xl px-6 space-y-2 md:pb-28">
             <HeadingText size={4}>Using Stackly is super easy</HeadingText>
@@ -35,16 +38,20 @@ export default function Home() {
       </section>
       <section className="px-6 pt-12 pb-20 bg-white border-b border-gray-100 md:py-32">
         <div className="max-w-6xl mx-auto">
-          <HeadingText size={4}>A new way to stack your crypto with DCA strategy.</HeadingText>
+          <HeadingText size={4}>
+            A new way to stack your crypto with DCA strategy.
+          </HeadingText>
           <div className="space-y-16">
             <DCAfeature title="Neutralizing Short-Term Volatility">
-              Stackly dollar-cost averaging strategy neutralizes short-term volatility and reduces
-              the need for market timing, making it an ideal tool for investors who want to minimize
-              risk while building wealth.
+              Stackly dollar-cost averaging strategy neutralizes short-term
+              volatility and reduces the need for market timing, making it an
+              ideal tool for investors who want to minimize risk while building
+              wealth.
             </DCAfeature>
             <DCAfeature title="Greater Control Over Investments">
-              With Stackly, you can choose the token you want to stack, the frequency of the stacks,
-              and when to start and end them, giving you greater control over your investments.
+              With Stackly, you can choose the token you want to stack, the
+              frequency of the stacks, and when to start and end them, giving
+              you greater control over your investments.
             </DCAfeature>
           </div>
         </div>
@@ -58,12 +65,12 @@ export default function Home() {
       </section>
       <Footer />
     </main>
-  );
+  )
 }
 
 interface StepProps {
-  step: number;
-  description: string;
+  step: number
+  description: string
 }
 
 const Step = ({ step, description }: StepProps) => (
@@ -83,13 +90,17 @@ const Step = ({ step, description }: StepProps) => (
       width={512}
     />
   </div>
-);
+)
 
 const SocialBanner = () => (
   <div className="flex flex-col items-center justify-between py-6 bg-white border md:flex-row px-7 rounded-[20px]">
     <div className="flex flex-col items-center md:space-y-0 md:space-x-5 md:flex-row">
       <StacklyLogoIcon title="Stackly logo icon" />
-      <HeadingText weight="medium" size={3} className="text-center md:text-left">
+      <HeadingText
+        weight="medium"
+        size={3}
+        className="text-center md:text-left"
+      >
         Join our awesome community
       </HeadingText>
     </div>
@@ -116,10 +127,10 @@ const SocialBanner = () => (
       </ButtonLink>
     </div>
   </div>
-);
+)
 
 interface DCAFeatureProps extends PropsWithChildren {
-  title: string;
+  title: string
 }
 
 const DCAfeature = ({ title, children }: DCAFeatureProps) => (
@@ -131,7 +142,7 @@ const DCAfeature = ({ title, children }: DCAFeatureProps) => (
       {children}
     </HeadingText>
   </div>
-);
+)
 
 const Footer = () => (
   <footer>
@@ -143,7 +154,11 @@ const Footer = () => (
       <div className="flex items-center space-x-1.5">
         <BodyText weight="medium" className="text-em-low">
           A product from{" "}
-          <Link className="hover:text-[#2e17f2]" target="_blank" href={SWAPR_URL}>
+          <Link
+            className="hover:text-[#2e17f2]"
+            target="_blank"
+            href={SWAPR_URL}
+          >
             Swapr
           </Link>
         </BodyText>
@@ -151,4 +166,4 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+)

@@ -1,18 +1,22 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { useState } from "react"
 
-import Link from "next/link";
-import { trackEvent } from "@/analytics";
+import Link from "next/link"
+import { trackEvent } from "@/analytics"
 
-import { Button, ButtonLink } from "@/ui";
-import { EVENTS } from "@/analytics";
-import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants";
+import { Button, ButtonLink } from "@/ui"
+import { EVENTS } from "@/analytics"
+import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants"
 
-export default function MobileMenu({ passedThresholdHeight }: { passedThresholdHeight: boolean }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function MobileMenu({
+  passedThresholdHeight
+}: {
+  passedThresholdHeight: boolean
+}) {
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div className="z-10 flex items-center justify-end w-full gap-4 md:hidden">
@@ -21,7 +25,7 @@ export default function MobileMenu({ passedThresholdHeight }: { passedThresholdH
         variant={passedThresholdHeight ? "primary" : "secondary"}
         href={OLIVE_APP_URL}
         onClick={() => {
-          trackEvent(EVENTS.NAVBAR.MOBILE.LAUNCH_APP_CLICK);
+          trackEvent(EVENTS.NAVBAR.MOBILE.LAUNCH_APP_CLICK)
         }}
       >
         Launch app
@@ -47,20 +51,28 @@ export default function MobileMenu({ passedThresholdHeight }: { passedThresholdH
               rel="noopener noreferrer"
               target="_blank"
               onClick={() => {
-                trackEvent(EVENTS.NAVBAR.MOBILE.DUNE_ANALYTICS);
+                trackEvent(EVENTS.NAVBAR.MOBILE.DUNE_ANALYTICS)
               }}
             >
               Analytics
             </Link>
-            <Link href="#how-it-works" className="block py-3 text-em-med" onClick={toggle}>
+            <Link
+              href="#how-it-works"
+              className="block py-3 text-em-med"
+              onClick={toggle}
+            >
               How it works
             </Link>
-            <Link href="#faqs" className="block py-3 text-em-med" onClick={toggle}>
+            <Link
+              href="#faqs"
+              className="block py-3 text-em-med"
+              onClick={toggle}
+            >
               FAQ&apos;s
             </Link>
           </div>
         </>
       )}
     </div>
-  );
+  )
 }

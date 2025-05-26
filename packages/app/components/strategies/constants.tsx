@@ -1,23 +1,28 @@
-import { FREQUENCY_OPTIONS } from "@/models/stack";
-import { gnosisTokens, mainnetTokens, arbitrumTokens, baseTokens } from "@/models/token";
-import { Strategy } from "@/contexts";
-import { ChainId } from "@useolive/sdk";
+import { FREQUENCY_OPTIONS } from "@/models/stack"
+import {
+  gnosisTokens,
+  mainnetTokens,
+  arbitrumTokens,
+  baseTokens
+} from "@/models/token"
+import { Strategy } from "@/contexts"
+import { ChainId } from "@useolive/sdk"
 
 type ChainStrategy = {
-  label: string;
-  strategies: Strategy[];
-};
+  label: string
+  strategies: Strategy[]
+}
 
 type ChainStrategies = {
-  popular: ChainStrategy;
-};
+  popular: ChainStrategy
+}
 
 export const FREQUENCY_LABEL = {
   [FREQUENCY_OPTIONS.hour]: "hourly",
   [FREQUENCY_OPTIONS.day]: "daily",
   [FREQUENCY_OPTIONS.week]: "weekly",
-  [FREQUENCY_OPTIONS.month]: "monthly",
-};
+  [FREQUENCY_OPTIONS.month]: "monthly"
+}
 
 export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
   [ChainId.ETHEREUM]: {
@@ -31,7 +36,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 0.0075,
           sellToken: mainnetTokens.WBTC,
-          totalSellAmount: "0.45",
+          totalSellAmount: "0.45"
         },
         {
           id: 2,
@@ -40,7 +45,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 0.0625,
           sellToken: mainnetTokens.WETH,
-          totalSellAmount: "5",
+          totalSellAmount: "5"
         },
         {
           id: 3,
@@ -49,7 +54,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.month,
           sellAmountPerTimeframe: 2000,
           sellToken: mainnetTokens.USDC,
-          totalSellAmount: "8000",
+          totalSellAmount: "8000"
         },
         {
           id: 4,
@@ -58,10 +63,10 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 0.02,
           sellToken: mainnetTokens.WETH,
-          totalSellAmount: "1",
-        },
-      ],
-    },
+          totalSellAmount: "1"
+        }
+      ]
+    }
   },
   [ChainId.GNOSIS]: {
     popular: {
@@ -74,7 +79,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 50,
           sellToken: gnosisTokens.USDC,
-          totalSellAmount: "1500",
+          totalSellAmount: "1500"
         },
         {
           id: 2,
@@ -83,7 +88,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 20,
           sellToken: gnosisTokens.WXDAI,
-          totalSellAmount: "140",
+          totalSellAmount: "140"
         },
         {
           id: 3,
@@ -92,7 +97,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.hour,
           sellAmountPerTimeframe: 5,
           sellToken: gnosisTokens.USDC,
-          totalSellAmount: "480",
+          totalSellAmount: "480"
         },
         {
           id: 4,
@@ -101,10 +106,10 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 100,
           sellToken: gnosisTokens.WXDAI,
-          totalSellAmount: "800",
-        },
-      ],
-    },
+          totalSellAmount: "800"
+        }
+      ]
+    }
   },
   [ChainId.ARBITRUM]: {
     popular: {
@@ -117,7 +122,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 50,
           sellToken: arbitrumTokens.USDC,
-          totalSellAmount: "1500",
+          totalSellAmount: "1500"
         },
         {
           id: 2,
@@ -126,7 +131,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 20,
           sellToken: arbitrumTokens.DAI,
-          totalSellAmount: "140",
+          totalSellAmount: "140"
         },
         {
           id: 3,
@@ -135,7 +140,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.hour,
           sellAmountPerTimeframe: 5,
           sellToken: arbitrumTokens.USDC,
-          totalSellAmount: "480",
+          totalSellAmount: "480"
         },
         {
           id: 4,
@@ -144,10 +149,10 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 100,
           sellToken: arbitrumTokens.DAI,
-          totalSellAmount: "800",
-        },
-      ],
-    },
+          totalSellAmount: "800"
+        }
+      ]
+    }
   },
   [ChainId.BASE]: {
     popular: {
@@ -160,7 +165,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 100,
           sellToken: baseTokens.USDC,
-          totalSellAmount: "1400",
+          totalSellAmount: "1400"
         },
         {
           id: 2,
@@ -169,7 +174,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 50,
           sellToken: baseTokens.USDC,
-          totalSellAmount: "1300",
+          totalSellAmount: "1300"
         },
         {
           id: 3,
@@ -178,7 +183,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.hour,
           sellAmountPerTimeframe: 10,
           sellToken: baseTokens.WETH,
-          totalSellAmount: "720",
+          totalSellAmount: "720"
         },
         {
           id: 4,
@@ -187,9 +192,9 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 50,
           sellToken: baseTokens.USDC,
-          totalSellAmount: "1500",
-        },
-      ],
-    },
-  },
-};
+          totalSellAmount: "1500"
+        }
+      ]
+    }
+  }
+}

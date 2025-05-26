@@ -1,35 +1,35 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-import Link from "next/link";
-import { trackEvent } from "@/analytics";
+import Link from "next/link"
+import { trackEvent } from "@/analytics"
 
-import { EVENTS } from "@/analytics";
-import { ButtonLink } from "@/ui";
-import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants";
+import { EVENTS } from "@/analytics"
+import { ButtonLink } from "@/ui"
+import { DUNE_ANALYTICS_URL, OLIVE_APP_URL } from "@/constants"
 
-import MobileMenu from "./MobileMenu";
-import Logo from "./Logo";
+import MobileMenu from "./MobileMenu"
+import Logo from "./Logo"
 
-const THRESHOLD_HEIGHT = 320;
+const THRESHOLD_HEIGHT = 320
 
 export function Navbar() {
-  const [scrollYPos, setScrollYPos] = useState(0);
+  const [scrollYPos, setScrollYPos] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollYPos(window.scrollY);
-    };
+      setScrollYPos(window.scrollY)
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
-  const passedThresholdHeight = scrollYPos > THRESHOLD_HEIGHT;
+  const passedThresholdHeight = scrollYPos > THRESHOLD_HEIGHT
 
   return (
     <header className="sticky top-0 z-20 flex flex-col w-full px-4 border-b border-solid h-nav-height bg-surface-25/80 md:bg-surface-25/60 backdrop-blur-md border-b-surface-75">
@@ -54,7 +54,7 @@ export function Navbar() {
             href={DUNE_ANALYTICS_URL}
             target="_blank"
             onClick={() => {
-              trackEvent(EVENTS.NAVBAR.DESKTOP.DUNE_ANALYTICS);
+              trackEvent(EVENTS.NAVBAR.DESKTOP.DUNE_ANALYTICS)
             }}
           >
             Analytics
@@ -70,7 +70,7 @@ export function Navbar() {
             variant={passedThresholdHeight ? "primary" : "quaternary"}
             href={OLIVE_APP_URL}
             onClick={() => {
-              trackEvent(EVENTS.NAVBAR.DESKTOP.LAUNCH_APP_CLICK);
+              trackEvent(EVENTS.NAVBAR.DESKTOP.LAUNCH_APP_CLICK)
             }}
           >
             Launch app
@@ -79,5 +79,5 @@ export function Navbar() {
         <MobileMenu passedThresholdHeight={passedThresholdHeight} />
       </nav>
     </header>
-  );
+  )
 }

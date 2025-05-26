@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useState } from "react";
-import { cx } from "class-variance-authority";
+import Link from "next/link"
+import { useState } from "react"
+import { cx } from "class-variance-authority"
 
-import { orderPairSymbolsText } from "@/models/order";
+import { orderPairSymbolsText } from "@/models/order"
 import {
   Modal,
   ModalFooter,
@@ -16,8 +16,8 @@ import {
   ModalBaseProps,
   DialogContent,
   DialogFooterActions,
-  Dialog,
-} from "@/ui";
+  Dialog
+} from "@/ui"
 
 import {
   StackOrder,
@@ -27,61 +27,61 @@ import {
   totalFundsUsed,
   stackIsFinishedWithFunds,
   stackIsComplete,
-  stackRemainingFunds,
-} from "@/models/stack-order";
+  stackRemainingFunds
+} from "@/models/stack-order"
 
 import {
   DialogConfirmTransactionLoading,
   FromToStackTokenPair,
   TokenLogoPair,
-  TransactionLink,
-} from "@/components";
+  TransactionLink
+} from "@/components"
 
-import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgress";
-import { StackFrequencyAndDates } from "@/components/stack-modal/StackFrequencyAndDates";
+import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgress"
+import { StackFrequencyAndDates } from "@/components/stack-modal/StackFrequencyAndDates"
 
-import { formatTokenValue } from "@/utils/token";
-import { getDCAOrderContract } from "@useolive/sdk";
-import { getExplorerLink } from "@/utils/transaction";
-import { useEthersSigner } from "@/utils/ethers";
+import { formatTokenValue } from "@/utils/token"
+import { getDCAOrderContract } from "@useolive/sdk"
+import { getExplorerLink } from "@/utils/transaction"
+import { useEthersSigner } from "@/utils/ethers"
 
-import { ModalId, useModalContext, useNetworkContext } from "@/contexts";
+import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
 
-import { Transaction } from "@/models/stack";
+import { Transaction } from "@/models/stack"
 
 interface StackModalProps extends ModalBaseProps {
-  stackOrder: StackOrder;
-  fetchAllOrders: () => void;
-  refetchStacks: () => void;
+  stackOrder: StackOrder
+  fetchAllOrders: () => void
+  refetchStacks: () => void
 }
 
 type Content = {
-  title: string;
-  description: string;
+  title: string
+  description: string
   button: {
-    action: "primary" | "secondary";
-    text: string;
-  };
-};
+    action: "primary" | "secondary"
+    text: string
+  }
+}
 
 export const StackModal = ({
   stackOrder,
   isOpen,
   fetchAllOrders,
   refetchStacks,
-  closeAction,
+  closeAction
 }: StackModalProps) => {
-  const signer = useEthersSigner();
-  const { chainId } = useNetworkContext();
-  const { closeModal, isModalOpen, openModal } = useModalContext();
+  const signer = useEthersSigner()
+  const { chainId } = useNetworkContext()
+  const { closeModal, isModalOpen, openModal } = useModalContext()
 
-  const [cancellationTx, setCancellationTx] = useState<Transaction>();
+  const [cancellationTx, setCancellationTx] = useState<Transaction>()
 
   const stackRemainingFundsWithTokenText = `${stackRemainingFunds(
-    stackOrder,
-  )} ${stackOrder.sellToken.symbol}`;
+    stackOrder
+  )} ${stackOrder.sellToken.symbol}`
 
-  const remainingFundsText = `The ${stackRemainingFundsWithTokenText} will be sent to your wallet.`;
+  const remainingFundsText = `The ${stackRemainingFundsWithTokenText} will be sent to your wallet.`
 
   const getConfirmCancelContent = (): Content => {
     if (stackIsFinishedWithFunds(stackOrder))
@@ -90,38 +90,42 @@ export const StackModal = ({
         description: remainingFundsText,
         button: {
           action: "primary",
-          text: `Withdraw ${stackRemainingFundsWithTokenText}`,
-        },
-      };
+          text: `Withdraw ${stackRemainingFundsWithTokenText}`
+        }
+      }
 
     return {
       title: "Are you sure you want to cancel stacking?",
       description: remainingFundsText,
       button: {
         action: "secondary",
-        text: "Cancel Stack",
-      },
-    };
-  };
+        text: "Cancel Stack"
+      }
+    }
+  }
 
   const cancelStack = async () => {
-    const signerInstance = await signer;
-    if (!signerInstance) return;
+    const signerInstance = await signer
+    if (!signerInstance) return
 
     try {
-      openModal(ModalId.CANCEL_STACK_PROCESSING);
-      const tx = await getDCAOrderContract(stackOrder.id, signerInstance).cancel();
-      setCancellationTx(tx);
-      await tx.wait();
-      closeModal(ModalId.CANCEL_STACK_PROCESSING);
-      openModal(ModalId.CANCEL_STACK_SUCCESS);
+      openModal(ModalId.CANCEL_STACK_PROCESSING)
+      const tx = await getDCAOrderContract(
+        stackOrder.id,
+        signerInstance
+      ).cancel()
+      setCancellationTx(tx)
+      await tx.wait()
+      closeModal(ModalId.CANCEL_STACK_PROCESSING)
+      openModal(ModalId.CANCEL_STACK_SUCCESS)
     } catch (e) {
-      closeModal(ModalId.CANCEL_STACK_PROCESSING);
-      console.error("Cancel stack error", e);
+      closeModal(ModalId.CANCEL_STACK_PROCESSING)
+      console.error("Cancel stack error", e)
     }
-  };
+  }
 
-  const stackNotCancelledAndNotComplete = !stackOrder.cancelledAt && !stackIsComplete(stackOrder);
+  const stackNotCancelledAndNotComplete =
+    !stackOrder.cancelledAt && !stackIsComplete(stackOrder)
 
   return (
     <>
@@ -134,21 +138,31 @@ export const StackModal = ({
             !isModalOpen(ModalId.CANCEL_STACK_PROCESSING) &&
             !isModalOpen(ModalId.CANCEL_STACK_SUCCESS)
           )
-            closeAction();
+            closeAction()
         }}
       >
         <ModalHeader>
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-2">
-              <TokenLogoPair buyToken={stackOrder.buyToken} sellToken={stackOrder.sellToken} />
+              <TokenLogoPair
+                buyToken={stackOrder.buyToken}
+                sellToken={stackOrder.sellToken}
+              />
               {chainId && (
                 <Link
                   passHref
                   target="_blank"
-                  href={getExplorerLink(chainId, stackOrder.id, "address", "#tokentxns")}
+                  href={getExplorerLink(
+                    chainId,
+                    stackOrder.id,
+                    "address",
+                    "#tokentxns"
+                  )}
                   className="flex items-center space-x-0.5 hover:border-em-low border-b-2 border-em-disabled group"
                 >
-                  <BodyText className="text-em-med">{stackOrder.id.substring(0, 7)}</BodyText>
+                  <BodyText className="text-em-med">
+                    {stackOrder.id.substring(0, 7)}
+                  </BodyText>
                   <Icon
                     className="text-em-med group-hover:animate-bounce"
                     name="arrow-external"
@@ -157,7 +171,12 @@ export const StackModal = ({
                 </Link>
               )}
             </div>
-            <Button variant="quaternary" iconLeft="close" size="icon" onClick={closeAction} />
+            <Button
+              variant="quaternary"
+              iconLeft="close"
+              size="icon"
+              onClick={closeAction}
+            />
           </div>
         </ModalHeader>
         <ModalContent className="px-0 space-y-4 md:px-0">
@@ -174,7 +193,7 @@ export const StackModal = ({
         </ModalContent>
         <ModalFooter
           className={cx({
-            "pt-0 pb-6": !stackNotCancelledAndNotComplete,
+            "pt-0 pb-6": !stackNotCancelledAndNotComplete
           })}
         >
           {stackNotCancelledAndNotComplete && (
@@ -227,18 +246,18 @@ export const StackModal = ({
         )}
         <DialogFooterActions
           primaryAction={() => {
-            refetchStacks();
-            fetchAllOrders();
-            closeModal(ModalId.CANCEL_STACK_PROCESSING);
-            closeModal(ModalId.CANCEL_STACK_SUCCESS);
-            closeAction();
+            refetchStacks()
+            fetchAllOrders()
+            closeModal(ModalId.CANCEL_STACK_PROCESSING)
+            closeModal(ModalId.CANCEL_STACK_SUCCESS)
+            closeAction()
           }}
           primaryText="Back to Stacks"
         />
       </Dialog>
     </>
-  );
-};
+  )
+}
 
 const StackDigest = ({ stackOrder }: StackOrderProps) => (
   <div className="flex flex-col justify-between gap-2 px-4 py-3 md:px-6 md:items-center md:flex-row bg-surface-25 rounded-2xl">
@@ -256,17 +275,17 @@ const StackDigest = ({ stackOrder }: StackOrderProps) => (
       <span className="text-em-med">{orderPairSymbolsText(stackOrder)}</span>
     </BodyText>
   </div>
-);
+)
 
 interface WarningHasRemainingFundsProps extends StackOrderProps {
-  stackRemainingFundsWithTokenText: string;
+  stackRemainingFundsWithTokenText: string
 }
 
 const WarningHasRemainingFunds = ({
   stackOrder,
-  stackRemainingFundsWithTokenText,
+  stackRemainingFundsWithTokenText
 }: WarningHasRemainingFundsProps) => {
-  if (!stackIsFinishedWithFunds(stackOrder)) return;
+  if (!stackIsFinishedWithFunds(stackOrder)) return
 
   return (
     <div className="px-4 md:px-6">
@@ -276,5 +295,5 @@ const WarningHasRemainingFunds = ({
         </BodyText>
       </div>
     </div>
-  );
-};
+  )
+}

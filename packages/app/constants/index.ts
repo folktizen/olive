@@ -1,2 +1,2 @@
-export * from "./urls";
-export * from "./pathnames";
+export * from "./urls"
+export * from "./pathnames"
