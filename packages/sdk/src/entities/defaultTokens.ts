@@ -74,26 +74,26 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
   )
 }
 
-export const SWPR: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0x6cacdb97e3fc8136805a9e7c342d866ab77d0957",
-    18,
-    "SWPR"
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0x532801ed6f82fffd2dab70a19fc2d7b2772c4f4b",
-    18,
-    "SWPR"
-  ),
-  [ChainId.ARBITRUM]: new Token(
-    ChainId.ARBITRUM,
-    "0xdE903E2712288A1dA82942DDdF2c20529565aC30",
-    18,
-    "SWPR"
-  )
-}
+// export const SWPR: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+//   [ChainId.ETHEREUM]: new Token(
+//     ChainId.ETHEREUM,
+//     "0x6cacdb97e3fc8136805a9e7c342d866ab77d0957",
+//     18,
+//     "SWPR"
+//   ),
+//   [ChainId.GNOSIS]: new Token(
+//     ChainId.GNOSIS,
+//     "0x532801ed6f82fffd2dab70a19fc2d7b2772c4f4b",
+//     18,
+//     "SWPR"
+//   ),
+//   [ChainId.ARBITRUM]: new Token(
+//     ChainId.ARBITRUM,
+//     "0xdE903E2712288A1dA82942DDdF2c20529565aC30",
+//     18,
+//     "SWPR"
+//   )
+// }
 
 export const WPOL = new Token(
   ChainId.POLYGON,
@@ -134,37 +134,31 @@ export const DAI: Readonly<Record<ChainId, Token>> = {
   )
 }
 
-export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0x6810e776880c02933d47db1b9fc05908e5386b96",
-    18,
-    "GNO"
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb",
-    18,
-    "GNO"
-  ),
-  [ChainId.ARBITRUM]: new Token(
-    ChainId.ARBITRUM,
-    "0xa0b862F60edEf4452F25B4160F177db44DeB6Cf1",
-    18,
-    "GNO"
-  )
-}
+// export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+//   [ChainId.ETHEREUM]: new Token(
+//     ChainId.ETHEREUM,
+//     "0x6810e776880c02933d47db1b9fc05908e5386b96",
+//     18,
+//     "GNO"
+//   ),
+//   [ChainId.GNOSIS]: new Token(
+//     ChainId.GNOSIS,
+//     "0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb",
+//     18,
+//     "GNO"
+//   ),
+//   [ChainId.ARBITRUM]: new Token(
+//     ChainId.ARBITRUM,
+//     "0xa0b862F60edEf4452F25B4160F177db44DeB6Cf1",
+//     18,
+//     "GNO"
+//   )
+// }
 
-export const WBTC: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-    8,
-    "WBTC"
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252",
+export const WBTC: Readonly<Record<ChainId, Token>> = {
+  [ChainId.OPTIMISM]: new Token(
+    ChainId.OPTIMISM,
+    "0x6810e776880c02933d47db1b9fc05908e5386b96",
     8,
     "WBTC"
   ),
@@ -173,68 +167,94 @@ export const WBTC: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
     "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
     8,
     "WBTC"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+    8,
+    "WBTC"
+  ),
+  [ChainId.BASE]: new Token(
+    ChainId.BASE,
+    "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    8,
+    "WBTC"
   )
 }
 
-export const DPI: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
-  [ChainId.ETHEREUM]: new Token(
-    ChainId.ETHEREUM,
-    "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
-    18,
-    "DPI"
+// export const DPI: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+//   [ChainId.ETHEREUM]: new Token(
+//     ChainId.ETHEREUM,
+//     "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+//     18,
+//     "DPI"
+//   ),
+//   [ChainId.GNOSIS]: new Token(
+//     ChainId.GNOSIS,
+//     "0xd3d47d5578e55c880505dc40648f7f9307c3e7a8",
+//     18,
+//     "DPI"
+//   ),
+//   [ChainId.ARBITRUM]: new Token(
+//     ChainId.ARBITRUM,
+//     "0x9737C658272e66Faad39D7AD337789Ee6D54F500",
+//     18,
+//     "DPI"
+//   )
+// }
+
+// export const STETH = new Token(
+//   ChainId.ETHEREUM,
+//   "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+//   18,
+//   "stETH"
+// )
+
+// export const RETH = new Token(
+//   ChainId.ETHEREUM,
+//   "0xae78736cd615f374d3085123a210448e74fc6393",
+//   18,
+//   "rETH"
+// )
+
+export const USDT: Record<Exclude<ChainId, ChainId.ARBITRUM>, Token> = {
+  [ChainId.OPTIMISM]: new Token(
+    ChainId.OPTIMISM,
+    "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+    6,
+    "USDT"
   ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0xd3d47d5578e55c880505dc40648f7f9307c3e7a8",
-    18,
-    "DPI"
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+    6,
+    "USDT"
   ),
-  [ChainId.ARBITRUM]: new Token(
-    ChainId.ARBITRUM,
-    "0x9737C658272e66Faad39D7AD337789Ee6D54F500",
-    18,
-    "DPI"
+  [ChainId.BASE]: new Token(
+    ChainId.BASE,
+    "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
+    6,
+    "USDT"
   )
 }
 
-export const STETH = new Token(
-  ChainId.ETHEREUM,
-  "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-  18,
-  "stETH"
-)
+// export const LUSD = new Token(
+//   ChainId.ETHEREUM,
+//   "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+//   18,
+//   "LUSD"
+// )
 
-export const RETH = new Token(
-  ChainId.ETHEREUM,
-  "0xae78736cd615f374d3085123a210448e74fc6393",
-  18,
-  "rETH"
-)
+// export const SUSD = new Token(
+//   ChainId.ETHEREUM,
+//   "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
+//   18,
+//   "SUSD"
+// )
 
-export const USDT = new Token(
-  ChainId.ETHEREUM,
-  "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-  6,
-  "USDT"
-)
-
-export const LUSD = new Token(
-  ChainId.ETHEREUM,
-  "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
-  18,
-  "LUSD"
-)
-
-export const SUSD = new Token(
-  ChainId.ETHEREUM,
-  "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
-  18,
-  "SUSD"
-)
-
-export const ENS = new Token(
-  ChainId.ETHEREUM,
-  "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
-  18,
-  "ENS"
-)
+// export const ENS = new Token(
+//   ChainId.ETHEREUM,
+//   "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+//   18,
+//   "ENS"
+// )
