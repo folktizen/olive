@@ -2,8 +2,7 @@ import { ChainId } from "@useolive/sdk"
 
 // RPC endpoints
 export const RPC_LIST: { [chainId: number]: string } = {
-  [ChainId.ETHEREUM]: process.env.RPC_MAINNET ?? "https://eth.meowrpc.com/",
-  [ChainId.GNOSIS]: process.env.RPC_GNOSIS ?? "https://rpc.gnosis.gateway.fm/",
+  // [ChainId.ETHEREUM]: process.env.RPC_MAINNET ?? "https://eth.meowrpc.com/",
   [ChainId.ARBITRUM]:
     process.env.RPC_ARBITRUM ?? "https://arbitrum-one-rpc.publicnode.com/",
   [ChainId.BASE]: process.env.RPC_BASE ?? "https://base-rpc.publicnode.com"
@@ -11,7 +10,7 @@ export const RPC_LIST: { [chainId: number]: string } = {
 
 // App URLs
 export const OLIVE_LANDING_URL =
-  process.env.OLIVE_LANDING_URL ?? "https://olive.moojok.space"
+  process.env.OLIVE_LANDING_URL ?? "https://useolive.space"
 
 export const OLIVE_APP_URL =
-  process.env.OLIVE_APP_URL ?? "https://olive.moojok.eth.limo"
+  process.env.OLIVE_APP_URL ?? "https://useolive.space"

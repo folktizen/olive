@@ -1,4 +1,4 @@
-# Stackly UI
+# Olive UI
 
 ```bash
 bun dev

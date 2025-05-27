@@ -1,5 +1,5 @@
-import { convertedAmount } from "@/utils/numbers"
 import { currentTimestampInSeconds } from "@/utils/datetime"
+import { convertedAmount } from "@/utils/numbers"
 import { Order } from "@useolive/sdk"
 
 export const totalOrderSlotsDone = (order: Order) => {
@@ -27,7 +27,7 @@ export const allOrderSlotsDone = (order: Order) => {
 
 export const totalFundsAmount = (order: Order) => {
   const total =
-    convertedAmount(order.amount, order.sellToken.decimals) + stacklyFee(order)
+    convertedAmount(order.amount, order.sellToken.decimals) + oliveFee(order)
 
   return total.toFixed(2)
 }
@@ -38,5 +38,5 @@ export const totalFundsAmountWithTokenText = (order: Order) =>
 export const orderPairSymbolsText = (order: Order) =>
   `${order.buyToken.symbol}/${order.sellToken.symbol}`
 
-export const stacklyFee = (order: Order) =>
+export const oliveFee = (order: Order) =>
   convertedAmount(order.feeAmount, order.sellToken.decimals)

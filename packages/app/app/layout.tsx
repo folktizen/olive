@@ -1,11 +1,11 @@
 import { PropsWithChildren } from "react"
 
-import localFont from "next/font/local"
 import { Metadata } from "next"
+import localFont from "next/font/local"
 
-import { UmamiAnalytics, Navbar } from "@/components"
-import { Providers } from "@/providers"
+import { Navbar, UmamiAnalytics } from "@/components"
 import { OLIVE_APP_URL } from "@/constants"
+import { Providers } from "@/providers"
 
 import "@/styles/global.css"
 
@@ -33,9 +33,9 @@ const stabilGrotesk = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(OLIVE_APP_URL),
-  title: "Stackly | Stack crypto over time.",
+  title: "Olive | Stack crypto over time.",
   description:
-    "Stackly is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",
+    "Olive is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",
   viewport: {
     width: "device-width",
     initialScale: 1,

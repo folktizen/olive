@@ -1,13 +1,13 @@
 "use client"
 
-import { StacklyLogoIcon, StacklyLogoNameImg } from "@/public/assets"
+import { OliveLogoIcon, OliveLogoNameImg } from "@/public/assets"
 
 export default function Logo() {
   return (
     <>
-      <StacklyLogoIcon title="Stackly logo icon" />
-      <StacklyLogoNameImg
-        title="Stackly logo name"
+      <OliveLogoIcon title="Olive logo icon" />
+      <OliveLogoNameImg
+        title="Olive logo name"
         className="hidden ml-3 md:block"
       />
     </>

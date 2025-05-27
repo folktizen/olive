@@ -1,7 +1,7 @@
 {
   "name": "@useolive/app",
   "version": "1.0.0",
-  "repository": "https://github.com/moojok/olive",
+  "repository": "https://github.com/folktizen/olive",
   "license": "MIT",
   "private": true,
   "scripts": {

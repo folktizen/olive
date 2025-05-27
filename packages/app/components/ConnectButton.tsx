@@ -1,14 +1,14 @@
 "use client"
 
-import { ChainId, WETH, WXDAI } from "@useolive/sdk"
+import { ChainId, WETH } from "@useolive/sdk"
 import { ConnectKitButton } from "connectkit"
-import { useBalance } from "wagmi"
 import { formatUnits } from "viem"
+import { useBalance } from "wagmi"
 
-import { BodyText, Button, SizeProps } from "@/ui"
-import { useAutoConnect } from "@/hooks"
-import { useNetworkContext } from "@/contexts"
 import { Avatar } from "@/components/Avatar"
+import { useNetworkContext } from "@/contexts"
+import { useAutoConnect } from "@/hooks"
+import { BodyText, Button, SizeProps } from "@/ui"
 
 const CustomConnectButton = ({
   address,
@@ -24,8 +24,7 @@ const CustomConnectButton = ({
   const { chainId } = useNetworkContext()
 
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
-    [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
-    [ChainId.GNOSIS]: WXDAI.address,
+    // [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
     [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
     [ChainId.BASE]: WETH[ChainId.BASE].address
   }

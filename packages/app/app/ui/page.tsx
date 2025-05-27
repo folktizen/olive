@@ -6,28 +6,28 @@ import { UISection } from "@/app/ui/sections/UISection"
 import { UISubSection } from "@/app/ui/sections/UISubSection"
 import { ConfirmStackModal, TokenPicker } from "@/components"
 import { ModalId, useModalContext } from "@/contexts"
+import { FREQUENCY_OPTIONS } from "@/models/stack"
 import {
+  BodyText,
   Button,
   ButtonLink,
   CaptionText,
-  Dialog,
-  DialogFooterActions,
-  Icon,
-  IconName,
-  iconMap,
   ChipButton,
-  RadioButton,
-  BodyText,
-  TitleText,
+  Dialog,
+  DialogContent,
+  DialogFooterActions,
   DisplayText,
   HeadingText,
+  Icon,
+  IconName,
   OverlineText,
-  DialogContent,
-  Toast,
+  RadioButton,
   Severity,
-  SizeProps
+  SizeProps,
+  TitleText,
+  Toast,
+  iconMap
 } from "@/ui"
-import { FREQUENCY_OPTIONS } from "@/models/stack"
 
 export default function Page() {
   //  radioButtons
@@ -119,7 +119,7 @@ export default function Page() {
   return (
     <div className="px-5 mx-auto my-10 max-w-screen-2xl">
       <HeadingText as="h1" size={6}>
-        Stackly UI
+        Olive UI
       </HeadingText>
       <UISection
         title="Buttons"
@@ -137,7 +137,7 @@ export default function Page() {
         </UISubSection>
         <UISubSection title="Primary">
           <Button size="lg" onClick={() => console.log("hey")}>
-            Try Stackly now
+            Try Olive now
           </Button>
           <Button iconLeft="plus" onClick={() => console.log("hey")}>
             Stack now
@@ -164,7 +164,7 @@ export default function Page() {
             onClick={() => console.log("hey")}
             size="lg"
           >
-            Try Stackly now
+            Try Olive now
           </Button>
           <Button
             variant="secondary"
@@ -184,7 +184,7 @@ export default function Page() {
             onClick={() => console.log("hey")}
             size="lg"
           >
-            Try Stackly now
+            Try Olive now
           </Button>
           <Button
             variant="tertiary"
@@ -463,13 +463,11 @@ const ExampleTextComponents = ({
         sizes.map((size) => (
           <div className="flex items-baseline space-x-4" key={size}>
             <p>{size}.</p>
-            <TextComponent size={size}>
-              I want to DCA with Stackly
-            </TextComponent>
+            <TextComponent size={size}>I want to DCA with Olive</TextComponent>
           </div>
         ))
       ) : (
-        <TextComponent>I want to DCA with Stackly</TextComponent>
+        <TextComponent>I want to DCA with Olive</TextComponent>
       )}
     </div>
   </UISubSection>

@@ -12,30 +12,22 @@ import CloseIcon from "./close.svg";
 import DiscordIcon from "./discord.svg";
 import HamburgerIcon from "./hamburger.svg";
 import InfoIcon from "./info.svg";
+import OliveLogoIcon from "./olive-logo.svg";
 import PlusIcon from "./plus.svg";
 import SearchIcon from "./search.svg";
 import SparklesIcon from "./sparkles.svg";
-import StacklyLogoIcon from "./stackly-logo.svg";
 import SwapIcon from "./swap.svg";
 import WarningIcon from "./warning.svg";
 
 export {
   ArrowExternalIcon,
-  ArrowLeftIcon,
-  FourBlocksIcon,
-  CaretDownIcon,
+  ArrowLeftIcon, CaretDownIcon,
   CaretLeftIcon,
-  CaretRightIcon,
-  CheckmarkIcon,
-  CheckboxIcon,
-  CloseIcon,
-  DiscordIcon,
-  HamburgerIcon,
-  InfoIcon,
-  PlusIcon,
+  CaretRightIcon, CheckboxIcon, CheckmarkIcon, CloseIcon,
+  DiscordIcon, FourBlocksIcon, HamburgerIcon,
+  InfoIcon, OliveLogoIcon, PlusIcon,
   SearchIcon,
-  SparklesIcon,
-  StacklyLogoIcon,
-  SwapIcon,
-  WarningIcon,
+  SparklesIcon, SwapIcon,
+  WarningIcon
 };
+

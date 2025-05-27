@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 
-import { ButtonLink } from "@/ui"
 import { ConnectButton, SelectNetwork } from "@/components"
-import { useNetworkContext } from "@/contexts"
 import { PATHNAMES } from "@/constants"
+import { useNetworkContext } from "@/contexts"
+import { ButtonLink } from "@/ui"
 
 import Logo from "./Logo"
 import MobileMenu from "./MobileMenu"
@@ -24,7 +24,7 @@ export function Navbar() {
               pathname: PATHNAMES.HOME,
               query: `chainId=${chainId}`
             }}
-            title="Stackly Home"
+            title="Olive Home"
             className="flex items-center w-14 outline-none md:w-40"
           >
             <Logo />

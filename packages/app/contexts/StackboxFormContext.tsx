@@ -4,22 +4,22 @@ import { ReactNode, createContext, useContext, useMemo } from "react"
 
 import { ChainId } from "@useolive/sdk"
 import {
-  createParser,
   Options,
+  createParser,
   parseAsString,
   parseAsStringEnum,
   parseAsTimestamp,
   useQueryState
 } from "next-usequerystate"
 
-import { DEFAULT_TOKENS_BY_CHAIN, checkIsValidChainId } from "@/utils"
-import { FREQUENCY_OPTIONS } from "@/models/stack"
 import {
   TokenWithBalance,
   useNetworkContext,
   useStrategyContext,
   useTokenListContext
 } from "@/contexts"
+import { FREQUENCY_OPTIONS } from "@/models/stack"
+import { DEFAULT_TOKENS_BY_CHAIN, checkIsValidChainId } from "@/utils"
 
 const endDateByFrequency: Record<string, number> = {
   [FREQUENCY_OPTIONS.hour]: new Date().setDate(new Date().getDate() + 2),
@@ -88,7 +88,9 @@ export const StackboxFormContextProvider = ({
   const { getTokenFromList } = useTokenListContext()
 
   const getDefaultParsedToken = (tokenDirection: "to" | "from") => {
-    const validChainId = checkIsValidChainId(chainId) ? chainId : ChainId.GNOSIS
+    const validChainId = checkIsValidChainId(chainId)
+      ? chainId
+      : ChainId.ARBITRUM
 
     return createParser({
       parse: (address: string) => getTokenFromList(address),
@@ -126,7 +128,7 @@ export const StackboxFormContextProvider = ({
     const resetFormValues = (newChainId: ChainId) => {
       const validChainId = checkIsValidChainId(newChainId)
         ? newChainId
-        : ChainId.GNOSIS
+        : ChainId.ARBITRUM
 
       deselectStrategy()
       setFromToken(DEFAULT_TOKENS_BY_CHAIN[validChainId].from)

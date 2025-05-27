@@ -16,7 +16,7 @@ export type IconName =
   | "plus"
   | "search"
   | "sparkles"
-  | "stackly"
+  | "olive"
   | "swap"
   | "warning"
 
@@ -43,7 +43,7 @@ export const iconMap: Record<IconName, any> = {
   plus: IconList.PlusIcon,
   search: IconList.SearchIcon,
   sparkles: IconList.SparklesIcon,
-  stackly: IconList.StacklyLogoIcon,
+  olive: IconList.OliveLogoIcon,
   swap: IconList.SwapIcon,
   warning: IconList.WarningIcon
 }

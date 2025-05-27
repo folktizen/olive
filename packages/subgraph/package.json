@@ -11,9 +11,9 @@
     "prepare:base": "ts-node bin/build-subgraph.ts base && bun run codegen",
     "deploy:arbitrum-one": "bun run prepare:arbitrum-one && graph deploy olive-on-arbitrum-one",
     "deploy:base": "bun run prepare:base && graph deploy olive-on-base",
-    "create-local": "graph create --node http://localhost:8020/ moojok/olive",
-    "remove-local": "graph remove --node http://localhost:8020/ moojok/olive",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 moojok/olive",
+    "create-local": "graph create --node http://localhost:8020/ folktizen/olive",
+    "remove-local": "graph remove --node http://localhost:8020/ folktizen/olive",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 folktizen/olive",
     "test": "echo 'No tests yet, implement them'",
     "lint": "bun x prettier --check . --ignore-path ../../.prettierignore",
     "format": "bun x prettier --write . --ignore-path ../../.prettierignore"

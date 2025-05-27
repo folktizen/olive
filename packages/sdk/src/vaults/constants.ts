@@ -19,22 +19,20 @@ const validateVaultInfo = (
 }
 
 /**
- * Stackly's Order factory address list
+ * Olive's Order factory address list
  */
 export const ORDER_FACTORY_ADDRESS_LIST: Record<ChainId, string> = {
-  [ChainId.OPTIMISM]: ORDER_FACTORY_ADDRESS,
+  // [ChainId.ETHEREUM]: ORDER_FACTORY_ADDRESS,
   [ChainId.ARBITRUM]: ORDER_FACTORY_ADDRESS,
-  [ChainId.POLYGON]: ORDER_FACTORY_ADDRESS,
   [ChainId.BASE]: ORDER_FACTORY_ADDRESS
 }
 
 /**
- * Stackly's DCA Order singleton/mastercopy address list
+ * Olive's DCA Order singleton/mastercopy address list
  */
 export const DCAORDER_SINGLETON_ADDRESS_LIST: Record<ChainId, string> = {
-  [ChainId.OPTIMISM]: DCA_ORDER_ADDRESS,
+  // [ChainId.ETHEREUM]: DCA_ORDER_ADDRESS,
   [ChainId.ARBITRUM]: DCA_ORDER_ADDRESS,
-  [ChainId.POLYGON]: DCA_ORDER_ADDRESS,
   [ChainId.BASE]: DCA_ORDER_ADDRESS
 }
 
@@ -48,23 +46,20 @@ export const DCAORDER_SINGLETON_ADDRESS_LIST: Record<ChainId, string> = {
 const COW_SETTLEMENT_ADDRESS = "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
 
 export const COW_SETTLEMENT_ADDRESS_LIST: Record<ChainId, string> = {
-  [ChainId.OPTIMISM]: COW_SETTLEMENT_ADDRESS,
+  // [ChainId.ETHEREUM]: COW_SETTLEMENT_ADDRESS,
   [ChainId.ARBITRUM]: COW_SETTLEMENT_ADDRESS,
-  [ChainId.POLYGON]: COW_SETTLEMENT_ADDRESS,
   [ChainId.BASE]: COW_SETTLEMENT_ADDRESS
 }
 
-const OPTIMISM_SUBGRAPH_ENDPOINT_URL =
-  process.env.OPTIMISM_SUBGRAPH_API_URL || ""
+// const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
+//   process.env.ETHEREUM_SUBGRAPH_API_URL || ""
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL || ""
-const POLYGON_SUBGRAPH_ENDPOINT_URL = process.env.POLYGON_SUBGRAPH_API_URL || ""
 const BASE_SUBGRAPH_ENDPOINT_URL = process.env.BASE_SUBGRAPH_API_URL || ""
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<string, string>> = {
-  [ChainId.OPTIMISM]: OPTIMISM_SUBGRAPH_ENDPOINT_URL,
+  // [ChainId.ETHEREUM]: ETHEREUM_SUBGRAPH_ENDPOINT_URL,
   [ChainId.ARBITRUM]: ARBITRUM_SUBGRAPH_ENDPOINT_URL,
-  [ChainId.POLYGON]: POLYGON_SUBGRAPH_ENDPOINT_URL,
   [ChainId.BASE]: BASE_SUBGRAPH_ENDPOINT_URL
 }
 

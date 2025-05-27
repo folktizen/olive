@@ -1,8 +1,8 @@
-import { Token } from "./token"
-import { Currency } from "./Currency"
 import { BigNumberish } from "@ethersproject/bignumber"
-import Decimal, { Numeric } from "decimal.js-light"
 import { formatUnits, parseUnits } from "@ethersproject/units"
+import Decimal, { Numeric } from "decimal.js-light"
+import { Currency } from "./Currency"
+import { Token } from "./token"
 
 export type TokenOrCurrency = Token | Currency
 

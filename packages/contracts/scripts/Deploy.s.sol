@@ -6,7 +6,7 @@ pragma solidity ^0.8.20;
  * @notice Deploys DCAOrder and OrderFactory contracts to multiple EVM chains using Foundry's scripting and forking features.
  *
  * @dev Usage:
- *   1. Ensure your foundry.toml [rpc_endpoints] section includes the desired chain names (e.g., ethereum, gnosis, arbitrum).
+ *   1. Ensure your foundry.toml [rpc_endpoints] section includes the desired chain names (e.g., ethereum, arbitrum).
  *   2. Set the PRIVATE_KEY environment variable to your deployer account's private key.
  *   3. (Optional) Create a 'storage/' folder in the project root to store deployment JSON files.
  *   4. Run the script with:

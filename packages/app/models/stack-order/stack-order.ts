@@ -1,4 +1,4 @@
-import { allOrderSlotsDone, stacklyFee } from "@/models/order"
+import { allOrderSlotsDone, oliveFee } from "@/models/order"
 import { StackOrder } from "@/models/stack-order"
 import { convertedAmount } from "@/utils/numbers"
 import { OrderStatus } from "@cowprotocol/cow-sdk"
@@ -53,7 +53,7 @@ export const totalFundsUsed = (order: StackOrder) => {
       )
     }, 0) ?? 0
 
-  return total + stacklyFee(order)
+  return total + oliveFee(order)
 }
 
 export const totalStacked = (order: StackOrder) =>
@@ -64,8 +64,8 @@ export const totalStacked = (order: StackOrder) =>
   }, 0) ?? 0
 
 export const stackHasRemainingFunds = (stackOrder: StackOrder) =>
-  totalFundsUsed(stackOrder) >= stacklyFee(stackOrder) &&
-  stackRemainingFunds(stackOrder) > stacklyFee(stackOrder)
+  totalFundsUsed(stackOrder) >= oliveFee(stackOrder) &&
+  stackRemainingFunds(stackOrder) > oliveFee(stackOrder)
 
 export const stackRemainingFunds = (stackOrder: StackOrder) => {
   if (

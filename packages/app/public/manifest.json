@@ -1,5 +1,5 @@
 {
-  "name": "Stackly",
-  "description": "Stackly is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",
-  "iconPath": "https://olive.moojok.space/favicon.ico"
+  "name": "Olive",
+  "description": "Olive is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",
+  "iconPath": "https://useolive.space/favicon.ico"
 }
