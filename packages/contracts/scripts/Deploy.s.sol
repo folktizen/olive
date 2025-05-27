@@ -26,14 +26,11 @@ import "../src/Create2Deployer.sol";
 
 contract Deploy is Script {
   function getChains() internal pure returns (string[] memory) {
-    string[] memory arr = new string[](8);
+    string[] memory arr = new string[](3);
     uint256 idx = 0;
     // arr[idx++] = "ethereum";
     arr[idx++] = "arbitrum";
     arr[idx++] = "base";
-    // arr[idx++] = "bsc";
-    // arr[idx++] = "avalanche";
-    // arr[idx++] = "gnosis";
     // Resize to enabled chains
     string[] memory enabled = new string[](idx);
     for (uint256 i = 0; i < idx; i++) {

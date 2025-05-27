@@ -8,10 +8,12 @@ solc_version = '0.8.20'
 evm_version = 'london'
 
 [rpc_endpoints]
+ethereum = "${ETHEREUM_RPC_URL}"
 arbitrum = "${ARBITRUM_RPC_URL}"
 base = "${BASE_RPC_URL}"
 
 [etherscan]
+ethereum = { key = "${ETHERSCAN_API_KEY_V2}" }
 arbitrum = { key = "${ETHERSCAN_API_KEY_V2}" }
 base = { key = "${ETHERSCAN_API_KEY_V2}" }
 
