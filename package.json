@@ -1,6 +1,6 @@
 {
   "name": "@useolive/monorepo",
-  "repository": "https://github.com/moojok/olive",
+  "repository": "https://github.com/folktizen/olive",
   "version": "1.4.0",
   "license": "MIT",
   "private": true,
@@ -14,11 +14,9 @@
   "scripts": {
     "build": "cd packages/sdk && bun typechain && cd ../.. && turbo run build lint",
     "build:app": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=@useolive/app",
-    "build:landing": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=@useolive/landing",
     "build:contracts": "turbo run build --filter=@useolive/contracts",
     "dev": "turbo run dev",
     "dev:app": "cd packages/app && turbo run dev",
-    "dev:landing": "cd packages/landing && turbo run dev",
     "setup": "bun install && bun run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
@@ -40,10 +38,8 @@
     "es5-ext",
     "keccak",
     "leveldown",
-    "protobufjs",
     "secp256k1",
     "sharp",
-    "unrs-resolver",
     "utf-8-validate"
   ]
 }

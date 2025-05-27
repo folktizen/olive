@@ -9,10 +9,6 @@
       "path": "../packages/app"
     },
     {
-      "name": "◆ @useolive/landing",
-      "path": "../packages/landing"
-    },
-    {
       "name": "◆ @useolive/sdk",
       "path": "../packages/sdk"
     },

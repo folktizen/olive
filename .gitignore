@@ -44,8 +44,6 @@ packages/subgraph/subgraph.yaml
 /packages/contracts/generated/
 
 # --- Custom & Misc ---
-/packages/landing/dist/
-/packages/landing/generated/
 /packages/sdk/bin/
 /packages/sdk/dist/
 /packages/sdk/generated/

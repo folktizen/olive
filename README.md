@@ -19,7 +19,7 @@ Before you can run this project, make sure you have the following software insta
 1. **Clone the repository with submodules:**
 
    ```bash
-   git clone --recurse-submodules https://github.com/moojok/olive.git
+   git clone --recurse-submodules https://github.com/folktizen/olive.git
    ```
 
    > If you already cloned without `--recurse-submodules`, run:
