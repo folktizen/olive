@@ -9,14 +9,14 @@ export const config: Record<
 > = {
   "arbitrum-one": {
     orderFactory: {
-      address: "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A",
-      startBlock: 339895459
+      address: "0x8B30d482FB833813e3db9f6D96516e31763df3b8",
+      startBlock: 341027196
     }
   },
   base: {
     orderFactory: {
-      address: "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A",
-      startBlock: 30633015
+      address: "0x8B30d482FB833813e3db9f6D96516e31763df3b8",
+      startBlock: 30774887
     }
   }
 }

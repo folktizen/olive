@@ -2,7 +2,7 @@ import { AddressZero } from "@ethersproject/constants"
 import { ChainId } from "../constants"
 
 export const ORDER_FACTORY_ADDRESS =
-  "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
+  "0x8B30d482FB833813e3db9f6D96516e31763df3b8"
 export const DCA_ORDER_ADDRESS = "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244"
 
 const validateVaultInfo = (
