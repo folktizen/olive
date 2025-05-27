@@ -1,16 +1,6 @@
 [
   {
-    "chain": "optimism",
-    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
-    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
-  },
-  {
     "chain": "arbitrum",
-    "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
-    "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
-  },
-  {
-    "chain": "polygon",
     "dcaOrder": "0xe5cb3383c1f550b799EFa647297DA5D2fAf28244",
     "orderFactory": "0xf754a9e276F4f1D385e9515Ec8bEbf6c00C0BB0A"
   },

@@ -29,9 +29,7 @@ contract Deploy is Script {
     string[] memory arr = new string[](8);
     uint256 idx = 0;
     // arr[idx++] = "ethereum";
-    arr[idx++] = "optimism";
     arr[idx++] = "arbitrum";
-    arr[idx++] = "polygon";
     arr[idx++] = "base";
     // arr[idx++] = "bsc";
     // arr[idx++] = "avalanche";
