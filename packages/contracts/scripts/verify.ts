@@ -17,7 +17,8 @@ const CONTRACTS_PATH = path.resolve(__dirname, "../storage/contracts.json")
 // Add new contract types here if you deploy more contracts in the future.
 const CONTRACTS_SRC: Record<string, string> = {
   DCAOrder: "src/DCAOrder.sol:DCAOrder",
-  OrderFactory: "src/OrderFactory.sol:OrderFactory"
+  OrderFactory: "src/OrderFactory.sol:OrderFactory",
+  Create2Deployer: "src/Create2Deployer.sol:Create2Deployer"
 }
 
 // Chain configuration for verification. Add new chains here as needed.
@@ -56,11 +57,12 @@ const contracts: Array<{
   chain: string
   dcaOrder: string
   orderFactory: string
+  create2Deployer?: string // Add this if not present in your JSON, or update your deploy script to include it
 }> = JSON.parse(fs.readFileSync(CONTRACTS_PATH, "utf8"))
 
 // Main verification loop: iterates over each chain and contract type.
 for (const entry of contracts) {
-  const { chain, dcaOrder, orderFactory } = entry
+  const { chain, dcaOrder, orderFactory, create2Deployer } = entry
   const info = CHAIN_INFO[chain]
   if (!info) {
     // Warn if a chain is not configured in CHAIN_INFO.
@@ -70,7 +72,8 @@ for (const entry of contracts) {
   // For each contract type, build and run the verification command.
   for (const [name, address] of Object.entries({
     DCAOrder: dcaOrder,
-    OrderFactory: orderFactory
+    OrderFactory: orderFactory,
+    Create2Deployer: create2Deployer // Will be undefined if not present
   })) {
     if (!address) continue // Skip if no address is present for this contract type.
     let cmd = `forge verify-contract ${address} ${CONTRACTS_SRC[name]}`

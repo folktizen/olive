@@ -4,7 +4,7 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 2.0.0
+// @version 3.0.0
 // @author  Folktizen
 //////////////////////////////////////////////////////////////////
 //
@@ -48,6 +48,7 @@ contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
   using GPv2Order for GPv2Order.Data;
   using SafeERC20 for IERC20;
 
+  // Storage packing optimization: group addresses, then uint256, then bool
   /// @dev The owner of the order. The owner can cancel the order.
   address public owner;
   /// @dev All buyToken orders are sent to this address.
@@ -62,11 +63,12 @@ contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
   uint256 public endTime;
   /// @dev The frequency of the DCA order in hours
   uint256 public interval;
-  bytes32 public domainSeparator;
-  /// @dev Indicates that the order has been cancelled.
-  bool public cancelled;
   /// @dev The initial amount of the DCA order.
   uint256 public amount;
+  /// @dev Indicates that the order has been cancelled.
+  bool public cancelled;
+  /// @dev Domain separator for EIP-712 signing, must be public for test and off-chain access.
+  bytes32 public domainSeparator;
 
   event Initialized(address indexed order);
   event Cancelled(address indexed order);
@@ -125,6 +127,7 @@ contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
     endTime = _endTime;
     interval = _interval;
     amount = _amount;
+    // Set domainSeparator only if needed, and as internal
     domainSeparator = IGPv2Settlement(_settlementContract).domainSeparator();
 
     // Approve the vaut relayer to spend the sell token

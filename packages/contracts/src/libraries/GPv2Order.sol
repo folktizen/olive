@@ -4,7 +4,7 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 2.0.0
+// @version 3.0.0
 // @author  Folktizen
 //////////////////////////////////////////////////////////////////
 //
@@ -148,7 +148,7 @@ library GPv2Order {
     // including the type hash `(12 + 1) * 32 = 416` bytes to hash.
     // <https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md#rationale-for-encodedata>
     // solhint-disable-next-line no-inline-assembly
-    assembly {
+    assembly ("memory-safe") {
       let dataStart := sub(order, 32)
       let temp := mload(dataStart)
       mstore(dataStart, TYPE_HASH)
@@ -162,7 +162,7 @@ library GPv2Order {
     // <https://docs.soliditylang.org/en/v0.7.6/internals/layout_in_memory.html#layout-in-memory>
     // <https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md#specification>
     // solhint-disable-next-line no-inline-assembly
-    assembly {
+    assembly ("memory-safe") {
       let freeMemoryPointer := mload(0x40)
       mstore(freeMemoryPointer, "\x19\x01")
       mstore(add(freeMemoryPointer, 2), domainSeparator)
@@ -206,7 +206,7 @@ library GPv2Order {
     // 32 needs to be added to all the offsets.
     //
     // solhint-disable-next-line no-inline-assembly
-    assembly {
+    assembly ("memory-safe") {
       mstore(add(orderUid, 56), validTo)
       mstore(add(orderUid, 52), owner)
       mstore(add(orderUid, 32), orderDigest)
@@ -232,7 +232,7 @@ library GPv2Order {
 
     // Use assembly to efficiently decode packed calldata.
     // solhint-disable-next-line no-inline-assembly
-    assembly {
+    assembly ("memory-safe") {
       orderDigest := calldataload(orderUid.offset)
       owner := shr(96, calldataload(add(orderUid.offset, 32)))
       validTo := shr(224, calldataload(add(orderUid.offset, 52)))

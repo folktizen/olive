@@ -4,7 +4,7 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 2.0.0
+// @version 3.0.0
 // @author  Folktizen
 //////////////////////////////////////////////////////////////////
 //
@@ -31,6 +31,7 @@ error ForbiddenValue();
 contract OrderFactory is Ownable2Step {
   using SafeERC20 for IERC20;
 
+  // Storage packing: group uint16 together
   uint16 private constant HUNDRED_PERCENT = 10_000;
   uint16 public protocolFee = 25; // default 0.25% (range: 0-500 / 0-5%)
 
@@ -51,7 +52,7 @@ contract OrderFactory is Ownable2Step {
 
     if (_initializer.length > 0) {
       // solhint-disable-next-line no-inline-assembly
-      assembly {
+      assembly ("memory-safe") {
         if eq(call(gas(), order, 0, add(_initializer, 0x20), mload(_initializer), 0, 0), 0) { revert(0, 0) }
       }
     }
