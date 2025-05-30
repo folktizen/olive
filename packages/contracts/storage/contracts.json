@@ -1,7 +1,22 @@
 [
   {
+    "chain": "polygon",
+    "dcaOrder": "0x85d638DeD1703D67EA42eA7Ea4686CB7069c96e0",
+    "orderFactory": "0xddBa1edcd5e0735bdF00C063a397B0580d48acB5"
+  },
+  {
+    "chain": "arbitrum",
+    "dcaOrder": "0x4dF72d4C6196e330Ee3F451734C6FFefAD711985",
+    "orderFactory": "0xdbc1c767C6C8ea9455AE29Bf0b10b18AF00EeE35"
+  },
+  {
     "chain": "base",
     "dcaOrder": "0x710f79CF66106E773D9FE61010d53222b7be9BBf",
     "orderFactory": "0x14b4Bc25e5AcA0FdF048C7Cc93bb26513491e4d8"
+  },
+  {
+    "chain": "gnosis",
+    "dcaOrder": "0x33ca2aAB1fF8B9F585E5Af4a31FB06F5Ea03500c",
+    "orderFactory": "0x04d420c7f865869835267ebd2C99a1F2daFF9482"
   }
 ]
