@@ -24,15 +24,30 @@ const CONTRACTS_SRC: Record<string, string> = {
 // Chain configuration for verification. Add new chains here as needed.
 // Each entry must include the chainId and Oklink verifier URL.
 const CHAIN_INFO: Record<string, { chainId: number; oklinkUrl: string }> = {
-  base: {
-    chainId: 8453,
+  ethereum: {
+    chainId: 1,
     oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/base"
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/eth"
+  },
+  polygon: {
+    chainId: 137,
+    oklinkUrl:
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon"
   },
   arbitrum: {
     chainId: 42161,
     oklinkUrl:
       "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/arbitrum"
+  },
+  base: {
+    chainId: 8453,
+    oklinkUrl:
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/base"
+  },
+  gnosis: {
+    chainId: 100,
+    oklinkUrl:
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/gnosis"
   }
 }
 

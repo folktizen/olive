@@ -46,6 +46,7 @@ packages/subgraph/subgraph.yaml
 /packages/sdk/bin/
 /packages/sdk/dist/
 /packages/sdk/generated/
+/backup/
 
 # --- Solidity Sources (if not tracked) ---
 /*.sol

@@ -62,8 +62,6 @@
   },
   "extensions": {
     "recommendations": [
-      "esbenp.prettier-vscode",
-      "ms-vscode.vscode-typescript-next",
       "NomicFoundation.hardhat-solidity",
       "GraphQL.vscode-graphql",
       "bradlc.vscode-tailwindcss"
