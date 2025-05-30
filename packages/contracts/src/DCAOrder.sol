@@ -4,8 +4,8 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 3.0.0
-// @author  Folktizen
+// @version 1.0.0
+// @author  Folktizen Labs
 //////////////////////////////////////////////////////////////////
 //
 //      _,.---._               .=-.-.       ,-.-.    ,----.
