@@ -22,17 +22,16 @@ pragma solidity ^0.8.20;
 import "forge-std/Script.sol";
 import "../src/DCAOrder.sol";
 import "../src/OrderFactory.sol";
-import "../src/Create2Deployer.sol";
 
 contract Deploy is Script {
   function getChains() internal pure returns (string[] memory) {
     string[] memory arr = new string[](5);
     uint256 idx = 0;
-    arr[idx++] = "ethereum";
-    arr[idx++] = "polygon";
-    arr[idx++] = "arbitrum";
+    // arr[idx++] = "ethereum";
+    // arr[idx++] = "polygon";
+    // arr[idx++] = "arbitrum";
     arr[idx++] = "base";
-    arr[idx++] = "gnosis";
+    // arr[idx++] = "gnosis";
     // Resize to enabled chains
     string[] memory enabled = new string[](idx);
     for (uint256 i = 0; i < idx; i++) {
@@ -41,49 +40,16 @@ contract Deploy is Script {
     return enabled;
   }
 
-  function deployForChain(
-    string memory chain,
-    uint256 deployerPrivateKey,
-    address eoaDeployer,
-    bytes32 dcaOrderSalt,
-    bytes32 orderFactorySalt,
-    bytes32 deployerSalt
-  ) internal {
+  function deployForChain(string memory chain, uint256 deployerPrivateKey, address eoaDeployer) internal {
     vm.createSelectFork(chain);
     vm.startBroadcast(deployerPrivateKey);
 
-    // 1. Deploy Create2Deployer (if not already deployed)
-    bytes memory deployerBytecode = type(Create2Deployer).creationCode;
-    address deployerPredicted = address(
-      uint160(
-        uint256(keccak256(abi.encodePacked(bytes1(0xff), eoaDeployer, deployerSalt, keccak256(deployerBytecode))))
-      )
-    );
-    address create2Deployer = deployerPredicted;
-    if (create2Deployer.code.length == 0) {
-      create2Deployer = address(new Create2Deployer{ salt: deployerSalt }());
-    }
+    // Deploy DCAOrder singleton via traditional deployment
+    DCAOrder dcaOrderSingleton = new DCAOrder();
 
-    // 2. Deploy DCAOrder singleton via CREATE2
-    bytes memory dcaOrderBytecode = type(DCAOrder).creationCode;
-    address dcaOrderPredicted =
-      Create2Deployer(create2Deployer).computeAddress(dcaOrderSalt, keccak256(dcaOrderBytecode));
-    address dcaOrderSingleton = dcaOrderPredicted;
-    if (dcaOrderSingleton.code.length == 0) {
-      dcaOrderSingleton = Create2Deployer(create2Deployer).deploy(dcaOrderBytecode, dcaOrderSalt);
-    }
-
-    // 3. Deploy OrderFactory singleton via CREATE2
-    bytes memory orderFactoryBytecode = type(OrderFactory).creationCode;
-    address orderFactoryPredicted =
-      Create2Deployer(create2Deployer).computeAddress(orderFactorySalt, keccak256(orderFactoryBytecode));
-    address orderFactorySingleton = orderFactoryPredicted;
-    if (orderFactorySingleton.code.length == 0) {
-      orderFactorySingleton = Create2Deployer(create2Deployer).deploy(orderFactoryBytecode, orderFactorySalt);
-    }
-
-    // Transfer ownership of OrderFactory to the deployer EOA
-    Create2Deployer(create2Deployer).callTransferOwnership(orderFactorySingleton, eoaDeployer);
+    // Deploy OrderFactory singleton via traditional deployment, passing deployer as newOwner
+    OrderFactory orderFactorySingleton = new OrderFactory();
+    orderFactorySingleton.transferOwnership(eoaDeployer);
 
     vm.stopBroadcast();
 
@@ -94,13 +60,10 @@ contract Deploy is Script {
       chain,
       '",\n',
       '  "dcaOrder": "',
-      vm.toString(dcaOrderSingleton),
+      vm.toString(address(dcaOrderSingleton)),
       '",\n',
       '  "orderFactory": "',
-      vm.toString(orderFactorySingleton),
-      '",\n',
-      '  "create2Deployer": "',
-      vm.toString(create2Deployer),
+      vm.toString(address(orderFactorySingleton)),
       '"\n',
       "}"
     );
@@ -114,11 +77,8 @@ contract Deploy is Script {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
     address eoaDeployer = vm.addr(deployerPrivateKey);
     string[] memory chains = getChains();
-    bytes32 dcaOrderSalt = keccak256("OLIVE_DCAORDER_SINGLETON_V3");
-    bytes32 orderFactorySalt = keccak256("OLIVE_ORDERFACTORY_SINGLETON_V3");
-    bytes32 deployerSalt = keccak256("OLIVE_CREATE2_DEPLOYER_V3");
     for (uint256 i = 0; i < chains.length; i++) {
-      deployForChain(chains[i], deployerPrivateKey, eoaDeployer, dcaOrderSalt, orderFactorySalt, deployerSalt);
+      deployForChain(chains[i], deployerPrivateKey, eoaDeployer);
     }
   }
 }

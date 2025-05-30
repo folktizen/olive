@@ -1,12 +1,7 @@
 [
   {
-    "chain": "arbitrum",
-    "dcaOrder": "0x8d3997ef67F089899Cc0885BD09d5EC99585f9b3",
-    "orderFactory": "0x8B30d482FB833813e3db9f6D96516e31763df3b8"
-  },
-  {
     "chain": "base",
-    "dcaOrder": "0x8d3997ef67F089899Cc0885BD09d5EC99585f9b3",
-    "orderFactory": "0x8B30d482FB833813e3db9f6D96516e31763df3b8"
+    "dcaOrder": "0x710f79CF66106E773D9FE61010d53222b7be9BBf",
+    "orderFactory": "0x14b4Bc25e5AcA0FdF048C7Cc93bb26513491e4d8"
   }
 ]
