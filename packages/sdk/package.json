@@ -1,7 +1,7 @@
 {
   "name": "@useolive/sdk",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -15,7 +15,7 @@
     "format": "bun x prettier --write . --ignore-path ../../.prettierignore",
     "typechain": "node --experimental-specifier-resolution=node ./bin/typechain.js",
     "clean": "rimraf ./dist",
-    "build": "bun clean && tsc",
+    "build": "bun clean && bun typechain && tsc",
     "test": "echo 'no tests'",
     "dev": "nodemon -x ts-node src/index.ts"
   },
