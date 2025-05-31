@@ -27,7 +27,7 @@ contract Deploy is Script {
   function getChains() internal pure returns (string[] memory) {
     string[] memory arr = new string[](5);
     uint256 idx = 0;
-    // arr[idx++] = "ethereum";
+    arr[idx++] = "ethereum";
     arr[idx++] = "polygon";
     arr[idx++] = "arbitrum";
     arr[idx++] = "base";

@@ -35,6 +35,7 @@
       "**/.turbo": true,
       "**/.cache": true,
       "**/.next": true,
+      "**/backup": true,
       "**/build": true,
       "**/dist": true,
       "**/cache": true,
