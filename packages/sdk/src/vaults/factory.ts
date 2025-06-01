@@ -141,7 +141,7 @@ export async function createDCAOrderWithNonce(
 
   const chainNotSupported =
     chainId !== ChainId.ETHEREUM &&
-    chainId !== ChainId.POLYGON &&
+    // chainId !== ChainId.POLYGON &&
     chainId !== ChainId.ARBITRUM &&
     chainId !== ChainId.BASE &&
     chainId !== ChainId.GNOSIS

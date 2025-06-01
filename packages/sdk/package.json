@@ -15,7 +15,7 @@
     "format": "bun x prettier --write . --ignore-path ../../.prettierignore",
     "typechain": "node --experimental-specifier-resolution=node ./bin/typechain.js",
     "clean": "rimraf ./dist",
-    "build": "bun clean && bun typechain && tsc",
+    "build": "bun clean && tsc",
     "test": "echo 'no tests'",
     "dev": "nodemon -x ts-node src/index.ts"
   },

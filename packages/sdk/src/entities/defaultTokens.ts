@@ -9,12 +9,12 @@ export const USDC: Readonly<Record<ChainId, Token>> = {
     6,
     "USDC"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-    6,
-    "USDC"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+  //   6,
+  //   "USDC"
+  // ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
     "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
@@ -57,13 +57,13 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
     "WETH",
     "Wrapped Ether"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-    18,
-    "WETH",
-    "Wrapped Ether"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+  //   18,
+  //   "WETH",
+  //   "Wrapped Ether"
+  // ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
     "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
@@ -87,10 +87,7 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
   )
 }
 
-export const SWPR: Record<
-  Exclude<ChainId, ChainId.BASE | ChainId.POLYGON>,
-  Token
-> = {
+export const SWPR: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
   [ChainId.ETHEREUM]: new Token(
     ChainId.ETHEREUM,
     "0x6cacdb97e3fc8136805a9e7c342d866ab77d0957",
@@ -111,13 +108,13 @@ export const SWPR: Record<
   )
 }
 
-export const WPOL = new Token(
-  ChainId.POLYGON,
-  "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-  18,
-  "WPOL",
-  "Wrapped POL"
-)
+// export const WPOL = new Token(
+//   ChainId.POLYGON,
+//   "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+//   18,
+//   "WPOL",
+//   "Wrapped POL"
+// )
 
 export const WXDAI = new Token(
   ChainId.GNOSIS,
@@ -127,10 +124,7 @@ export const WXDAI = new Token(
   "Wrapped xDAI"
 )
 
-export const USDS: Record<
-  Exclude<ChainId, ChainId.POLYGON | ChainId.GNOSIS>,
-  Token
-> = {
+export const USDS: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
   [ChainId.ETHEREUM]: new Token(
     ChainId.ETHEREUM,
     "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
@@ -162,13 +156,13 @@ export const DAI: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
     "DAI",
     "Dai Stablecoin"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-    18,
-    "DAI",
-    "Dai Stablecoin"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+  //   18,
+  //   "DAI",
+  //   "Dai Stablecoin"
+  // ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
     "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
@@ -192,12 +186,12 @@ export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
     18,
     "GNO"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x5FFD62D3C3eE2E81C00A7b9079FB248e7dF024A8",
-    18,
-    "GNO"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x5FFD62D3C3eE2E81C00A7b9079FB248e7dF024A8",
+  //   18,
+  //   "GNO"
+  // ),
   [ChainId.GNOSIS]: new Token(
     ChainId.GNOSIS,
     "0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb",
@@ -219,12 +213,12 @@ export const WBTC: Readonly<Record<ChainId, Token>> = {
     8,
     "WBTC"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-    8,
-    "WBTC"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+  //   8,
+  //   "WBTC"
+  // ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
     "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
@@ -252,12 +246,12 @@ export const DPI: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
     18,
     "DPI"
   ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
-    18,
-    "DPI"
-  ),
+  // [ChainId.POLYGON]: new Token(
+  //   ChainId.POLYGON,
+  //   "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+  //   18,
+  //   "DPI"
+  // ),
   [ChainId.GNOSIS]: new Token(
     ChainId.GNOSIS,
     "0xd3d47d5578e55c880505dc40648f7f9307c3e7a8",
