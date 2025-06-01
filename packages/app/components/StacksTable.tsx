@@ -210,6 +210,8 @@ const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
   const distanceToNow = formatDistanceToNow(date, { addSuffix: true })
 
   return (
-    <BodyText className="text-primary-700">{`Starts ${distanceToNow}`}</BodyText>
+    <BodyText className="text-primary-700">
+      {`Starts ${distanceToNow}`}
+    </BodyText>
   )
 }

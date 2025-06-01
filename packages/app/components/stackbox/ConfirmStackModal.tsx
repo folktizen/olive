@@ -2,25 +2,17 @@
 
 import { useEffect, useRef, useState } from "react"
 
+import { EVENTS, trackEvent } from "@/analytics"
 import { format } from "date-fns"
 import { parseUnits } from "viem"
-import { trackEvent } from "@/analytics"
 import { useAccount } from "wagmi"
 
-import {
-  ChainId,
-  createDCAOrderWithNonce,
-  getERC20Contract,
-  getOrderFactory,
-  getOrderFactoryAddress
-} from "@useolive/sdk"
-import { dateToUnixTimestamp, useEthersSigner } from "@/utils"
 import {
   DialogConfirmTransactionLoading,
   FromToStackTokenPair,
   TransactionLink
 } from "@/components"
-import { EVENTS } from "@/analytics"
+import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
 import {
   FREQUENCY_OPTIONS,
   INITAL_ORDER,
@@ -29,16 +21,23 @@ import {
   frequencySeconds
 } from "@/models"
 import {
-  Modal,
-  ModalFooter,
-  Button,
-  ModalContent,
-  ModalHeaderTitle,
   BodyText,
-  TitleText,
-  ModalBaseProps
+  Button,
+  Modal,
+  ModalBaseProps,
+  ModalContent,
+  ModalFooter,
+  ModalHeaderTitle,
+  TitleText
 } from "@/ui"
-import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
+import { dateToUnixTimestamp, useEthersSigner } from "@/utils"
+import {
+  ChainId,
+  createDCAOrderWithNonce,
+  getERC20Contract,
+  getOrderFactory,
+  getOrderFactoryAddress
+} from "@useolive/sdk"
 
 interface ConfirmStackModalProps extends ModalBaseProps {
   fromToken: Token

@@ -1,17 +1,16 @@
 "use client"
 
 import { cx } from "class-variance-authority"
-import { trackEvent } from "@/analytics"
 
-import { Button, CaptionText, Icon } from "@/ui"
-import { EVENTS } from "@/analytics"
+import { EVENTS, trackEvent } from "@/analytics"
+import { TokenLogoPair } from "@/components"
 import {
   Strategy,
   useNetworkContext,
   useStackboxFormContext,
   useStrategyContext
 } from "@/contexts"
-import { TokenLogoPair } from "@/components"
+import { Button, CaptionText, Icon } from "@/ui"
 
 import { FREQUENCY_LABEL } from "./constants"
 
@@ -64,7 +63,9 @@ export const StrategyCard = ({ strategy }: StrategyCardProps) => {
         >
           <CaptionText>{`${strategy.sellAmountPerTimeframe} ${sellToken.symbol}`}</CaptionText>
           <Icon size={15} className="rotate-180" name="arrow-left" />
-          <CaptionText>{`${buyToken.symbol} ${FREQUENCY_LABEL[strategy.frequency]}`}</CaptionText>
+          <CaptionText>{`${buyToken.symbol} ${
+            FREQUENCY_LABEL[strategy.frequency]
+          }`}</CaptionText>
         </div>
       </div>
       <div className="flex items-center justify-between mt-2.5">

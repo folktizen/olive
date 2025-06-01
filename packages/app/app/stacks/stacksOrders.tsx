@@ -1,8 +1,16 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
 import { Tab } from "@headlessui/react"
+import { useCallback, useEffect, useState } from "react"
 
+import { EmptyState, StacksTable, tabButtonStyles } from "@/components"
+import { PATHNAMES } from "@/constants"
+import {
+  getActiveOrders,
+  getCancelledOrders,
+  getCompleteOrders,
+  getOrders
+} from "@/models/order"
 import {
   StackOrder,
   filterActiveOrders,
@@ -10,18 +18,10 @@ import {
   filterCompletedOrders,
   getStackOrders
 } from "@/models/stack-order"
-import {
-  getActiveOrders,
-  getCancelledOrders,
-  getCompleteOrders,
-  getOrders
-} from "@/models/order"
-import { ChainId, Order } from "@useolive/sdk"
 import { ButtonLink, HeadingText } from "@/ui"
-import { EmptyState, StacksTable, tabButtonStyles } from "@/components"
-import EmptyStatePage from "./empty-state"
 import { currentTimestampInSeconds } from "@/utils"
-import { PATHNAMES } from "@/constants"
+import { ChainId, Order } from "@useolive/sdk"
+import EmptyStatePage from "./empty-state"
 
 type SortTime = "startTime" | "endTime" | "cancelledAt"
 

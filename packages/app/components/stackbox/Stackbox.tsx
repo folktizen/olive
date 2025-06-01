@@ -8,23 +8,13 @@ import {
   useState
 } from "react"
 
-import { add, formatDistance } from "date-fns"
 import { cx } from "class-variance-authority"
-import { formatUnits, parseUnits } from "viem"
+import { add, formatDistance } from "date-fns"
 import Link from "next/link"
-import { trackEvent } from "@/analytics"
+import { formatUnits, parseUnits } from "viem"
 import { useAccount, useBalance } from "wagmi"
 
-import {
-  BodyText,
-  Button,
-  CaptionText,
-  Icon,
-  RadioButton,
-  Severity,
-  TitleText,
-  Toast
-} from "@/ui"
+import { EVENTS, trackEvent } from "@/analytics"
 import {
   ConfirmStackModal,
   ConnectButton,
@@ -32,7 +22,7 @@ import {
   TokenIcon,
   TokenPicker
 } from "@/components"
-import { EVENTS } from "@/analytics"
+import { PATHNAMES } from "@/constants"
 import {
   ModalId,
   TokenWithBalance,
@@ -48,9 +38,18 @@ import {
   Token,
   frequencySeconds
 } from "@/models"
-import { PATHNAMES } from "@/constants"
+import {
+  BodyText,
+  Button,
+  CaptionText,
+  Checkbox,
+  Icon,
+  RadioButton,
+  Severity,
+  TitleText,
+  Toast
+} from "@/ui"
 import { checkIsValidChainId } from "@/utils"
-import { Checkbox } from "@/ui"
 import { FrequencyOptionsCard } from "./FrequencyOptionsCard"
 
 interface SelectTokenButtonProps {

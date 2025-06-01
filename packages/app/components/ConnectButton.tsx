@@ -1,6 +1,6 @@
 "use client"
 
-import { ChainId, WETH } from "@useolive/sdk"
+import { ChainId, WETH, WXDAI } from "@useolive/sdk"
 import { ConnectKitButton } from "connectkit"
 import { formatUnits } from "viem"
 import { useBalance } from "wagmi"
@@ -24,7 +24,8 @@ const CustomConnectButton = ({
   const { chainId } = useNetworkContext()
 
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
-    // [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
+    [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
+    [ChainId.GNOSIS]: WXDAI.address,
     [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
     [ChainId.BASE]: WETH[ChainId.BASE].address
   }
@@ -35,7 +36,10 @@ const CustomConnectButton = ({
   })
 
   const truncatedAddress = (size: number) =>
-    `${address.slice(0, size)}...${address.slice(address.length - size, address.length)}`
+    `${address.slice(0, size)}...${address.slice(
+      address.length - size,
+      address.length
+    )}`
 
   const formattedBalance = (balanceData: NonNullable<typeof balance>) =>
     balanceData.value === BigInt(0)

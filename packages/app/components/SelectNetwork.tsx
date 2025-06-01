@@ -1,13 +1,13 @@
 "use client"
 
-import { Fragment } from "react"
-import { ChainIcon } from "connectkit"
 import { Listbox, Transition } from "@headlessui/react"
+import { ChainIcon } from "connectkit"
+import { Fragment } from "react"
 
-import { Button, Icon } from "@/ui"
 import { useNetworkContext } from "@/contexts"
-import Image from "next/image"
+import { Button, Icon } from "@/ui"
 import { ChainId } from "@useolive/sdk"
+import Image from "next/image"
 
 const CustomChainIcon = ({ id, size }: { id: number; size: number }) => {
   if (id === ChainId.BASE) {

@@ -1,6 +1,6 @@
 import { ConnectButton } from "@/components"
-import { EmptyStateNoWalletImg } from "@/public/assets"
 import { HeadingText } from "@/ui"
+import { EmptyStateNoWalletImg } from "@/public/assets"
 
 export default function NoWalletState() {
   return (

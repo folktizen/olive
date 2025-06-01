@@ -4,6 +4,14 @@ import { ChangeEvent, RefObject, forwardRef, useEffect, useState } from "react"
 
 import { useAccount } from "wagmi"
 
+import { EmptyState, TokenIcon } from "@/components"
+import {
+  TokenWithBalance,
+  useNetworkContext,
+  useTokenListContext
+} from "@/contexts"
+import { TokenFromTokenlist } from "@/models/token"
+import { EmptyStateTokenPickerImg } from "@/public/assets"
 import {
   BodyText,
   Button,
@@ -17,20 +25,12 @@ import {
   ModalContent,
   ModalHeaderTitle
 } from "@/ui"
-import { EmptyStateTokenPickerImg } from "@/public/assets"
-import { EmptyState, TokenIcon } from "@/components"
-import {
-  TokenWithBalance,
-  useNetworkContext,
-  useTokenListContext
-} from "@/contexts"
 import { formatTokenValue } from "@/utils/token"
-import { TokenFromTokenlist } from "@/models/token"
 
-import { TOKEN_PICKER_COMMON_TOKENS } from "./constants"
-import { isAddress } from "viem"
 import { getERC20Contract } from "@useolive/sdk"
+import { isAddress } from "viem"
 import { getExplorerLink, useEthersSigner } from "../../utils"
+import { TOKEN_PICKER_COMMON_TOKENS } from "./constants"
 
 const HALF_SECOND = 500
 

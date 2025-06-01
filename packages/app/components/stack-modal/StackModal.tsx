@@ -1,33 +1,33 @@
 "use client"
 
+import { cx } from "class-variance-authority"
 import Link from "next/link"
 import { useState } from "react"
-import { cx } from "class-variance-authority"
 
 import { orderPairSymbolsText } from "@/models/order"
 import {
-  Modal,
-  ModalFooter,
-  Icon,
-  Button,
-  ModalContent,
   BodyText,
-  ModalHeader,
-  ModalBaseProps,
+  Button,
+  Dialog,
   DialogContent,
   DialogFooterActions,
-  Dialog
+  Icon,
+  Modal,
+  ModalBaseProps,
+  ModalContent,
+  ModalFooter,
+  ModalHeader
 } from "@/ui"
 
 import {
   StackOrder,
   StackOrderProps,
   calculateStackAveragePrice,
-  totalStacked,
-  totalFundsUsed,
-  stackIsFinishedWithFunds,
   stackIsComplete,
-  stackRemainingFunds
+  stackIsFinishedWithFunds,
+  stackRemainingFunds,
+  totalFundsUsed,
+  totalStacked
 } from "@/models/stack-order"
 
 import {
@@ -37,13 +37,13 @@ import {
   TransactionLink
 } from "@/components"
 
-import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgress"
 import { StackFrequencyAndDates } from "@/components/stack-modal/StackFrequencyAndDates"
+import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgress"
 
-import { formatTokenValue } from "@/utils/token"
-import { getDCAOrderContract } from "@useolive/sdk"
-import { getExplorerLink } from "@/utils/transaction"
 import { useEthersSigner } from "@/utils/ethers"
+import { formatTokenValue } from "@/utils/token"
+import { getExplorerLink } from "@/utils/transaction"
+import { getDCAOrderContract } from "@useolive/sdk"
 
 import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
 

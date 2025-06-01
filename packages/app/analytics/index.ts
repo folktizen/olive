@@ -1,5 +1,4 @@
 export * from "./constants"
-import { EVENTS } from "@/analytics"
 
 // Use the Umami global object for event tracking
 declare global {

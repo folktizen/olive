@@ -1,6 +1,6 @@
-import { PATHNAMES } from "@/constants"
-import { EmptyStateStacksImg } from "@/public/assets"
 import { ButtonLink, HeadingText } from "@/ui"
+import { EmptyStateStacksImg } from "@/public/assets"
+import { PATHNAMES } from "@/constants"
 
 export default function EmptyState() {
   return (

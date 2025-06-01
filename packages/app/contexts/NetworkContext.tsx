@@ -1,5 +1,6 @@
 "use client"
 
+import { ChainId } from "@useolive/sdk"
 import {
   ReactNode,
   createContext,
@@ -8,13 +9,12 @@ import {
   useState
 } from "react"
 import type { Chain } from "viem/chains"
-import { ChainId } from "@useolive/sdk"
-import { arbitrum } from "wagmi/chains"
 import { useAccount, useSwitchChain } from "wagmi"
+import { arbitrum } from "wagmi/chains"
 
 import { config } from "@/providers/wagmi-config"
-import { useQueryState } from "next-usequerystate"
 import { checkIsValidChainId } from "@/utils"
+import { useQueryState } from "next-usequerystate"
 
 interface WagmiChain extends Chain {
   unsupported?: boolean

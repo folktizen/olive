@@ -1,12 +1,12 @@
-import { GraphQLClient } from "graphql-request"
 import {
-  getUserOrders,
+  ChainId,
   getSubgraphEndpoint,
   getUserActiveOrders,
   getUserCancelledOrders,
   getUserCompleteOrders,
-  ChainId
+  getUserOrders
 } from "@useolive/sdk"
+import { GraphQLClient } from "graphql-request"
 
 interface GetOrder {
   chainId: ChainId

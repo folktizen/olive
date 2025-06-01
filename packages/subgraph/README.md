@@ -5,7 +5,7 @@ This package contains the subgraph for the Olive protocol, deployed to The Graph
 ## Deployed Subgraphs
 
 | **Network**  | **Deployment Name** | **Subgraph Endpoint**                                                                      |
-|--------------|---------------------|--------------------------------------------------------------------------------------------|
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------ |
 | Ethereum     | olv-on-ethereum     | <!-- WIP -->                                                                               |
 | Polygon      | olv-on-polygon      | https://gateway.thegraph.com/api/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj |
 | Arbitrum One | olv-on-arbitrum-one | https://gateway.thegraph.com/api/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP |

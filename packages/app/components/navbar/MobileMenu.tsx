@@ -4,9 +4,9 @@ import { useState } from "react"
 
 import Link from "next/link"
 
-import { Button, Icon } from "@/ui"
 import { ConnectButton, SelectNetwork } from "@/components"
-import { PATHNAMES, OLIVE_LANDING_URL } from "@/constants"
+import { OLIVE_LANDING_URL, PATHNAMES } from "@/constants"
+import { Button, Icon } from "@/ui"
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)

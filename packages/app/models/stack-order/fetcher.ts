@@ -1,6 +1,6 @@
-import { ChainId, Order } from "@useolive/sdk"
 import { getCowOrders } from "@/models/cow-order"
 import { StackOrder } from "@/models/stack-order/types"
+import { ChainId, Order } from "@useolive/sdk"
 
 export async function getStackOrders(
   chainId: ChainId,
