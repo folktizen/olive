@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "bun x prettier --write . --ignore-path ../../.prettierignore",
+    "deploy": "bunx @cloudflare/next-on-pages",
+    "format": "bunx prettier --write . --ignore-path ../../.prettierignore",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf .vercel && rm -rf .turbo && rm -rf out && rm -rf .next"
   },

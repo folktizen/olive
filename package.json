@@ -13,8 +13,10 @@
   ],
   "scripts": {
     "build": "cd packages/sdk && bun typechain && cd ../.. && turbo run build lint",
-    "build:app": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk --filter=@useolive/app",
+    "build:sdk": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk",
+    "build:app": "bun run build:sdk && turbo run build --filter=@useolive/app",
     "build:contracts": "turbo run build --filter=@useolive/contracts",
+    "deploy:app": "bun run build:sdk && turbo run deploy --filter=@useolive/app",
     "dev": "turbo run dev",
     "dev:app": "cd packages/app && turbo run dev",
     "setup": "bun install && bun run build",
