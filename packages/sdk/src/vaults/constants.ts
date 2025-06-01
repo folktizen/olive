@@ -2,7 +2,7 @@ import { AddressZero } from "@ethersproject/constants"
 import { ChainId } from "../constants"
 
 export const MAINNET_ORDER_FACTORY_ADDRESS =
-  "0x0000000000000000000000000000000000000000"
+  "0x8b1a70feccc6c2ae6017ddd8d0bebdd1bd6eb261" // need to change
 // export const POLYGON_ORDER_FACTORY_ADDRESS =
 //   "0xddBa1edcd5e0735bdF00C063a397B0580d48acB5"
 export const ARBITRUM_ORDER_FACTORY_ADDRESS =
@@ -13,7 +13,7 @@ export const GNOSIS_ORDER_FACTORY_ADDRESS =
   "0x04d420c7f865869835267ebd2C99a1F2daFF9482"
 
 export const MAINNET_DCAORDER_ADDRESS =
-  "0x0000000000000000000000000000000000000000"
+  "0xc97ecbdba20c672c61e27bd657d4dfbd2328f6fa" // need to change
 // export const POLYGON_DCAORDER_ADDRESS =
 //   "0x85d638DeD1703D67EA42eA7Ea4686CB7069c96e0"
 export const ARBITRUM_DCAORDER_ADDRESS =
@@ -75,13 +75,26 @@ export const COW_SETTLEMENT_ADDRESS_LIST: Record<ChainId, string> = {
   [ChainId.GNOSIS]: COW_SETTLEMENT_ADDRESS
 }
 
+const API_BASE_URL = "https://gateway-arbitrum.network.thegraph.com/api"
+
+const SUBGRAPH_API_KEY =
+  process.env.STACKLY_SUBGRAPH_API_KEY ?? "a5be5b982b0198a9e5f7b005a9eee7a6"
+
 const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
-  process.env.ETHEREUM_SUBGRAPH_API_URL ?? ""
-// const POLYGON_SUBGRAPH_ENDPOINT_URL = process.env.POLYGON_SUBGRAPH_API_URL ?? ""
+  process.env.ETHEREUM_SUBGRAPH_API_URL ??
+  `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/35bL4ohk2tnXqDnrp7NSyAKW8bbUmGDapyfe2ddCxV8H`
+// const POLYGON_SUBGRAPH_ENDPOINT_URL =
+//   process.env.POLYGON_SUBGRAPH_API_URL ??
+//   `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
-  process.env.ARBITRUM_SUBGRAPH_API_URL ?? ""
-const BASE_SUBGRAPH_ENDPOINT_URL = process.env.BASE_SUBGRAPH_API_URL ?? ""
-const GNOSIS_SUBGRAPH_ENDPOINT_URL = process.env.GNOSIS_SUBGRAPH_API_URL ?? ""
+  process.env.ARBITRUM_SUBGRAPH_API_URL ??
+  `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP`
+const BASE_SUBGRAPH_ENDPOINT_URL =
+  process.env.BASE_SUBGRAPH_API_URL ??
+  `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/GG4e2XbzE99BGMGmPzBz5p6KkHndRtpEu9nFiiJjvoCY`
+const GNOSIS_SUBGRAPH_ENDPOINT_URL =
+  process.env.GNOSIS_SUBGRAPH_API_URL ??
+  `${API_BASE_URL}/${SUBGRAPH_API_KEY}/subgraphs/id/3EMgJeaUuRrKSSy1NHdCw4p1ytgRbgWRQBkqqbKHxJ4U`
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<ChainId, string>> = {
   [ChainId.ETHEREUM]: ETHEREUM_SUBGRAPH_ENDPOINT_URL,

@@ -33,6 +33,7 @@
       "**/node_modules": true,
       "**/.yarn": true,
       "**/.turbo": true,
+      "**/.vercel": true,
       "**/.cache": true,
       "**/.next": true,
       "**/backup": true,
