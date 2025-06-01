@@ -12,6 +12,14 @@
         "out/**"
       ]
     },
+    "deploy": {
+      "dependsOn": [
+        "^deploy"
+      ],
+      "outputs": [
+        ".vercel/**"
+      ]
+    },
     "lint": {
       "outputs": []
     },
