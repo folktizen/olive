@@ -10,8 +10,8 @@ export const RPC_LIST: { [chainId: number]: string } = {
 }
 
 // App URLs
-export const OLIVE_LANDING_URL =
-  process.env.OLIVE_LANDING_URL ?? "https://useolive.space"
+export const FOLKTIZEN_URL =
+  process.env.FOLKTIZEN_URL ?? "https://folktizen.xyz"
 
 export const OLIVE_APP_URL =
   process.env.OLIVE_APP_URL ?? "https://useolive.space"

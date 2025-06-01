@@ -5,7 +5,7 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { ConnectButton, SelectNetwork } from "@/components"
-import { OLIVE_LANDING_URL, PATHNAMES } from "@/constants"
+import { FOLKTIZEN_URL, PATHNAMES } from "@/constants"
 import { Button, Icon } from "@/ui"
 
 export default function MobileMenu() {
@@ -42,13 +42,13 @@ export default function MobileMenu() {
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
             <Link
-              href={`${OLIVE_LANDING_URL}#how-it-works`}
+              href={`${FOLKTIZEN_URL}#how-it-works`}
               className="block py-3 text-em-med"
             >
               How it works
             </Link>
             <Link
-              href={`${OLIVE_LANDING_URL}#faqs`}
+              href={`${FOLKTIZEN_URL}#faqs`}
               className="block py-3 text-em-med"
             >
               FAQ&apos;s
