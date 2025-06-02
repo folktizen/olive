@@ -14,7 +14,7 @@
     "prepare:polygon": "ts-node bin/build-subgraph.ts matic && bun run codegen",
     "prepare:arbitrum-one": "ts-node bin/build-subgraph.ts arbitrum-one && bun run codegen",
     "prepare:base": "ts-node bin/build-subgraph.ts base && bun run codegen",
-    "prepare:gnosis": "ts-node bin/build-subgraph.ts gnosis && bun run codegen",
+    "prepare:gnosis": "ts-node bin/build-subgraph.ts xdai && bun run codegen",
     "deploy:ethereum": "bun run prepare:ethereum && graph deploy olv-on-ethereum",
     "deploy:polygon": "bun run prepare:polygon && graph deploy olv-on-polygon",
     "deploy:arbitrum-one": "bun run prepare:arbitrum-one && graph deploy olv-on-arbitrum-one",
@@ -28,12 +28,9 @@
     "format": "bun x prettier --write . --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@useolive/sdk": "workspace:^"
-  },
-  "devDependencies": {
-    "@graphprotocol/graph-cli": "0.97.1",
-    "@graphprotocol/graph-ts": "0.38.1",
-    "@types/node": "^22.15.21",
+    "@graphprotocol/graph-cli": "0.78.0",
+    "@graphprotocol/graph-ts": "0.35.1",
+    "@types/node": "^18.11.18",
     "ts-node": "^10.8.2",
     "yaml": "^2.2.1"
   }

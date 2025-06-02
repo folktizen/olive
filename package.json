@@ -40,6 +40,7 @@
     "es5-ext",
     "keccak",
     "leveldown",
+    "protobufjs",
     "secp256k1",
     "sharp",
     "utf-8-validate"

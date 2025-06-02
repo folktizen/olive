@@ -1,11 +1,11 @@
-type SubgraphStatus @entity(immutable: false) {
+type SubgraphStatus @entity {
   "SubgraphStatus"
   id: ID!
   isInitialized: Boolean!
   lastSnapshotBlock: BigInt!
 }
 
-type OrderFactory @entity(immutable: true) {
+type OrderFactory @entity {
   "OrderFactory"
   id: ID!
   "OrderFactory address"
@@ -17,7 +17,7 @@ type OrderFactory @entity(immutable: true) {
 #
 # Provides information about an ERC20 token
 #
-type Token @entity(immutable: true) {
+type Token @entity {
   "Token address "
   id: ID!
   "Token address"
@@ -30,7 +30,7 @@ type Token @entity(immutable: true) {
   symbol: String!
 }
 
-type DCAOrder @entity(immutable: true) {
+type DCAOrder @entity {
   "Order address"
   id: ID!
   "Order owner"
