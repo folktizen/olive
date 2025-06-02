@@ -2,16 +2,16 @@
 
 import Link from "next/link"
 
-import { ButtonLink, HeadingText } from "@/ui"
 import { PATHNAMES } from "@/constants"
-import StacksImg from "@/public/assets/images/stacks.svg"
+import OliveImg from "@/public/assets/images/olive.svg"
+import { ButtonLink, HeadingText } from "@/ui"
 
 export default function NotFound() {
   const discordLink = process.env.DISCORD_URL ? process.env.DISCORD_URL : "#"
 
   return (
     <div className="flex flex-col items-center justify-center max-w-xl mx-auto my-32 space-y-7">
-      <StacksImg />
+      <OliveImg />
       <HeadingText size={3}>Page not found</HeadingText>
       <HeadingText className="text-center text-em-med">
         {`We're sorry, but the page you are looking for cannot be found. Please
