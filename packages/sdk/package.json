@@ -12,7 +12,7 @@
     "./abis": "./abis"
   },
   "scripts": {
-    "format": "bun x prettier --write . --ignore-path ../../.prettierignore",
+    "format": "bunx prettier --write . --ignore-path ../../.prettierignore",
     "typechain": "node --experimental-specifier-resolution=node ./bin/typechain.js",
     "clean": "rimraf ./dist",
     "build": "bun clean && tsc",
