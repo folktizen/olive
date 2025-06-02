@@ -1,22 +1,26 @@
 [
   {
     "chain": "polygon",
-    "dcaOrder": "0x85d638DeD1703D67EA42eA7Ea4686CB7069c96e0",
-    "orderFactory": "0xddBa1edcd5e0735bdF00C063a397B0580d48acB5"
+    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "arbitrum",
-    "dcaOrder": "0x4dF72d4C6196e330Ee3F451734C6FFefAD711985",
-    "orderFactory": "0xdbc1c767C6C8ea9455AE29Bf0b10b18AF00EeE35"
+    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "base",
-    "dcaOrder": "0x710f79CF66106E773D9FE61010d53222b7be9BBf",
-    "orderFactory": "0x14b4Bc25e5AcA0FdF048C7Cc93bb26513491e4d8"
+    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "gnosis",
-    "dcaOrder": "0x33ca2aAB1fF8B9F585E5Af4a31FB06F5Ea03500c",
-    "orderFactory": "0x04d420c7f865869835267ebd2C99a1F2daFF9482"
+    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   }
 ]

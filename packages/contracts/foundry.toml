@@ -4,9 +4,8 @@ test = "tests"
 libs = ["lib"]
 out = "out"
 optimizer = true
-optimizer_runs = 2000
 solc_version = "0.8.20"
-evm_version = "cancun"
+evm_version = "london"
 via_ir = true
 
 [rpc_endpoints]
