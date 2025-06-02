@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import { EVENTS, trackEvent } from "@/analytics"
+import { EVENTS } from "@/analytics"
 import { format } from "date-fns"
+import { trackEvent } from "fathom-client"
 import { parseUnits } from "viem"
 import { useAccount } from "wagmi"
 

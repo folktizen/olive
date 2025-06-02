@@ -14,7 +14,7 @@ import Link from "next/link"
 import { formatUnits, parseUnits } from "viem"
 import { useAccount, useBalance } from "wagmi"
 
-import { EVENTS, trackEvent } from "@/analytics"
+import { EVENTS } from "@/analytics"
 import {
   ConfirmStackModal,
   ConnectButton,
@@ -50,6 +50,7 @@ import {
   Toast
 } from "@/ui"
 import { checkIsValidChainId } from "@/utils"
+import { trackEvent } from "fathom-client"
 import { FrequencyOptionsCard } from "./FrequencyOptionsCard"
 
 interface SelectTokenButtonProps {

@@ -27,9 +27,11 @@
     "export": "turbo run export",
     "typecheck": "turbo run typecheck"
   },
+  "dependencies": {
+    "fathom-client": "^3.6.0"
+  },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
-    "@types/umami": "^2.10.0",
     "@useolive/config": "workspace:^",
     "prettier": "^3.0.0",
     "turbo": "^2.5.4"

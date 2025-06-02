@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react"
 import { Metadata } from "next"
 import localFont from "next/font/local"
 
-import { Navbar, UmamiAnalytics } from "@/components"
+import { FathomAnalytics, Navbar } from "@/components"
 import { OLIVE_APP_URL } from "@/constants"
 import { Providers } from "@/providers"
 
@@ -44,11 +44,13 @@ export const metadata: Metadata = {
   }
 }
 
+const siteId = process.env.NEXT_PUBLIC_FATHOM_SITE_ID
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={stabilGrotesk.variable}>
       <body className="font-sans bg-fixed bg-no-repeat bg-100-100 bg-surface-25 bg-matrix-and-green-gradient text-em-high">
-        <UmamiAnalytics />
+        <FathomAnalytics />
         <Providers>
           <Navbar />
           <div className="px-4 py-12 mx-auto md:py-16 md:px-0">{children}</div>
