@@ -16,10 +16,10 @@
     "test:coverage": "forge coverage",
     "test:gasreport": "forge test --gas-report",
     "snapshot": "forge snapshot",
-    "export:abis": "node ./bin/export-abis.js",
+    "export:abis": "bun run ./bin/export-abis.ts",
     "deploy": "dotenv -e .env -- forge script scripts/Deploy.s.sol --ffi --slow --multi --broadcast --private-key $PRIVATE_KEY",
     "deploy:dry": "dotenv -e .env -- forge script scripts/Deploy.s.sol --ffi --slow --multi -- --dry-run",
-    "verify": "bun run ./scripts/verify.ts"
+    "verify": "bun run ./bin/verify.ts"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
