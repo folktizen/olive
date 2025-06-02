@@ -7,14 +7,14 @@ import { safe } from "wagmi/connectors"
 import { RPC_LIST } from "@/constants"
 
 const defaultConfig = getDefaultConfig({
-  chains: [gnosis, mainnet, arbitrum, base],
+  chains: [mainnet, arbitrum, base, gnosis],
   walletConnectProjectId:
     process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
   transports: {
-    [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
-    [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()]),
+    // [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
     [arbitrum.id]: fallback([http(RPC_LIST[ChainId.ARBITRUM]), http()]),
-    [base.id]: fallback([http(RPC_LIST[ChainId.BASE]), http()])
+    [base.id]: fallback([http(RPC_LIST[ChainId.BASE]), http()]),
+    [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()])
   },
   appName: "Olive",
   appDescription: "Empower your portfolio with DCA.",

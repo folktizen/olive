@@ -88,7 +88,9 @@ export const StackboxFormContextProvider = ({
   const { getTokenFromList } = useTokenListContext()
 
   const getDefaultParsedToken = (tokenDirection: "to" | "from") => {
-    const validChainId = checkIsValidChainId(chainId) ? chainId : ChainId.GNOSIS
+    const validChainId = checkIsValidChainId(chainId)
+      ? chainId
+      : ChainId.ARBITRUM
 
     return createParser({
       parse: (address: string) => getTokenFromList(address),
@@ -126,7 +128,7 @@ export const StackboxFormContextProvider = ({
     const resetFormValues = (newChainId: ChainId) => {
       const validChainId = checkIsValidChainId(newChainId)
         ? newChainId
-        : ChainId.GNOSIS
+        : ChainId.ARBITRUM
 
       deselectStrategy()
       setFromToken(DEFAULT_TOKENS_BY_CHAIN[validChainId].from)

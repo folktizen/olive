@@ -24,10 +24,10 @@ const CustomConnectButton = ({
   const { chainId } = useNetworkContext()
 
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
-    [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
-    [ChainId.GNOSIS]: WXDAI.address,
+    // [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
     [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
-    [ChainId.BASE]: WETH[ChainId.BASE].address
+    [ChainId.BASE]: WETH[ChainId.BASE].address,
+    [ChainId.GNOSIS]: WXDAI.address
   }
 
   const { data: balance } = useBalance({

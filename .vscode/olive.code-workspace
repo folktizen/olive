@@ -45,6 +45,7 @@
       "**/lib": true,
       "**/out": true,
       "**/broadcast": true,
+      "*.tsbuildinfo": true,
       "*-lock.yaml": true,
       "*.lock": true
     },

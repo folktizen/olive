@@ -22,7 +22,7 @@ import { TokenFromTokenlist } from "@/models"
 
 import defaultArbitrumTokenList from "public/assets/blockchains/arbitrum/tokenlist.json"
 import defaultBaseTokenList from "public/assets/blockchains/base/tokenlist.json"
-import defaultEthereumTokenlist from "public/assets/blockchains/ethereum/tokenlist.json"
+// import defaultEthereumTokenlist from "public/assets/blockchains/ethereum/tokenlist.json"
 import defaultGnosisTokenlist from "public/assets/blockchains/gnosis/tokenlist.json"
 
 import { useNetworkContext } from "./NetworkContext"
@@ -35,22 +35,18 @@ export interface TokenWithBalance extends TokenFromTokenlist {
 const DEFAULT_TOKEN_LIST_BY_CHAIN: {
   [chainId: number]: TokenFromTokenlist[]
 } = {
-  [ChainId.ETHEREUM]: defaultEthereumTokenlist,
-  [ChainId.GNOSIS]: defaultGnosisTokenlist,
+  // [ChainId.ETHEREUM]: defaultEthereumTokenlist,
   [ChainId.ARBITRUM]: defaultArbitrumTokenList,
-  [ChainId.BASE]: defaultBaseTokenList
+  [ChainId.BASE]: defaultBaseTokenList,
+  [ChainId.GNOSIS]: defaultGnosisTokenlist
 }
 
 const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
-  [ChainId.ETHEREUM]: [
-    "https://tokens.1inch.eth.link/",
-    "https://files.cow.fi/tokens/CoinGecko.json",
-    "https://files.cow.fi/tokens/CowSwap.json"
-  ],
-  [ChainId.GNOSIS]: [
-    "https://tokens.honeyswap.org/",
-    "https://files.cow.fi/tokens/CowSwap.json"
-  ],
+  // [ChainId.ETHEREUM]: [
+  //   "https://tokens.1inch.eth.link/",
+  //   "https://files.cow.fi/tokens/CoinGecko.json",
+  //   "https://files.cow.fi/tokens/CowSwap.json"
+  // ],
   [ChainId.ARBITRUM]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/ArbitrumOneUniswapTokensList.json",
     "https://tokens.coingecko.com/arbitrum-one/all.json"
@@ -59,6 +55,10 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.8453.json",
     "https://tokens.coingecko.com/base/all.json",
     "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/optimism.tokenlist.json"
+  ],
+  [ChainId.GNOSIS]: [
+    "https://tokens.honeyswap.org/",
+    "https://files.cow.fi/tokens/CowSwap.json"
   ]
 }
 

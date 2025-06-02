@@ -6,7 +6,7 @@ export {
   SWPR,
   USDC,
   USDS,
-  USDT,
+  // USDT,
   WBTC,
   WETH,
   // WPOL,
