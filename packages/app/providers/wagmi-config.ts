@@ -1,13 +1,23 @@
 import { ChainId } from "@useolive/sdk"
 import { getDefaultConfig } from "connectkit"
 import { createConfig, fallback, http } from "wagmi"
-import { arbitrum, base, gnosis, mainnet } from "wagmi/chains"
+import {
+  // mainnet,
+  arbitrum,
+  base,
+  gnosis
+} from "wagmi/chains"
 import { safe } from "wagmi/connectors"
 
 import { RPC_LIST } from "@/constants"
 
 const defaultConfig = getDefaultConfig({
-  chains: [mainnet, arbitrum, base, gnosis],
+  chains: [
+    // mainnet,
+    arbitrum,
+    base,
+    gnosis
+  ],
   walletConnectProjectId:
     process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
   transports: {
