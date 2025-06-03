@@ -19,7 +19,8 @@ const defaultConfig = getDefaultConfig({
     gnosis
   ],
   walletConnectProjectId:
-    process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
+    process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ||
+    "a726dd64b978014250465ce1eb8f3da3",
   transports: {
     // [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
     [arbitrum.id]: fallback([http(RPC_LIST[ChainId.ARBITRUM]), http()]),
@@ -27,7 +28,7 @@ const defaultConfig = getDefaultConfig({
     [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()])
   },
   appName: "Olive",
-  appDescription: "Empower your portfolio with DCA.",
+  appDescription: "Olive is a simple DCA (Dollar-Cost Averaging) tool that utilizes the CoW (Conditional Order Workflow) Protocol to place TWAP (Time-Weighted Average Price) orders.",
   appUrl: "https://useolive.space",
   appIcon: "https://useolive.space/favicon.ico",
   ssr: true
