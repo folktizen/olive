@@ -15,26 +15,26 @@ export const config: Record<
   },
   matic: {
     orderFactory: {
-      address: "0xddBa1edcd5e0735bdF00C063a397B0580d48acB5",
-      startBlock: 72162068
+      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+      startBlock: 72291035
     }
   },
   "arbitrum-one": {
     orderFactory: {
-      address: "0xdbc1c767C6C8ea9455AE29Bf0b10b18AF00EeE35",
-      startBlock: 342191923
+      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+      startBlock: 343288329
     }
   },
   base: {
     orderFactory: {
-      address: "0x14b4Bc25e5AcA0FdF048C7Cc93bb26513491e4d8",
-      startBlock: 30920696
+      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+      startBlock: 31059052
     }
   },
   xdai: {
     orderFactory: {
-      address: "0x04d420c7f865869835267ebd2C99a1F2daFF9482",
-      startBlock: 40331125
+      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+      startBlock: 40384918
     }
   }
 }
