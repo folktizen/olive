@@ -176,7 +176,7 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
     <>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <HeadingText size={3}>Your stacks</HeadingText>
+          <HeadingText size={3}>Your Stacks</HeadingText>
           {!loadingAllStacks && (
             <div className="px-2 py-1 text-xs font-semibold bg-surface-75 rounded-xl">
               {totalStacksNumber}

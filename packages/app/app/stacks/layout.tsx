@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react"
 
 export const metadata = {
-  title: "Your stacks | Olive"
+  title: "Your Stacks | Olive"
 }
 
 export default function YourStacksLayout({ children }: PropsWithChildren) {

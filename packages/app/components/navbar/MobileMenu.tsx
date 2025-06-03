@@ -42,16 +42,13 @@ export default function MobileMenu() {
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
             <Link
-              href={`${FOLKTIZEN_URL}#how-it-works`}
+              href="https://app.usefathom.com/share/peftnkrk/olive"
               className="block py-3 text-em-med"
             >
-              How it works
+              Open Stats
             </Link>
-            <Link
-              href={`${FOLKTIZEN_URL}#faqs`}
-              className="block py-3 text-em-med"
-            >
-              FAQ&apos;s
+            <Link href={`${FOLKTIZEN_URL}`} className="block py-3 text-em-med">
+              Folktizen Labs
             </Link>
           </div>
         </>

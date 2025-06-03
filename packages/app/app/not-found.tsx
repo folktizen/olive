@@ -8,7 +8,7 @@ import OliveImg from "@/public/assets/images/olive.svg"
 import { ButtonLink, HeadingText } from "@/ui"
 
 export default function NotFound() {
-  const discordLink = process.env.DISCORD_URL ? process.env.DISCORD_URL : "#"
+  const discordLink = process.env.DISCORD_URL ?? "https://discord.gg/useolive"
 
   return (
     <Suspense fallback={null}>

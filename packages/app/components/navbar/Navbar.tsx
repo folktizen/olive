@@ -38,7 +38,7 @@ export function Navbar() {
             iconLeft="blocks"
             href={PATHNAMES.STACKS}
           >
-            Your stacks
+            Your Stacks
           </ButtonLink>
           <Divider />
           <SelectNetwork />

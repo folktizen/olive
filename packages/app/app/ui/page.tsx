@@ -200,7 +200,7 @@ export default function Page() {
             iconLeft="blocks"
             onClick={() => console.log("hey")}
           >
-            Your stacks
+            Your Stacks
           </Button>
           <Button
             variant="quaternary"
