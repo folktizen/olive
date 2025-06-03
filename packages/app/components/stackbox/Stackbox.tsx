@@ -607,7 +607,7 @@ export const Stackbox = () => {
       </div>
       <TokenPicker
         closeAction={() => closeModal(ModalId.TOKEN_PICKER)}
-        initialFocusRef={searchTokenBarRef}
+        initialFocusRef={searchTokenBarRef as React.RefObject<HTMLInputElement>}
         isOpen={isModalOpen(ModalId.TOKEN_PICKER)}
         onTokenSelect={selectToken}
       />

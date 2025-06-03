@@ -187,7 +187,9 @@ export const ConfirmStackModal = ({
     <Modal
       isOpen={isOpen}
       closeAction={closeAction}
-      initialFocusRef={focusBtnRef}
+      initialFocusRef={
+        focusBtnRef as React.RefObject<HTMLButtonElement | HTMLInputElement>
+      }
     >
       <ModalHeaderTitle closeAction={closeAction} title="Confirm Stack" />
       <ModalContent>

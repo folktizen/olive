@@ -7,7 +7,7 @@ This package contains the subgraph for the Olive protocol, deployed to The Graph
 | **Network**  | **Deployment Name** | **Subgraph Endpoint**                                                                                       |
 | ------------ | ------------------- | ----------------------------------------------------------------------------------------------------------- |
 | Ethereum     | olv-on-ethereum     | <!-- WIP -->                                                                                                |
-| Polygon      | olv-on-polygon      | https://gateway.thegraph.com/api/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj                  |
+| Polygon      | olv-on-polygon      | https://subgraph.satsuma-prod.com/55155b15c6b1/funtend--3839364/olv-on-polygon/api                          |
 | Arbitrum One | olv-on-arbitrum-one | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-arbitrum-one/atlas/gn |
 | Base         | olv-on-base         | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-base/atlas/gn         |
 | Gnosis       | olv-on-gnosis       | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-gnosis/atlas/gn       |

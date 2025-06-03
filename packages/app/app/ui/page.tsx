@@ -39,7 +39,7 @@ export default function Page() {
 
   const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] =
     useState(false)
-  const dialogBtnRef = useRef<HTMLButtonElement>(null)
+  const dialogBtnRef = useRef<HTMLButtonElement | HTMLInputElement>(null)
   const { closeModal, isModalOpen, openModal } = useModalContext()
 
   const dialogButtons = [
@@ -334,7 +334,11 @@ export default function Page() {
             />
           ))}
           <Dialog
-            initialFocusRef={dialogBtnRef}
+            initialFocusRef={
+              dialogBtnRef as React.RefObject<
+                HTMLButtonElement | HTMLInputElement
+              >
+            }
             isOpen={isOpenCancelStackingDialog}
             closeAction={() => setOpenCancelStackingDialog(false)}
           >
@@ -348,7 +352,7 @@ export default function Page() {
               primaryText="Keep stacking"
               secondaryAction={() => setOpenCancelStackingDialog(false)}
               secondaryText="Cancel"
-              ref={dialogBtnRef}
+              ref={dialogBtnRef as React.Ref<HTMLButtonElement>}
             />
           </Dialog>
           <Dialog

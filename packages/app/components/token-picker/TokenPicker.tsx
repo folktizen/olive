@@ -35,7 +35,7 @@ import { TOKEN_PICKER_COMMON_TOKENS } from "./constants"
 const HALF_SECOND = 500
 
 interface TokenPickerProps extends ModalBaseProps {
-  initialFocusRef?: RefObject<HTMLInputElement>
+  initialFocusRef?: RefObject<HTMLInputElement | null>
   onTokenSelect: (token: TokenWithBalance) => void
 }
 
