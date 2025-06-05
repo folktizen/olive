@@ -49,18 +49,15 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
   // ],
   [ChainId.ARBITRUM]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.42161.json",
-    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.42161.json",
-    "https://tokens.coingecko.com/arbitrum-one/all.json"
+    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.42161.json"
   ],
   [ChainId.BASE]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.8453.json",
-    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.8453.json",
-    "https://tokens.coingecko.com/base/all.json"
+    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.8453.json"
   ],
   [ChainId.GNOSIS]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.100.json",
-    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.100.json",
-    "https://tokens.coingecko.com/xdai/all.json"
+    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.100.json"
   ]
 }
 
