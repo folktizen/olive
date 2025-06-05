@@ -28,7 +28,8 @@ const defaultConfig = getDefaultConfig({
     [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()])
   },
   appName: "Olive",
-  appDescription: "Olive is a simple DCA (Dollar-Cost Averaging) tool that utilizes the CoW (Conditional Order Workflow) Protocol to place TWAP (Time-Weighted Average Price) orders.",
+  appDescription:
+    "Olive is a simple DCA (Dollar-Cost Averaging) tool that utilizes the CoW (Conditional Order Workflow) Protocol to place TWAP (Time-Weighted Average Price) orders.",
   appUrl: "https://useolive.space",
   appIcon: "https://useolive.space/favicon.ico",
   ssr: true

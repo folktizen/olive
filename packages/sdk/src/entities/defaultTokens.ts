@@ -87,24 +87,24 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
   )
 }
 
-export const SWPR: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+export const USD0: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
   // [ChainId.ETHEREUM]: new Token(
   //   ChainId.ETHEREUM,
-  //   "0x6cacdb97e3fc8136805a9e7c342d866ab77d0957",
+  //   "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
   //   18,
-  //   "SWPR"
+  //   "USD0"
   // ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    "0x532801ed6f82fffd2dab70a19fc2d7b2772c4f4b",
-    18,
-    "SWPR"
-  ),
   [ChainId.ARBITRUM]: new Token(
     ChainId.ARBITRUM,
-    "0xdE903E2712288A1dA82942DDdF2c20529565aC30",
+    "0x35f1C5cB7Fb977E669fD244C567Da99d8a3a6850",
     18,
-    "SWPR"
+    "USD0"
+  ),
+  [ChainId.BASE]: new Token(
+    ChainId.BASE,
+    "0x758a3e0b1F842C9306B783f8A4078C6C8C03a270",
+    18,
+    "USD0"
   )
 }
 

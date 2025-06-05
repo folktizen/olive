@@ -1,13 +1,5 @@
 [
   {
-    "address": "0x532801ED6f82FFfD2DAB70A19fC2d7B2772C4f4b",
-    "name": "Swapr on xDai",
-    "symbol": "SWPR",
-    "decimals": 18,
-    "logoURI": "/assets/images/tokens/swapr.png",
-    "chainId": 100
-  },
-  {
     "address": "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
     "name": "Wrapped Ether on xDai",
     "symbol": "WETH",

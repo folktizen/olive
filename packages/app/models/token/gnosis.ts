@@ -7,14 +7,6 @@ export const gnosisTokens = {
     logoURI: "/assets/images/tokens/gno.png",
     chainId: 100
   },
-  SWPR: {
-    address: "0x532801ED6f82FFfD2DAB70A19fC2d7B2772C4f4b",
-    name: "Swapr on Gnosis chain",
-    symbol: "SWPR",
-    decimals: 18,
-    logoURI: "/assets/images/tokens/swapr.png",
-    chainId: 100
-  },
   USDC: {
     address: "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
     name: "USD Coin",

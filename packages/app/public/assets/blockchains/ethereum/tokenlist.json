@@ -88,11 +88,11 @@
     "chainId": 1
   },
   {
-    "address": "0x6cAcDB97e3fC8136805a9E7c342d866ab77D0957",
-    "name": "Swapr",
-    "symbol": "SWPR",
+    "address": "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
+    "name": "Usual USD",
+    "symbol": "USD0",
     "decimals": 18,
-    "logoURI": "/assets/images/tokens/swapr.png",
+    "logoURI": "/assets/images/tokens/usd0.png",
     "chainId": 1
   }
 ]

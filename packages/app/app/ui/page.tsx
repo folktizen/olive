@@ -229,15 +229,15 @@ export default function Page() {
           >
             Inactive
           </ChipButton>
-          <ChipButton onClick={() => console.log(" Eu tenho um icon")}>
+          <ChipButton onClick={() => console.log("I have an icon")}>
             <Icon name="blocks" />
-            <span>Eu tenho um icon</span>
+            <span>I have an icon</span>
           </ChipButton>
           <ChipButton
-            onClick={() => console.log("Eu tenho um icon")}
+            onClick={() => console.log("I have an icon")}
             disabled={true}
           >
-            SWPR
+            USD0
           </ChipButton>
         </div>
       </UISection>

@@ -40,12 +40,12 @@ export const arbitrumTokens = {
     logoURI: "/assets/images/tokens/dai.png",
     chainId: 42161
   },
-  SWPR: {
-    address: "0xdE903E2712288A1dA82942DDdF2c20529565aC30",
-    name: "Swapr on Arbitrum chain",
-    symbol: "SWPR",
+  USD0: {
+    address: "0x35f1C5cB7Fb977E669fD244C567Da99d8a3a6850",
+    name: "Usual USD",
+    symbol: "USD0",
     decimals: 18,
-    logoURI: "/assets/images/tokens/swapr.png",
+    logoURI: "/assets/images/tokens/usd0.png",
     chainId: 42161
   }
 }
