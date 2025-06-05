@@ -29,5 +29,10 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
     baseTokens.CBBTC,
     baseTokens.USD0
   ],
-  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.WETH, gnosisTokens.WXDAI]
+  [ChainId.GNOSIS]: [
+    gnosisTokens.USDC,
+    gnosisTokens.GNO,
+    gnosisTokens.WETH,
+    gnosisTokens.WXDAI
+  ]
 }

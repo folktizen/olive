@@ -1,6 +1,6 @@
 "use client"
 
-import { ChainId, WETH, WXDAI } from "@useolive/sdk"
+import { ChainId, USDC } from "@useolive/sdk"
 import { ConnectKitButton } from "connectkit"
 import { formatUnits } from "viem"
 import { useBalance } from "wagmi"
@@ -24,10 +24,10 @@ const CustomConnectButton = ({
   const { chainId } = useNetworkContext()
 
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
-    // [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
-    [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
-    [ChainId.BASE]: WETH[ChainId.BASE].address,
-    [ChainId.GNOSIS]: WXDAI.address
+    // [ChainId.ETHEREUM]: USDC[ChainId.ETHEREUM].address,
+    [ChainId.ARBITRUM]: USDC[ChainId.ARBITRUM].address,
+    [ChainId.BASE]: USDC[ChainId.BASE].address,
+    [ChainId.GNOSIS]: USDC[ChainId.GNOSIS].address
   }
 
   const { data: balance } = useBalance({
