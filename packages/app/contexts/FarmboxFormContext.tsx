@@ -160,10 +160,7 @@ export const FarmboxFormContextProvider = ({
         startDateTime,
         setStartDateTime
       ] as FarmboxFormStateInput<Date>,
-      endDateState: [
-        endDateTime,
-        setEndDateTime
-      ] as FarmboxFormStateInput<Date>
+      endDateState: [endDateTime, setEndDateTime] as FarmboxFormStateInput<Date>
     }
 
     return {

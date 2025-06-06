@@ -231,9 +231,7 @@ export const FarmOrders = ({ chainId, address }: FarmOrdersProps) => {
                           farms.sort
                         )}
                         fetchAllOrders={fetchAllOrders}
-                        refetchFarms={() =>
-                          fetchFarms(index as FarmStateIndex)
-                        }
+                        refetchFarms={() => fetchFarms(index as FarmStateIndex)}
                       />
                     ) : (
                       <EmptyState text={farms.emptyText} />
