@@ -16,7 +16,7 @@ import { useAccount, useBalance } from "wagmi"
 
 import { EVENTS } from "@/analytics"
 import {
-  ConfirmStackModal,
+  ConfirmFarmModal,
   ConnectButton,
   DatePicker,
   TokenIcon,
@@ -28,7 +28,7 @@ import {
   TokenWithBalance,
   useModalContext,
   useNetworkContext,
-  useStackboxFormContext,
+  useFarmboxFormContext,
   useStrategyContext,
   useTokenListContext
 } from "@/contexts"
@@ -84,12 +84,12 @@ const balanceOptions = [
   { name: "Max", divider: BalanceDivider.MAX }
 ]
 
-export const Stackbox = () => {
+export const Farmbox = () => {
   const searchTokenBarRef = useRef<HTMLInputElement>(null)
   const [isPickingFromToken, setIsPickingFromToken] = useState<boolean>(false)
 
   const { closeModal, isModalOpen, openModal } = useModalContext()
-  const { resetFormValues, stackboxFormState } = useStackboxFormContext()
+  const { resetFormValues, farmboxFormState } = useFarmboxFormContext()
   const { deselectStrategy, selectedStrategy } = useStrategyContext()
   const {
     tokenList,
@@ -100,12 +100,12 @@ export const Stackbox = () => {
   const { address, isConnected } = useAccount()
   const { chainId } = useNetworkContext()
 
-  const [fromToken, setFromToken] = stackboxFormState.fromTokenState
-  const [toToken, setToToken] = stackboxFormState.toTokenState
-  const [tokenAmount, setTokenAmount] = stackboxFormState.tokenAmountState
-  const [frequency, setFrequency] = stackboxFormState.frequencyState
-  const [startDateTime, setStartDateTime] = stackboxFormState.startDateState
-  const [endDateTime, setEndDateTime] = stackboxFormState.endDateState
+  const [fromToken, setFromToken] = farmboxFormState.fromTokenState
+  const [toToken, setToToken] = farmboxFormState.toTokenState
+  const [tokenAmount, setTokenAmount] = farmboxFormState.tokenAmountState
+  const [frequency, setFrequency] = farmboxFormState.frequencyState
+  const [startDateTime, setStartDateTime] = farmboxFormState.startDateState
+  const [endDateTime, setEndDateTime] = farmboxFormState.endDateState
 
   const [showCustomDateRange, setShowCustomDateRange] = useState(false)
   const [showTokenAmountError, setShowTokenAmountError] = useState(false)
@@ -207,7 +207,7 @@ export const Stackbox = () => {
     openModal(ModalId.TOKEN_PICKER)
   }
 
-  const openConfirmStack = useCallback(() => {
+  const openConfirmFarm = useCallback(() => {
     const startDate = startDateTime.getTime()
     const endDate = endDateTime.getTime()
     const isEndTimeBeforeStartTime = endDate <= startDate
@@ -249,8 +249,8 @@ export const Stackbox = () => {
       BigInt(balance.value) >= parseUnits(tokenAmount, fromToken.decimals)
     ) {
       setShowInsufficentBalanceError(false)
-      openModal(ModalId.CONFIRM_STACK)
-      trackEvent(EVENTS.CREATE_FLOW.STACKBOX_CONFIRM_CLICK)
+      openModal(ModalId.CONFIRM_FARM)
+      trackEvent(EVENTS.CREATE_FLOW.FARMBOX_CONFIRM_CLICK)
     }
   }, [
     balance,
@@ -553,7 +553,7 @@ export const Stackbox = () => {
                 <>
                   <div className="flex">
                     <Icon className="mr-2" name="sparkles" size={14} />
-                    <StackDetailsTileText
+                    <FarmDetailsTileText
                       amountPerOrder={amountPerOrder}
                       frequency={
                         FREQUENCY_OPTIONS[frequency as FREQUENCY_OPTIONS]
@@ -572,11 +572,11 @@ export const Stackbox = () => {
                     size="xs"
                     variant="caption"
                   >
-                    <CaptionText>Reset stack</CaptionText>
+                    <CaptionText>Reset farm</CaptionText>
                   </Button>
                 </>
               ) : (
-                <StackDetailsTileText
+                <FarmDetailsTileText
                   amountPerOrder={amountPerOrder}
                   frequency={FREQUENCY_OPTIONS[frequency as FREQUENCY_OPTIONS]}
                   toTokenSymbol={toToken.symbol}
@@ -590,18 +590,18 @@ export const Stackbox = () => {
           <Button
             width="full"
             size="lg"
-            onClick={openConfirmStack}
+            onClick={openConfirmFarm}
             className={cx({ "animate-wiggle": showInsufficentBalanceError })}
           >
             {showInsufficentBalanceError
               ? "Insufficent Balance"
-              : "Confirm Stack"}
+              : "Confirm Farm"}
           </Button>
         ) : (
           <ConnectButton
             size="lg"
             className="w-full"
-            text="Connect Wallet to Stack"
+            text="Connect Wallet to Farm"
           />
         )}
       </div>
@@ -612,7 +612,7 @@ export const Stackbox = () => {
         onTokenSelect={selectToken}
       />
       {fromToken && toToken && (
-        <ConfirmStackModal
+        <ConfirmFarmModal
           toToken={toToken}
           fromToken={fromToken}
           amount={tokenAmount}
@@ -621,32 +621,32 @@ export const Stackbox = () => {
             isNearStartDate ? new Date(getDateNowPlus10Mins()) : startDateTime
           }
           endTime={endDateTime}
-          isOpen={isModalOpen(ModalId.CONFIRM_STACK)}
+          isOpen={isModalOpen(ModalId.CONFIRM_FARM)}
           closeAction={() => {
-            closeModal(ModalId.CONFIRM_STACK)
+            closeModal(ModalId.CONFIRM_FARM)
           }}
           key={`${fromToken.address}-$${tokenAmount}`}
           onSuccess={() => {
-            closeModal(ModalId.CONFIRM_STACK)
-            openModal(ModalId.SUCCESS_STACK_TOAST)
-            trackEvent(EVENTS.CREATE_FLOW.STACK_SUCCESS)
+            closeModal(ModalId.CONFIRM_FARM)
+            openModal(ModalId.SUCCESS_FARM_TOAST)
+            trackEvent(EVENTS.CREATE_FLOW.FARM_SUCCESS)
             resetFormValues(chainId)
           }}
         />
       )}
       <Toast
-        closeAction={() => closeModal(ModalId.SUCCESS_STACK_TOAST)}
-        isOpen={isModalOpen(ModalId.SUCCESS_STACK_TOAST)}
+        closeAction={() => closeModal(ModalId.SUCCESS_FARM_TOAST)}
+        isOpen={isModalOpen(ModalId.SUCCESS_FARM_TOAST)}
         severity={Severity.SUCCESS}
-        title="Your stack creation was successful"
+        title="Your farm creation was successful"
       >
         <Link
           passHref
           className="flex items-center space-x-0.5 hover:border-em-low border-b-2 border-em-disabled group"
-          href={PATHNAMES.STACKS}
-          onClick={() => closeModal(ModalId.SUCCESS_STACK_TOAST)}
+          href={PATHNAMES.FARMS}
+          onClick={() => closeModal(ModalId.SUCCESS_FARM_TOAST)}
         >
-          <BodyText className="text-em-med">View your stacks</BodyText>
+          <BodyText className="text-em-med">View your farms</BodyText>
         </Link>
       </Toast>
     </div>
@@ -692,20 +692,20 @@ const SelectTokenButton = ({
   )
 }
 
-interface StackDetailsTileTextProps {
+interface FarmDetailsTileTextProps {
   amountPerOrder: string
   frequency: string
   toTokenSymbol: string
   fromTokenSymbol: string
   timeLength: string
 }
-const StackDetailsTileText = ({
+const FarmDetailsTileText = ({
   amountPerOrder,
   frequency,
   toTokenSymbol,
   fromTokenSymbol,
   timeLength
-}: StackDetailsTileTextProps) => (
+}: FarmDetailsTileTextProps) => (
   <BodyText size={1}>
     Buys <span className="text-em-med">{toTokenSymbol}</span>, swapping{" "}
     <span className="text-em-med">

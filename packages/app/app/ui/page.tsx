@@ -4,9 +4,9 @@ import { useRef, useState } from "react"
 
 import { UISection } from "@/app/ui/sections/UISection"
 import { UISubSection } from "@/app/ui/sections/UISubSection"
-import { ConfirmStackModal, TokenPicker } from "@/components"
+import { ConfirmFarmModal, TokenPicker } from "@/components"
 import { ModalId, useModalContext } from "@/contexts"
-import { FREQUENCY_OPTIONS } from "@/models/stack"
+import { FREQUENCY_OPTIONS } from "@/models/farm"
 import {
   BodyText,
   Button,
@@ -37,7 +37,7 @@ export default function Page() {
   const [isErrorDialogOpen, setErrorDialogOpen] = useState(false)
   const [showToast, setShowToast] = useState(false)
 
-  const [isOpenCancelStackingDialog, setOpenCancelStackingDialog] =
+  const [isOpenCancelFarmingDialog, setOpenCancelFarmingDialog] =
     useState(false)
   const dialogBtnRef = useRef<HTMLButtonElement | HTMLInputElement>(null)
   const { closeModal, isModalOpen, openModal } = useModalContext()
@@ -45,7 +45,7 @@ export default function Page() {
   const dialogButtons = [
     {
       label: "Confirm",
-      onClick: () => setOpenCancelStackingDialog(true)
+      onClick: () => setOpenCancelFarmingDialog(true)
     },
     {
       label: "Error",
@@ -55,8 +55,8 @@ export default function Page() {
 
   const modalButtons = [
     {
-      label: "Confirm Stack",
-      onClick: () => openModal(ModalId.CONFIRM_STACK)
+      label: "Confirm Farm",
+      onClick: () => openModal(ModalId.CONFIRM_FARM)
     },
     {
       label: "Token Picker",
@@ -140,7 +140,7 @@ export default function Page() {
             Try Olive now
           </Button>
           <Button iconLeft="plus" onClick={() => console.log("hey")}>
-            Stack now
+            Farm now
           </Button>
           <Button size="sm" onClick={() => console.log("hey")}>
             Connect wallet
@@ -200,7 +200,7 @@ export default function Page() {
             iconLeft="blocks"
             onClick={() => console.log("hey")}
           >
-            Your Stacks
+            Your Farms
           </Button>
           <Button
             variant="quaternary"
@@ -296,7 +296,7 @@ export default function Page() {
               onClick={modal.onClick}
             />
           ))}
-          <ConfirmStackModal
+          <ConfirmFarmModal
             fromToken={{
               address: "0x",
               decimals: 18,
@@ -313,8 +313,8 @@ export default function Page() {
             frequency={FREQUENCY_OPTIONS.day}
             startTime={new Date()}
             endTime={new Date()}
-            isOpen={isModalOpen(ModalId.CONFIRM_STACK)}
-            closeAction={() => closeModal(ModalId.CONFIRM_STACK)}
+            isOpen={isModalOpen(ModalId.CONFIRM_FARM)}
+            closeAction={() => closeModal(ModalId.CONFIRM_FARM)}
             onSuccess={() => {}}
           />
           <TokenPicker
@@ -339,18 +339,18 @@ export default function Page() {
                 HTMLButtonElement | HTMLInputElement
               >
             }
-            isOpen={isOpenCancelStackingDialog}
-            closeAction={() => setOpenCancelStackingDialog(false)}
+            isOpen={isOpenCancelFarmingDialog}
+            closeAction={() => setOpenCancelFarmingDialog(false)}
           >
             <DialogContent
-              title=" Are you sure you want to cancel stacking?"
+              title=" Are you sure you want to cancel farming?"
               description="The remaining funds of 684.5 USDC will be sent back to your
                 wallet 0xb9."
             />
             <DialogFooterActions
               primaryAction={() => console.log("primary")}
-              primaryText="Keep stacking"
-              secondaryAction={() => setOpenCancelStackingDialog(false)}
+              primaryText="Keep farming"
+              secondaryAction={() => setOpenCancelFarmingDialog(false)}
               secondaryText="Cancel"
               ref={dialogBtnRef as React.Ref<HTMLButtonElement>}
             />

@@ -7,7 +7,7 @@ import { TokenLogoPair } from "@/components"
 import {
   Strategy,
   useNetworkContext,
-  useStackboxFormContext,
+  useFarmboxFormContext,
   useStrategyContext
 } from "@/contexts"
 import { Button, CaptionText, Icon } from "@/ui"
@@ -20,7 +20,7 @@ interface StrategyCardProps {
 }
 
 export const StrategyCard = ({ strategy }: StrategyCardProps) => {
-  const { resetFormValues } = useStackboxFormContext()
+  const { resetFormValues } = useFarmboxFormContext()
   const { selectedStrategy, setSelectedStrategy } = useStrategyContext()
   const { chainId } = useNetworkContext()
 

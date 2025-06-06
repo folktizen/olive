@@ -1,6 +1,6 @@
 "use client"
 
-import { FREQUENCY_OPTIONS } from "@/models/stack"
+import { FREQUENCY_OPTIONS } from "@/models/farm"
 import { Token } from "@/models/token"
 import { createContext, useContext, ReactNode, useMemo, useState } from "react"
 

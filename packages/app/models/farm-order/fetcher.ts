@@ -1,12 +1,12 @@
 import { getCowOrders } from "@/models/cow-order"
-import { StackOrder } from "@/models/stack-order/types"
+import { FarmOrder } from "@/models/farm-order/types"
 import { ChainId, Order } from "@useolive/sdk"
 
-export async function getStackOrders(
+export async function getFarmOrders(
   chainId: ChainId,
   orders: Order[]
-): Promise<StackOrder[]> {
-  const ordersPromises = orders.map(async (order): Promise<StackOrder> => {
+): Promise<FarmOrder[]> {
+  const ordersPromises = orders.map(async (order): Promise<FarmOrder> => {
     const cowOrders = await getCowOrders(chainId, order.id)
     return { ...order, cowOrders }
   })

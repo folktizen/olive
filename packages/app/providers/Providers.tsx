@@ -10,7 +10,7 @@ import { config } from "./wagmi-config"
 import {
   ModalContextProvider,
   NetworkContextProvider,
-  StackboxFormContextProvider,
+  FarmboxFormContextProvider,
   StrategyContextProvider,
   TokenListProvider
 } from "@/contexts"
@@ -29,9 +29,9 @@ export const Providers = ({ children }: PropsWithChildren) => {
             <TokenListProvider>
               <ModalContextProvider>
                 <StrategyContextProvider>
-                  <StackboxFormContextProvider>
+                  <FarmboxFormContextProvider>
                     {children}
-                  </StackboxFormContextProvider>
+                  </FarmboxFormContextProvider>
                 </StrategyContextProvider>
               </ModalContextProvider>
             </TokenListProvider>

@@ -10,7 +10,7 @@ export default function NoWalletState() {
         <div className="space-y-3 text-center">
           <HeadingText size={2}>You need to connect your wallet</HeadingText>
           <HeadingText size={1} weight="medium" className="text-em-med">
-            Click the button below to connect your wallet and check your stacks
+            Click the button below to connect your wallet and check your farms
             or create new ones.
           </HeadingText>
         </div>

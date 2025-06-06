@@ -1,6 +1,6 @@
 "use client"
 
-import { StackOrders } from "@/app/stacks/stacksOrders"
+import { FarmOrders } from "@/app/farms/farmsOrders"
 import { useAccount } from "wagmi"
 import NoWalletState from "./no-wallet-state"
 import { useNetworkContext } from "@/contexts"
@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <div className="space-y-8">
       {chainId && address ? (
-        <StackOrders chainId={chainId} address={address} />
+        <FarmOrders chainId={chainId} address={address} />
       ) : (
         <Loading />
       )}

@@ -20,25 +20,25 @@ import {
 } from "@/ui"
 
 import {
-  StackOrder,
-  StackOrderProps,
-  calculateStackAveragePrice,
-  stackIsComplete,
-  stackIsFinishedWithFunds,
-  stackRemainingFunds,
+  FarmOrder,
+  FarmOrderProps,
+  calculateFarmAveragePrice,
+  farmIsComplete,
+  farmIsFinishedWithFunds,
+  farmRemainingFunds,
   totalFundsUsed,
-  totalStacked
-} from "@/models/stack-order"
+  totalFarmed
+} from "@/models/farm-order"
 
 import {
   DialogConfirmTransactionLoading,
-  FromToStackTokenPair,
+  FromToFarmTokenPair,
   TokenLogoPair,
   TransactionLink
 } from "@/components"
 
-import { StackFrequencyAndDates } from "@/components/stack-modal/StackFrequencyAndDates"
-import { StackOrdersProgress } from "@/components/stack-modal/StackOrdersProgress"
+import { FarmFrequencyAndDates } from "@/components/farm-modal/FarmFrequencyAndDates"
+import { FarmOrdersProgress } from "@/components/farm-modal/FarmOrdersProgress"
 
 import { useEthersSigner } from "@/utils/ethers"
 import { formatTokenValue } from "@/utils/token"
@@ -47,12 +47,12 @@ import { getDCAOrderContract } from "@useolive/sdk"
 
 import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
 
-import { Transaction } from "@/models/stack"
+import { Transaction } from "@/models/farm"
 
-interface StackModalProps extends ModalBaseProps {
-  stackOrder: StackOrder
+interface FarmModalProps extends ModalBaseProps {
+  farmOrder: FarmOrder
   fetchAllOrders: () => void
-  refetchStacks: () => void
+  refetchFarms: () => void
 }
 
 type Content = {
@@ -64,68 +64,68 @@ type Content = {
   }
 }
 
-export const StackModal = ({
-  stackOrder,
+export const FarmModal = ({
+  farmOrder,
   isOpen,
   fetchAllOrders,
-  refetchStacks,
+  refetchFarms,
   closeAction
-}: StackModalProps) => {
+}: FarmModalProps) => {
   const signer = useEthersSigner()
   const { chainId } = useNetworkContext()
   const { closeModal, isModalOpen, openModal } = useModalContext()
 
   const [cancellationTx, setCancellationTx] = useState<Transaction>()
 
-  const stackRemainingFundsWithTokenText = `${stackRemainingFunds(
-    stackOrder
-  )} ${stackOrder.sellToken.symbol}`
+  const farmRemainingFundsWithTokenText = `${farmRemainingFunds(
+    farmOrder
+  )} ${farmOrder.sellToken.symbol}`
 
-  const remainingFundsText = `The ${stackRemainingFundsWithTokenText} will be sent to your wallet.`
+  const remainingFundsText = `The ${farmRemainingFundsWithTokenText} will be sent to your wallet.`
 
   const getConfirmCancelContent = (): Content => {
-    if (stackIsFinishedWithFunds(stackOrder))
+    if (farmIsFinishedWithFunds(farmOrder))
       return {
         title: "Proceed with cancelation to withdraw funds",
         description: remainingFundsText,
         button: {
           action: "primary",
-          text: `Withdraw ${stackRemainingFundsWithTokenText}`
+          text: `Withdraw ${farmRemainingFundsWithTokenText}`
         }
       }
 
     return {
-      title: "Are you sure you want to cancel stacking?",
+      title: "Are you sure you want to cancel farming?",
       description: remainingFundsText,
       button: {
         action: "secondary",
-        text: "Cancel Stack"
+        text: "Cancel Farm"
       }
     }
   }
 
-  const cancelStack = async () => {
+  const cancelFarm = async () => {
     const signerInstance = await signer
     if (!signerInstance) return
 
     try {
-      openModal(ModalId.CANCEL_STACK_PROCESSING)
+      openModal(ModalId.CANCEL_FARM_PROCESSING)
       const tx = await getDCAOrderContract(
-        stackOrder.id,
+        farmOrder.id,
         signerInstance
       ).cancel()
       setCancellationTx(tx)
       await tx.wait()
-      closeModal(ModalId.CANCEL_STACK_PROCESSING)
-      openModal(ModalId.CANCEL_STACK_SUCCESS)
+      closeModal(ModalId.CANCEL_FARM_PROCESSING)
+      openModal(ModalId.CANCEL_FARM_SUCCESS)
     } catch (e) {
-      closeModal(ModalId.CANCEL_STACK_PROCESSING)
-      console.error("Cancel stack error", e)
+      closeModal(ModalId.CANCEL_FARM_PROCESSING)
+      console.error("Cancel farm error", e)
     }
   }
 
-  const stackNotCancelledAndNotComplete =
-    !stackOrder.cancelledAt && !stackIsComplete(stackOrder)
+  const farmNotCancelledAndNotComplete =
+    !farmOrder.cancelledAt && !farmIsComplete(farmOrder)
 
   return (
     <>
@@ -134,9 +134,9 @@ export const StackModal = ({
         isOpen={isOpen}
         closeAction={() => {
           if (
-            !isModalOpen(ModalId.CANCEL_STACK_CONFIRM) &&
-            !isModalOpen(ModalId.CANCEL_STACK_PROCESSING) &&
-            !isModalOpen(ModalId.CANCEL_STACK_SUCCESS)
+            !isModalOpen(ModalId.CANCEL_FARM_CONFIRM) &&
+            !isModalOpen(ModalId.CANCEL_FARM_PROCESSING) &&
+            !isModalOpen(ModalId.CANCEL_FARM_SUCCESS)
           )
             closeAction()
         }}
@@ -145,8 +145,8 @@ export const StackModal = ({
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-2">
               <TokenLogoPair
-                buyToken={stackOrder.buyToken}
-                sellToken={stackOrder.sellToken}
+                buyToken={farmOrder.buyToken}
+                sellToken={farmOrder.sellToken}
               />
               {chainId && (
                 <Link
@@ -154,14 +154,14 @@ export const StackModal = ({
                   target="_blank"
                   href={getExplorerLink(
                     chainId,
-                    stackOrder.id,
+                    farmOrder.id,
                     "address",
                     "#tokentxns"
                   )}
                   className="flex items-center space-x-0.5 hover:border-em-low border-b-2 border-em-disabled group"
                 >
                   <BodyText className="text-em-med">
-                    {stackOrder.id.substring(0, 7)}
+                    {farmOrder.id.substring(0, 7)}
                   </BodyText>
                   <Icon
                     className="text-em-med group-hover:animate-bounce"
@@ -180,26 +180,26 @@ export const StackModal = ({
           </div>
         </ModalHeader>
         <ModalContent className="px-0 space-y-4 md:px-0">
-          <StackFrequencyAndDates stackOrder={stackOrder} />
+          <FarmFrequencyAndDates farmOrder={farmOrder} />
           <div className="w-full my-4 border-b border-surface-50"></div>
           <WarningHasRemainingFunds
-            stackOrder={stackOrder}
-            stackRemainingFundsWithTokenText={stackRemainingFundsWithTokenText}
+            farmOrder={farmOrder}
+            farmRemainingFundsWithTokenText={farmRemainingFundsWithTokenText}
           />
           <div className="px-4 space-y-4 md:px-6">
-            <StackDigest stackOrder={stackOrder} />
-            <StackOrdersProgress stackOrder={stackOrder} />
+            <FarmDigest farmOrder={farmOrder} />
+            <FarmOrdersProgress farmOrder={farmOrder} />
           </div>
         </ModalContent>
         <ModalFooter
           className={cx({
-            "pt-0 pb-6": !stackNotCancelledAndNotComplete
+            "pt-0 pb-6": !farmNotCancelledAndNotComplete
           })}
         >
-          {stackNotCancelledAndNotComplete && (
+          {farmNotCancelledAndNotComplete && (
             <Button
               variant={getConfirmCancelContent().button.action}
-              onClick={() => openModal(ModalId.CANCEL_STACK_CONFIRM)}
+              onClick={() => openModal(ModalId.CANCEL_FARM_CONFIRM)}
               width="full"
             >
               {getConfirmCancelContent().button.text}
@@ -208,23 +208,23 @@ export const StackModal = ({
         </ModalFooter>
       </Modal>
       <Dialog
-        isOpen={isModalOpen(ModalId.CANCEL_STACK_CONFIRM)}
-        closeAction={() => closeModal(ModalId.CANCEL_STACK_CONFIRM)}
+        isOpen={isModalOpen(ModalId.CANCEL_FARM_CONFIRM)}
+        closeAction={() => closeModal(ModalId.CANCEL_FARM_CONFIRM)}
       >
         <DialogContent
           title={getConfirmCancelContent().title}
           description={getConfirmCancelContent().description}
         />
         <DialogFooterActions
-          primaryAction={() => cancelStack()}
+          primaryAction={() => cancelFarm()}
           primaryText="Proceed"
-          secondaryAction={() => closeModal(ModalId.CANCEL_STACK_CONFIRM)}
+          secondaryAction={() => closeModal(ModalId.CANCEL_FARM_CONFIRM)}
           secondaryText="Cancel"
         />
       </Dialog>
       <DialogConfirmTransactionLoading
-        closeAction={() => closeModal(ModalId.CANCEL_STACK_PROCESSING)}
-        isOpen={isModalOpen(ModalId.CANCEL_STACK_PROCESSING)}
+        closeAction={() => closeModal(ModalId.CANCEL_FARM_PROCESSING)}
+        isOpen={isModalOpen(ModalId.CANCEL_FARM_PROCESSING)}
         title={cancellationTx && "Proceeding cancellation"}
         description={cancellationTx && "Waiting for transaction confirmation."}
       >
@@ -233,65 +233,65 @@ export const StackModal = ({
         )}
       </DialogConfirmTransactionLoading>
       <Dialog
-        isOpen={isModalOpen(ModalId.CANCEL_STACK_SUCCESS)}
-        closeAction={() => closeModal(ModalId.CANCEL_STACK_SUCCESS)}
+        isOpen={isModalOpen(ModalId.CANCEL_FARM_SUCCESS)}
+        closeAction={() => closeModal(ModalId.CANCEL_FARM_SUCCESS)}
       >
         <Icon name="check" className="text-primary-400" size={38} />
         <DialogContent
-          title="Stack Cancelled"
-          description={`The ${stackRemainingFundsWithTokenText} were sent to your wallet.`}
+          title="Farm Cancelled"
+          description={`The ${farmRemainingFundsWithTokenText} were sent to your wallet.`}
         />
         {cancellationTx?.hash && chainId && (
           <TransactionLink chainId={chainId} hash={cancellationTx.hash} />
         )}
         <DialogFooterActions
           primaryAction={() => {
-            refetchStacks()
+            refetchFarms()
             fetchAllOrders()
-            closeModal(ModalId.CANCEL_STACK_PROCESSING)
-            closeModal(ModalId.CANCEL_STACK_SUCCESS)
+            closeModal(ModalId.CANCEL_FARM_PROCESSING)
+            closeModal(ModalId.CANCEL_FARM_SUCCESS)
             closeAction()
           }}
-          primaryText="Back to Stacks"
+          primaryText="Back to Farms"
         />
       </Dialog>
     </>
   )
 }
 
-const StackDigest = ({ stackOrder }: StackOrderProps) => (
+const FarmDigest = ({ farmOrder }: FarmOrderProps) => (
   <div className="flex flex-col justify-between gap-2 px-4 py-3 md:px-6 md:items-center md:flex-row bg-surface-25 rounded-2xl">
-    <FromToStackTokenPair
-      fromToken={stackOrder.sellToken}
-      fromText={formatTokenValue(totalFundsUsed(stackOrder))}
-      toToken={stackOrder.buyToken}
-      toText={formatTokenValue(totalStacked(stackOrder))}
+    <FromToFarmTokenPair
+      fromToken={farmOrder.sellToken}
+      fromText={formatTokenValue(totalFundsUsed(farmOrder))}
+      toToken={farmOrder.buyToken}
+      toText={formatTokenValue(totalFarmed(farmOrder))}
     />
     <BodyText size="responsive" className="space-x-1">
       <span className="text-em-low">Avg buy price:</span>
       <span className="text-em-med">
-        {formatTokenValue(calculateStackAveragePrice(stackOrder))}
+        {formatTokenValue(calculateFarmAveragePrice(farmOrder))}
       </span>
-      <span className="text-em-med">{orderPairSymbolsText(stackOrder)}</span>
+      <span className="text-em-med">{orderPairSymbolsText(farmOrder)}</span>
     </BodyText>
   </div>
 )
 
-interface WarningHasRemainingFundsProps extends StackOrderProps {
-  stackRemainingFundsWithTokenText: string
+interface WarningHasRemainingFundsProps extends FarmOrderProps {
+  farmRemainingFundsWithTokenText: string
 }
 
 const WarningHasRemainingFunds = ({
-  stackOrder,
-  stackRemainingFundsWithTokenText
+  farmOrder,
+  farmRemainingFundsWithTokenText
 }: WarningHasRemainingFundsProps) => {
-  if (!stackIsFinishedWithFunds(stackOrder)) return
+  if (!farmIsFinishedWithFunds(farmOrder)) return
 
   return (
     <div className="px-4 md:px-6">
       <div className="p-3 text-center rounded-lg bg-danger-75">
         <BodyText className="text-em-med">
-          This contract has {stackRemainingFundsWithTokenText} remaining funds.
+          This contract has {farmRemainingFundsWithTokenText} remaining funds.
         </BodyText>
       </div>
     </div>

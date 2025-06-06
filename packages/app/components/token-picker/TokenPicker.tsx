@@ -374,7 +374,7 @@ const DialogImportToken = ({
     <Icon name="warning" className="text-danger-500" size={38} />
     <DialogContent
       title=" Are you sure you want to import this token?"
-      description="This token doesn't appear on the token list. Stack orders might malfunction with imported tokens."
+      description="This token doesn't appear on the token list. Farm orders might malfunction with imported tokens."
     />
     <div className="flex flex-col items-center pt-3 space-y-3">
       <BodyText size={3} className="text-primary-100">

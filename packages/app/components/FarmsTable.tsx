@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow
 } from "@/ui"
-import { StackModal, TokenLogoPair } from "@/components"
+import { FarmModal, TokenLogoPair } from "@/components"
 import {
   totalFundsAmountWithTokenText,
   orderPairSymbolsText,
@@ -24,43 +24,43 @@ import {
 } from "@/models/order"
 import { formatTimestampToDate } from "@/utils/datetime"
 import {
-  StackOrder,
-  StackOrderProps,
-  calculateStackAveragePrice,
-  stackIsFinishedWithFunds,
+  FarmOrder,
+  FarmOrderProps,
+  calculateFarmAveragePrice,
+  farmIsFinishedWithFunds,
   totalFundsUsed,
-  totalStackOrdersDone,
-  totalStacked
-} from "@/models/stack-order"
+  totalFarmOrdersDone,
+  totalFarmed
+} from "@/models/farm-order"
 import { formatTokenValue } from "@/utils/token"
 import { ModalId, useModalContext } from "@/contexts"
 
-interface StacksTableProps {
-  stackOrders: StackOrder[]
+interface FarmsTableProps {
+  farmOrders: FarmOrder[]
   fetchAllOrders: () => void
-  refetchStacks: () => void
+  refetchFarms: () => void
   hasMorePages: boolean
   hasLessPages: boolean
   nextPage: () => void
   previousPage: () => void
 }
 
-export const StacksTable = ({
-  stackOrders,
+export const FarmsTable = ({
+  farmOrders,
   fetchAllOrders,
-  refetchStacks,
+  refetchFarms,
   hasMorePages,
   hasLessPages,
   nextPage,
   previousPage
-}: StacksTableProps) => {
-  const [stackOrder, setStackOrder] = useState<StackOrder>()
+}: FarmsTableProps) => {
+  const [farmOrder, setFarmOrder] = useState<FarmOrder>()
 
   const { closeModal, isModalOpen, openModal } = useModalContext()
 
-  const setupAndOpenModal = (stackOrder: StackOrder) => {
-    setStackOrder(stackOrder)
-    openModal(ModalId.STACK)
+  const setupAndOpenModal = (farmOrder: FarmOrder) => {
+    setFarmOrder(farmOrder)
+    openModal(ModalId.FARM)
   }
 
   return (
@@ -68,7 +68,7 @@ export const StacksTable = ({
       <Table>
         <TableHeader>
           <TableRow className="h-10 md:h-12">
-            <TableHead>Stack</TableHead>
+            <TableHead>Farm</TableHead>
             <TableHead className="text-right">Used funds</TableHead>
             <TableHead className="text-right">Avg. Buy Price</TableHead>
             <TableHead className="text-right">Orders</TableHead>
@@ -76,7 +76,7 @@ export const StacksTable = ({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {stackOrders.map((order) => (
+          {farmOrders.map((order) => (
             <TableRow key={order.id}>
               <TableCell className="flex items-center font-medium w-max">
                 <TokenLogoPair
@@ -85,7 +85,7 @@ export const StacksTable = ({
                 />
                 <div className="ml-3 space-y-0.5">
                   <BodyText weight="bold">
-                    {formatTokenValue(totalStacked(order))}
+                    {formatTokenValue(totalFarmed(order))}
                   </BodyText>
                   <CaptionText className="text-em-low">
                     {orderPairSymbolsText(order)}
@@ -105,7 +105,7 @@ export const StacksTable = ({
               <TableCell className="text-right">
                 <CellWrapper>
                   <BodyText className="text-em-high">
-                    {formatTokenValue(calculateStackAveragePrice(order))}
+                    {formatTokenValue(calculateFarmAveragePrice(order))}
                   </BodyText>
                   <BodyText className="text-em-low">
                     {orderPairSymbolsText(order)}
@@ -114,7 +114,7 @@ export const StacksTable = ({
               </TableCell>
               <TableCell className="text-right">
                 <CellWrapper>
-                  {stackIsFinishedWithFunds(order) ? (
+                  {farmIsFinishedWithFunds(order) ? (
                     <div className="flex items-center p-1 space-x-1.5 rounded">
                       <Icon
                         name="warning"
@@ -126,7 +126,7 @@ export const StacksTable = ({
                       </OverlineText>
                     </div>
                   ) : (
-                    <OrdersProgressText stackOrder={order} />
+                    <OrdersProgressText farmOrder={order} />
                   )}
                 </CellWrapper>
               </TableCell>
@@ -164,13 +164,13 @@ export const StacksTable = ({
           )}
         </TableFooter>
       </Table>
-      {stackOrder && (
-        <StackModal
-          refetchStacks={refetchStacks}
+      {farmOrder && (
+        <FarmModal
+          refetchFarms={refetchFarms}
           fetchAllOrders={fetchAllOrders}
-          isOpen={isModalOpen(ModalId.STACK)}
-          closeAction={() => closeModal(ModalId.STACK)}
-          stackOrder={stackOrder}
+          isOpen={isModalOpen(ModalId.FARM)}
+          closeAction={() => closeModal(ModalId.FARM)}
+          farmOrder={farmOrder}
         />
       )}
     </div>
@@ -183,29 +183,29 @@ const CellWrapper = ({ children }: PropsWithChildren) => (
   </div>
 )
 
-const OrdersProgressText = ({ stackOrder }: StackOrderProps) => {
-  if (stackOrder.cancelledAt) {
+const OrdersProgressText = ({ farmOrder }: FarmOrderProps) => {
+  if (farmOrder.cancelledAt) {
     return (
       <BodyText className="text-em-low">
-        Cancelled at {formatTimestampToDate(stackOrder.cancelledAt)}
+        Cancelled at {formatTimestampToDate(farmOrder.cancelledAt)}
       </BodyText>
     )
   }
 
-  if (totalOrderSlotsDone(stackOrder) !== 0) {
+  if (totalOrderSlotsDone(farmOrder) !== 0) {
     return (
       <>
         <BodyText className="text-em-high">
-          {totalStackOrdersDone(stackOrder).toString()}
+          {totalFarmOrdersDone(farmOrder).toString()}
         </BodyText>
         <BodyText className="text-em-low">{`/ ${
-          stackOrder.orderSlots.length || stackOrder.cowOrders.length
+          farmOrder.orderSlots.length || farmOrder.cowOrders.length
         } orders`}</BodyText>
       </>
     )
   }
 
-  const firtTimeSlot = Number(stackOrder.orderSlots[0] ?? stackOrder.startTime)
+  const firtTimeSlot = Number(farmOrder.orderSlots[0] ?? farmOrder.startTime)
   const date = new Date(firtTimeSlot * 1000) // Convert seconds to milliseconds
   const distanceToNow = formatDistanceToNow(date, { addSuffix: true })
 

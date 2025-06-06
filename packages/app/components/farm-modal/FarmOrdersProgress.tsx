@@ -7,16 +7,16 @@ import { OrdersProgressBar } from "@/components/OrdersProgressBar"
 import { BodyText, TitleText } from "@/ui"
 import { TokenIcon } from "@/components/TokenIcon"
 import {
-  StackOrderProps,
-  totalStackOrdersDone,
+  FarmOrderProps,
+  totalFarmOrdersDone,
   totalFundsUsed,
-  estimatedTotalStack,
-  stackIsComplete
-} from "@/models/stack-order"
+  estimatedTotalFarm,
+  farmIsComplete
+} from "@/models/farm-order"
 import { formatTokenValue } from "@/utils/token"
-import { StackOrdersTable } from "@/components/stack-modal/StackOrdersTable"
+import { FarmOrdersTable } from "@/components/farm-modal/FarmOrdersTable"
 
-export const StackOrdersProgress = ({ stackOrder }: StackOrderProps) => (
+export const FarmOrdersProgress = ({ farmOrder }: FarmOrderProps) => (
   <>
     <div>
       <TitleText size={2} weight="bold" className="mb-2">
@@ -24,32 +24,32 @@ export const StackOrdersProgress = ({ stackOrder }: StackOrderProps) => (
       </TitleText>
       <div className="space-y-2">
         <div className="flex flex-col justify-between space-y-1 md:space-y-0 md:items-center md:flex-row">
-          <OrdersExecuted stackOrder={stackOrder} />
+          <OrdersExecuted farmOrder={farmOrder} />
           <div className="flex items-center space-x-1">
             <BodyText size="responsive" className="text-em-low">
               Total funds used:{" "}
               <span className="text-em-high">
-                {formatTokenValue(totalFundsUsed(stackOrder), 2)}{" "}
+                {formatTokenValue(totalFundsUsed(farmOrder), 2)}{" "}
                 <span className="text-xs">of</span>{" "}
-                {totalFundsAmountWithTokenText(stackOrder)}
+                {totalFundsAmountWithTokenText(farmOrder)}
               </span>
             </BodyText>
-            <TokenIcon size="xs" token={stackOrder.sellToken} />
+            <TokenIcon size="xs" token={farmOrder.sellToken} />
           </div>
         </div>
-        <OrdersProgressBar stackOrder={stackOrder} />
-        <TotalStackEstimationText stackOrder={stackOrder} />
+        <OrdersProgressBar farmOrder={farmOrder} />
+        <TotalFarmEstimationText farmOrder={farmOrder} />
       </div>
     </div>
-    {totalStackOrdersDone(stackOrder) > 0 && (
-      <StackOrdersTable stackOrder={stackOrder} />
+    {totalFarmOrdersDone(farmOrder) > 0 && (
+      <FarmOrdersTable farmOrder={farmOrder} />
     )}
   </>
 )
 
-const TotalStackEstimationText = ({ stackOrder }: StackOrderProps) => {
-  if (allOrderSlotsDone(stackOrder)) return
-  if (totalStackOrdersDone(stackOrder) < 1) return
+const TotalFarmEstimationText = ({ farmOrder }: FarmOrderProps) => {
+  if (allOrderSlotsDone(farmOrder)) return
+  if (totalFarmOrdersDone(farmOrder) < 1) return
 
   return (
     <div className="flex flex-row-reverse">
@@ -60,18 +60,18 @@ const TotalStackEstimationText = ({ stackOrder }: StackOrderProps) => {
         <BodyText size={1} className="space-x-1">
           <span className="text-em-low">Estimated total:</span>
           <span className="text-em-med">
-            {formatTokenValue(estimatedTotalStack(stackOrder))}
+            {formatTokenValue(estimatedTotalFarm(farmOrder))}
           </span>
-          <span>{stackOrder.buyToken.symbol}</span>
+          <span>{farmOrder.buyToken.symbol}</span>
         </BodyText>
-        <TokenIcon size="2xs" token={stackOrder.buyToken} />
+        <TokenIcon size="2xs" token={farmOrder.buyToken} />
       </div>
     </div>
   )
 }
 
-const OrdersExecuted = ({ stackOrder }: StackOrderProps) => {
-  if (!totalOrderSlotsDone(stackOrder))
+const OrdersExecuted = ({ farmOrder }: FarmOrderProps) => {
+  if (!totalOrderSlotsDone(farmOrder))
     return <BodyText className="text-em-low">No orders executed yet.</BodyText>
 
   return (
@@ -80,11 +80,11 @@ const OrdersExecuted = ({ stackOrder }: StackOrderProps) => {
         Executed:
       </BodyText>
       <BodyText size="responsive">
-        {totalStackOrdersDone(stackOrder)}{" "}
-        {!stackIsComplete(stackOrder) && (
+        {totalFarmOrdersDone(farmOrder)}{" "}
+        {!farmIsComplete(farmOrder) && (
           <>
             <span className="text-xs">out of </span>
-            {stackOrder.orderSlots.length}
+            {farmOrder.orderSlots.length}
           </>
         )}
       </BodyText>

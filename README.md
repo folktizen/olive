@@ -96,7 +96,7 @@ This creates a production build in the `dist` directory. Deploy the contents of 
    - Add a default token pair in `packages/app/utils/constants.ts`
    - Update WAGMI chains config in `packages/app/providers/wagmi-config.ts`
    - Add common tokens in `packages/app/components/token-picker/constants.ts`
-4. **Try to create a new stack in the UI!**
+4. **Try to create a new farm in the UI!**
 
 ---
 

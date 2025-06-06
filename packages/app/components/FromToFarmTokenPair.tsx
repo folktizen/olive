@@ -2,19 +2,19 @@ import { Icon, TitleText } from "@/ui"
 import { TokenIcon } from "@/components/TokenIcon"
 import { Token } from "@/models/token"
 
-interface FromToStackTokenPairProps {
+interface FromToFarmTokenPairProps {
   fromToken: Token
   toToken: Token
   fromText: string
   toText: string
 }
 
-export const FromToStackTokenPair = ({
+export const FromToFarmTokenPair = ({
   fromToken,
   fromText,
   toToken,
   toText
-}: FromToStackTokenPairProps) => (
+}: FromToFarmTokenPairProps) => (
   <div className="flex items-center space-x-4 rounded-3xl w-fit">
     <div className="flex items-center space-x-2">
       <TokenIcon token={fromToken} />

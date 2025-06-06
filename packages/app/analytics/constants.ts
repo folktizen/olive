@@ -5,8 +5,8 @@ export const EVENTS = {
     STRATEGY_CARD: "click/strategy-card"
   },
   CREATE_FLOW: {
-    STACK_SUCCESS: "create-flow/stack-success",
-    STACKBOX_CONFIRM_CLICK: "create-flow/stackbox-confirm-click",
-    STACKBOX_STACK_CLICK: "create-flow/stackbox-stack-click"
+    FARM_SUCCESS: "create-flow/farm-success",
+    FARMBOX_CONFIRM_CLICK: "create-flow/farmbox-confirm-click",
+    FARMBOX_FARM_CLICK: "create-flow/farmbox-farm-click"
   }
 }

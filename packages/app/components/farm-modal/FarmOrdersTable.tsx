@@ -17,26 +17,26 @@ import {
 import {
   cowExplorerUrl,
   orderPairSymbolsText,
-  StackOrder,
-  StackOrderProps
+  FarmOrder,
+  FarmOrderProps
 } from "@/models"
 import { useNetworkContext } from "@/contexts"
 
 const INITIAL_NUMBER_OF_COW_ORDERS = 8
 const MORE_ORDERS_NUMBER = 4
 
-export const StackOrdersTable = ({ stackOrder }: StackOrderProps) => {
+export const FarmOrdersTable = ({ farmOrder }: FarmOrderProps) => {
   const initialCowOrders =
-    stackOrder?.cowOrders?.slice(0, INITIAL_NUMBER_OF_COW_ORDERS) ?? []
+    farmOrder?.cowOrders?.slice(0, INITIAL_NUMBER_OF_COW_ORDERS) ?? []
 
   const [cowOrders, setCowOrders] = useState<CowOrder[]>(initialCowOrders)
 
   const addMoreOrders = () =>
     setCowOrders(
-      stackOrder.cowOrders.slice(0, cowOrders.length + MORE_ORDERS_NUMBER)
+      farmOrder.cowOrders.slice(0, cowOrders.length + MORE_ORDERS_NUMBER)
     )
 
-  const hasMoreOrders = stackOrder?.cowOrders?.length > cowOrders.length
+  const hasMoreOrders = farmOrder?.cowOrders?.length > cowOrders.length
 
   return (
     <div className="border border-surface-75 rounded-xl">
@@ -53,19 +53,19 @@ export const StackOrdersTable = ({ stackOrder }: StackOrderProps) => {
               <BodyText size={1}>Time</BodyText>
             </TableHead>
             <TableHead className="py-1 text-right">
-              <BodyText size={1}> {stackOrder.sellToken.symbol} spent</BodyText>
+              <BodyText size={1}> {farmOrder.sellToken.symbol} spent</BodyText>
             </TableHead>
             <TableHead className="py-1 text-right">
-              <BodyText size={1}>{stackOrder.buyToken.symbol} bought</BodyText>
+              <BodyText size={1}>{farmOrder.buyToken.symbol} bought</BodyText>
             </TableHead>
             <TableHead className="hidden py-1 text-right md:table-cell">
-              <BodyText size={1}>{orderPairSymbolsText(stackOrder)}</BodyText>
+              <BodyText size={1}>{orderPairSymbolsText(farmOrder)}</BodyText>
             </TableHead>
           </TableRow>
         </TableHeader>
         {cowOrders.length > 0 ? (
           <>
-            <TableCowBody stackOrder={stackOrder} cowOrders={cowOrders} />
+            <TableCowBody farmOrder={farmOrder} cowOrders={cowOrders} />
             {hasMoreOrders && (
               <TableCaption className="pb-2 mt-2">
                 <div
@@ -98,10 +98,10 @@ const getOrderStatusText = (orderStatus: OrderStatus, price?: number) => {
   }
 }
 const TableCowBody = ({
-  stackOrder,
+  farmOrder,
   cowOrders
 }: {
-  stackOrder: StackOrder
+  farmOrder: FarmOrder
   cowOrders: CowOrder[]
 }) => {
   const { chainId } = useNetworkContext()
@@ -111,11 +111,11 @@ const TableCowBody = ({
       {cowOrders.map((cowOrder) => {
         const executedBuyAmount = convertedAmount(
           cowOrder.executedBuyAmount,
-          stackOrder.buyToken.decimals
+          farmOrder.buyToken.decimals
         )
         const executedSellAmount = convertedAmount(
           cowOrder.executedSellAmount,
-          stackOrder.sellToken.decimals
+          farmOrder.sellToken.decimals
         )
         const averagePrice = executedSellAmount / executedBuyAmount
 
