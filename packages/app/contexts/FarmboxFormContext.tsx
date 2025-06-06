@@ -18,7 +18,7 @@ import {
   useStrategyContext,
   useTokenListContext
 } from "@/contexts"
-import { FREQUENCY_OPTIONS } from "@/models/stack"
+import { FREQUENCY_OPTIONS } from "@/models/farm"
 import { DEFAULT_TOKENS_BY_CHAIN, checkIsValidChainId } from "@/utils"
 
 const endDateByFrequency: Record<string, number> = {
@@ -47,11 +47,11 @@ const startDateParseAsTimestamp = createParser({
   serialize: (v: Date) => v.valueOf().toString()
 })
 
-const throwStackboxFormContextError = () => {
-  throw new Error("No StackboxFormContext available")
+const throwFarmboxFormContextError = () => {
+  throw new Error("No FarmboxFormContext available")
 }
 
-type StackboxFormStateInput<T> = [
+type FarmboxFormStateInput<T> = [
   T,
   <Shallow>(
     value: T | ((old: T) => T | null) | null,
@@ -59,30 +59,30 @@ type StackboxFormStateInput<T> = [
   ) => Promise<URLSearchParams>
 ]
 
-interface StackboxFormContextProps {
+interface FarmboxFormContextProps {
   resetFormValues: (newChainId: ChainId) => void
-  stackboxFormState: {
-    fromTokenState: StackboxFormStateInput<TokenWithBalance>
-    toTokenState: StackboxFormStateInput<TokenWithBalance>
-    tokenAmountState: StackboxFormStateInput<string>
-    frequencyState: StackboxFormStateInput<FREQUENCY_OPTIONS>
-    startDateState: StackboxFormStateInput<Date>
-    endDateState: StackboxFormStateInput<Date>
+  farmboxFormState: {
+    fromTokenState: FarmboxFormStateInput<TokenWithBalance>
+    toTokenState: FarmboxFormStateInput<TokenWithBalance>
+    tokenAmountState: FarmboxFormStateInput<string>
+    frequencyState: FarmboxFormStateInput<FREQUENCY_OPTIONS>
+    startDateState: FarmboxFormStateInput<Date>
+    endDateState: FarmboxFormStateInput<Date>
   }
 }
 
-const StackboxFormContext = createContext<StackboxFormContextProps>({
-  resetFormValues: throwStackboxFormContextError,
-  stackboxFormState: null as any
+const FarmboxFormContext = createContext<FarmboxFormContextProps>({
+  resetFormValues: throwFarmboxFormContextError,
+  farmboxFormState: null as any
 })
 
-interface StackboxFormContextProviderProps {
+interface FarmboxFormContextProviderProps {
   children: ReactNode
 }
 
-export const StackboxFormContextProvider = ({
+export const FarmboxFormContextProvider = ({
   children
-}: StackboxFormContextProviderProps) => {
+}: FarmboxFormContextProviderProps) => {
   const { chainId } = useNetworkContext()
   const { deselectStrategy } = useStrategyContext()
   const { getTokenFromList } = useTokenListContext()
@@ -124,7 +124,7 @@ export const StackboxFormContextProvider = ({
     "endDate",
     parseAsTimestamp.withDefault(new Date(endDateByFrequency[frequency]))
   )
-  const stackboxFormContext = useMemo(() => {
+  const farmboxFormContext = useMemo(() => {
     const resetFormValues = (newChainId: ChainId) => {
       const validChainId = checkIsValidChainId(newChainId)
         ? newChainId
@@ -139,36 +139,36 @@ export const StackboxFormContextProvider = ({
       setEndDateTime(new Date(endDateByFrequency[frequency]))
     }
 
-    const stackboxFormState = {
+    const farmboxFormState = {
       fromTokenState: [
         fromToken,
         setFromToken
-      ] as StackboxFormStateInput<TokenWithBalance>,
+      ] as FarmboxFormStateInput<TokenWithBalance>,
       toTokenState: [
         toToken,
         setToToken
-      ] as StackboxFormStateInput<TokenWithBalance>,
+      ] as FarmboxFormStateInput<TokenWithBalance>,
       tokenAmountState: [
         tokenAmount,
         setTokenAmount
-      ] as StackboxFormStateInput<string>,
+      ] as FarmboxFormStateInput<string>,
       frequencyState: [
         frequency,
         setFrequency
-      ] as StackboxFormStateInput<FREQUENCY_OPTIONS>,
+      ] as FarmboxFormStateInput<FREQUENCY_OPTIONS>,
       startDateState: [
         startDateTime,
         setStartDateTime
-      ] as StackboxFormStateInput<Date>,
+      ] as FarmboxFormStateInput<Date>,
       endDateState: [
         endDateTime,
         setEndDateTime
-      ] as StackboxFormStateInput<Date>
+      ] as FarmboxFormStateInput<Date>
     }
 
     return {
       resetFormValues,
-      stackboxFormState
+      farmboxFormState
     }
   }, [
     deselectStrategy,
@@ -187,10 +187,10 @@ export const StackboxFormContextProvider = ({
   ])
 
   return (
-    <StackboxFormContext.Provider value={stackboxFormContext}>
+    <FarmboxFormContext.Provider value={farmboxFormContext}>
       {children}
-    </StackboxFormContext.Provider>
+    </FarmboxFormContext.Provider>
   )
 }
 
-export const useStackboxFormContext = () => useContext(StackboxFormContext)
+export const useFarmboxFormContext = () => useContext(FarmboxFormContext)

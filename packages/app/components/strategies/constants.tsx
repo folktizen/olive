@@ -1,5 +1,5 @@
 import { Strategy } from "@/contexts"
-import { FREQUENCY_OPTIONS } from "@/models/stack"
+import { FREQUENCY_OPTIONS } from "@/models/farm"
 import {
   // mainnetTokens,
   arbitrumTokens,

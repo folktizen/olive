@@ -33,12 +33,12 @@ export default function MobileMenu() {
           <div className="absolute left-0 w-full gap-2 px-6 py-2 border-b border-solid rounded-lg bg-surface-25 top-nav-height border-surface-75">
             <Link
               passHref
-              href={PATHNAMES.STACKS}
+              href={PATHNAMES.FARMS}
               className="flex items-center py-3 text-em-med"
               onClick={toggle}
             >
-              <Icon name="blocks" alt="your stacks" size={18} />
-              <span className="ml-4">Your Stacks</span>
+              <Icon name="blocks" alt="your farms" size={18} />
+              <span className="ml-4">Your Farms</span>
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
             <Link

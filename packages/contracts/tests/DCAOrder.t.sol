@@ -276,7 +276,7 @@ contract DCAOrderTest is Test, GasMeter {
   }
 
   function testGetTradeableOrder_GasUsage_2_years() public {
-    // 2 year long hourly stack
+    // 2 year long hourly farm
     uint256 endTime = _startTime + (1 days * 365 * 2);
     uint256 interval = 1;
     dcaOrder.initialize(

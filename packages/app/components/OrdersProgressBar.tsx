@@ -1,26 +1,26 @@
 import {
-  stackHasRemainingFunds,
-  StackOrderProps,
-  totalStackOrdersDone
-} from "@/models/stack-order"
+  farmHasRemainingFunds,
+  FarmOrderProps,
+  totalFarmOrdersDone
+} from "@/models/farm-order"
 import React, { useRef, useEffect } from "react"
 
 const FULL_BAR_WIDTH = 100
 
-export const OrdersProgressBar = ({ stackOrder }: StackOrderProps) => {
+export const OrdersProgressBar = ({ farmOrder }: FarmOrderProps) => {
   const progressBarRef = useRef<HTMLDivElement>(null)
-  const totalOrders = stackOrder.orderSlots.length
-    ? stackOrder.orderSlots.length
+  const totalOrders = farmOrder.orderSlots.length
+    ? farmOrder.orderSlots.length
     : 1
 
   useEffect(() => {
     if (progressBarRef.current) {
-      const width = stackHasRemainingFunds(stackOrder)
-        ? (FULL_BAR_WIDTH * totalStackOrdersDone(stackOrder)) / totalOrders
+      const width = farmHasRemainingFunds(farmOrder)
+        ? (FULL_BAR_WIDTH * totalFarmOrdersDone(farmOrder)) / totalOrders
         : FULL_BAR_WIDTH
       progressBarRef.current.style.width = `${width}%`
     }
-  }, [stackOrder, totalOrders])
+  }, [farmOrder, totalOrders])
 
   return (
     <div className="w-full h-2 rounded-lg bg-surface-75">

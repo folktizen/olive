@@ -3,7 +3,7 @@
 ## Description
 
 Olive is a simple DCA (Dollar-Cost Averaging) tool that utilizes the CoW (Conditional Order
-Workflow) Protocol to place TWAP (Time-Weighted Average Price) orders. It allows users to stack
+Workflow) Protocol to place TWAP (Time-Weighted Average Price) orders. It allows users to farm
 their favorite cryptocurrencies at any frequency they choose, such as hourly, daily, weekly, or
 monthly. By following a DCA strategy, users can reduce their exposure to short-term price
 fluctuations and potentially build a more stable and profitable long-term portfolio.
@@ -109,7 +109,7 @@ Cancels the DCA order.
 
 ## Infrastructure
 
-![](https://global.discourse-cdn.com/standard14/uploads/daostack/original/2X/5/568866eeb0b1532a3cf80d3ddb64c728c7a92eff.png)
+![](https://global.discourse-cdn.com/standard14/uploads/daofarm/original/2X/5/568866eeb0b1532a3cf80d3ddb64c728c7a92eff.png)
 
 ## License
 

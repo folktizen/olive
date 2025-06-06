@@ -36,9 +36,9 @@ export function Navbar() {
             variant="quaternary"
             size="sm"
             iconLeft="blocks"
-            href={PATHNAMES.STACKS}
+            href={PATHNAMES.FARMS}
           >
-            Your Stacks
+            Your Farms
           </ButtonLink>
           <Divider />
           <SelectNetwork />

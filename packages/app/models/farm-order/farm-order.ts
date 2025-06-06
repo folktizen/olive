@@ -1,27 +1,27 @@
 import { allOrderSlotsDone, oliveFee } from "@/models/order"
-import { StackOrder } from "@/models/stack-order"
+import { FarmOrder } from "@/models/farm-order"
 import { convertedAmount } from "@/utils/numbers"
 import { OrderStatus } from "@cowprotocol/cow-sdk"
 
-export const totalStackOrdersDone = (order: StackOrder) => {
+export const totalFarmOrdersDone = (order: FarmOrder) => {
   if (!order?.cowOrders?.length) return 0
 
   return order.cowOrders.length
 }
 
-export const estimatedTotalStack = (order: StackOrder) => {
+export const estimatedTotalFarm = (order: FarmOrder) => {
   let estimation = 0
-  const avgStackPrice = calculateStackAveragePrice(order)
+  const avgFarmPrice = calculateFarmAveragePrice(order)
 
   if (order.cowOrders && order.cowOrders.length > 0) {
     estimation =
-      convertedAmount(order.amount, order.sellToken.decimals) / avgStackPrice
+      convertedAmount(order.amount, order.sellToken.decimals) / avgFarmPrice
   }
 
   return estimation
 }
 
-export const calculateStackAveragePrice = (order: StackOrder) => {
+export const calculateFarmAveragePrice = (order: FarmOrder) => {
   let totalExecutedBuyAmount = 0
   let totalExecutedSellAmount = 0
 
@@ -44,7 +44,7 @@ export const calculateStackAveragePrice = (order: StackOrder) => {
   return totalExecutedBuyAmount ? averagePrice : 0
 }
 
-export const totalFundsUsed = (order: StackOrder) => {
+export const totalFundsUsed = (order: FarmOrder) => {
   const total =
     order.cowOrders?.reduce((acc, cowOrder) => {
       return (
@@ -56,34 +56,34 @@ export const totalFundsUsed = (order: StackOrder) => {
   return total + oliveFee(order)
 }
 
-export const totalStacked = (order: StackOrder) =>
+export const totalFarmed = (order: FarmOrder) =>
   order.cowOrders?.reduce((acc, cowOrder) => {
     return (
       acc + convertedAmount(cowOrder.executedBuyAmount, order.buyToken.decimals)
     )
   }, 0) ?? 0
 
-export const stackHasRemainingFunds = (stackOrder: StackOrder) =>
-  totalFundsUsed(stackOrder) >= oliveFee(stackOrder) &&
-  stackRemainingFunds(stackOrder) > oliveFee(stackOrder)
+export const farmHasRemainingFunds = (farmOrder: FarmOrder) =>
+  totalFundsUsed(farmOrder) >= oliveFee(farmOrder) &&
+  farmRemainingFunds(farmOrder) > oliveFee(farmOrder)
 
-export const stackRemainingFunds = (stackOrder: StackOrder) => {
+export const farmRemainingFunds = (farmOrder: FarmOrder) => {
   if (
-    stackOrder.cowOrders?.length &&
-    totalFundsUsed(stackOrder) === 0 &&
-    totalStackOrdersDone(stackOrder) > 0
+    farmOrder.cowOrders?.length &&
+    totalFundsUsed(farmOrder) === 0 &&
+    totalFarmOrdersDone(farmOrder) > 0
   )
     return 0
   return (
-    convertedAmount(stackOrder.amount, stackOrder.sellToken.decimals) -
-    totalFundsUsed(stackOrder)
+    convertedAmount(farmOrder.amount, farmOrder.sellToken.decimals) -
+    totalFundsUsed(farmOrder)
   )
 }
 
-export const stackIsComplete = (stackOrder: StackOrder) =>
-  allOrderSlotsDone(stackOrder) && !stackHasRemainingFunds(stackOrder)
+export const farmIsComplete = (farmOrder: FarmOrder) =>
+  allOrderSlotsDone(farmOrder) && !farmHasRemainingFunds(farmOrder)
 
-export const stackIsFinishedWithFunds = (stackOrder: StackOrder) =>
-  allOrderSlotsDone(stackOrder) &&
-  stackHasRemainingFunds(stackOrder) &&
-  !stackOrder.cancelledAt
+export const farmIsFinishedWithFunds = (farmOrder: FarmOrder) =>
+  allOrderSlotsDone(farmOrder) &&
+  farmHasRemainingFunds(farmOrder) &&
+  !farmOrder.cancelledAt

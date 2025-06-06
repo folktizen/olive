@@ -3,7 +3,7 @@
 import { Tab } from "@headlessui/react"
 import { useCallback, useEffect, useState } from "react"
 
-import { EmptyState, StacksTable, tabButtonStyles } from "@/components"
+import { EmptyState, FarmsTable, tabButtonStyles } from "@/components"
 import { PATHNAMES } from "@/constants"
 import {
   getActiveOrders,
@@ -12,12 +12,12 @@ import {
   getOrders
 } from "@/models/order"
 import {
-  StackOrder,
+  FarmOrder,
   filterActiveOrders,
   filterCancelledOrders,
   filterCompletedOrders,
-  getStackOrders
-} from "@/models/stack-order"
+  getFarmOrders
+} from "@/models/farm-order"
 import { ButtonLink, HeadingText } from "@/ui"
 import { currentTimestampInSeconds } from "@/utils"
 import { ChainId, Order } from "@useolive/sdk"
@@ -25,7 +25,7 @@ import EmptyStatePage from "./empty-state"
 
 type SortTime = "startTime" | "endTime" | "cancelledAt"
 
-const sortedOrdersByTime = (orders: StackOrder[], time: SortTime) =>
+const sortedOrdersByTime = (orders: FarmOrder[], time: SortTime) =>
   orders.sort((a, b) => Number(b[time]) - Number(a[time]))
 
 interface FetcherParams {
@@ -37,52 +37,52 @@ interface FetcherParams {
 }
 
 interface OrderByState {
-  orders: StackOrder[]
+  orders: FarmOrder[]
   emptyText: string
   sort: SortTime
   numberOfPages: number
   fetcher: (params: FetcherParams) => Promise<any>
 }
 
-export interface StackOrdersProps {
+export interface FarmOrdersProps {
   address: string
   chainId: ChainId
 }
 
-type StackStateIndex = 0 | 1 | 2
+type FarmStateIndex = 0 | 1 | 2
 
 const ITEMS_PER_PAGE = 10
 
-export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
-  const [loadingAllStacks, setLoadingAllStacks] = useState(true)
-  const [loadingStacks, setLoadingStacks] = useState(true)
+export const FarmOrders = ({ chainId, address }: FarmOrdersProps) => {
+  const [loadingAllFarms, setLoadingAllFarms] = useState(true)
+  const [loadingFarms, setLoadingFarms] = useState(true)
 
   const [allOrders, setAllOrders] = useState<Order[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const [stackStateIndex, setStackStateIndex] = useState<StackStateIndex>(0)
-  const [currentStackOrders, setCurrentStackOrders] = useState<StackOrder[]>([])
+  const [farmStateIndex, setFarmStateIndex] = useState<FarmStateIndex>(0)
+  const [currentFarmOrders, setCurrentFarmOrders] = useState<FarmOrder[]>([])
 
   const resetState = () => {
-    setLoadingStacks(true)
+    setLoadingFarms(true)
     setCurrentPage(1)
   }
 
-  const totalStacksNumber = allOrders.length
+  const totalFarmsNumber = allOrders.length
 
-  const totalStacksActive = filterActiveOrders(allOrders).length
-  const stackActiveTotalPages =
-    totalStacksActive > ITEMS_PER_PAGE ? totalStacksActive / ITEMS_PER_PAGE : 1
+  const totalFarmsActive = filterActiveOrders(allOrders).length
+  const farmActiveTotalPages =
+    totalFarmsActive > ITEMS_PER_PAGE ? totalFarmsActive / ITEMS_PER_PAGE : 1
 
-  const totalStacksComplete = filterCompletedOrders(allOrders).length
-  const stackCompletedTotalPages =
-    totalStacksComplete > ITEMS_PER_PAGE
-      ? totalStacksComplete / ITEMS_PER_PAGE
+  const totalFarmsComplete = filterCompletedOrders(allOrders).length
+  const farmCompletedTotalPages =
+    totalFarmsComplete > ITEMS_PER_PAGE
+      ? totalFarmsComplete / ITEMS_PER_PAGE
       : 1
 
-  const totalStacksCancelled = filterCancelledOrders(allOrders).length
-  const stackCancelledTotalPages =
-    totalStacksCancelled > ITEMS_PER_PAGE
-      ? totalStacksCancelled / ITEMS_PER_PAGE
+  const totalFarmsCancelled = filterCancelledOrders(allOrders).length
+  const farmCancelledTotalPages =
+    totalFarmsCancelled > ITEMS_PER_PAGE
+      ? totalFarmsCancelled / ITEMS_PER_PAGE
       : 1
 
   const skipItems = (currentPage - 1) * ITEMS_PER_PAGE
@@ -93,38 +93,38 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
   const nextPage = (numberOfPages: number) => {
     if (hasMorePages(numberOfPages)) {
       setCurrentPage(currentPage + 1)
-      setLoadingStacks(true)
+      setLoadingFarms(true)
     }
   }
 
   const previousPage = () => {
     if (hasLessPages) {
       setCurrentPage(currentPage - 1)
-      setLoadingStacks(true)
+      setLoadingFarms(true)
     }
   }
 
   const ordersByState: OrderByState[] = [
     {
-      orders: currentStackOrders,
-      emptyText: "No active stacks",
+      orders: currentFarmOrders,
+      emptyText: "No active farms",
       sort: "startTime",
       fetcher: getActiveOrders,
-      numberOfPages: stackActiveTotalPages
+      numberOfPages: farmActiveTotalPages
     },
     {
-      orders: currentStackOrders,
-      emptyText: "No complete stacks",
+      orders: currentFarmOrders,
+      emptyText: "No complete farms",
       sort: "endTime",
       fetcher: getCompleteOrders,
-      numberOfPages: stackCompletedTotalPages
+      numberOfPages: farmCompletedTotalPages
     },
     {
-      orders: currentStackOrders,
-      emptyText: "No cancelled stacks",
+      orders: currentFarmOrders,
+      emptyText: "No cancelled farms",
       sort: "cancelledAt",
       fetcher: getCancelledOrders,
-      numberOfPages: stackCancelledTotalPages
+      numberOfPages: farmCancelledTotalPages
     }
   ]
 
@@ -136,16 +136,16 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
           setAllOrders(orders)
         }
       })
-      .finally(() => setLoadingAllStacks(false))
+      .finally(() => setLoadingAllFarms(false))
   }, [address, chainId])
 
   useEffect(() => {
     fetchAllOrders()
   }, [fetchAllOrders])
 
-  const fetchStacks = useCallback(
-    (stackStateIndex: StackStateIndex) => {
-      ordersByState[stackStateIndex]
+  const fetchFarms = useCallback(
+    (farmStateIndex: FarmStateIndex) => {
+      ordersByState[farmStateIndex]
         .fetcher({
           chainId: chainId,
           address: address.toLowerCase(),
@@ -154,32 +154,32 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
           first: ITEMS_PER_PAGE
         })
         .then(async (orders) => {
-          if (!orders || orders.length === 0) setCurrentStackOrders([])
+          if (!orders || orders.length === 0) setCurrentFarmOrders([])
           else {
-            const stackOrders = await getStackOrders(chainId, orders)
+            const farmOrders = await getFarmOrders(chainId, orders)
 
-            setCurrentStackOrders(stackOrders?.length ? stackOrders : [])
+            setCurrentFarmOrders(farmOrders?.length ? farmOrders : [])
           }
         })
-        .finally(() => setLoadingStacks(false))
+        .finally(() => setLoadingFarms(false))
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [address, chainId, currentPage]
   )
 
-  useEffect(() => fetchStacks(stackStateIndex), [fetchStacks, stackStateIndex])
+  useEffect(() => fetchFarms(farmStateIndex), [fetchFarms, farmStateIndex])
 
-  if (!loadingStacks && !loadingAllStacks && allOrders.length === 0)
+  if (!loadingFarms && !loadingAllFarms && allOrders.length === 0)
     return <EmptyStatePage />
 
   return (
     <>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <HeadingText size={3}>Your Stacks</HeadingText>
-          {!loadingAllStacks && (
+          <HeadingText size={3}>Your Farms</HeadingText>
+          {!loadingAllFarms && (
             <div className="px-2 py-1 text-xs font-semibold bg-surface-75 rounded-xl">
-              {totalStacksNumber}
+              {totalFarmsNumber}
             </div>
           )}
         </div>
@@ -188,55 +188,55 @@ export const StackOrders = ({ chainId, address }: StackOrdersProps) => {
           href={PATHNAMES.HOME}
           className="hidden sm:flex"
         >
-          Create New Stack
+          Create New Farm
         </ButtonLink>
       </div>
       <div className="space-y-6">
         <Tab.Group
           onChange={(index) => {
-            setStackStateIndex(index as StackStateIndex)
+            setFarmStateIndex(index as FarmStateIndex)
             resetState()
           }}
         >
           <Tab.List>
             <div className="flex space-x-2">
               <Tab as="button" className={tabButtonStyles}>
-                Active <span className="ml-1 text-xs">{totalStacksActive}</span>
+                Active <span className="ml-1 text-xs">{totalFarmsActive}</span>
               </Tab>
               <Tab as="button" className={tabButtonStyles}>
                 Completed{" "}
-                <span className="ml-1 text-xs">{totalStacksComplete}</span>
+                <span className="ml-1 text-xs">{totalFarmsComplete}</span>
               </Tab>
               <Tab as="button" className={tabButtonStyles}>
                 Cancelled{" "}
-                <span className="ml-1 text-xs">{totalStacksCancelled}</span>
+                <span className="ml-1 text-xs">{totalFarmsCancelled}</span>
               </Tab>
             </div>
           </Tab.List>
           <Tab.Panels>
-            {loadingStacks ? (
+            {loadingFarms ? (
               <EmptyState className="animate-pulse" text="Loading..." />
             ) : (
               <>
-                {ordersByState.map((stacks, index) => (
-                  <Tab.Panel key={stacks.emptyText}>
-                    {stacks.orders.length ? (
-                      <StacksTable
-                        hasMorePages={hasMorePages(stacks.numberOfPages)}
+                {ordersByState.map((farms, index) => (
+                  <Tab.Panel key={farms.emptyText}>
+                    {farms.orders.length ? (
+                      <FarmsTable
+                        hasMorePages={hasMorePages(farms.numberOfPages)}
                         hasLessPages={hasLessPages}
-                        nextPage={() => nextPage(stacks.numberOfPages)}
+                        nextPage={() => nextPage(farms.numberOfPages)}
                         previousPage={previousPage}
-                        stackOrders={sortedOrdersByTime(
-                          stacks.orders,
-                          stacks.sort
+                        farmOrders={sortedOrdersByTime(
+                          farms.orders,
+                          farms.sort
                         )}
                         fetchAllOrders={fetchAllOrders}
-                        refetchStacks={() =>
-                          fetchStacks(index as StackStateIndex)
+                        refetchFarms={() =>
+                          fetchFarms(index as FarmStateIndex)
                         }
                       />
                     ) : (
-                      <EmptyState text={stacks.emptyText} />
+                      <EmptyState text={farms.emptyText} />
                     )}
                   </Tab.Panel>
                 ))}

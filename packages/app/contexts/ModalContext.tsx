@@ -10,15 +10,15 @@ import {
 
 export enum ModalId {
   WAITING_TRANSACTION = "waiting_transaction",
-  CONFIRM_STACK = "confirm_stack",
-  STACK = "stack",
+  CONFIRM_FARM = "confirm_farm",
+  FARM = "farm",
   TOKEN_PICKER = "token_picker",
-  CANCEL_STACK_CONFIRM = "cancel_stack_confirm",
-  CANCEL_STACK_PROCESSING = "cancel_stack_processing",
-  CANCEL_STACK_SUCCESS = "cancel_stack_success",
-  SUCCESS_STACK_TOAST = "success_stack_toast",
-  STACK_APPROVE_PROCESSING = "stack_approve_processing",
-  STACK_CREATION_PROCESSING = "stack_creation_processing"
+  CANCEL_FARM_CONFIRM = "cancel_farm_confirm",
+  CANCEL_FARM_PROCESSING = "cancel_farm_processing",
+  CANCEL_FARM_SUCCESS = "cancel_farm_success",
+  SUCCESS_FARM_TOAST = "success_farm_toast",
+  FARM_APPROVE_PROCESSING = "farm_approve_processing",
+  FARM_CREATION_PROCESSING = "farm_creation_processing"
 }
 
 enum ActionType {

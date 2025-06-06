@@ -1,10 +1,10 @@
 import { Order as CowOrder } from "@cowprotocol/cow-sdk"
 import { Order } from "@useolive/sdk"
 
-export interface StackOrder extends Order {
+export interface FarmOrder extends Order {
   cowOrders: CowOrder[]
 }
 
-export interface StackOrderProps {
-  stackOrder: StackOrder
+export interface FarmOrderProps {
+  farmOrder: FarmOrder
 }

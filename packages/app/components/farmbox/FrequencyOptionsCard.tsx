@@ -149,7 +149,7 @@ export const FrequencyOptionsCard = ({
         "bg-surface-25 border border-surface-50"
       ])}
     >
-      <BodyText className="text-em-low">Total duration of the stack</BodyText>
+      <BodyText className="text-em-low">Total duration of the farm</BodyText>
       <div className="flex gap-2 flex-col md:flex-row">
         <div className="flex gap-2">
           {defaultFrequencyOptions[frequency].map((freqOption) => {
