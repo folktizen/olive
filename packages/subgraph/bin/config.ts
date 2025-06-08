@@ -15,26 +15,26 @@ export const config: Record<
   },
   matic: {
     tradeFoundry: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 72291035
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 72531791
     }
   },
   "arbitrum-one": {
     tradeFoundry: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 343288329
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 345331464
     }
   },
   base: {
     tradeFoundry: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 31059052
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 31315912
     }
   },
   xdai: {
     tradeFoundry: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 40384918
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 40485253
     }
   }
 }
