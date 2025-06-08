@@ -34,10 +34,10 @@ import {
 import { dateToUnixTimestamp, useEthersSigner } from "@/utils"
 import {
   ChainId,
-  createDCAOrderWithNonce,
+  createDCAFarmWithNonce,
   getERC20Contract,
-  getOrderFactory,
-  getOrderFactoryAddress
+  getTradeFoundry,
+  getTradeFoundryAddress
 } from "@useolive/sdk"
 
 interface ConfirmFarmModalProps extends ModalBaseProps {
@@ -107,9 +107,9 @@ export const ConfirmFarmModal = ({
       if (!signerInstance || !address) return
 
       try {
-        const factoryAddress = getOrderFactoryAddress(chainId as ChainId)
+        const foundryAddress = getTradeFoundryAddress(chainId as ChainId)
         getERC20Contract(fromToken.address, signerInstance)
-          .allowance(address, factoryAddress)
+          .allowance(address, foundryAddress)
           .then((value) => setAllowance(value.toString()))
       } catch (e) {
         console.error(e)
@@ -128,13 +128,13 @@ export const ConfirmFarmModal = ({
 
     try {
       openModal(ModalId.FARM_APPROVE_PROCESSING)
-      const approveFactoryTransaction = await sellTokenContract.approve(
-        getOrderFactoryAddress(chainId),
+      const approveFoundryTransaction = await sellTokenContract.approve(
+        getTradeFoundryAddress(chainId),
         rawAmount
       )
-      setApproveTx(approveFactoryTransaction)
+      setApproveTx(approveFoundryTransaction)
 
-      await approveFactoryTransaction.wait()
+      await approveFoundryTransaction.wait()
 
       setStep(CREATE_FARM_STEPS.create)
       closeModal(ModalId.FARM_APPROVE_PROCESSING)
@@ -148,7 +148,7 @@ export const ConfirmFarmModal = ({
     const signerInstance = await signer
     if (!signerInstance || !address || !chainId) return
 
-    const initParams: Parameters<typeof createDCAOrderWithNonce>[1] = {
+    const initParams: Parameters<typeof createDCAFarmWithNonce>[1] = {
       nonce: dateToUnixTimestamp(new Date()),
       owner: address as string,
       receiver: address as string,
@@ -160,16 +160,16 @@ export const ConfirmFarmModal = ({
       interval: frequencyIntervalInHours[frequency]
     }
 
-    const orderFactory = getOrderFactory(
-      getOrderFactoryAddress(chainId),
+    const tradeFoundry = getTradeFoundry(
+      getTradeFoundryAddress(chainId),
       signerInstance
     )
 
     try {
       openModal(ModalId.FARM_CREATION_PROCESSING)
 
-      const createOrderTransaction = await createDCAOrderWithNonce(
-        orderFactory,
+      const createOrderTransaction = await createDCAFarmWithNonce(
+        tradeFoundry,
         initParams
       )
       setFarmCreationTx(createOrderTransaction)

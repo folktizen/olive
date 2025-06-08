@@ -16,7 +16,7 @@ fluctuations and potentially build a more stable and profitable long-term portfo
   Contracts:[ IERC20](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol),[ Clones](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/Clones.sol),[ Ownable2Step](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable2Step.sol)
 - Gnosis Protocol
   v2:[ IGPv2Settlement](https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/interfaces/IGPv2Settlement.sol),[ GPv2Order](https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/libraries/GPv2Order.sol),[ GPv2EIP1271](https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/interfaces/GPv2EIP1271.sol)
-- Interfaces:[ IConditionalOrder](https://chat.openai.com/chat/interfaces/IConditionalOrder.sol),[ IDCAOrder](https://chat.openai.com/chat/interfaces/IDCAOrder.sol)
+- Interfaces:[ IConditionalOrder](https://chat.openai.com/chat/interfaces/IConditionalOrder.sol),[ IDCAFarm](https://chat.openai.com/chat/interfaces/IDCAFarm.sol)
 - BokkyPooBah's DateTime
   Library:[ BokkyPooBahsDateTimeLibrary](https://github.com/bokkypoobah/BokkyPooBahsDateTimeLibrary)
 - OpenZeppelin
@@ -25,15 +25,15 @@ fluctuations and potentially build a more stable and profitable long-term portfo
 ### Deployment
 
 ```
-forge create --rpc-url {YOUR_RPC_URL} src/DCAOrder.sol:DCAOrder
-forge create --rpc-url {YOUR_RPC_URL} src/OrderFactory.sol:OrderFactory
+forge create --rpc-url {YOUR_RPC_URL} src/DCAFarm.sol:DCAFarm
+forge create --rpc-url {YOUR_RPC_URL} src/TradeFoundry.sol:TradeFoundry
 ```
 
-## OrderFactory Contract
+## TradeFoundry Contract
 
 Creates orders for CoW protocol. It allows creating new proxy contracts, and then executes the
 initialization call to the new proxy within one transaction, sending all the required order
-parameters. The contract charges a protocol fee for creating orders, which stays in the factory and
+parameters. The contract charges a protocol fee for creating orders, which stays in the foundry and
 can be withdrawn by the contract owner.
 
 ### Variables
@@ -56,27 +56,27 @@ transaction.
 - `_owner`: The owner of the order.
 - `_receiver`: The receiver of the buyToken orders.
 - `_sellToken`: The token that is being traded in the order.
-- `_amount`: The amount of the DCA order.
+- `_amount`: The amount of the DCA farm.
 - `_buyToken`: The token that is DCA'd in the order.
-- `_startTime`: The start time of the DCA order.
-- `_endTime`: The end time of the DCA order.
-- `_interval`: The frequency interval of the DCA order in hours.
+- `_startTime`: The start time of the DCA farm.
+- `_endTime`: The end time of the DCA farm.
+- `_interval`: The frequency interval of the DCA farm in hours.
 - `_settlementContract`: The settlement contract address.
 - `_saltNonce`: Nonce that will be used to generate the salt to calculate the address of the new
   order contract.
 
 Returns the address of the new order contract.
 
-## DCAOrder Contract
+## DCAFarm Contract
 
 It's a CoW protocol order contract order. It's only deployed once and referenced by minimal proxies
-deployments created by the factory. The contract enables the buyer of an asset to create an order
+deployments created by the foundry. The contract enables the buyer of an asset to create an order
 that executes at a regular interval for a specified duration. The buyer specifies the sell and buy
 tokens. The smart contract sets up a series of trades at specified intervals in time between start
 and end times. It requires the buyer to approve the sellToken for the vaultRelayer to spend on their
 behalf.
 
-The contract is an implementation of the IConditionalOrder, EIP1271Verifier, and IDCAOrder
+The contract is an implementation of the IConditionalOrder, EIP1271Verifier, and IDCAFarm
 interfaces.
 
 ### Events
@@ -91,21 +91,21 @@ interfaces.
 
 #### `initialize(address _owner, address _receiver, address _sellToken, address _buyToken, uint256 _amount, uint256 _startTime, uint256 _endTime, uint256 _interval, address _settlementContract) external override returns (bool)`
 
-Initializes the DCA order with the specified parameters.
+Initializes the DCA farm with the specified parameters.
 
 - `_owner`: The owner of the order.
 - `_receiver`: The receiver of the buyToken orders.
 - `_sellToken`: The token that is being traded in the order.
-- `_amount`: The amount of the DCA order.
+- `_amount`: The amount of the DCA farm.
 - `_buyToken`: The token that is DCA'd in the order.
-- `_startTime`: The start time of the DCA order.
-- `_endTime`: The end time of the DCA order.
-- `_interval`: The frequency interval of the DCA order in hours.
+- `_startTime`: The start time of the DCA farm.
+- `_endTime`: The end time of the DCA farm.
+- `_interval`: The frequency interval of the DCA farm in hours.
 - `_settlementContract`: The settlement contract address.
 
 #### `cancel() external override`
 
-Cancels the DCA order.
+Cancels the DCA farm.
 
 ## Infrastructure
 

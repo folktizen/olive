@@ -4,7 +4,7 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 1.1.0.ATLAS
+// @version 1.2.0.KOMODO
 // @author  Folktizen Labs
 //////////////////////////////////////////////////////////////////
 //
@@ -24,7 +24,7 @@ import { IERC20 } from "oz/token/ERC20/IERC20.sol";
 import { SafeERC20 } from "oz/token/ERC20/utils/SafeERC20.sol";
 import { IGPv2Settlement } from "./interfaces/IGPv2Settlement.sol";
 import { IConditionalOrder } from "./interfaces/IConditionalOrder.sol";
-import { IDCAOrder } from "./interfaces/IDCAOrder.sol";
+import { IDCAFarm } from "./interfaces/IDCAFarm.sol";
 import { GPv2Order } from "./libraries/GPv2Order.sol";
 import { GPv2EIP1271, EIP1271Verifier } from "./interfaces/EIP1271Verifier.sol";
 import { BokkyPooBahsDateTimeLibrary } from "date/BokkyPooBahsDateTimeLibrary.sol";
@@ -44,7 +44,7 @@ error NotWithinStartAndEndTimes();
 error ZeroSellAmount();
 error OrderExecutionTimeLessThanCurrentTime();
 
-contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
+contract DCAFarm is IConditionalOrder, EIP1271Verifier, IDCAFarm {
   using GPv2Order for GPv2Order.Data;
   using SafeERC20 for IERC20;
 
@@ -57,13 +57,13 @@ contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
   IERC20 public sellToken;
   /// @dev The token that is DCA'd in the order.
   IERC20 public buyToken;
-  /// @dev The start time of the DCA order.
+  /// @dev The start time of the DCA farm.
   uint256 public startTime;
-  /// @dev The end time of the DCA order.
+  /// @dev The end time of the DCA farm.
   uint256 public endTime;
-  /// @dev The frequency of the DCA order in hours
+  /// @dev The frequency of the DCA farm in hours
   uint256 public interval;
-  /// @dev The initial amount of the DCA order.
+  /// @dev The initial amount of the DCA farm.
   uint256 public amount;
   /// @dev Indicates that the order has been cancelled.
   bool public cancelled;
@@ -73,15 +73,15 @@ contract DCAOrder is IConditionalOrder, EIP1271Verifier, IDCAOrder {
   event Initialized(address indexed order);
   event Cancelled(address indexed order);
 
-  /// @dev Initializes the DCAOrder with the specified parameters.
+  /// @dev Initializes the DCAFarm with the specified parameters.
   /// @param _owner The owner of the order.
   /// @param _receiver The receiver of the buyToken orders.
   /// @param _sellToken The token that is being traded in the order.
-  /// @param _amount The amount of the DCA order.
+  /// @param _amount The amount of the DCA farm.
   /// @param _buyToken The token that is DCA'd in the order.
-  /// @param _startTime The start time of the DCA order.
-  /// @param _endTime The end time of the DCA order.
-  /// @param _interval The frequency interval of the DCA order in hours.
+  /// @param _startTime The start time of the DCA farm.
+  /// @param _endTime The end time of the DCA farm.
+  /// @param _interval The frequency interval of the DCA farm in hours.
   /// @param _settlementContract The settlement contract address.
   function initialize(
     address _owner,

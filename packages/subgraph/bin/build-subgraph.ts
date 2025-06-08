@@ -27,30 +27,30 @@ async function main() {
     },
     dataSources: [
       {
-        name: "OrderFactory",
+        name: "TradeFoundry",
         kind: "ethereum/contract",
         network,
         source: {
-          address: config[network].orderFactory.address,
-          startBlock: config[network].orderFactory.startBlock,
-          abi: "OrderFactory"
+          address: config[network].tradeFoundry.address,
+          startBlock: config[network].tradeFoundry.startBlock,
+          abi: "TradeFoundry"
         },
         mapping: {
           kind: "ethereum/events",
           apiVersion: "0.0.6",
           language: "wasm/assemblyscript",
-          file: "./src/mappings/factory.ts",
-          entities: ["OrderFactory"],
+          file: "./src/mappings/foundry.ts",
+          entities: ["TradeFoundry"],
           abis: [
             {
-              name: "OrderFactory",
-              file: "./abis/OrderFactory.json"
+              name: "TradeFoundry",
+              file: "./abis/TradeFoundry.json"
             }
           ],
           eventHandlers: [
             {
               event: "OrderCreated(indexed address)",
-              handler: "handleDCAOrderCreated"
+              handler: "handleDCAFarmCreated"
             }
           ]
         }
@@ -58,11 +58,11 @@ async function main() {
     ],
     templates: [
       {
-        name: "DCAOrder",
+        name: "DCAFarm",
         kind: "ethereum/contract",
         network,
         source: {
-          abi: "DCAOrder"
+          abi: "DCAFarm"
         },
         mapping: {
           kind: "ethereum/events",
@@ -72,26 +72,26 @@ async function main() {
           entities: ["Order", "Token"],
           abis: [
             {
-              name: "DCAOrder",
-              file: "./abis/DCAOrder.json"
+              name: "DCAFarm",
+              file: "./abis/DCAFarm.json"
             },
             {
               name: "ERC20",
               file: "./abis/ERC20.json"
             },
             {
-              name: "OrderFactory",
-              file: "./abis/OrderFactory.json"
+              name: "TradeFoundry",
+              file: "./abis/TradeFoundry.json"
             }
           ],
           eventHandlers: [
             {
               event: "Initialized(indexed address)",
-              handler: "handleDCAOrderInitialized"
+              handler: "handleDCAFarmInitialized"
             },
             {
               event: "Cancelled(indexed address)",
-              handler: "handleDCAOrderCancelled"
+              handler: "handleDCAFarmCancelled"
             }
           ]
         }

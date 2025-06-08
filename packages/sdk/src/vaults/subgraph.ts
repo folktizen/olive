@@ -58,7 +58,7 @@ export type Order = {
 }
 
 const OrderFragment = gql`
-  fragment OrderFragment on DCAOrder {
+  fragment OrderFragment on DCAFarm {
     id
     owner
     receiver
@@ -88,7 +88,7 @@ const OrderFragment = gql`
 
 const getUserOrdersQuery = gql`
   query getUserOrders($userAddress: String!) {
-    orders: dcaorders(
+    orders: dcafarms(
       where: { owner: $userAddress }
       orderBy: createdAt
       orderDirection: desc
@@ -106,7 +106,7 @@ const getUserActiveOrdersQuery = gql`
     $skip: Int = 0
     $currentTimestamp: Int!
   ) {
-    orders: dcaorders(
+    orders: dcafarms(
       where: {
         owner: $userAddress
         cancelledAt: null
@@ -131,7 +131,7 @@ const getUserCompleteOrdersQuery = gql`
     $skip: Int = 0
     $currentTimestamp: Int!
   ) {
-    orders: dcaorders(
+    orders: dcafarms(
       where: {
         owner: $userAddress
         cancelledAt: null
@@ -151,7 +151,7 @@ const getUserCompleteOrdersQuery = gql`
 
 const getUserCancelledOrdersQuery = gql`
   query getUserOrders($userAddress: String!, $first: Int = 20, $skip: Int = 0) {
-    orders: dcaorders(
+    orders: dcafarms(
       where: { owner: $userAddress, cancelledAt_not: null }
       first: $first
       skip: $skip
@@ -167,7 +167,7 @@ const getUserCancelledOrdersQuery = gql`
 
 const getOrderQuery = gql`
   query getOrder($orderAddress: ID!) {
-    order: dcaorder(id: $orderAddress) {
+    order: dcafarm(id: $orderAddress) {
       ...OrderFragment
     }
   }

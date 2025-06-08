@@ -1,10 +1,10 @@
 export * from "./constants"
-export * from "./factory"
-export type { Order, Token as TokenSubgraph } from "./subgraph"
+export * from "./foundry"
 export {
   getOrder,
-  getUserOrders,
   getUserActiveOrders,
   getUserCancelledOrders,
-  getUserCompleteOrders
+  getUserCompleteOrders,
+  getUserOrders
 } from "./subgraph"
+export type { Order, Token as TokenSubgraph } from "./subgraph"

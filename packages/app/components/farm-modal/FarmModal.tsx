@@ -26,8 +26,8 @@ import {
   farmIsComplete,
   farmIsFinishedWithFunds,
   farmRemainingFunds,
-  totalFundsUsed,
-  totalFarmed
+  totalFarmed,
+  totalFundsUsed
 } from "@/models/farm-order"
 
 import {
@@ -43,7 +43,7 @@ import { FarmOrdersProgress } from "@/components/farm-modal/FarmOrdersProgress"
 import { useEthersSigner } from "@/utils/ethers"
 import { formatTokenValue } from "@/utils/token"
 import { getExplorerLink } from "@/utils/transaction"
-import { getDCAOrderContract } from "@useolive/sdk"
+import { getDCAFarmContract } from "@useolive/sdk"
 
 import { ModalId, useModalContext, useNetworkContext } from "@/contexts"
 
@@ -110,10 +110,7 @@ export const FarmModal = ({
 
     try {
       openModal(ModalId.CANCEL_FARM_PROCESSING)
-      const tx = await getDCAOrderContract(
-        farmOrder.id,
-        signerInstance
-      ).cancel()
+      const tx = await getDCAFarmContract(farmOrder.id, signerInstance).cancel()
       setCancellationTx(tx)
       await tx.wait()
       closeModal(ModalId.CANCEL_FARM_PROCESSING)

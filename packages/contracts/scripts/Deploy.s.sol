@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title Deploy
- * @notice Deploys DCAOrder and OrderFactory contracts to multiple EVM chains using Foundry's scripting and forking features.
+ * @notice Deploys DCAFarm and TradeFoundry contracts to multiple EVM chains using Foundry's scripting and forking features.
  *
  * @dev Usage:
  *   1. Ensure your foundry.toml [rpc_endpoints] section includes the desired chain names (e.g., ethereum, arbitrum).
@@ -20,8 +20,8 @@ pragma solidity ^0.8.20;
  *   Note: The same deployer and nonce/order of deployment will result in the same contract addresses across chains.
  */
 import "forge-std/Script.sol";
-import "../src/DCAOrder.sol";
-import "../src/OrderFactory.sol";
+import "../src/DCAFarm.sol";
+import "../src/TradeFoundry.sol";
 import "../src/Create2Deployer.sol";
 
 contract Deploy is Script {
@@ -45,8 +45,8 @@ contract Deploy is Script {
     string memory chain,
     uint256 deployerPrivateKey,
     address eoaDeployer,
-    bytes32 dcaOrderSalt,
-    bytes32 orderFactorySalt,
+    bytes32 dcaFarmSalt,
+    bytes32 tradeFoundrySalt,
     bytes32 deployerSalt
   ) internal {
     vm.createSelectFork(chain);
@@ -64,36 +64,35 @@ contract Deploy is Script {
       create2Deployer = address(new Create2Deployer{ salt: deployerSalt }());
     }
 
-    // 2. Deploy DCAOrder singleton via CREATE2
-    bytes memory dcaOrderBytecode = type(DCAOrder).creationCode;
-    address dcaOrderPredicted =
-      Create2Deployer(create2Deployer).computeAddress(dcaOrderSalt, keccak256(dcaOrderBytecode));
-    address dcaOrderSingleton = dcaOrderPredicted;
-    if (dcaOrderSingleton.code.length == 0) {
-      dcaOrderSingleton = Create2Deployer(create2Deployer).deploy(dcaOrderBytecode, dcaOrderSalt);
+    // 2. Deploy DCAFarm singleton via CREATE2
+    bytes memory dcaFarmBytecode = type(DCAFarm).creationCode;
+    address dcaFarmPredicted = Create2Deployer(create2Deployer).computeAddress(dcaFarmSalt, keccak256(dcaFarmBytecode));
+    address dcaFarmSingleton = dcaFarmPredicted;
+    if (dcaFarmSingleton.code.length == 0) {
+      dcaFarmSingleton = Create2Deployer(create2Deployer).deploy(dcaFarmBytecode, dcaFarmSalt);
     }
 
-    // 3. Deploy OrderFactory singleton via CREATE2
-    bytes memory orderFactoryBytecode = type(OrderFactory).creationCode;
-    address orderFactoryPredicted =
-      Create2Deployer(create2Deployer).computeAddress(orderFactorySalt, keccak256(orderFactoryBytecode));
-    address orderFactorySingleton = orderFactoryPredicted;
-    if (orderFactorySingleton.code.length == 0) {
-      orderFactorySingleton = Create2Deployer(create2Deployer).deploy(orderFactoryBytecode, orderFactorySalt);
+    // 3. Deploy TradeFoundry singleton via CREATE2
+    bytes memory tradeFoundryBytecode = type(TradeFoundry).creationCode;
+    address tradeFoundryPredicted =
+      Create2Deployer(create2Deployer).computeAddress(tradeFoundrySalt, keccak256(tradeFoundryBytecode));
+    address tradeFoundrySingleton = tradeFoundryPredicted;
+    if (tradeFoundrySingleton.code.length == 0) {
+      tradeFoundrySingleton = Create2Deployer(create2Deployer).deploy(tradeFoundryBytecode, tradeFoundrySalt);
     }
 
-    // Transfer ownership of OrderFactory to the specified owner (two-step)
+    // Transfer ownership of TradeFoundry to the specified owner (two-step)
     Create2Deployer(create2Deployer).callTransferOwnership(
-      orderFactorySingleton, 0xcf42F35A7dB4b37769B8519b323202A32520e673
+      tradeFoundrySingleton, 0xcf42F35A7dB4b37769B8519b323202A32520e673
     );
 
     // Optionally, if the deployer EOA is the same as the new owner, immediately accept ownership
     if (eoaDeployer == 0xcf42F35A7dB4b37769B8519b323202A32520e673) {
-      (bool success,) = orderFactorySingleton.call(abi.encodeWithSignature("acceptOwnership()"));
+      (bool success,) = tradeFoundrySingleton.call(abi.encodeWithSignature("acceptOwnership()"));
       require(success, "acceptOwnership failed");
     }
 
-    // Note: DCAOrder singleton does not support ownership transfer, so skip this step.
+    // Note: DCAFarm singleton does not support ownership transfer, so skip this step.
 
     vm.stopBroadcast();
 
@@ -103,11 +102,11 @@ contract Deploy is Script {
       '  "chain": "',
       chain,
       '",\n',
-      '  "dcaOrder": "',
-      vm.toString(dcaOrderSingleton),
+      '  "dcaFarm": "',
+      vm.toString(dcaFarmSingleton),
       '",\n',
-      '  "orderFactory": "',
-      vm.toString(orderFactorySingleton),
+      '  "tradeFoundry": "',
+      vm.toString(tradeFoundrySingleton),
       '",\n',
       '  "create2Deployer": "',
       vm.toString(create2Deployer),
@@ -124,11 +123,11 @@ contract Deploy is Script {
     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
     address eoaDeployer = vm.addr(deployerPrivateKey);
     string[] memory chains = getChains();
-    bytes32 dcaOrderSalt = keccak256("OLIVE_DCAORDER_SINGLETON_ATLAS");
-    bytes32 orderFactorySalt = keccak256("OLIVE_ORDERFACTORY_SINGLETON_ATLAS");
-    bytes32 deployerSalt = keccak256("OLIVE_CREATE2_DEPLOYER_ATLAS");
+    bytes32 dcaFarmSalt = keccak256("OLIVE_DCAFARM_SINGLETON_KOMODO");
+    bytes32 tradeFoundrySalt = keccak256("OLIVE_TRADEFOUNDRY_SINGLETON_KOMODO");
+    bytes32 deployerSalt = keccak256("OLIVE_CREATE2_DEPLOYER_KOMODO");
     for (uint256 i = 0; i < chains.length; i++) {
-      deployForChain(chains[i], deployerPrivateKey, eoaDeployer, dcaOrderSalt, orderFactorySalt, deployerSalt);
+      deployForChain(chains[i], deployerPrivateKey, eoaDeployer, dcaFarmSalt, tradeFoundrySalt, deployerSalt);
     }
   }
 }

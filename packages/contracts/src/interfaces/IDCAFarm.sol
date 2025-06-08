@@ -5,7 +5,7 @@ pragma abicoder v2;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 1.1.0.ATLAS
+// @version 1.2.0.KOMODO
 // @author  Folktizen Labs
 //////////////////////////////////////////////////////////////////
 //
@@ -21,7 +21,7 @@ pragma abicoder v2;
 //
 //////////////////////////////////////////////////////////////////
 
-interface IDCAOrder {
+interface IDCAFarm {
   function initialize(
     address _owner,
     address _receiver,

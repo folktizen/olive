@@ -1,26 +1,26 @@
 [
   {
     "chain": "polygon",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "dcaFarm": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "tradeFoundry": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
     "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "arbitrum",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "dcaFarm": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "tradeFoundry": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
     "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "base",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "dcaFarm": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "tradeFoundry": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
     "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   },
   {
     "chain": "gnosis",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
+    "dcaFarm": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
+    "tradeFoundry": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
     "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
   }
 ]

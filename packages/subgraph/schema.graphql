@@ -5,10 +5,10 @@ type SubgraphStatus @entity {
   lastSnapshotBlock: BigInt!
 }
 
-type OrderFactory @entity {
-  "OrderFactory"
+type TradeFoundry @entity {
+  "TradeFoundry"
   id: ID!
-  "OrderFactory address"
+  "TradeFoundry address"
   address: Bytes!
   "Order count"
   orderCount: Int!
@@ -30,7 +30,7 @@ type Token @entity {
   symbol: String!
 }
 
-type DCAOrder @entity {
+type DCAFarm @entity {
   "Order address"
   id: ID!
   "Order owner"

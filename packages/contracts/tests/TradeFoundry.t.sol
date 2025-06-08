@@ -6,8 +6,8 @@ import { ERC20Mintable } from "./common/ERC20Mintable.sol";
 import { ERC721Mintable } from "./common/ERC721Mintable.sol";
 import { MockSettlement } from "./common/MockSettlement.sol";
 
-import { DCAOrder, AlreadyInitialized } from "../src/DCAOrder.sol";
-import { OrderFactory } from "../src/OrderFactory.sol";
+import { DCAFarm, AlreadyInitialized } from "../src/DCAFarm.sol";
+import { TradeFoundry } from "../src/TradeFoundry.sol";
 
 interface CheatCodes {
   function prank(
@@ -17,12 +17,12 @@ interface CheatCodes {
 
 error NotWhitelisted();
 
-contract OrderFactoryTest is Test {
+contract TradeFoundryTest is Test {
   MockSettlement public mockSettlement;
-  DCAOrder public mastercopy;
+  DCAFarm public mastercopy;
   ERC20Mintable public sellToken;
   ERC721Mintable public whitelistNFT;
-  OrderFactory public factory;
+  TradeFoundry public foundry;
   CheatCodes public cheatCodes;
 
   uint16 private constant HUNDRED_PERCENT = 10_000;
@@ -41,8 +41,8 @@ contract OrderFactoryTest is Test {
     mockSettlement = new MockSettlement();
     sellToken = new ERC20Mintable("Test Token", "TEST");
     whitelistNFT = new ERC721Mintable("Test NFT", "TEST");
-    mastercopy = new DCAOrder();
-    factory = new OrderFactory();
+    mastercopy = new DCAFarm();
+    foundry = new TradeFoundry();
     cheatCodes = CheatCodes(HEVM_ADDRESS);
 
     uint256 mastercopyStartTime = block.timestamp + 1 days;
@@ -70,15 +70,15 @@ contract OrderFactoryTest is Test {
     _endTime = _startTime + 1 days;
     _amount = 10 ether;
     _interval = 1;
-    _fee = factory.protocolFee();
+    _fee = foundry.protocolFee();
   }
 
   function testCreateOrderWithNonce() public {
-    // Approve the factory to spend the sell token
-    sellToken.approve(address(factory), type(uint256).max);
+    // Approve the foundry to spend the sell token
+    sellToken.approve(address(foundry), type(uint256).max);
 
     // Create the vault
-    address order = factory.createOrderWithNonce(
+    address order = foundry.createOrderWithNonce(
       address(mastercopy),
       _owner,
       _receiver,
@@ -95,16 +95,16 @@ contract OrderFactoryTest is Test {
     // Balance has been transferred to the vault
     assertEq(sellToken.balanceOf(order), _amount - (_amount * _fee) / HUNDRED_PERCENT);
 
-    // Fee is left in the factory
-    assertEq(sellToken.balanceOf(address(factory)), (_amount * _fee) / HUNDRED_PERCENT);
+    // Fee is left in the foundry
+    assertEq(sellToken.balanceOf(address(foundry)), (_amount * _fee) / HUNDRED_PERCENT);
   }
 
   function testSetProtocolFee() public {
     // Update protocol fee from owner
-    factory.setProtocolFee(10);
+    foundry.setProtocolFee(10);
 
     // Assert the fee was changed
-    assertEq(factory.protocolFee(), 10);
+    assertEq(foundry.protocolFee(), 10);
 
     // Set caller to a different address
     cheatCodes.prank(address(1337));
@@ -112,18 +112,18 @@ contract OrderFactoryTest is Test {
     // Expect a revert because caller is not owner
     vm.expectRevert(bytes("Ownable: caller is not the owner"));
 
-    factory.setProtocolFee(5);
+    foundry.setProtocolFee(5);
 
     // Check the fee hasn't changed
-    assertEq(factory.protocolFee(), 10);
+    assertEq(foundry.protocolFee(), 10);
   }
 
   function testWithdrawTokens() public {
-    // Approve the factory to spend the sell token
-    sellToken.approve(address(factory), type(uint256).max);
+    // Approve the foundry to spend the sell token
+    sellToken.approve(address(foundry), type(uint256).max);
 
     // Create the vault
-    factory.createOrderWithNonce(
+    foundry.createOrderWithNonce(
       address(mastercopy),
       _owner,
       _receiver,
@@ -141,7 +141,7 @@ contract OrderFactoryTest is Test {
     tokens[0] = address(sellToken);
 
     uint256 beforeBalance = sellToken.balanceOf(address(this));
-    factory.withdrawTokens(tokens);
+    foundry.withdrawTokens(tokens);
     uint256 afterBalance = sellToken.balanceOf(address(this));
 
     assertEq(afterBalance - beforeBalance, 25_000_000_000_000_000);
@@ -152,6 +152,6 @@ contract OrderFactoryTest is Test {
 
     // Expect a revert because caller is not owner
     vm.expectRevert(bytes("Ownable: caller is not the owner"));
-    factory.withdrawTokens(tokens);
+    foundry.withdrawTokens(tokens);
   }
 }

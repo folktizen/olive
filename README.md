@@ -76,8 +76,8 @@ This creates a production build in the `dist` directory. Deploy the contents of 
 
 1. **Update the SDK:**
    - Add smart contract addresses for the target chain:
-     - Olive OrderFactory
-     - Olive DCAOrder singleton
+     - Olive TradeFoundry
+     - Olive DCAFarm singleton
      - Olive TheGraph subgraph endpoint
      - CoW Protocol's settlement address
    - Update `packages/sdk/src/vaults/constants.ts`
@@ -88,7 +88,7 @@ This creates a production build in the `dist` directory. Deploy the contents of 
      bun build
      ```
 2. **Update the Subgraph:**
-   - Edit `packages/subgraph/bin/config.ts` with the Factory contract `address` and `startBlock`
+   - Edit `packages/subgraph/bin/config.ts` with the Foundry contract `address` and `startBlock`
    - Update `SUPPORTED_NETWORKS` in `packages/subgraph/bin/build-subgraph.ts`
    - Add relevant `build` and `prepare` commands in `packages/subgraph/package.json`
 3. **Update the UI app:**
