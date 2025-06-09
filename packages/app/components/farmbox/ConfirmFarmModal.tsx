@@ -102,7 +102,7 @@ export const ConfirmFarmModal = ({
   }, [allowance, rawAmount])
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       const signerInstance = await signer
       if (!signerInstance || !address) return
 
