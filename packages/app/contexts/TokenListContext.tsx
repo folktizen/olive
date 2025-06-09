@@ -98,7 +98,11 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
     if (address && tokenList) {
       // Filter out tokens with obviously invalid addresses (not contracts, or zero address)
       return tokenList
-        .filter(token => isAddress(token.address) && token.address !== ethers.constants.AddressZero)
+        .filter(
+          (token) =>
+            isAddress(token.address) &&
+            token.address !== ethers.constants.AddressZero
+        )
         .map((token) => ({
           target: token.address,
           callData: erc20Interface.encodeFunctionData("balanceOf", [address])

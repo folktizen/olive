@@ -38,13 +38,5 @@ export const baseTokens = {
     decimals: 18,
     logoURI: "/assets/images/tokens/weth.png",
     chainId: 8453
-  },
-  USD0: {
-    address: "0x758a3e0b1F842C9306B783f8A4078C6C8C03a270",
-    name: "Usual USD",
-    symbol: "USD0",
-    decimals: 18,
-    logoURI: "/assets/images/tokens/usd0.png",
-    chainId: 8453
   }
 }

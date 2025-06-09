@@ -3,7 +3,6 @@ export * from "./BaseCurrency"
 export * from "./Currency"
 export {
   DAI,
-  USD0,
   USDC,
   USDS,
   // USDT,

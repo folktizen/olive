@@ -13,22 +13,15 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
   // [ChainId.ETHEREUM]: [
   //   mainnetTokens.USDC,
   //   mainnetTokens.WETH,
-  //   mainnetTokens.WBTC,
-  //   mainnetTokens.USD0
+  //   mainnetTokens.WBTC
   // ],
   [ChainId.ARBITRUM]: [
     arbitrumTokens.USDC,
     arbitrumTokens.WETH,
     arbitrumTokens.WBTC,
-    arbitrumTokens.ARB,
-    arbitrumTokens.USD0
+    arbitrumTokens.ARB
   ],
-  [ChainId.BASE]: [
-    baseTokens.USDC,
-    baseTokens.WETH,
-    baseTokens.CBBTC,
-    baseTokens.USD0
-  ],
+  [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
   [ChainId.GNOSIS]: [
     gnosisTokens.USDC,
     gnosisTokens.GNO,

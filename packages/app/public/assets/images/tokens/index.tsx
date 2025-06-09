@@ -14,7 +14,6 @@ import HigherTokenImg from "./higher.png";
 import MaticTokenImg from "./matic.png";
 import TalentTokenImg from "./talent.png";
 import ToshiTokenImg from "./toshi.png";
-import Usd0TokenImg from "./usd0.png";
 import UsdcTokenImg from "./usdc.png";
 import VirtualTokenImg from "./virtual.png";
 import WbtcTokenImg from "./wbtc.png";
@@ -25,7 +24,7 @@ import XdaiTokenImg from "./xdai.png";
 export {
   AaveTokenImg, ArbTokenImg, BalancerTokenImg, CbBtcTokenImg, CowTokenImg,
   DaiTokenImg, DegenTokenImg, EthTokenImg,
-  GnoTokenImg, HigherTokenImg, MaticTokenImg, OneInchTokenImg, TalentTokenImg, ToshiTokenImg, Usd0TokenImg,
+  GnoTokenImg, HigherTokenImg, MaticTokenImg, OneInchTokenImg, TalentTokenImg, ToshiTokenImg,
   UsdcTokenImg, VirtualTokenImg, WbtcTokenImg,
   WethTokenImg,
   WxdaiTokenImg,

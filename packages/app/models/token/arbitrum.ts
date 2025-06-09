@@ -38,13 +38,5 @@ export const arbitrumTokens = {
     decimals: 18,
     logoURI: "/assets/images/tokens/dai.png",
     chainId: 42161
-  },
-  USD0: {
-    address: "0x35f1C5cB7Fb977E669fD244C567Da99d8a3a6850",
-    name: "Usual USD",
-    symbol: "USD0",
-    decimals: 18,
-    logoURI: "/assets/images/tokens/usd0.png",
-    chainId: 42161
   }
 }

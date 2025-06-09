@@ -23,14 +23,6 @@ export const mainnetTokens = {
     logoURI: "/assets/images/tokens/reth.png",
     chainId: 1
   },
-  USD0: {
-    address: "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
-    name: "Usual USD",
-    symbol: "USD0",
-    decimals: 18,
-    logoURI: "/assets/images/tokens/usd0.png",
-    chainId: 1
-  },
   USDC: {
     address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     name: "USD Coin",

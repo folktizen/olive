@@ -86,13 +86,5 @@
     "decimals": 18,
     "logoURI": "/assets/images/tokens/reth.png",
     "chainId": 1
-  },
-  {
-    "address": "0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5",
-    "name": "Usual USD",
-    "symbol": "USD0",
-    "decimals": 18,
-    "logoURI": "/assets/images/tokens/usd0.png",
-    "chainId": 1
   }
 ]

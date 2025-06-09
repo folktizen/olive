@@ -237,7 +237,7 @@ export default function Page() {
             onClick={() => console.log("I have an icon")}
             disabled={true}
           >
-            USD0
+            USDC
           </ChipButton>
         </div>
       </UISection>
