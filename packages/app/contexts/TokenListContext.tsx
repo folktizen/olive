@@ -96,11 +96,12 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
     const erc20Interface = new ethers.utils.Interface(Erc20Abi)
 
     if (address && tokenList) {
-      return tokenList.map((token) => [
-        token.address,
-        erc20Interface.encodeFunctionData("balanceOf", [address])
-      ])
+      return tokenList.map((token) => ({
+        target: token.address,
+        callData: erc20Interface.encodeFunctionData("balanceOf", [address])
+      }))
     }
+    return []
   }, [address, tokenList])
 
   /**
