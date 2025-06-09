@@ -16,8 +16,8 @@ const CONTRACTS_PATH = path.resolve(__dirname, "../storage/contracts.json")
 // Maps contract logical names to their source path and contract name.
 // Add new contract types here if you deploy more contracts in the future.
 const CONTRACTS_SRC: Record<string, string> = {
-  DCAOrder: "src/DCAOrder.sol:DCAOrder",
-  OrderFactory: "src/OrderFactory.sol:OrderFactory",
+  DCAFarm: "src/DCAFarm.sol:DCAFarm",
+  TradeFoundry: "src/TradeFoundry.sol:TradeFoundry",
   Create2Deployer: "src/Create2Deployer.sol:Create2Deployer"
 }
 
@@ -70,14 +70,14 @@ if (!["etherscan", "oklink"].includes(VERIFIER)) usage()
 // Read and parse the contracts.json file. Ensure it is up to date with deployments.
 const contracts: Array<{
   chain: string
-  dcaOrder: string
-  orderFactory: string
+  dcaFarm: string
+  tradeFoundry: string
   create2Deployer?: string
 }> = JSON.parse(fs.readFileSync(CONTRACTS_PATH, "utf8"))
 
 // Main verification loop: iterates over each chain and contract type.
 for (const entry of contracts) {
-  const { chain, dcaOrder, orderFactory, create2Deployer } = entry
+  const { chain, dcaFarm, tradeFoundry, create2Deployer } = entry
   const info = CHAIN_INFO[chain]
   if (!info) {
     // Warn if a chain is not configured in CHAIN_INFO.
@@ -86,8 +86,8 @@ for (const entry of contracts) {
 
   // For each contract type, build and run the verification command.
   for (const [name, address] of Object.entries({
-    DCAOrder: dcaOrder,
-    OrderFactory: orderFactory,
+    DCAFarm: dcaFarm,
+    TradeFoundry: tradeFoundry,
     Create2Deployer: create2Deployer
   })) {
     if (!address) continue // Skip if no address is present for this contract type.

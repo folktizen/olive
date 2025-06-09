@@ -5,29 +5,29 @@ import type { ContractReceipt } from "@ethersproject/contracts"
 
 import { ChainId, MULTICALL_ADDRESS } from "../constants"
 import {
-  DCAOrder__factory,
+  DCAFarm__factory,
   ERC20__factory,
   ERC20Bytes32__factory,
   Multicall__factory,
-  OrderFactory,
-  OrderFactory__factory
+  TradeFoundry,
+  TradeFoundry__factory
 } from "../generated/contracts"
 import {
   getCOWProtocolSettlementAddress,
-  getDCAOrderSingletonAddress
+  getDCAFarmSingletonAddress
 } from "./constants"
 
 /**
- * Creates a contract instance for a DCA order
+ * Creates a contract instance for a DCA farm
  * @param proxyAddress
  * @param provider
  * @returns
  */
-export function getDCAOrderContract(
+export function getDCAFarmContract(
   proxyAddress: string,
   signerOrProvider: Provider | Signer
 ) {
-  return DCAOrder__factory.connect(proxyAddress, signerOrProvider)
+  return DCAFarm__factory.connect(proxyAddress, signerOrProvider)
 }
 
 /**
@@ -62,23 +62,23 @@ export function getERC20Byte32Contract(
  * @param provider
  * @returns
  */
-export function getOrderFactory(
+export function getTradeFoundry(
   address: string,
   signerOrProvider: Provider | Signer
 ) {
   if (address === AddressZero) {
-    throw new Error(`Zero address is not a valid order factory address`)
+    throw new Error(`Zero address is not a valid order foundry address`)
   }
 
-  return OrderFactory__factory.connect(address, signerOrProvider)
+  return TradeFoundry__factory.connect(address, signerOrProvider)
 }
 
-export function getOrderFactoryInterface() {
-  return OrderFactory__factory.createInterface()
+export function getTradeFoundryInterface() {
+  return TradeFoundry__factory.createInterface()
 }
 
-export function getDCAOrderInterface() {
-  return DCAOrder__factory.createInterface()
+export function getDCAFarmInterface() {
+  return DCAFarm__factory.createInterface()
 }
 
 export function getERC20Interface() {
@@ -88,12 +88,12 @@ export function getERC20Interface() {
 export function getOrderAddressFromTransactionReceipt(
   receipt: ContractReceipt
 ) {
-  const orderFactoryInterface = getOrderFactoryInterface()
+  const tradeFoundryInterface = getTradeFoundryInterface()
   let prxoyAddress: undefined | string
 
   receipt.events?.forEach((event) => {
     if (
-      event.event === orderFactoryInterface.events["OrderCreated(address)"].name
+      event.event === tradeFoundryInterface.events["OrderCreated(address)"].name
     ) {
       prxoyAddress = event.args?.[0]
     }
@@ -115,13 +115,13 @@ interface CreateorderWithNonceInitializeParams {
 }
 
 /**
- * Creates a DCA order with a given nonce
- * @param orderFactory The order factory contract
+ * Creates a DCA farm with a given nonce
+ * @param tradeFoundry The order foundry contract
  * @param param0
  * @returns
  */
-export async function createDCAOrderWithNonce(
-  orderFactory: OrderFactory,
+export async function createDCAFarmWithNonce(
+  tradeFoundry: TradeFoundry,
   {
     owner,
     receiver,
@@ -134,7 +134,7 @@ export async function createDCAOrderWithNonce(
     nonce
   }: CreateorderWithNonceInitializeParams
 ) {
-  const rawChainId = (await orderFactory.provider
+  const rawChainId = (await tradeFoundry.provider
     .getNetwork()
     .then((n) => n.chainId)) as number
   const chainId = rawChainId as ChainId
@@ -150,10 +150,10 @@ export async function createDCAOrderWithNonce(
     throw new Error(`Chain id ${chainId} is not supported`)
   }
 
-  const singleton = getDCAOrderSingletonAddress(chainId)
+  const singleton = getDCAFarmSingletonAddress(chainId)
   const settlementContract = getCOWProtocolSettlementAddress(chainId)
 
-  return await orderFactory.createOrderWithNonce(
+  return await tradeFoundry.createOrderWithNonce(
     singleton,
     owner,
     receiver,

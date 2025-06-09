@@ -4,7 +4,7 @@ pragma solidity 0.8.20;
 //////////////////////////////////////////////////////////////////
 // @title   Olive Protocol
 // @notice  More at: https://useolive.space
-// @version 1.1.0.ATLAS
+// @version 1.2.0.KOMODO
 // @author  Folktizen Labs
 //////////////////////////////////////////////////////////////////
 //
@@ -28,7 +28,7 @@ import { SafeERC20 } from "oz/token/ERC20/utils/SafeERC20.sol";
 
 error ForbiddenValue();
 
-contract OrderFactory is Ownable2Step {
+contract TradeFoundry is Ownable2Step {
   using SafeERC20 for IERC20;
 
   // Storage packing: group uint16 together
@@ -63,11 +63,11 @@ contract OrderFactory is Ownable2Step {
   /// @param _owner The owner of the order.
   /// @param _receiver The receiver of the buyToken orders.
   /// @param _sellToken The token that is being traded in the order.
-  /// @param _amount The amount of the DCA order.
+  /// @param _amount The amount of the DCA farm.
   /// @param _buyToken The token that is DCA'd in the order.
-  /// @param _startTime The start time of the DCA order.
-  /// @param _endTime The end time of the DCA order.
-  /// @param _interval The frequency interval of the DCA order in hours.
+  /// @param _startTime The start time of the DCA farm.
+  /// @param _endTime The end time of the DCA farm.
+  /// @param _interval The frequency interval of the DCA farm in hours.
   /// @param _settlementContract The settlement contract address.
   /// @param _saltNonce Nonce that will be used to generate the salt to calculate the address of the new order contract.
   function createOrderWithNonce(
@@ -107,7 +107,7 @@ contract OrderFactory is Ownable2Step {
     // Transfer the amount to the order
     IERC20(_sellToken).safeTransferFrom(msg.sender, order, amountWithoutFees);
 
-    // Transfer the fee to the factory
+    // Transfer the fee to the foundry
     IERC20(_sellToken).safeTransferFrom(msg.sender, address(this), feeAmount);
   }
 

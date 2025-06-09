@@ -1,26 +1,25 @@
 import { AddressZero } from "@ethersproject/constants"
 import { ChainId } from "../constants"
 
-// export const MAINNET_ORDER_FACTORY_ADDRESS =
+// export const MAINNET_TRADE_FOUNDRY_ADDRESS =
 //   "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0"
-// export const POLYGON_ORDER_FACTORY_ADDRESS =
+// export const POLYGON_TRADE_FOUNDRY_ADDRESS =
 //   "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0"
-export const ARBITRUM_ORDER_FACTORY_ADDRESS =
+export const ARBITRUM_TRADE_FOUNDRY_ADDRESS =
   "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0"
-export const BASE_ORDER_FACTORY_ADDRESS =
+export const BASE_TRADE_FOUNDRY_ADDRESS =
   "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0"
-export const GNOSIS_ORDER_FACTORY_ADDRESS =
+export const GNOSIS_TRADE_FOUNDRY_ADDRESS =
   "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0"
 
-// export const MAINNET_DCAORDER_ADDRESS =
+// export const MAINNET_DCAFARM_ADDRESS =
 //   "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
-// export const POLYGON_DCAORDER_ADDRESS =
+// export const POLYGON_DCAFARM_ADDRESS =
 //   "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
-export const ARBITRUM_DCAORDER_ADDRESS =
+export const ARBITRUM_DCAFARM_ADDRESS =
   "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
-export const BASE_DCAORDER_ADDRESS =
-  "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
-export const GNOSIS_DCAORDER_ADDRESS =
+export const BASE_DCAFARM_ADDRESS = "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
+export const GNOSIS_DCAFARM_ADDRESS =
   "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD"
 
 const validateVaultInfo = (
@@ -37,25 +36,25 @@ const validateVaultInfo = (
 }
 
 /**
- * Olive's Order factory address list
+ * Olive's Order foundry address list
  */
-export const ORDER_FACTORY_ADDRESS_LIST: Record<ChainId, string> = {
-  // [ChainId.ETHEREUM]: MAINNET_ORDER_FACTORY_ADDRESS,
-  // [ChainId.POLYGON]: POLYGON_ORDER_FACTORY_ADDRESS,
-  [ChainId.ARBITRUM]: ARBITRUM_ORDER_FACTORY_ADDRESS,
-  [ChainId.BASE]: BASE_ORDER_FACTORY_ADDRESS,
-  [ChainId.GNOSIS]: GNOSIS_ORDER_FACTORY_ADDRESS
+export const TRADE_FOUNDRY_ADDRESS_LIST: Record<ChainId, string> = {
+  // [ChainId.ETHEREUM]: MAINNET_TRADE_FOUNDRY_ADDRESS,
+  // [ChainId.POLYGON]: POLYGON_TRADE_FOUNDRY_ADDRESS,
+  [ChainId.ARBITRUM]: ARBITRUM_TRADE_FOUNDRY_ADDRESS,
+  [ChainId.BASE]: BASE_TRADE_FOUNDRY_ADDRESS,
+  [ChainId.GNOSIS]: GNOSIS_TRADE_FOUNDRY_ADDRESS
 }
 
 /**
- * Olive's DCA Order singleton/mastercopy address list
+ * Olive's DCA Farm singleton/mastercopy address list
  */
-export const DCAORDER_SINGLETON_ADDRESS_LIST: Record<ChainId, string> = {
-  // [ChainId.ETHEREUM]: MAINNET_DCAORDER_ADDRESS,
-  // [ChainId.POLYGON]: POLYGON_DCAORDER_ADDRESS,
-  [ChainId.ARBITRUM]: ARBITRUM_DCAORDER_ADDRESS,
-  [ChainId.BASE]: BASE_DCAORDER_ADDRESS,
-  [ChainId.GNOSIS]: GNOSIS_DCAORDER_ADDRESS
+export const DCAFARM_SINGLETON_ADDRESS_LIST: Record<ChainId, string> = {
+  // [ChainId.ETHEREUM]: MAINNET_DCAFARM_ADDRESS,
+  // [ChainId.POLYGON]: POLYGON_DCAFARM_ADDRESS,
+  [ChainId.ARBITRUM]: ARBITRUM_DCAFARM_ADDRESS,
+  [ChainId.BASE]: BASE_DCAFARM_ADDRESS,
+  [ChainId.GNOSIS]: GNOSIS_DCAFARM_ADDRESS
 }
 
 /**
@@ -92,13 +91,13 @@ const GOLDSKY_PROJECT_ID =
 //   `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-arbitrum-one/atlas/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP`
 const BASE_SUBGRAPH_ENDPOINT_URL =
   process.env.BASE_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-base/atlas/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/GG4e2XbzE99BGMGmPzBz5p6KkHndRtpEu9nFiiJjvoCY`
 const GNOSIS_SUBGRAPH_ENDPOINT_URL =
   process.env.GNOSIS_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-gnosis/atlas/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3EMgJeaUuRrKSSy1NHdCw4p1ytgRbgWRQBkqqbKHxJ4U`
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<ChainId, string>> = {
   // [ChainId.ETHEREUM]: ETHEREUM_SUBGRAPH_ENDPOINT_URL,
@@ -109,12 +108,12 @@ export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<ChainId, string>> = {
 }
 
 /**
- * Returns the address of the order factory for a given chain id
+ * Returns the address of the order foundry for a given chain id
  * @param chainId The chain id
  * @returns
  */
-export function getOrderFactoryAddress(chainId: ChainId): string {
-  return validateVaultInfo(chainId, ORDER_FACTORY_ADDRESS_LIST, "Order factory")
+export function getTradeFoundryAddress(chainId: ChainId): string {
+  return validateVaultInfo(chainId, TRADE_FOUNDRY_ADDRESS_LIST, "Order foundry")
 }
 
 /**
@@ -122,11 +121,11 @@ export function getOrderFactoryAddress(chainId: ChainId): string {
  * @param chainId The chain id
  * @returns
  */
-export function getDCAOrderSingletonAddress(chainId: ChainId): string {
+export function getDCAFarmSingletonAddress(chainId: ChainId): string {
   return validateVaultInfo(
     chainId,
-    DCAORDER_SINGLETON_ADDRESS_LIST,
-    "DCAOrder singleton"
+    DCAFARM_SINGLETON_ADDRESS_LIST,
+    "DCAFarm singleton"
   )
 }
 

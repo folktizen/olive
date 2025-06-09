@@ -1,40 +1,40 @@
 export const config: Record<
   string,
   {
-    orderFactory: {
+    tradeFoundry: {
       address: string
       startBlock: number
     }
   }
 > = {
   mainnet: {
-    orderFactory: {
+    tradeFoundry: {
       address: "0x0000000000000000000000000000000000000000",
       startBlock: 0
     }
   },
   matic: {
-    orderFactory: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 72291035
+    tradeFoundry: {
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 72531791
     }
   },
   "arbitrum-one": {
-    orderFactory: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 343288329
+    tradeFoundry: {
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 345331464
     }
   },
   base: {
-    orderFactory: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 31059052
+    tradeFoundry: {
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 31315912
     }
   },
-  xdai: {
-    orderFactory: {
-      address: "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-      startBlock: 40384918
+  gnosis: {
+    tradeFoundry: {
+      address: "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+      startBlock: 40485253
     }
   }
 }

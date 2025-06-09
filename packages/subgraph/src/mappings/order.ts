@@ -1,12 +1,12 @@
 import { Address, BigInt } from "@graphprotocol/graph-ts"
-import { OrderFactory } from "../../generated/OrderFactory/OrderFactory"
-import { DCAOrder, Token } from "../../generated/schema"
+import { TradeFoundry } from "../../generated/TradeFoundry/TradeFoundry"
+import { DCAFarm, Token } from "../../generated/schema"
 import {
   Cancelled,
-  DCAOrder as DCAOrderContract,
+  DCAFarm as DCAFarmContract,
   Initialized
-} from "../../generated/templates/DCAOrder/DCAOrder"
-import { ERC20 as ERC20Contract } from "../../generated/templates/DCAOrder/ERC20"
+} from "../../generated/templates/DCAFarm/DCAFarm"
+import { ERC20 as ERC20Contract } from "../../generated/templates/DCAFarm/ERC20"
 
 const HUNDRED_PERCENT = BigInt.fromI32(10000)
 
@@ -42,10 +42,10 @@ export function createOrReturnTokenEntity(contractAddress: Address): Token {
   return token
 }
 
-export function handleDCAOrderInitialized(event: Initialized): void {
+export function handleDCAFarmInitialized(event: Initialized): void {
   const orderAddress = event.params.order
-  const orderContract = DCAOrderContract.bind(orderAddress)
-  const order = new DCAOrder(orderAddress.toHex())
+  const orderContract = DCAFarmContract.bind(orderAddress)
+  const order = new DCAFarm(orderAddress.toHex())
 
   order.createdAt = event.block.timestamp
 
@@ -72,17 +72,17 @@ export function handleDCAOrderInitialized(event: Initialized): void {
   let orderSlots: Array<BigInt> = [BigInt.fromI32(0)]
   let protocolFee: BigInt = BigInt.fromI32(0)
 
-  let orderFactoryAddress: Address
+  let tradeFoundryAddress: Address
   if (event.transaction.to !== null) {
-    orderFactoryAddress = event.transaction.to as Address
+    tradeFoundryAddress = event.transaction.to as Address
   } else {
-    orderFactoryAddress = Address.fromString(
+    tradeFoundryAddress = Address.fromString(
       "0x0000000000000000000000000000000000000000"
     )
   }
 
-  const factory = OrderFactory.bind(orderFactoryAddress)
-  let tryProtocolFee = factory.try_protocolFee()
+  const foundry = TradeFoundry.bind(tradeFoundryAddress)
+  let tryProtocolFee = foundry.try_protocolFee()
   if (!tryProtocolFee.reverted) {
     protocolFee = BigInt.fromI32(tryProtocolFee.value)
   }
@@ -114,8 +114,8 @@ export function handleDCAOrderInitialized(event: Initialized): void {
   order.save()
 }
 
-export function handleDCAOrderCancelled(event: Cancelled): void {
-  const order = DCAOrder.load(event.params.order.toHex())
+export function handleDCAFarmCancelled(event: Cancelled): void {
+  const order = DCAFarm.load(event.params.order.toHex())
   if (order === null) {
     return
   }

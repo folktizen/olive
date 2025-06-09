@@ -1,26 +1,26 @@
 [
   {
-    "chain": "polygon",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
+    "chain": "arbitrum",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
   },
   {
-    "chain": "arbitrum",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
+    "chain": "polygon",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
   },
   {
     "chain": "base",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
   },
   {
     "chain": "gnosis",
-    "dcaOrder": "0x08dF474f2f2Da0C8bC2dcC0003E858674c8153BD",
-    "orderFactory": "0x1CDe26c1C4fCE219109B245F456e6BaAf1d543C0",
-    "create2Deployer": "0x71899a450B9847c6C6E8296052FE0994867d889c"
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
   }
 ]
