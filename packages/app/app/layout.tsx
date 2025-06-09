@@ -8,6 +8,7 @@ import { OLIVE_APP_URL } from "@/constants"
 import { Providers } from "@/providers"
 
 import "@/styles/global.css"
+import "@/utils/suppress-console.ts"
 
 const stabilGrotesk = localFont({
   src: [
