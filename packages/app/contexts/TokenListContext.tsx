@@ -96,10 +96,13 @@ export const TokenListProvider = ({ children }: PropsWithChildren) => {
     const erc20Interface = new ethers.utils.Interface(Erc20Abi)
 
     if (address && tokenList) {
-      return tokenList.map((token) => ({
-        target: token.address,
-        callData: erc20Interface.encodeFunctionData("balanceOf", [address])
-      }))
+      // Filter out tokens with obviously invalid addresses (not contracts, or zero address)
+      return tokenList
+        .filter(token => isAddress(token.address) && token.address !== ethers.constants.AddressZero)
+        .map((token) => ({
+          target: token.address,
+          callData: erc20Interface.encodeFunctionData("balanceOf", [address])
+        }))
     }
     return []
   }, [address, tokenList])
