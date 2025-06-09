@@ -102,7 +102,7 @@ export const ConfirmFarmModal = ({
   }, [allowance, rawAmount])
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const signerInstance = await signer
       if (!signerInstance || !address) return
 
@@ -232,7 +232,7 @@ export const ConfirmFarmModal = ({
             </div>
             <div className="flex items-center justify-between">
               <BodyText className="text-em-med">Fee</BodyText>
-              <BodyText>0.25%</BodyText>
+              <BodyText>0.50%</BodyText>
             </div>
           </div>
         </div>
