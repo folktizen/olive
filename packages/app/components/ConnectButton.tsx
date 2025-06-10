@@ -45,9 +45,9 @@ const CustomConnectButton = ({
     balanceData.value === BigInt(0)
       ? `0 ${balanceData.symbol}`
       : `${formatUnits(balanceData.value, balanceData.decimals).substring(
-        0,
-        5
-      )} ${balanceData.symbol}`
+          0,
+          5
+        )} ${balanceData.symbol}`
 
   return (
     <div className="flex bg-gray-alpha-50 rounded-xl p-0.5 justify-center items-center md:space-x-3">
