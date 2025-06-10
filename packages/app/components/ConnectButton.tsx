@@ -1,6 +1,6 @@
 "use client"
 
-import { ChainId, USDC } from "@useolive/sdk"
+import { ChainId, WETH, WXDAI } from "@useolive/sdk"
 import { ConnectKitButton } from "connectkit"
 import { formatUnits } from "viem"
 import { useBalance } from "wagmi"
@@ -24,10 +24,10 @@ const CustomConnectButton = ({
   const { chainId } = useNetworkContext()
 
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
-    // [ChainId.ETHEREUM]: USDC[ChainId.ETHEREUM].address,
-    [ChainId.ARBITRUM]: USDC[ChainId.ARBITRUM].address,
-    [ChainId.BASE]: USDC[ChainId.BASE].address,
-    [ChainId.GNOSIS]: USDC[ChainId.GNOSIS].address
+    // [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
+    [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
+    [ChainId.BASE]: WETH[ChainId.BASE].address,
+    [ChainId.GNOSIS]: WXDAI.address
   }
 
   const { data: balance } = useBalance({
@@ -45,9 +45,9 @@ const CustomConnectButton = ({
     balanceData.value === BigInt(0)
       ? `0 ${balanceData.symbol}`
       : `${formatUnits(balanceData.value, balanceData.decimals).substring(
-          0,
-          5
-        )} ${balanceData.symbol}`
+        0,
+        5
+      )} ${balanceData.symbol}`
 
   return (
     <div className="flex bg-gray-alpha-50 rounded-xl p-0.5 justify-center items-center md:space-x-3">
