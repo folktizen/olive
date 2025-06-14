@@ -5,7 +5,8 @@ import {
   // mainnet,
   arbitrum,
   base,
-  gnosis
+  gnosis,
+  polygon
 } from "wagmi/chains"
 import { safe } from "wagmi/connectors"
 
@@ -15,6 +16,7 @@ const defaultConfig = getDefaultConfig({
   chains: [
     // mainnet,
     arbitrum,
+    polygon,
     base,
     gnosis
   ],
@@ -24,6 +26,7 @@ const defaultConfig = getDefaultConfig({
   transports: {
     // [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
     [arbitrum.id]: fallback([http(RPC_LIST[ChainId.ARBITRUM]), http()]),
+    [polygon.id]: fallback([http(RPC_LIST[ChainId.POLYGON]), http()]),
     [base.id]: fallback([http(RPC_LIST[ChainId.BASE]), http()]),
     [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()])
   },

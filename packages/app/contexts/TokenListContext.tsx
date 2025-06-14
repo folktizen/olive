@@ -22,6 +22,7 @@ import { TokenFromTokenlist } from "@/models"
 
 import defaultArbitrumTokenList from "public/assets/blockchains/arbitrum/tokenlist.json"
 import defaultBaseTokenList from "public/assets/blockchains/base/tokenlist.json"
+import defaultPolygonTokenList from "public/assets/blockchains/polygon/tokenlist.json"
 // import defaultEthereumTokenlist from "public/assets/blockchains/ethereum/tokenlist.json"
 import defaultGnosisTokenlist from "public/assets/blockchains/gnosis/tokenlist.json"
 
@@ -37,6 +38,7 @@ const DEFAULT_TOKEN_LIST_BY_CHAIN: {
 } = {
   // [ChainId.ETHEREUM]: defaultEthereumTokenlist,
   [ChainId.ARBITRUM]: defaultArbitrumTokenList,
+  [ChainId.POLYGON]: defaultPolygonTokenList,
   [ChainId.BASE]: defaultBaseTokenList,
   [ChainId.GNOSIS]: defaultGnosisTokenlist
 }
@@ -50,6 +52,10 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
   [ChainId.ARBITRUM]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.42161.json",
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.42161.json"
+  ],
+  [ChainId.POLYGON]: [
+    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.137.json",
+    "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/CoinGecko.137.json"
   ],
   [ChainId.BASE]: [
     "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/Uniswap.8453.json",

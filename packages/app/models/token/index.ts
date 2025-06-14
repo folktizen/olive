@@ -1,5 +1,6 @@
 export * from "./arbitrum"
 export * from "./gnosis"
+export * from "./polygon"
 // export * from "./mainnet"
 export * from "./base"
 export * from "./types"

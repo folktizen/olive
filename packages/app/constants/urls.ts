@@ -8,6 +8,9 @@ export const RPC_LIST: { [chainId: number]: string } = {
   [ChainId.ARBITRUM]:
     process.env.RPC_ARBITRUM ??
     "https://arb-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
+  [ChainId.POLYGON]:
+    process.env.RPC_POLYGON ??
+    "https://polygon-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.BASE]:
     process.env.RPC_BASE ??
     "https://base-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",

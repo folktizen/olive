@@ -3,6 +3,7 @@ import {
   arbitrumTokens,
   baseTokens,
   gnosisTokens,
+  polygonTokens,
   TokenFromTokenlist
 } from "@/models/token"
 import { ChainId } from "@useolive/sdk"
@@ -20,6 +21,10 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
   [ChainId.ARBITRUM]: {
     from: arbitrumTokens.USDC,
     to: arbitrumTokens.WETH
+  },
+  [ChainId.POLYGON]: {
+    from: polygonTokens.USDC,
+    to: polygonTokens.WPOL
   },
   [ChainId.BASE]: {
     from: baseTokens.USDC,

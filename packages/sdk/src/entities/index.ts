@@ -8,12 +8,12 @@ export {
   // USDT,
   WBTC,
   WETH,
-  // WPOL,
+  WPOL,
   WXDAI
 } from "./defaultTokens"
 export { Ether } from "./Ether"
 export * from "./NativeCurrency"
-// export { POL } from "./POL"
+export { POL } from "./POL"
 export { Token } from "./token"
 export * from "./WrappedTokenInfo"
 export { xDAI } from "./xDAI"

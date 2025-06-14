@@ -141,8 +141,8 @@ export async function createDCAFarmWithNonce(
 
   const chainNotSupported =
     // chainId !== ChainId.ETHEREUM &&
-    // chainId !== ChainId.POLYGON &&
     chainId !== ChainId.ARBITRUM &&
+    chainId !== ChainId.POLYGON &&
     chainId !== ChainId.BASE &&
     chainId !== ChainId.GNOSIS
 

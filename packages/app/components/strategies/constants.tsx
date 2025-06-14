@@ -4,7 +4,8 @@ import {
   // mainnetTokens,
   arbitrumTokens,
   baseTokens,
-  gnosisTokens
+  gnosisTokens,
+  polygonTokens
 } from "@/models/token"
 import { ChainId } from "@useolive/sdk"
 
@@ -106,6 +107,40 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 100,
           sellToken: arbitrumTokens.DAI,
+          totalSellAmount: "800"
+        }
+      ]
+    }
+  },
+  [ChainId.POLYGON]: {
+    popular: {
+      label: "Popular Strategies",
+      strategies: [
+        {
+          id: 1,
+          buyToken: polygonTokens.WETH,
+          daysAmount: 30,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 50,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "1500"
+        },
+        {
+          id: 2,
+          buyToken: polygonTokens.WETH,
+          daysAmount: 4,
+          frequency: FREQUENCY_OPTIONS.hour,
+          sellAmountPerTimeframe: 5,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "480"
+        },
+        {
+          id: 3,
+          buyToken: polygonTokens.WBTC,
+          daysAmount: 56,
+          frequency: FREQUENCY_OPTIONS.week,
+          sellAmountPerTimeframe: 100,
+          sellToken: polygonTokens.DAI,
           totalSellAmount: "800"
         }
       ]
