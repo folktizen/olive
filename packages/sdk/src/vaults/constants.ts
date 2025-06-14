@@ -94,7 +94,7 @@ const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-arbitrum-one/1.2.0-komodo/gn`
 const POLYGON_SUBGRAPH_ENDPOINT_URL =
   process.env.POLYGON_SUBGRAPH_API_URL ??
-  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/olv-on-polygon/version/v1.2.0-komodo/api`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj`
 const BASE_SUBGRAPH_ENDPOINT_URL =
   process.env.BASE_SUBGRAPH_API_URL ??
   `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-base/1.2.0-komodo/gn`
