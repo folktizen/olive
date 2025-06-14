@@ -23,8 +23,8 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
     to: arbitrumTokens.WETH
   },
   [ChainId.POLYGON]: {
-    from: polygonTokens.USDC,
-    to: polygonTokens.WPOL
+    from: polygonTokens.WPOL,
+    to: polygonTokens.WETH
   },
   [ChainId.BASE]: {
     from: baseTokens.USDC,
