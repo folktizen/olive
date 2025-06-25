@@ -1,0 +1,15 @@
+{
+  "name": "@useolive/config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "prettier.config.js",
+  "description": "Shared linting and formatting config for Olive monorepo",
+  "keywords": [
+    "prettier",
+    "config",
+    "monorepo"
+  ],
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  }
+}

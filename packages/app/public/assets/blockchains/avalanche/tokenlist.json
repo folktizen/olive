@@ -1,0 +1,50 @@
+[
+  {
+    "address": "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+    "name": "Wrapped Ether on Avalanche",
+    "symbol": "WETH",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/weth.png",
+    "chainId": 43114
+  },
+  {
+    "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "name": "Wrapped AVAX",
+    "symbol": "WAVAX",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/wavax.png",
+    "chainId": 43114
+  },
+  {
+    "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9",
+    "name": "Aave Token on Avalanche",
+    "symbol": "AAVE",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/aave.png",
+    "chainId": 43114
+  },
+  {
+    "address": "0xd501281565bf7789224523144Fe5D98e8B28f267",
+    "name": "1INCH Token on Avalanche",
+    "symbol": "1INCH",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/1inch.png",
+    "chainId": 43114
+  },
+  {
+    "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    "name": "Wrapped BTC on Avalanche",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "logoURI": "/assets/images/tokens/wbtc.png",
+    "chainId": 43114
+  },
+  {
+    "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "name": "USDC on Avalanche",
+    "symbol": "USDC",
+    "decimals": 6,
+    "logoURI": "/assets/images/tokens/usdc.png",
+    "chainId": 43114
+  }
+]

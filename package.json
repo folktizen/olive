@@ -1,0 +1,50 @@
+{
+  "name": "@useolive/monorepo",
+  "repository": "https://github.com/folktizen/olive",
+  "version": "1.4.0",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "bun@1.2.16",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cd packages/sdk && bun typechain && cd ../.. && turbo run build lint",
+    "build:sdk": "cd packages/sdk && bun typechain && turbo run build --filter=@useolive/sdk",
+    "build:app": "bun run build:sdk && turbo run build --filter=@useolive/app",
+    "build:contracts": "turbo run build --filter=@useolive/contracts",
+    "deploy:app": "bun run build:sdk && turbo run deploy --filter=@useolive/app",
+    "dev": "turbo run dev",
+    "dev:app": "cd packages/app && turbo run dev",
+    "setup": "bun install && bun run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean",
+    "export": "turbo run export",
+    "typecheck": "turbo run typecheck"
+  },
+  "dependencies": {
+    "fathom-client": "^3.6.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "@useolive/config": "workspace:^",
+    "prettier": "^3.0.0",
+    "turbo": "^2.5.4"
+  },
+  "trustedDependencies": [
+    "@trufflesuite/bigint-buffer",
+    "bufferutil",
+    "es5-ext",
+    "keccak",
+    "leveldown",
+    "protobufjs",
+    "secp256k1",
+    "sharp",
+    "utf-8-validate"
+  ]
+}

@@ -1,0 +1,19 @@
+image: gitpod/workspace-bun
+
+tasks:
+  - name: Init a bun project and run
+    init: |
+      # Init a project if needed
+      if test ! -e package.json; then {
+        bun init -y
+      } fi
+      # Install dependencies
+      bun install
+
+    command: |
+      # Run project
+      bun run dev:app
+
+ports:
+  - port: 3000
+    onOpen: open-preview
