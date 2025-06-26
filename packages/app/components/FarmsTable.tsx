@@ -1,7 +1,21 @@
 "use client"
 
-import { PropsWithChildren, useState } from "react"
-import { formatDistanceToNow } from "date-fns"
+import { FarmModal, TokenLogoPair } from "@/components"
+import { ModalId, useModalContext } from "@/contexts"
+import {
+  FarmOrder,
+  FarmOrderProps,
+  calculateFarmAveragePrice,
+  farmIsFinishedWithFunds,
+  totalFarmOrdersDone,
+  totalFarmed,
+  totalFundsUsed
+} from "@/models/farm-order"
+import {
+  orderPairSymbolsText,
+  totalFundsAmountWithTokenText,
+  totalOrderSlotsDone
+} from "@/models/order"
 import {
   BodyText,
   Button,
@@ -16,24 +30,10 @@ import {
   TableHeader,
   TableRow
 } from "@/ui"
-import { FarmModal, TokenLogoPair } from "@/components"
-import {
-  totalFundsAmountWithTokenText,
-  orderPairSymbolsText,
-  totalOrderSlotsDone
-} from "@/models/order"
 import { formatTimestampToDate } from "@/utils/datetime"
-import {
-  FarmOrder,
-  FarmOrderProps,
-  calculateFarmAveragePrice,
-  farmIsFinishedWithFunds,
-  totalFundsUsed,
-  totalFarmOrdersDone,
-  totalFarmed
-} from "@/models/farm-order"
 import { formatTokenValue } from "@/utils/token"
-import { ModalId, useModalContext } from "@/contexts"
+import { formatDistanceToNow } from "date-fns"
+import { PropsWithChildren, useState } from "react"
 
 interface FarmsTableProps {
   farmOrders: FarmOrder[]

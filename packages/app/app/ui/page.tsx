@@ -39,7 +39,7 @@ export default function Page() {
 
   const [isOpenCancelFarmingDialog, setOpenCancelFarmingDialog] =
     useState(false)
-  const dialogBtnRef = useRef<HTMLButtonElement | HTMLInputElement>(null)
+  const dialogBtnRef = useRef<HTMLButtonElement>(null)
   const { closeModal, isModalOpen, openModal } = useModalContext()
 
   const dialogButtons = [
@@ -334,11 +334,7 @@ export default function Page() {
             />
           ))}
           <Dialog
-            initialFocusRef={
-              dialogBtnRef as React.RefObject<
-                HTMLButtonElement | HTMLInputElement
-              >
-            }
+            initialFocusRef={dialogBtnRef}
             isOpen={isOpenCancelFarmingDialog}
             closeAction={() => setOpenCancelFarmingDialog(false)}
           >
@@ -352,7 +348,7 @@ export default function Page() {
               primaryText="Keep farming"
               secondaryAction={() => setOpenCancelFarmingDialog(false)}
               secondaryText="Cancel"
-              ref={dialogBtnRef as React.Ref<HTMLButtonElement>}
+              ref={dialogBtnRef}
             />
           </Dialog>
           <Dialog

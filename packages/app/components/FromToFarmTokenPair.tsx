@@ -1,6 +1,6 @@
-import { Icon, TitleText } from "@/ui"
 import { TokenIcon } from "@/components/TokenIcon"
 import { Token } from "@/models/token"
+import { Icon, TitleText } from "@/ui"
 
 interface FromToFarmTokenPairProps {
   fromToken: Token

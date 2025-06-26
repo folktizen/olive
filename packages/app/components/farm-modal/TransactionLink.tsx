@@ -1,6 +1,6 @@
-import { getExplorerLink } from "@/utils/transaction"
-import { Icon } from "@/ui"
 import { Transaction } from "@/models/farm"
+import { Icon } from "@/ui"
+import { getExplorerLink } from "@/utils/transaction"
 
 export const TransactionLink = ({ chainId, hash }: Transaction) => (
   <a

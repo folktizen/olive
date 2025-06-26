@@ -1,9 +1,9 @@
 "use client"
 
 import { FarmOrders } from "@/app/farms/farmsOrders"
+import { useNetworkContext } from "@/contexts"
 import { useAccount } from "wagmi"
 import NoWalletState from "./no-wallet-state"
-import { useNetworkContext } from "@/contexts"
 
 export default function Page() {
   const { chainId } = useNetworkContext()

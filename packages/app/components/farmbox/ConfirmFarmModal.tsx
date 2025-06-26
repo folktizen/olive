@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import { EVENTS } from "@/analytics"
 import { format } from "date-fns"
 import { trackEvent } from "fathom-client"
 import { parseUnits } from "viem"
 import { useAccount } from "wagmi"
 
+import { EVENTS } from "@/analytics"
 import {
   DialogConfirmTransactionLoading,
   FromToFarmTokenPair,
@@ -187,9 +187,7 @@ export const ConfirmFarmModal = ({
     <Modal
       isOpen={isOpen}
       closeAction={closeAction}
-      initialFocusRef={
-        focusBtnRef as React.RefObject<HTMLButtonElement | HTMLInputElement>
-      }
+      initialFocusRef={focusBtnRef}
     >
       <ModalHeaderTitle closeAction={closeAction} title="Confirm Farm" />
       <ModalContent>

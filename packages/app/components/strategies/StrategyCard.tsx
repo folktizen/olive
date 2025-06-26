@@ -1,17 +1,17 @@
 "use client"
 
 import { cx } from "class-variance-authority"
+import { trackEvent } from "fathom-client"
 
 import { EVENTS } from "@/analytics"
 import { TokenLogoPair } from "@/components"
 import {
   Strategy,
-  useNetworkContext,
   useFarmboxFormContext,
+  useNetworkContext,
   useStrategyContext
 } from "@/contexts"
 import { Button, CaptionText, Icon } from "@/ui"
-import { trackEvent } from "fathom-client"
 
 import { FREQUENCY_LABEL } from "./constants"
 

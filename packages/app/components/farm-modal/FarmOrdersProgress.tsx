@@ -1,20 +1,20 @@
+import { FarmOrdersTable } from "@/components/farm-modal/FarmOrdersTable"
+import { OrdersProgressBar } from "@/components/OrdersProgressBar"
+import { TokenIcon } from "@/components/TokenIcon"
+import {
+  estimatedTotalFarm,
+  farmIsComplete,
+  FarmOrderProps,
+  totalFarmOrdersDone,
+  totalFundsUsed
+} from "@/models/farm-order"
 import {
   allOrderSlotsDone,
   totalFundsAmountWithTokenText,
   totalOrderSlotsDone
 } from "@/models/order"
-import { OrdersProgressBar } from "@/components/OrdersProgressBar"
 import { BodyText, TitleText } from "@/ui"
-import { TokenIcon } from "@/components/TokenIcon"
-import {
-  FarmOrderProps,
-  totalFarmOrdersDone,
-  totalFundsUsed,
-  estimatedTotalFarm,
-  farmIsComplete
-} from "@/models/farm-order"
 import { formatTokenValue } from "@/utils/token"
-import { FarmOrdersTable } from "@/components/farm-modal/FarmOrdersTable"
 
 export const FarmOrdersProgress = ({ farmOrder }: FarmOrderProps) => (
   <>

@@ -1,9 +1,9 @@
 import {
-  farmHasRemainingFunds,
   FarmOrderProps,
+  farmHasRemainingFunds,
   totalFarmOrdersDone
 } from "@/models/farm-order"
-import React, { useRef, useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 const FULL_BAR_WIDTH = 100
 

@@ -6,18 +6,18 @@ import { useCallback, useEffect, useState } from "react"
 import { EmptyState, FarmsTable, tabButtonStyles } from "@/components"
 import { PATHNAMES } from "@/constants"
 import {
-  getActiveOrders,
-  getCancelledOrders,
-  getCompleteOrders,
-  getOrders
-} from "@/models/order"
-import {
   FarmOrder,
   filterActiveOrders,
   filterCancelledOrders,
   filterCompletedOrders,
   getFarmOrders
 } from "@/models/farm-order"
+import {
+  getActiveOrders,
+  getCancelledOrders,
+  getCompleteOrders,
+  getOrders
+} from "@/models/order"
 import { ButtonLink, HeadingText } from "@/ui"
 import { currentTimestampInSeconds } from "@/utils"
 import { ChainId, Order } from "@useolive/sdk"

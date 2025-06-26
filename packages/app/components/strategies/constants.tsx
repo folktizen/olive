@@ -112,49 +112,6 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
       ]
     }
   },
-  [ChainId.AVALANCHE]: {
-    popular: {
-      label: "Popular Strategies",
-      strategies: [
-        {
-          id: 1,
-          buyToken: avalancheTokens.WETH,
-          daysAmount: 30,
-          frequency: FREQUENCY_OPTIONS.day,
-          sellAmountPerTimeframe: 50,
-          sellToken: avalancheTokens.USDC,
-          totalSellAmount: "1500"
-        },
-        {
-          id: 2,
-          buyToken: avalancheTokens.WBTC,
-          daysAmount: 14,
-          frequency: FREQUENCY_OPTIONS.day,
-          sellAmountPerTimeframe: 10,
-          sellToken: avalancheTokens.USDC,
-          totalSellAmount: "140"
-        },
-        {
-          id: 3,
-          buyToken: avalancheTokens.WETH,
-          daysAmount: 4,
-          frequency: FREQUENCY_OPTIONS.hour,
-          sellAmountPerTimeframe: 5,
-          sellToken: avalancheTokens.USDC,
-          totalSellAmount: "480"
-        },
-        {
-          id: 4,
-          buyToken: avalancheTokens.WAVAX,
-          daysAmount: 56,
-          frequency: FREQUENCY_OPTIONS.week,
-          sellAmountPerTimeframe: 100,
-          sellToken: avalancheTokens.USDC,
-          totalSellAmount: "800"
-        }
-      ]
-    }
-  },
   [ChainId.BASE]: {
     popular: {
       label: "Popular Strategies",
@@ -236,6 +193,49 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
           frequency: FREQUENCY_OPTIONS.week,
           sellAmountPerTimeframe: 100,
           sellToken: gnosisTokens.WXDAI,
+          totalSellAmount: "800"
+        }
+      ]
+    }
+  },
+  [ChainId.AVALANCHE]: {
+    popular: {
+      label: "Popular Strategies",
+      strategies: [
+        {
+          id: 1,
+          buyToken: avalancheTokens.WETH,
+          daysAmount: 30,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 50,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "1500"
+        },
+        {
+          id: 2,
+          buyToken: avalancheTokens.WBTC,
+          daysAmount: 14,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 10,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "140"
+        },
+        {
+          id: 3,
+          buyToken: avalancheTokens.WETH,
+          daysAmount: 4,
+          frequency: FREQUENCY_OPTIONS.hour,
+          sellAmountPerTimeframe: 5,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "480"
+        },
+        {
+          id: 4,
+          buyToken: avalancheTokens.WAVAX,
+          daysAmount: 56,
+          frequency: FREQUENCY_OPTIONS.week,
+          sellAmountPerTimeframe: 100,
+          sellToken: avalancheTokens.USDC,
           totalSellAmount: "800"
         }
       ]

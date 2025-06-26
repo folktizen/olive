@@ -1,8 +1,8 @@
 "use client"
 
 import { Dialog, Transition } from "@headlessui/react"
-import { cva, cx } from "class-variance-authority"
 import { Fragment, ReactNode, RefObject } from "react"
+import { cva, cx } from "class-variance-authority"
 
 export interface ModalBaseProps {
   isOpen: boolean
@@ -11,7 +11,7 @@ export interface ModalBaseProps {
 interface ModalProps extends ModalBaseProps {
   children: ReactNode
   className?: string
-  initialFocusRef?: RefObject<HTMLButtonElement | HTMLInputElement | null>
+  initialFocusRef?: RefObject<HTMLButtonElement | HTMLInputElement>
   maxWidth?: "2xl" | "xl" | "lg" | "md" | "sm"
   withOpacity?: boolean
 }

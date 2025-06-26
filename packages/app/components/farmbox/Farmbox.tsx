@@ -10,6 +10,7 @@ import {
 
 import { cx } from "class-variance-authority"
 import { add, formatDistance } from "date-fns"
+import { trackEvent } from "fathom-client"
 import Link from "next/link"
 import { formatUnits, parseUnits } from "viem"
 import { useAccount, useBalance } from "wagmi"
@@ -26,9 +27,9 @@ import { PATHNAMES } from "@/constants"
 import {
   ModalId,
   TokenWithBalance,
+  useFarmboxFormContext,
   useModalContext,
   useNetworkContext,
-  useFarmboxFormContext,
   useStrategyContext,
   useTokenListContext
 } from "@/contexts"
@@ -50,7 +51,6 @@ import {
   Toast
 } from "@/ui"
 import { checkIsValidChainId } from "@/utils"
-import { trackEvent } from "fathom-client"
 import { FrequencyOptionsCard } from "./FrequencyOptionsCard"
 
 interface SelectTokenButtonProps {
@@ -607,7 +607,7 @@ export const Farmbox = () => {
       </div>
       <TokenPicker
         closeAction={() => closeModal(ModalId.TOKEN_PICKER)}
-        initialFocusRef={searchTokenBarRef as React.RefObject<HTMLInputElement>}
+        initialFocusRef={searchTokenBarRef}
         isOpen={isModalOpen(ModalId.TOKEN_PICKER)}
         onTokenSelect={selectToken}
       />

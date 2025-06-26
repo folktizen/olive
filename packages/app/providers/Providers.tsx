@@ -23,10 +23,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
       <QueryClientProvider client={queryClient}>
         <ConnectKitProvider
           theme="rounded"
-          options={{
-            initialChainId: 0,
-            enforceSupportedChains: true
-          }}
+          options={{ initialChainId: 0, enforceSupportedChains: true }}
         >
           <NetworkContextProvider>
             <TokenListProvider>

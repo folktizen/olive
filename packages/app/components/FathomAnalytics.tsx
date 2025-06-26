@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, useEffect } from "react"
+import { useEffect, Suspense } from "react"
 
 import { load, trackPageview } from "fathom-client"
 import { usePathname, useSearchParams } from "next/navigation"

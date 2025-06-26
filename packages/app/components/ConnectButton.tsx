@@ -26,9 +26,9 @@ const CustomConnectButton = ({
   const TOKEN_BY_CHAIN: { [chainId: number]: string } = {
     [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
     [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
-    [ChainId.AVALANCHE]: WAVAX.address,
     [ChainId.BASE]: WETH[ChainId.BASE].address,
-    [ChainId.GNOSIS]: WXDAI.address
+    [ChainId.GNOSIS]: WXDAI.address,
+    [ChainId.AVALANCHE]: WAVAX.address
   }
 
   const { data: balance } = useBalance({

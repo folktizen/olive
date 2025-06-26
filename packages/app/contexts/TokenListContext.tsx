@@ -38,9 +38,9 @@ const DEFAULT_TOKEN_LIST_BY_CHAIN: {
 } = {
   [ChainId.ETHEREUM]: defaultEthereumTokenlist,
   [ChainId.ARBITRUM]: defaultArbitrumTokenList,
-  [ChainId.AVALANCHE]: defaultAvalancheTokenList,
   [ChainId.BASE]: defaultBaseTokenList,
-  [ChainId.GNOSIS]: defaultGnosisTokenlist
+  [ChainId.GNOSIS]: defaultGnosisTokenlist,
+  [ChainId.AVALANCHE]: defaultAvalancheTokenList
 }
 
 const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
@@ -53,10 +53,6 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.42161.json",
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.42161.json"
   ],
-  [ChainId.AVALANCHE]: [
-    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.43114.json",
-    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.43114.json"
-  ],
   [ChainId.BASE]: [
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.8453.json",
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.8453.json"
@@ -64,6 +60,10 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
   [ChainId.GNOSIS]: [
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.100.json",
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.100.json"
+  ],
+  [ChainId.AVALANCHE]: [
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.43114.json",
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.43114.json"
   ]
 }
 

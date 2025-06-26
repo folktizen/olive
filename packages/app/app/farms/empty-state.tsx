@@ -1,6 +1,6 @@
-import { ButtonLink, HeadingText } from "@/ui"
-import { EmptyStateFarmsImg } from "@/public/assets"
 import { PATHNAMES } from "@/constants"
+import { EmptyStateFarmsImg } from "@/public/assets"
+import { ButtonLink, HeadingText } from "@/ui"
 
 export default function EmptyState() {
   return (

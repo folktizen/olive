@@ -22,10 +22,6 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
     from: arbitrumTokens.USDC,
     to: arbitrumTokens.WETH
   },
-  [ChainId.AVALANCHE]: {
-    from: avalancheTokens.WAVAX,
-    to: avalancheTokens.WETH
-  },
   [ChainId.BASE]: {
     from: baseTokens.USDC,
     to: baseTokens.WETH
@@ -33,5 +29,9 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
   [ChainId.GNOSIS]: {
     from: gnosisTokens.WXDAI,
     to: gnosisTokens.WETH
+  },
+  [ChainId.AVALANCHE]: {
+    from: avalancheTokens.WAVAX,
+    to: avalancheTokens.WETH
   }
 }

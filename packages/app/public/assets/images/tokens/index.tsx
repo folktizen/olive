@@ -26,10 +26,8 @@ import XdaiTokenImg from "./xdai.png";
 export {
   AaveTokenImg, ArbTokenImg, AvaxTokenImg, BalancerTokenImg, CbBtcTokenImg, CowTokenImg,
   DaiTokenImg, DegenTokenImg, EthTokenImg,
-  GnoTokenImg, HigherTokenImg, MaticTokenImg, OneInchTokenImg, TalentTokenImg, ToshiTokenImg,
-  UsdcTokenImg, VirtualTokenImg, WavaxTokenImg, WbtcTokenImg,
+  GnoTokenImg, HigherTokenImg, MaticTokenImg, OneInchTokenImg, TalentTokenImg, ToshiTokenImg, UsdcTokenImg, VirtualTokenImg, WavaxTokenImg, WbtcTokenImg,
   WethTokenImg,
   WxdaiTokenImg,
   XdaiTokenImg
 };
-

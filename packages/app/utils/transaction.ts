@@ -3,9 +3,9 @@ import { ChainId } from "@useolive/sdk"
 const EXPLORER_URL_BY_CHAIN = {
   [ChainId.ETHEREUM]: "https://etherscan.io",
   [ChainId.ARBITRUM]: "https://arbiscan.io",
-  [ChainId.AVALANCHE]: "https://snowscan.xyz",
   [ChainId.BASE]: "https://basescan.org",
-  [ChainId.GNOSIS]: "https://gnosisscan.io"
+  [ChainId.GNOSIS]: "https://gnosisscan.io",
+  [ChainId.AVALANCHE]: "https://snowscan.xyz"
 }
 
 export const getExplorerLink = (

@@ -22,17 +22,12 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
     arbitrumTokens.WBTC,
     arbitrumTokens.ARB
   ],
+  [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
+  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.WETH, gnosisTokens.WXDAI],
   [ChainId.AVALANCHE]: [
     avalancheTokens.USDC,
     avalancheTokens.WBTC,
     avalancheTokens.WETH,
     avalancheTokens.WAVAX
-  ],
-  [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
-  [ChainId.GNOSIS]: [
-    gnosisTokens.USDC,
-    gnosisTokens.GNO,
-    gnosisTokens.WETH,
-    gnosisTokens.WXDAI
   ]
 }

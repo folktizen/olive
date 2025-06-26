@@ -1,5 +1,5 @@
-import { allOrderSlotsDone, oliveFee } from "@/models/order"
 import { FarmOrder } from "@/models/farm-order"
+import { allOrderSlotsDone, oliveFee } from "@/models/order"
 import { convertedAmount } from "@/utils/numbers"
 import { OrderStatus } from "@cowprotocol/cow-sdk"
 
