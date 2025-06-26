@@ -4,19 +4,19 @@ import { ChainId } from "@useolive/sdk"
 export const RPC_LIST: { [chainId: number]: string } = {
   [ChainId.ETHEREUM]:
     process.env.RPC_MAINNET ??
-    "https://lb.drpc.org/ogrpc?network=ethereum&dkey=AgHOr1Xt1kcjg0A00rv_wCJtxL6IUh4R8JM4rqRhf0fE",
+    "https://eth-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.ARBITRUM]:
     process.env.RPC_ARBITRUM ??
-    "https://lb.drpc.org/ogrpc?network=arbitrum&dkey=AgHOr1Xt1kcjg0A00rv_wCJtxL6IUh4R8JM4rqRhf0fE",
+    "https://arb-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.BASE]:
     process.env.RPC_BASE ??
-    "https://lb.drpc.org/ogrpc?network=base&dkey=AgHOr1Xt1kcjg0A00rv_wCJtxL6IUh4R8JM4rqRhf0fE",
+    "https://base-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.GNOSIS]:
     process.env.RPC_GNOSIS ??
-    "https://lb.drpc.org/ogrpc?network=gnosis&dkey=AgHOr1Xt1kcjg0A00rv_wCJtxL6IUh4R8JM4rqRhf0fE",
+    "https://gnosis-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.AVALANCHE]:
     process.env.RPC_AVALANCHE ??
-    "https://lb.drpc.org/ogrpc?network=avalanche&dkey=AgHOr1Xt1kcjg0A00rv_wCJtxL6IUh4R8JM4rqRhf0fE"
+    "https://avax-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t"
 }
 
 // App URLs
