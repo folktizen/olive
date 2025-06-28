@@ -1,8 +1,8 @@
 [
   {
-    "address": "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+    "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
     "name": "Wrapped Ether on Avalanche",
-    "symbol": "WETH",
+    "symbol": "WETH.e",
     "decimals": 18,
     "logoURI": "/assets/images/tokens/weth.png",
     "chainId": 43114
@@ -16,25 +16,9 @@
     "chainId": 43114
   },
   {
-    "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9",
-    "name": "Aave Token on Avalanche",
-    "symbol": "AAVE",
-    "decimals": 18,
-    "logoURI": "/assets/images/tokens/aave.png",
-    "chainId": 43114
-  },
-  {
-    "address": "0xd501281565bf7789224523144Fe5D98e8B28f267",
-    "name": "1INCH Token on Avalanche",
-    "symbol": "1INCH",
-    "decimals": 18,
-    "logoURI": "/assets/images/tokens/1inch.png",
-    "chainId": 43114
-  },
-  {
-    "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
     "name": "Wrapped BTC on Avalanche",
-    "symbol": "WBTC",
+    "symbol": "WBTC.e",
     "decimals": 8,
     "logoURI": "/assets/images/tokens/wbtc.png",
     "chainId": 43114

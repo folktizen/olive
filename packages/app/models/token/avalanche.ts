@@ -8,19 +8,19 @@ export const avalancheTokens = {
     chainId: 43114
   },
   WBTC: {
-    address: "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    address: "0x50b7545627a5162F82A992c33b87aDc75187B218",
     name: "Wrapped Bitcoin on Avalanche",
-    symbol: "WBTC",
+    symbol: "WBTC.e",
     decimals: 8,
     logoURI: "/assets/images/tokens/wbtc.png",
     chainId: 43114
   },
-  WETH: {
-    address: "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
-    name: "Wrapped Ether on Avalanche",
-    symbol: "WETH",
+  DAI: {
+    address: "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+    name: "DAI on Avalanche",
+    symbol: "DAI.e",
     decimals: 18,
-    logoURI: "/assets/images/tokens/weth.png",
+    logoURI: "/assets/images/tokens/dai.png",
     chainId: 43114
   },
   WAVAX: {

@@ -204,7 +204,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
       strategies: [
         {
           id: 1,
-          buyToken: avalancheTokens.WETH,
+          buyToken: avalancheTokens.DAI,
           daysAmount: 30,
           frequency: FREQUENCY_OPTIONS.day,
           sellAmountPerTimeframe: 50,
@@ -222,7 +222,7 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
         },
         {
           id: 3,
-          buyToken: avalancheTokens.WETH,
+          buyToken: avalancheTokens.DAI,
           daysAmount: 4,
           frequency: FREQUENCY_OPTIONS.hour,
           sellAmountPerTimeframe: 5,

@@ -81,7 +81,7 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
     ChainId.AVALANCHE,
     "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
     18,
-    "WETH",
+    "WETH.e",
     "Wrapped Ether"
   ),
   [ChainId.BASE]: new Token(
@@ -177,7 +177,7 @@ export const DAI: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
     ChainId.AVALANCHE,
     "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
     18,
-    "DAI",
+    "DAI.e",
     "Dai Stablecoin"
   ),
   [ChainId.BASE]: new Token(
@@ -240,9 +240,9 @@ export const WBTC: Readonly<Record<ChainId, Token>> = {
   ),
   [ChainId.AVALANCHE]: new Token(
     ChainId.AVALANCHE,
-    "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    "0x50b7545627a5162F82A992c33b87aDc75187B218",
     8,
-    "WBTC"
+    "WBTC.e"
   ),
   [ChainId.BASE]: new Token(
     ChainId.BASE,

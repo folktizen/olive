@@ -27,11 +27,11 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
     to: baseTokens.WETH
   },
   [ChainId.GNOSIS]: {
-    from: gnosisTokens.WXDAI,
+    from: gnosisTokens.USDC,
     to: gnosisTokens.WETH
   },
   [ChainId.AVALANCHE]: {
-    from: avalancheTokens.WAVAX,
-    to: avalancheTokens.WETH
+    from: avalancheTokens.USDC,
+    to: avalancheTokens.DAI
   }
 }

@@ -27,7 +27,7 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
   [ChainId.AVALANCHE]: [
     avalancheTokens.USDC,
     avalancheTokens.WBTC,
-    avalancheTokens.WETH,
+    avalancheTokens.DAI,
     avalancheTokens.WAVAX
   ]
 }
