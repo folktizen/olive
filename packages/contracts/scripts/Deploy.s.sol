@@ -28,12 +28,12 @@ contract Deploy is Script {
   function getChains() internal pure returns (string[] memory) {
     string[] memory arr = new string[](5);
     uint256 idx = 0;
-    // arr[idx++] = "ethereum";
-    // arr[idx++] = "polygon";
-    // arr[idx++] = "arbitrum";
+    arr[idx++] = "ethereum";
+    arr[idx++] = "arbitrum";
+    arr[idx++] = "polygon";
+    arr[idx++] = "base";
+    arr[idx++] = "gnosis";
     arr[idx++] = "avalanche";
-    // arr[idx++] = "base";
-    // arr[idx++] = "gnosis";
     // Resize to enabled chains
     string[] memory enabled = new string[](idx);
     for (uint256 i = 0; i < idx; i++) {

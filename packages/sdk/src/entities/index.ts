@@ -1,4 +1,5 @@
 export { Amount } from "./Amount"
+export { AVAX } from "./AVAX"
 export * from "./BaseCurrency"
 export * from "./Currency"
 export {
@@ -6,7 +7,6 @@ export {
   USDC,
   USDS,
   USDT,
-  // WPOL,
   WAVAX,
   WBTC,
   WETH,
@@ -14,8 +14,6 @@ export {
 } from "./defaultTokens"
 export { Ether } from "./Ether"
 export * from "./NativeCurrency"
-// export { POL } from "./POL"
-export { AVAX } from "./AVAX"
 export { Token } from "./token"
 export * from "./WrappedTokenInfo"
 export { xDAI } from "./xDAI"

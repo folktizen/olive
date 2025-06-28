@@ -29,20 +29,15 @@ const CHAIN_INFO: Record<string, { chainId: number; oklinkUrl: string }> = {
     oklinkUrl:
       "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/eth"
   },
-  polygon: {
-    chainId: 137,
-    oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon"
-  },
   arbitrum: {
     chainId: 42161,
     oklinkUrl:
       "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/arbitrum"
   },
-  avalanche: {
-    chainId: 43114,
+  polygon: {
+    chainId: 137,
     oklinkUrl:
-      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/avalanche"
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/polygon"
   },
   base: {
     chainId: 8453,
@@ -53,6 +48,11 @@ const CHAIN_INFO: Record<string, { chainId: number; oklinkUrl: string }> = {
     chainId: 100,
     oklinkUrl:
       "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/gnosis"
+  },
+  avalanche: {
+    chainId: 43114,
+    oklinkUrl:
+      "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/avalanche"
   }
 }
 

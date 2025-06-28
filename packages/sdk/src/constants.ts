@@ -1,10 +1,9 @@
 export enum ChainId {
   ETHEREUM = 1,
-  // POLYGON = 137,
   ARBITRUM = 42161,
-  AVALANCHE = 43114,
   BASE = 8453,
-  GNOSIS = 100
+  GNOSIS = 100,
+  AVALANCHE = 43114
 }
 
 /**

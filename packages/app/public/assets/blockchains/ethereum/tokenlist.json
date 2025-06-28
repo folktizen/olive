@@ -32,11 +32,11 @@
     "chainId": 1
   },
   {
-    "address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
-    "name": "Matic Token",
-    "symbol": "MATIC",
+    "address": "0x455e53CBB86018Ac2B8092FdCd39d8444aFFC3F6",
+    "name": "Polygon Ecosystem Token",
+    "symbol": "POL",
     "decimals": 18,
-    "logoURI": "/assets/images/tokens/matic.png",
+    "logoURI": "/assets/images/tokens/pol.png",
     "chainId": 1
   },
   {

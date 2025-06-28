@@ -32,14 +32,6 @@
     "chainId": 100
   },
   {
-    "address": "0x7122d7661c4564b7C6Cd4878B06766489a6028A2",
-    "name": "Matic Token on xDai",
-    "symbol": "MATIC",
-    "decimals": 18,
-    "logoURI": "/assets/images/tokens/matic.png",
-    "chainId": 100
-  },
-  {
     "address": "0x7f7440C5098462f833E123B44B8A03E1d9785BAb",
     "name": "1INCH Token on xDai",
     "symbol": "1INCH",

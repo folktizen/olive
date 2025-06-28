@@ -11,9 +11,9 @@ const SUPPORTED_NETWORKS = [
   "mainnet",
   "matic",
   "arbitrum-one",
-  "avalanche",
   "base",
-  "xdai"
+  "xdai",
+  "avalanche"
 ]
 
 async function main() {
