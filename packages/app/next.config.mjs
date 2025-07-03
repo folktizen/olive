@@ -22,19 +22,7 @@ const nextConfig = {
     return config
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "**",
-        pathname: "/**"
-      },
-      {
-        protocol: "https",
-        hostname: "**",
-        pathname: "/**"
-      }
-    ],
-    unoptimized: false
+    unoptimized: true
   },
   poweredByHeader: false,
   productionBrowserSourceMaps: false

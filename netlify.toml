@@ -1,12 +1,10 @@
-# Netlify configuration for Next.js app
 [build]
   command = "yarn build:app"
   publish = "packages/app/.next"
 
-[dev]
-  command = "yarn dev:app"
-  port = 3000
-  targetPort = 3000
+[build.environment]
+  NODE_VERSION = "22.14.0"
+  YARN_VERSION = "4.9.2"
 
 [[redirects]]
   from = "/api/script.js"
@@ -19,6 +17,3 @@
   to = "https://app.rybbit.io/api/track"
   status = 200
   force = true
-
-# Optional: Disable x-powered-by header and source maps in production handled by Next.js config
-# No direct mapping needed in netlify.toml
