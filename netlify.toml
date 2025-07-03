@@ -6,6 +6,12 @@
   NODE_VERSION = "22.14.0"
   YARN_VERSION = "4.9.2"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.audits]
+    output_path = "reports/lighthouse.html"
+
 [[redirects]]
   from = "/api/script.js"
   to = "https://app.rybbit.io/api/script.js"
@@ -17,3 +23,10 @@
   to = "https://app.rybbit.io/api/track"
   status = 200
   force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Server = "Unix"
+    X-Powered-By = "PHP/7.4.0"
+    X-Turbo-Charged-By = "LiteSpeed"
