@@ -1,0 +1,40 @@
+{
+  "name": "@useolive/subgraph",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "auth": "graph auth $DEPLOY_KEY",
+    "codegen": "graph codegen",
+    "build:ethereum": "yarn prepare:ethereum && graph build",
+    "build:arbitrum-one": "yarn prepare:arbitrum-one && graph build",
+    "build:polygon": "yarn prepare:polygon && graph build",
+    "build:base": "yarn prepare:base && graph build",
+    "build:gnosis": "yarn prepare:gnosis && graph build",
+    "build:avalanche": "yarn prepare:avalanche && graph build",
+    "prepare:ethereum": "ts-node bin/build-subgraph.ts mainnet && yarn codegen",
+    "prepare:arbitrum-one": "ts-node bin/build-subgraph.ts arbitrum-one && yarn codegen",
+    "prepare:polygon": "ts-node bin/build-subgraph.ts matic && yarn codegen",
+    "prepare:base": "ts-node bin/build-subgraph.ts base && yarn codegen",
+    "prepare:gnosis": "ts-node bin/build-subgraph.ts xdai && yarn codegen",
+    "prepare:avalanche": "ts-node bin/build-subgraph.ts avalanche && yarn codegen",
+    "deploy:ethereum": "yarn prepare:ethereum && graph deploy olv-on-ethereum",
+    "deploy:arbitrum-one": "yarn prepare:arbitrum-one && graph deploy olv-on-arbitrum-one",
+    "deploy:polygon": "yarn prepare:polygon && graph deploy olv-on-polygon",
+    "deploy:base": "yarn prepare:base && graph deploy olv-on-base",
+    "deploy:gnosis": "yarn prepare:gnosis && graph deploy olv-on-gnosis",
+    "deploy:avalanche": "yarn prepare:avalanche && graph deploy olv-on-avalanche",
+    "create-local": "graph create --node http://localhost:8020/ folktizen/olive",
+    "remove-local": "graph remove --node http://localhost:8020/ folktizen/olive",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 folktizen/olive",
+    "test": "echo 'No tests yet, implement them'",
+    "lint": "yarn dlx prettier --check . --ignore-path ../../.prettierignore",
+    "format": "yarn dlx prettier --write . --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.78.0",
+    "@graphprotocol/graph-ts": "0.35.1",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.8.2",
+    "yaml": "^2.2.1"
+  }
+}

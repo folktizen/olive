@@ -1,0 +1,36 @@
+{
+  "name": "@useolive/monorepo",
+  "repository": "https://github.com/folktizen/olive",
+  "version": "1.4.0",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@4.9.2",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cd packages/sdk && yarn typechain && cd ../.. && turbo run build lint",
+    "build:sdk": "cd packages/sdk && yarn typechain && turbo run build --filter=@useolive/sdk",
+    "build:app": "yarn build:sdk && turbo run build --filter=@useolive/app",
+    "build:contracts": "turbo run build --filter=@useolive/contracts",
+    "deploy:app": "yarn build:sdk && turbo run deploy --filter=@useolive/app",
+    "dev": "turbo run dev",
+    "dev:app": "cd packages/app && turbo run dev",
+    "setup": "yarn install && yarn build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean",
+    "export": "turbo run export",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "@useolive/config": "workspace:^",
+    "prettier": "^3.0.0",
+    "turbo": "^2.5.4"
+  }
+}

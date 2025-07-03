@@ -1,0 +1,65 @@
+{
+  "folders": [
+    {
+      "name": "⏏ ~/root",
+      "path": "../"
+    },
+    {
+      "name": "◆ @useolive/app",
+      "path": "../packages/app"
+    },
+    {
+      "name": "◆ @useolive/sdk",
+      "path": "../packages/sdk"
+    },
+    {
+      "name": "◆ @useolive/contracts",
+      "path": "../packages/contracts"
+    },
+    {
+      "name": "◆ @useolive/subgraph",
+      "path": "../packages/subgraph"
+    },
+    {
+      "name": "◆ @useolive/config",
+      "path": "../packages/config"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "packages/": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.yarn": true,
+      "**/.turbo": true,
+      "**/.vercel": true,
+      "**/.cache": true,
+      "**/.next": true,
+      "**/backup": true,
+      "**/build": true,
+      "**/dist": true,
+      "**/cache": true,
+      "**/generated": true,
+      "**/artifacts": true,
+      "**/lib": true,
+      "**/out": true,
+      "**/broadcast": true,
+      "*.tsbuildinfo": true,
+      "*-lock.yaml": true,
+      "*.lock": true
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "solidity.formatter": "forge"
+  },
+  "extensions": {
+    "recommendations": [
+      "NomicFoundation.hardhat-solidity",
+      "GraphQL.vscode-graphql",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}

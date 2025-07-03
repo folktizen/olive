@@ -1,0 +1,39 @@
+# Enforce consistent line endings and text files for cross-platform development
+* text=auto
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.sol text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.lockb text eol=lf
+*.toml text eol=lf
+*.env text eol=lf
+
+# Treat images and fonts as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Solidity and Foundry
+*.sol text eol=lf
+
+# Prevent linguist from counting build artifacts
+artifacts/* linguist-vendored
+cache/* linguist-vendored
+packages/*/dist/* linguist-vendored
+packages/*/out/* linguist-vendored
+packages/*/generated/* linguist-vendored
+
+# End of file

@@ -1,0 +1,90 @@
+[
+  {
+    "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "name": "Wrapped Ether",
+    "symbol": "WETH",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/weth.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "name": "Dai Stablecoin",
+    "symbol": "DAI",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/dai.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x6810e776880C02933D47DB1b9fc05908e5386b96",
+    "name": "Gnosis",
+    "symbol": "GNO",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/gno.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+    "name": "Aave Token",
+    "symbol": "AAVE",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/aave.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x455e53CBB86018Ac2B8092FdCd39d8444aFFC3F6",
+    "name": "Polygon Ecosystem Token",
+    "symbol": "POL",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/pol.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x111111111117dC0aa78b770fA6A738034120C302",
+    "name": "1INCH Token",
+    "symbol": "1INCH",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/1inch.png",
+    "chainId": 1
+  },
+  {
+    "address": "0xba100000625a3754423978a60c9317c58a424e3D",
+    "name": "Balancer",
+    "symbol": "BAL",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/balancer.png",
+    "chainId": 1
+  },
+  {
+    "address": "0xDEf1CA1fb7FBcDC777520aa7f396b4E015F497aB",
+    "name": "CoW Protocol Token",
+    "symbol": "COW",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/cow.png",
+    "chainId": 1
+  },
+  {
+    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "name": "Wrapped BTC",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "logoURI": "/assets/images/tokens/wbtc.png",
+    "chainId": 1
+  },
+  {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "name": "USDC",
+    "symbol": "USDC",
+    "decimals": 6,
+    "logoURI": "/assets/images/tokens/usdc.png",
+    "chainId": 1
+  },
+  {
+    "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+    "name": "Rocket Pool ETH",
+    "symbol": "rETH",
+    "decimals": 18,
+    "logoURI": "/assets/images/tokens/reth.png",
+    "chainId": 1
+  }
+]

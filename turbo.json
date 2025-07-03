@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/turbo/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**",
+        "out/**"
+      ]
+    },
+    "deploy": {
+      "dependsOn": [
+        "^deploy"
+      ],
+      "outputs": [
+        ".vercel/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "typecheck": {
+      "cache": false
+    },
+    "format": {
+      "outputs": []
+    }
+  }
+}

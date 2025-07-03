@@ -1,0 +1,8 @@
+# Ignore build and generated files for Prettier
+node_modules/
+dist/
+build/
+.vercel/
+.next/
+out/
+public/
