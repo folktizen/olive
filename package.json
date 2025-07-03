@@ -16,7 +16,6 @@
     "build:sdk": "cd packages/sdk && yarn typechain && turbo run build --filter=@useolive/sdk",
     "build:app": "yarn build:sdk && turbo run build --filter=@useolive/app",
     "build:contracts": "turbo run build --filter=@useolive/contracts",
-    "deploy:app": "yarn build:sdk && turbo run deploy --filter=@useolive/app",
     "dev": "turbo run dev",
     "dev:app": "cd packages/app && turbo run dev",
     "setup": "yarn install && yarn build",

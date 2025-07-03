@@ -1,6 +1,6 @@
 # 🚀 Olive
 
-Olive is a Next.js + Cloudflare monorepo project that implements Dollar Cost Averaging using the CoW Protocol.
+Olive is a Next.js monorepo project that implements Dollar Cost Averaging using the CoW Protocol.
 
 ---
 
@@ -67,8 +67,6 @@ To deploy Olive to production:
 ```bash
 yarn build
 ```
-
-This creates a production build in the `dist` directory. Deploy the contents of this directory to your server or hosting provider.
 
 ---
 

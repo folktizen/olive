@@ -22,23 +22,22 @@ const nextConfig = {
     return config
   },
   images: {
-    unoptimized: true
-  },
-  poweredByHeader: false,
-  productionBrowserSourceMaps: false,
-
-  async rewrites() {
-    return [
+    remotePatterns: [
       {
-        source: "/api/script.js",
-        destination: "https://app.rybbit.io/api/script.js"
+        protocol: "http",
+        hostname: "**",
+        pathname: "/**"
       },
       {
-        source: "/api/track",
-        destination: "https://app.rybbit.io/api/track"
+        protocol: "https",
+        hostname: "**",
+        pathname: "/**"
       }
-    ]
-  }
+    ],
+    unoptimized: false
+  },
+  poweredByHeader: false,
+  productionBrowserSourceMaps: false
 }
 
 const withBundleAnalyzer = bundleAnalyzer({
