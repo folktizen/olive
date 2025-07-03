@@ -1,0 +1,38 @@
+[
+  {
+    "chain": "ethereum",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  },
+  {
+    "chain": "arbitrum",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  },
+  {
+    "chain": "polygon",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  },
+  {
+    "chain": "base",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  },
+  {
+    "chain": "gnosis",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  },
+  {
+    "chain": "avalanche",
+    "dcaFarm": "0x5dE0A3F1e2C4c640c5AB30703E15841f1A971240",
+    "tradeFoundry": "0xD2e76eb1374E8A3DC75D6D76fBB6fB2D197dFE54",
+    "create2Deployer": "0x14aF278a66FA2dEBe38b5BEBa7d85Ad6a045f4B8"
+  }
+]

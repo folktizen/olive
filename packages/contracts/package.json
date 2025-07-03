@@ -1,0 +1,36 @@
+{
+  "name": "@useolive/contracts",
+  "private": true,
+  "version": "1.0.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "files": [
+    "abis/*.json",
+    ".addresses.json"
+  ],
+  "scripts": {
+    "build": "forge build",
+    "clean": "forge clean",
+    "format": "prettier --write . --ignore-path ../../.prettierignore && forge fmt",
+    "test": "forge test",
+    "test:coverage": "forge coverage",
+    "test:gasreport": "forge test --gas-report",
+    "snapshot": "forge snapshot",
+    "export:abis": "node ./bin/export-abis.cjs",
+    "deploy": "dotenv -e .env -- forge script scripts/Deploy.s.sol --ffi --slow --multi --broadcast --private-key $PRIVATE_KEY",
+    "deploy:dry": "dotenv -e .env -- forge script scripts/Deploy.s.sol --ffi --slow --multi -- --dry-run",
+    "verify": "node ./bin/verify.cjs"
+  },
+  "devDependencies": {
+    "@ethersproject/address": "^5.7.0",
+    "@ethersproject/contracts": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@ethersproject/units": "^5.7.0",
+    "@ethersproject/wallet": "^5.7.0",
+    "chalk": "^5.1.2",
+    "commander": "^9.4.1",
+    "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0",
+    "ganache": "^7.5.0"
+  }
+}

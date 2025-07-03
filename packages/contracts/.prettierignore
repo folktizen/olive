@@ -1,0 +1,8 @@
+# Ignore build and generated files for Prettier
+node_modules/
+dist/
+build/
+artifacts/
+cache/
+lib/
+public/

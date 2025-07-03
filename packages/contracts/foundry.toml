@@ -1,0 +1,34 @@
+[profile.default]
+src = 'src'
+test = "tests"
+libs = ["lib"]
+out = "out"
+optimizer = true
+solc_version = "0.8.20"
+evm_version = "london"
+via_ir = true
+
+[rpc_endpoints]
+ethereum = "${ETHEREUM_RPC_URL}"
+arbitrum = "${ARBITRUM_RPC_URL}"
+polygon = "${POLYGON_RPC_URL}"
+base = "${BASE_RPC_URL}"
+gnosis = "${GNOSIS_RPC_URL}"
+avalanche = "${AVALANCHE_RPC_URL}"
+
+[etherscan]
+ethereum = { key = "${ETHERSCAN_API_KEY_V2}" }
+arbitrum = { key = "${ETHERSCAN_API_KEY_V2}" }
+polygon = { key = "${ETHERSCAN_API_KEY_V2}" }
+base = { key = "${ETHERSCAN_API_KEY_V2}" }
+gnosis = { key = "${ETHERSCAN_API_KEY_V2}" }
+avalanche = { key = "${ETHERSCAN_API_KEY_V2}" }
+
+[fmt]
+tab_width = 2
+line_length = 120
+bracket_spacing = true
+quote_style = "double"
+number_underscore = "thousands"
+multiline_func_header = "params_first"
+ignore = ["lib/**"]
