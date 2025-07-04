@@ -1,5 +1,7 @@
 # 🚀 Olive
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5a9a0d6-d16e-4936-9eea-d310629a179d/deploy-status)](https://app.netlify.com/projects/useolive/deploys)
+
 Olive is a Next.js monorepo project that implements Dollar Cost Averaging using the CoW Protocol.
 
 ---
@@ -33,7 +35,6 @@ Before you can run this project, make sure you have the following software insta
    ```bash
    cd olive
    yarn install
-   yarn build:dev
    ```
 
 3. **Start the development server:**
@@ -48,14 +49,14 @@ Before you can run this project, make sure you have the following software insta
 
 ## 🔍 Subgraph
 
-To update the `subgraph.yaml`, go to `bin/build-subgraph.ts` and update the subgraph JSON. This script runs before deployment to create a new `subgraph.yaml`.
+> **Note:** The files `bin/build-subgraph.ts` and `bin/config.ts` referenced in previous instructions do not exist. Please refer to the scripts in `packages/subgraph/package.json` for subgraph build and deployment steps.
 
-- Make sure `bin/config.ts` is updated for the latest contract `address` and `startBlock`.
-- To deploy the Subgraph:
+- To deploy the Subgraph, use the appropriate `build:<network>` and `deploy:<network>` scripts in `packages/subgraph/package.json`.
 
   ```bash
-  yarn build
-  yarn deploy
+  cd packages/subgraph
+  yarn build:ethereum
+  yarn deploy:ethereum
   ```
 
 ---
@@ -86,14 +87,10 @@ yarn build
      yarn build
      ```
 2. **Update the Subgraph:**
-   - Edit `packages/subgraph/bin/config.ts` with the Foundry contract `address` and `startBlock`
-   - Update `SUPPORTED_NETWORKS` in `packages/subgraph/bin/build-subgraph.ts`
-   - Add relevant `build` and `prepare` commands in `packages/subgraph/package.json`
+   - Edit the relevant config and network support in `packages/subgraph` scripts and config files.
 3. **Update the UI web:**
-   - Add tokens for the new chain in `packages/web/models/token/tokens.ts`
-   - Add a default token pair in `packages/web/utils/constants.ts`
-   - Update WAGMI chains config in `packages/web/providers/wagmi-config.ts`
-   - Add common tokens in `packages/web/components/token-picker/constants.ts`
+   - Add tokens and default pairs in the appropriate files under `packages/web/models/`, `packages/web/utils/`, or related directories as your project structure requires.
+   - Update WAGMI chains config and token picker constants in their respective files.
 4. **Try to create a new farm in the UI!**
 
 ---
