@@ -3,7 +3,7 @@
 import Link from "next/link"
 
 import { ConnectButton, SelectNetwork } from "@/components"
-import { PATHNAMES } from "@/constants"
+import { DUNE_ANALYTICS_URL, PATHNAMES } from "@/constants"
 import { useNetworkContext } from "@/contexts"
 import { ButtonLink } from "@/ui"
 
@@ -32,6 +32,17 @@ export function Navbar() {
         </div>
         <Divider />
         <div className="hidden gap-4 justify-end items-center w-full md:flex">
+          <ButtonLink
+            variant="quaternary"
+            iconRight="arrow-external"
+            size="sm"
+            rel="noopener noreferrer"
+            href={`${DUNE_ANALYTICS_URL}`}
+            target="_blank"
+          >
+            Analytics
+          </ButtonLink>
+          <Divider />
           <ButtonLink
             variant="quaternary"
             size="sm"

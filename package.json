@@ -27,6 +27,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^6.0.1",
     "@svgr/webpack": "^8.0.1",
     "@useolive/config": "workspace:^",
     "prettier": "^3.0.0",

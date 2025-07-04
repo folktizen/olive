@@ -27,3 +27,6 @@ export const FOLKTIZEN_URL =
 
 export const OLIVE_APP_URL =
   process.env.OLIVE_APP_URL ?? "https://useolive.space"
+
+export const DUNE_ANALYTICS_URL =
+  process.env.DUNE_ANALYTICS_URL ?? "https://dune.com/useolive/multichain"

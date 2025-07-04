@@ -5,7 +5,7 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { ConnectButton, SelectNetwork } from "@/components"
-import { FOLKTIZEN_URL, PATHNAMES } from "@/constants"
+import { DUNE_ANALYTICS_URL, FOLKTIZEN_URL, PATHNAMES } from "@/constants"
 import { Button, Icon } from "@/ui"
 
 export default function MobileMenu() {
@@ -42,13 +42,13 @@ export default function MobileMenu() {
             </Link>
             <hr className="h-0 -mx-6 border-b border-solid border-surface-75" />
             <Link
-              href="https://dune.com/useolive/multichain"
+              href={`${DUNE_ANALYTICS_URL}`}
               className="block py-3 text-em-med"
             >
-              Open Stats
+              Analytics
             </Link>
             <Link href={`${FOLKTIZEN_URL}`} className="block py-3 text-em-med">
-              Folktizen Labs
+              © Folktizen
             </Link>
           </div>
         </>
