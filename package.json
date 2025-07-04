@@ -14,10 +14,10 @@
   "scripts": {
     "build": "cd packages/sdk && yarn typechain && cd ../.. && turbo run build lint",
     "build:sdk": "cd packages/sdk && yarn typechain && turbo run build --filter=@useolive/sdk",
-    "build:app": "yarn build:sdk && turbo run build --filter=@useolive/app",
+    "build:web": "yarn build:sdk && turbo run build --filter=@useolive/web",
     "build:contracts": "turbo run build --filter=@useolive/contracts",
     "dev": "turbo run dev",
-    "dev:app": "cd packages/app && turbo run dev",
+    "dev:web": "cd packages/web && turbo run dev",
     "setup": "yarn install && yarn build",
     "start": "turbo run start",
     "lint": "turbo run lint",

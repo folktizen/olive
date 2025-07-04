@@ -5,8 +5,8 @@
       "path": "../"
     },
     {
-      "name": "◆ @useolive/app",
-      "path": "../packages/app"
+      "name": "◆ @useolive/web",
+      "path": "../packages/web"
     },
     {
       "name": "◆ @useolive/sdk",

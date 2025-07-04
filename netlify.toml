@@ -1,6 +1,6 @@
 [build]
-  command = "yarn build:app"
-  publish = "packages/app/.next"
+  command = "yarn build:web"
+  publish = "packages/web/.next"
 
 [build.environment]
   NODE_VERSION = "22.14.0"

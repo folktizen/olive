@@ -89,11 +89,11 @@ yarn build
    - Edit `packages/subgraph/bin/config.ts` with the Foundry contract `address` and `startBlock`
    - Update `SUPPORTED_NETWORKS` in `packages/subgraph/bin/build-subgraph.ts`
    - Add relevant `build` and `prepare` commands in `packages/subgraph/package.json`
-3. **Update the UI app:**
-   - Add tokens for the new chain in `packages/app/models/token/tokens.ts`
-   - Add a default token pair in `packages/app/utils/constants.ts`
-   - Update WAGMI chains config in `packages/app/providers/wagmi-config.ts`
-   - Add common tokens in `packages/app/components/token-picker/constants.ts`
+3. **Update the UI web:**
+   - Add tokens for the new chain in `packages/web/models/token/tokens.ts`
+   - Add a default token pair in `packages/web/utils/constants.ts`
+   - Update WAGMI chains config in `packages/web/providers/wagmi-config.ts`
+   - Add common tokens in `packages/web/components/token-picker/constants.ts`
 4. **Try to create a new farm in the UI!**
 
 ---
@@ -106,7 +106,7 @@ React Context checks values using simple equality (`==`).
 
 > **Tip:** Always use the `useMemo()` hook for custom Contexts to avoid unnecessary re-renders, especially when wrapping the whole app.
 
-- Example files: `packages/app/context/`
+- Example files: `packages/web/context/`
 - More info: [React Context Docs](https://react.dev/learn/passing-data-deeply-with-context)
 
 ---
@@ -123,14 +123,14 @@ React Context checks values using simple equality (`==`).
 
 - **Cannot read properties of undefined (reading Component):**
 
-  - Likely due to circular dependencies. Check for import cycles and adjust exports (see `packages/app/components/index.ts`).
+  - Likely due to circular dependencies. Check for import cycles and adjust exports (see `packages/web/components/index.ts`).
 
 - **Error fetching `generated/contracts`:**
   - App build failure. Try:
     ```bash
     rm -rf node_modules
     yarn install
-    yarn build:app
+    yarn build:web
     yarn dev
     ```
 
