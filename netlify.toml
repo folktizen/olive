@@ -7,6 +7,9 @@
   YARN_VERSION = "4.9.2"
 
 [[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
   package = "@netlify/plugin-lighthouse"
 
   [plugins.inputs.audits]

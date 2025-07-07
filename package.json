@@ -28,9 +28,10 @@
   },
   "devDependencies": {
     "@netlify/plugin-lighthouse": "^6.0.1",
-    "@svgr/webpack": "^8.0.1",
+    "@netlify/plugin-nextjs": "^5.11.4",
+    "@svgr/webpack": "^8.1.0",
     "@useolive/config": "workspace:^",
-    "prettier": "^3.0.0",
+    "prettier": "^3.6.2",
     "turbo": "^2.5.4"
   }
 }

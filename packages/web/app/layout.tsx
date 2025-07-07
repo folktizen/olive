@@ -33,9 +33,9 @@ const stabilGrotesk = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(OLIVE_APP_URL),
-  title: "Olive | Farm crypto over time.",
+  title: "Olive | Grow your crypto over time",
   description:
-    "Olive is a simple, non-custodial tool that uses the CoW protocol to place recurring swaps based on DCA.",
+    "Olive helps you invest in crypto gradually through automated, recurring swaps. It’s simple, self-custodial, and designed to put you in control — no trading experience needed.",
   viewport: {
     width: "device-width",
     initialScale: 1,
