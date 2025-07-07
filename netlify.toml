@@ -17,13 +17,13 @@
 
 [[redirects]]
   from = "/api/script.js"
-  to = "https://app.rybbit.io/api/script.js"
+  to = "https://opensky.folktizen.xyz/api/script.js"
   status = 200
   force = true
 
 [[redirects]]
   from = "/api/track"
-  to = "https://app.rybbit.io/api/track"
+  to = "https://opensky.folktizen.xyz/api/track"
   status = 200
   force = true
 

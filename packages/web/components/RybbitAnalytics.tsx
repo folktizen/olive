@@ -6,7 +6,7 @@ export function RybbitAnalytics() {
   return (
     <Script
       src="/api/script.js"
-      data-site-id="1413"
+      data-site-id="1"
       {...(isDev && { "data-api-key": process.env.NEXT_PUBLIC_RYBBIT_API_KEY })}
       strategy="afterInteractive"
     />
