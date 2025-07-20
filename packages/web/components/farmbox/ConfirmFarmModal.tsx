@@ -227,13 +227,8 @@ export const ConfirmFarmModal = ({
               </BodyText>
             </div>
             <div className="flex items-center justify-between">
-              <BodyText className="text-em-med">Fee (one-time)</BodyText>
+              <BodyText className="text-em-med">One-time upfront fee</BodyText>
               <BodyText>2%</BodyText>
-            </div>
-            <div className="flex items-center justify-between">
-              <BodyText className="text-em-med">
-                Fee is charged once when you start the farm. No fees per order.
-              </BodyText>
             </div>
           </div>
         </div>
