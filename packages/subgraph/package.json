@@ -1,6 +1,6 @@
 {
   "name": "@useolive/subgraph",
-  "version": "1.2.0",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "auth": "graph auth $DEPLOY_KEY",
@@ -15,7 +15,7 @@
     "prepare:arbitrum-one": "ts-node bin/build-subgraph.ts arbitrum-one && yarn codegen",
     "prepare:polygon": "ts-node bin/build-subgraph.ts matic && yarn codegen",
     "prepare:base": "ts-node bin/build-subgraph.ts base && yarn codegen",
-    "prepare:gnosis": "ts-node bin/build-subgraph.ts xdai && yarn codegen",
+    "prepare:gnosis": "ts-node bin/build-subgraph.ts gnosis && yarn codegen",
     "prepare:avalanche": "ts-node bin/build-subgraph.ts avalanche && yarn codegen",
     "deploy:ethereum": "yarn prepare:ethereum && graph deploy olv-on-ethereum",
     "deploy:arbitrum-one": "yarn prepare:arbitrum-one && graph deploy olv-on-arbitrum-one",
@@ -31,8 +31,8 @@
     "format": "yarn dlx prettier --write . --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.78.0",
-    "@graphprotocol/graph-ts": "0.35.1",
+    "@graphprotocol/graph-cli": "0.97.1",
+    "@graphprotocol/graph-ts": "0.38.1",
     "@types/node": "^18.11.18",
     "ts-node": "^10.8.2",
     "yaml": "^2.2.1"

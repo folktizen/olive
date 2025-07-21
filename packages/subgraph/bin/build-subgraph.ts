@@ -12,7 +12,7 @@ const SUPPORTED_NETWORKS = [
   "matic",
   "arbitrum-one",
   "base",
-  "xdai",
+  "gnosis",
   "avalanche"
 ]
 

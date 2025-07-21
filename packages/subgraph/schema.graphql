@@ -1,11 +1,11 @@
-type SubgraphStatus @entity {
+type SubgraphStatus @entity(immutable: true) {
   "SubgraphStatus"
   id: ID!
   isInitialized: Boolean!
   lastSnapshotBlock: BigInt!
 }
 
-type TradeFoundry @entity {
+type TradeFoundry @entity(immutable: false) {
   "TradeFoundry"
   id: ID!
   "TradeFoundry address"
@@ -17,7 +17,7 @@ type TradeFoundry @entity {
 #
 # Provides information about an ERC20 token
 #
-type Token @entity {
+type Token @entity(immutable: false) {
   "Token address "
   id: ID!
   "Token address"
@@ -30,7 +30,7 @@ type Token @entity {
   symbol: String!
 }
 
-type DCAFarm @entity {
+type DCAFarm @entity(immutable: false) {
   "Order address"
   id: ID!
   "Order owner"

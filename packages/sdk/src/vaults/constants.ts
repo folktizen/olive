@@ -64,18 +64,23 @@ const GOLDSKY_API_BASE_URL = "https://api.goldsky.com/api/public"
 const GOLDSKY_PROJECT_ID =
   process.env.OLIVE_GOLDSKY_PROJECT_ID ?? "project_clphol9357ef601utg9cgegtg"
 
+const THEGRAPH_API_BASE_URL =
+  "https://gateway-arbitrum.network.thegraph.com/api"
+const THEGRAPH_API_KEY =
+  process.env.OLIVE_THEGRAPH_API_KEY ?? "a5be5b982b0198a9e5f7b005a9eee7a6"
+
 const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ETHEREUM_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-ethereum/1.2.0-komodo/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/BGTa3vq2SaxHfJ2wHpbGr5hefBdcuVEapJYwXQTcXYnQ`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-arbitrum-one/1.2.0-komodo/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP`
 const BASE_SUBGRAPH_ENDPOINT_URL =
   process.env.BASE_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-base/1.2.0-komodo/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/GG4e2XbzE99BGMGmPzBz5p6KkHndRtpEu9nFiiJjvoCY`
 const GNOSIS_SUBGRAPH_ENDPOINT_URL =
   process.env.GNOSIS_SUBGRAPH_API_URL ??
-  `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-gnosis/1.2.0-komodo/gn`
+  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3EMgJeaUuRrKSSy1NHdCw4p1ytgRbgWRQBkqqbKHxJ4U`
 // const POLYGON_SUBGRAPH_ENDPOINT_URL =
 //   process.env.POLYGON_SUBGRAPH_API_URL ??
 //   `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-polygon/1.2.0-komodo/gn`

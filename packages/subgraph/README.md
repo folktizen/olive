@@ -4,14 +4,14 @@ This package contains the subgraph for the Olive protocol, deployed to The Graph
 
 ## Deployed Subgraphs
 
-| **Network**  | **Deployment Name** | **Subgraph Endpoint**                                                                                              |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Ethereum     | olv-on-ethereum     | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-ethereum/1.2.0-komodo/gn     |
-| Arbitrum One | olv-on-arbitrum-one | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-arbitrum-one/1.2.0-komodo/gn |
-| Polygon      | olv-on-polygon      | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-polygon/1.2.0-komodo/gn      |
-| Base         | olv-on-base         | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-base/1.2.0-komodo/gn         |
-| Gnosis       | olv-on-gnosis       | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-gnosis/1.2.0-komodo/gn       |
-| Avalanche    | olv-on-avalanche    | https://api.goldsky.com/api/public/project_clphol9357ef601utg9cgegtg/subgraphs/olv-on-avalanche/1.2.0-komodo/gn    |
+| **Network**  | **Deployment Name** | **Subgraph Endpoint**                                                                      |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------ |
+| Ethereum     | olv-on-ethereum     | https://gateway.thegraph.com/api/subgraphs/id/BGTa3vq2SaxHfJ2wHpbGr5hefBdcuVEapJYwXQTcXYnQ |
+| Arbitrum One | olv-on-arbitrum-one | https://gateway.thegraph.com/api/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP |
+| Polygon      | olv-on-polygon      | https://gateway.thegraph.com/api/subgraphs/id/7pEwWh39RCYcZPY2az5EWfYJ9Zkasn4bCC4Dc15qEaaj |
+| Base         | olv-on-base         | https://gateway.thegraph.com/api/subgraphs/id/GG4e2XbzE99BGMGmPzBz5p6KkHndRtpEu9nFiiJjvoCY |
+| Gnosis       | olv-on-gnosis       | https://gateway.thegraph.com/api/subgraphs/id/3EMgJeaUuRrKSSy1NHdCw4p1ytgRbgWRQBkqqbKHxJ4U |
+| Avalanche    | olv-on-avalanche    | https://gateway.thegraph.com/api/subgraphs/id/7dh9zFA4DHLrePG917RTHQoUP94BJXMxc7nHxfhWYZ4u |
 
 - For the latest contract addresses and start blocks, see `bin/config.ts`.
 - To deploy or update a subgraph, use the scripts in `package.json` (e.g., `yarn deploy:arbitrum-one`).
