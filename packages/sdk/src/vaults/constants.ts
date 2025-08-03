@@ -60,9 +60,9 @@ export const COW_SETTLEMENT_ADDRESS_LIST: Record<ChainId, string> = {
   // [ChainId.AVALANCHE]: COW_SETTLEMENT_ADDRESS
 }
 
-const GOLDSKY_API_BASE_URL = "https://api.goldsky.com/api/public"
-const GOLDSKY_PROJECT_ID =
-  process.env.OLIVE_GOLDSKY_PROJECT_ID ?? "project_clphol9357ef601utg9cgegtg"
+const ALCHEMY_API_BASE_URL = "https://subgraph.satsuma-prod.com"
+const ALCHEMY_PROJECT_ID =
+  process.env.OLIVE_ALCHEMY_PROJECT_ID ?? "55155b15c6b1"
 
 const THEGRAPH_API_BASE_URL =
   "https://gateway-arbitrum.network.thegraph.com/api"
@@ -71,22 +71,16 @@ const THEGRAPH_API_KEY =
 
 const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ETHEREUM_SUBGRAPH_API_URL ??
-  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/BGTa3vq2SaxHfJ2wHpbGr5hefBdcuVEapJYwXQTcXYnQ`
+  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-ethereum/version/v1.5.0-blankon/api`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL ??
-  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3HQAS3YAKUHFTiBdKuuQCTR8uyvaA7rDnEYcRNS5RZGP`
+  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-arbitrum-one/version/v1.5.0-blankon/api`
 const BASE_SUBGRAPH_ENDPOINT_URL =
   process.env.BASE_SUBGRAPH_API_URL ??
-  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/GG4e2XbzE99BGMGmPzBz5p6KkHndRtpEu9nFiiJjvoCY`
+  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-base/version/v1.5.0-blankon/api`
 const GNOSIS_SUBGRAPH_ENDPOINT_URL =
   process.env.GNOSIS_SUBGRAPH_API_URL ??
-  `${THEGRAPH_API_BASE_URL}/${THEGRAPH_API_KEY}/subgraphs/id/3EMgJeaUuRrKSSy1NHdCw4p1ytgRbgWRQBkqqbKHxJ4U`
-// const POLYGON_SUBGRAPH_ENDPOINT_URL =
-//   process.env.POLYGON_SUBGRAPH_API_URL ??
-//   `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-polygon/1.2.0-komodo/gn`
-// const AVALANCHE_SUBGRAPH_ENDPOINT_URL =
-//   process.env.AVALANCHE_SUBGRAPH_API_URL ??
-//   `${GOLDSKY_API_BASE_URL}/${GOLDSKY_PROJECT_ID}/subgraphs/olv-on-avalanche/1.2.0-komodo/gn`
+  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-gnosis/version/v1.5.0-blankon/api`
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<ChainId, string>> = {
   [ChainId.ETHEREUM]: ETHEREUM_SUBGRAPH_ENDPOINT_URL,

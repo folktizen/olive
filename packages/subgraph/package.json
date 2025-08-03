@@ -15,7 +15,7 @@
     "prepare:arbitrum-one": "ts-node bin/build-subgraph.ts arbitrum-one && yarn codegen",
     "prepare:polygon": "ts-node bin/build-subgraph.ts matic && yarn codegen",
     "prepare:base": "ts-node bin/build-subgraph.ts base && yarn codegen",
-    "prepare:gnosis": "ts-node bin/build-subgraph.ts gnosis && yarn codegen",
+    "prepare:gnosis": "ts-node bin/build-subgraph.ts xdai && yarn codegen",
     "prepare:avalanche": "ts-node bin/build-subgraph.ts avalanche && yarn codegen",
     "deploy:ethereum": "yarn prepare:ethereum && graph deploy olv-on-ethereum",
     "deploy:arbitrum-one": "yarn prepare:arbitrum-one && graph deploy olv-on-arbitrum-one",
