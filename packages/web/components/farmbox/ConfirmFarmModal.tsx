@@ -228,7 +228,7 @@ export const ConfirmFarmModal = ({
             </div>
             <div className="flex items-center justify-between">
               <BodyText className="text-em-med">One-time upfront fee</BodyText>
-              <BodyText>2%</BodyText>
+              <BodyText>0.45%</BodyText>
             </div>
           </div>
         </div>
