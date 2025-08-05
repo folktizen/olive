@@ -12,13 +12,13 @@ export const RPC_LIST: { [chainId: number]: string } = {
     "https://base-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
   [ChainId.GNOSIS]:
     process.env.RPC_GNOSIS ??
-    "https://gnosis-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t"
-  // [ChainId.POLYGON]:
-  //   process.env.RPC_POLYGON ??
-  //   "https://polygon-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
-  // [ChainId.AVALANCHE]:
-  //   process.env.RPC_AVALANCHE ??
-  //   "https://avax-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t"
+    "https://gnosis-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
+  [ChainId.POLYGON]:
+    process.env.RPC_POLYGON ??
+    "https://polygon-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t",
+  [ChainId.AVALANCHE]:
+    process.env.RPC_AVALANCHE ??
+    "https://avax-mainnet.g.alchemy.com/v2/IlaAR90kaQ_mQ6FyLZhud-GYFNFsm7_t"
 }
 
 // App URLs

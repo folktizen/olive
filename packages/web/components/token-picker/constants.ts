@@ -1,10 +1,10 @@
 import {
   arbitrumTokens,
-  // avalancheTokens,
+  avalancheTokens,
   baseTokens,
   gnosisTokens,
   mainnetTokens,
-  // polygonTokens,
+  polygonTokens,
   TokenFromTokenlist
 } from "@/models/token"
 import { ChainId } from "@useolive/sdk"
@@ -24,17 +24,17 @@ export const TOKEN_PICKER_COMMON_TOKENS: {
     arbitrumTokens.ARB
   ],
   [ChainId.BASE]: [baseTokens.USDC, baseTokens.WETH, baseTokens.CBBTC],
-  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.WETH, gnosisTokens.WXDAI]
-  // [ChainId.POLYGON]: [
-  //   polygonTokens.USDC,
-  //   polygonTokens.WETH,
-  //   polygonTokens.WBTC,
-  //   polygonTokens.WPOL
-  // ],
-  // [ChainId.AVALANCHE]: [
-  //   avalancheTokens.USDC,
-  //   avalancheTokens.WBTC,
-  //   avalancheTokens.DAI,
-  //   avalancheTokens.WAVAX
-  // ]
+  [ChainId.GNOSIS]: [gnosisTokens.GNO, gnosisTokens.WETH, gnosisTokens.WXDAI],
+  [ChainId.POLYGON]: [
+    polygonTokens.USDC,
+    polygonTokens.WETH,
+    polygonTokens.WBTC,
+    polygonTokens.WPOL
+  ],
+  [ChainId.AVALANCHE]: [
+    avalancheTokens.USDC,
+    avalancheTokens.WBTC,
+    avalancheTokens.DAI,
+    avalancheTokens.WAVAX
+  ]
 }

@@ -21,11 +21,11 @@ import { RPC_LIST } from "@/constants"
 import { TokenFromTokenlist } from "@/models"
 
 import defaultArbitrumTokenList from "public/assets/blockchains/arbitrum/tokenlist.json"
-// import defaultAvalancheTokenList from "public/assets/blockchains/avalanche/tokenlist.json"
+import defaultAvalancheTokenList from "public/assets/blockchains/avalanche/tokenlist.json"
 import defaultBaseTokenList from "public/assets/blockchains/base/tokenlist.json"
 import defaultEthereumTokenlist from "public/assets/blockchains/ethereum/tokenlist.json"
 import defaultGnosisTokenlist from "public/assets/blockchains/gnosis/tokenlist.json"
-// import defaultPolygonTokenList from "public/assets/blockchains/polygon/tokenlist.json"
+import defaultPolygonTokenList from "public/assets/blockchains/polygon/tokenlist.json"
 
 import { useNetworkContext } from "./NetworkContext"
 
@@ -40,9 +40,9 @@ const DEFAULT_TOKEN_LIST_BY_CHAIN: {
   [ChainId.ETHEREUM]: defaultEthereumTokenlist,
   [ChainId.ARBITRUM]: defaultArbitrumTokenList,
   [ChainId.BASE]: defaultBaseTokenList,
-  [ChainId.GNOSIS]: defaultGnosisTokenlist
-  // [ChainId.POLYGON]: defaultPolygonTokenList,
-  // [ChainId.AVALANCHE]: defaultAvalancheTokenList
+  [ChainId.GNOSIS]: defaultGnosisTokenlist,
+  [ChainId.POLYGON]: defaultPolygonTokenList,
+  [ChainId.AVALANCHE]: defaultAvalancheTokenList
 }
 
 const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
@@ -62,15 +62,15 @@ const TOKEN_LISTS_BY_CHAIN_URL: { [chainId: number]: string[] } = {
   [ChainId.GNOSIS]: [
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.100.json",
     "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.100.json"
+  ],
+  [ChainId.POLYGON]: [
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.137.json",
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.137.json"
+  ],
+  [ChainId.AVALANCHE]: [
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.43114.json",
+    "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.43114.json"
   ]
-  // [ChainId.POLYGON]: [
-  //   "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.137.json",
-  //   "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.137.json"
-  // ],
-  // [ChainId.AVALANCHE]: [
-  //   "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/Uniswap.43114.json",
-  //   "https://cdn.jsdelivr.net/gh/cowprotocol/token-lists@main/src/public/CoinGecko.43114.json"
-  // ]
 }
 
 const TokenListContext = createContext<{

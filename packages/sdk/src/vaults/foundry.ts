@@ -143,9 +143,9 @@ export async function createDCAFarmWithNonce(
     chainId !== ChainId.ETHEREUM &&
     chainId !== ChainId.ARBITRUM &&
     chainId !== ChainId.BASE &&
-    chainId !== ChainId.GNOSIS
-  // chainId !== ChainId.POLYGON &&
-  // chainId !== ChainId.AVALANCHE
+    chainId !== ChainId.GNOSIS &&
+    chainId !== ChainId.POLYGON &&
+    chainId !== ChainId.AVALANCHE
 
   if (chainNotSupported) {
     throw new Error(`Chain id ${chainId} is not supported`)

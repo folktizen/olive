@@ -1,10 +1,10 @@
 import {
   arbitrumTokens,
-  // avalancheTokens,
+  avalancheTokens,
   baseTokens,
   gnosisTokens,
   mainnetTokens,
-  // polygonTokens,
+  polygonTokens,
   TokenFromTokenlist
 } from "@/models/token"
 import { ChainId } from "@useolive/sdk"
@@ -30,13 +30,13 @@ export const DEFAULT_TOKENS_BY_CHAIN: { [chainId: number]: DefaultTokens } = {
   [ChainId.GNOSIS]: {
     from: gnosisTokens.USDC,
     to: gnosisTokens.WETH
+  },
+  [ChainId.POLYGON]: {
+    from: polygonTokens.USDC,
+    to: polygonTokens.WPOL
+  },
+  [ChainId.AVALANCHE]: {
+    from: avalancheTokens.USDC,
+    to: avalancheTokens.WAVAX
   }
-  // [ChainId.POLYGON]: {
-  //   from: polygonTokens.USDC,
-  //   to: polygonTokens.WPOL
-  // },
-  // [ChainId.AVALANCHE]: {
-  //   from: avalancheTokens.USDC,
-  //   to: avalancheTokens.WAVAX
-  // }
 }
