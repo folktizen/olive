@@ -2,11 +2,11 @@ import { Strategy } from "@/contexts"
 import { FREQUENCY_OPTIONS } from "@/models/farm"
 import {
   arbitrumTokens,
-  // avalancheTokens,
+  avalancheTokens,
   baseTokens,
   gnosisTokens,
-  mainnetTokens
-  // polygonTokens
+  mainnetTokens,
+  polygonTokens
 } from "@/models/token"
 import { ChainId } from "@useolive/sdk"
 
@@ -198,91 +198,91 @@ export const STRATEGY_CATEGORIES: { [chainId: number]: ChainStrategies } = {
         }
       ]
     }
+  },
+  [ChainId.POLYGON]: {
+    popular: {
+      label: "Popular Strategies",
+      strategies: [
+        {
+          id: 1,
+          buyToken: polygonTokens.DAI,
+          daysAmount: 30,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 50,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "1500"
+        },
+        {
+          id: 2,
+          buyToken: polygonTokens.WBTC,
+          daysAmount: 14,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 10,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "140"
+        },
+        {
+          id: 3,
+          buyToken: polygonTokens.DAI,
+          daysAmount: 4,
+          frequency: FREQUENCY_OPTIONS.hour,
+          sellAmountPerTimeframe: 5,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "480"
+        },
+        {
+          id: 4,
+          buyToken: polygonTokens.WPOL,
+          daysAmount: 56,
+          frequency: FREQUENCY_OPTIONS.week,
+          sellAmountPerTimeframe: 100,
+          sellToken: polygonTokens.USDC,
+          totalSellAmount: "800"
+        }
+      ]
+    }
+  },
+  [ChainId.AVALANCHE]: {
+    popular: {
+      label: "Popular Strategies",
+      strategies: [
+        {
+          id: 1,
+          buyToken: avalancheTokens.DAI,
+          daysAmount: 30,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 50,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "1500"
+        },
+        {
+          id: 2,
+          buyToken: avalancheTokens.WBTC,
+          daysAmount: 14,
+          frequency: FREQUENCY_OPTIONS.day,
+          sellAmountPerTimeframe: 10,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "140"
+        },
+        {
+          id: 3,
+          buyToken: avalancheTokens.DAI,
+          daysAmount: 4,
+          frequency: FREQUENCY_OPTIONS.hour,
+          sellAmountPerTimeframe: 5,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "480"
+        },
+        {
+          id: 4,
+          buyToken: avalancheTokens.WAVAX,
+          daysAmount: 56,
+          frequency: FREQUENCY_OPTIONS.week,
+          sellAmountPerTimeframe: 100,
+          sellToken: avalancheTokens.USDC,
+          totalSellAmount: "800"
+        }
+      ]
+    }
   }
-  // [ChainId.POLYGON]: {
-  //   popular: {
-  //     label: "Popular Strategies",
-  //     strategies: [
-  //       {
-  //         id: 1,
-  //         buyToken: polygonTokens.DAI,
-  //         daysAmount: 30,
-  //         frequency: FREQUENCY_OPTIONS.day,
-  //         sellAmountPerTimeframe: 50,
-  //         sellToken: polygonTokens.USDC,
-  //         totalSellAmount: "1500"
-  //       },
-  //       {
-  //         id: 2,
-  //         buyToken: polygonTokens.WBTC,
-  //         daysAmount: 14,
-  //         frequency: FREQUENCY_OPTIONS.day,
-  //         sellAmountPerTimeframe: 10,
-  //         sellToken: polygonTokens.USDC,
-  //         totalSellAmount: "140"
-  //       },
-  //       {
-  //         id: 3,
-  //         buyToken: polygonTokens.DAI,
-  //         daysAmount: 4,
-  //         frequency: FREQUENCY_OPTIONS.hour,
-  //         sellAmountPerTimeframe: 5,
-  //         sellToken: polygonTokens.USDC,
-  //         totalSellAmount: "480"
-  //       },
-  //       {
-  //         id: 4,
-  //         buyToken: polygonTokens.WPOL,
-  //         daysAmount: 56,
-  //         frequency: FREQUENCY_OPTIONS.week,
-  //         sellAmountPerTimeframe: 100,
-  //         sellToken: polygonTokens.USDC,
-  //         totalSellAmount: "800"
-  //       }
-  //     ]
-  //   }
-  // },
-  // [ChainId.AVALANCHE]: {
-  //   popular: {
-  //     label: "Popular Strategies",
-  //     strategies: [
-  //       {
-  //         id: 1,
-  //         buyToken: avalancheTokens.DAI,
-  //         daysAmount: 30,
-  //         frequency: FREQUENCY_OPTIONS.day,
-  //         sellAmountPerTimeframe: 50,
-  //         sellToken: avalancheTokens.USDC,
-  //         totalSellAmount: "1500"
-  //       },
-  //       {
-  //         id: 2,
-  //         buyToken: avalancheTokens.WBTC,
-  //         daysAmount: 14,
-  //         frequency: FREQUENCY_OPTIONS.day,
-  //         sellAmountPerTimeframe: 10,
-  //         sellToken: avalancheTokens.USDC,
-  //         totalSellAmount: "140"
-  //       },
-  //       {
-  //         id: 3,
-  //         buyToken: avalancheTokens.DAI,
-  //         daysAmount: 4,
-  //         frequency: FREQUENCY_OPTIONS.hour,
-  //         sellAmountPerTimeframe: 5,
-  //         sellToken: avalancheTokens.USDC,
-  //         totalSellAmount: "480"
-  //       },
-  //       {
-  //         id: 4,
-  //         buyToken: avalancheTokens.WAVAX,
-  //         daysAmount: 56,
-  //         frequency: FREQUENCY_OPTIONS.week,
-  //         sellAmountPerTimeframe: 100,
-  //         sellToken: avalancheTokens.USDC,
-  //         totalSellAmount: "800"
-  //       }
-  //     ]
-  //   }
-  // }
 }

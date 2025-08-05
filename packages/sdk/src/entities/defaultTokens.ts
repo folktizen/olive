@@ -25,19 +25,19 @@ export const USDC: Readonly<Record<ChainId, Token>> = {
     "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
     6,
     "USDC"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    6,
+    "USDC"
+  ),
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
+    "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    6,
+    "USDC"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-  //   6,
-  //   "USDC"
-  // ),
-  // [ChainId.AVALANCHE]: new Token(
-  //   ChainId.AVALANCHE,
-  //   "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-  //   6,
-  //   "USDC"
-  // )
 }
 
 export const SETH2 = new Token(
@@ -82,38 +82,38 @@ export const WETH: Readonly<Record<ChainId, Token>> = {
     18,
     "WETH",
     "Wrapped Ether"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    18,
+    "WETH",
+    "Wrapped Ether"
+  ),
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
+    "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    18,
+    "WETH.e",
+    "Wrapped Ether"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-  //   18,
-  //   "WETH",
-  //   "Wrapped Ether"
-  // ),
-  // [ChainId.AVALANCHE]: new Token(
-  //   ChainId.AVALANCHE,
-  //   "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
-  //   18,
-  //   "WETH.e",
-  //   "Wrapped Ether"
-  // )
 }
 
-// export const WPOL = new Token(
-//   ChainId.POLYGON,
-//   "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-//   18,
-//   "WPOL",
-//   "Wrapped POL"
-// )
+export const WPOL = new Token(
+  ChainId.POLYGON,
+  "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+  18,
+  "WPOL",
+  "Wrapped POL"
+)
 
-// export const WAVAX = new Token(
-//   ChainId.AVALANCHE,
-//   "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-//   18,
-//   "WAVAX",
-//   "Wrapped AVAX"
-// )
+export const WAVAX = new Token(
+  ChainId.AVALANCHE,
+  "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+  18,
+  "WAVAX",
+  "Wrapped AVAX"
+)
 
 export const WXDAI = new Token(
   ChainId.GNOSIS,
@@ -123,7 +123,10 @@ export const WXDAI = new Token(
   "Wrapped xDAI"
 )
 
-export const USDS: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
+export const USDS: Record<
+  Exclude<ChainId, ChainId.GNOSIS | ChainId.POLYGON | ChainId.AVALANCHE>,
+  Token
+> = {
   [ChainId.ETHEREUM]: new Token(
     ChainId.ETHEREUM,
     "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
@@ -168,24 +171,27 @@ export const DAI: Record<Exclude<ChainId, ChainId.GNOSIS>, Token> = {
     18,
     "DAI",
     "Dai Stablecoin"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    18,
+    "DAI",
+    "Dai Stablecoin"
+  ),
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
+    "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    18,
+    "DAI.e",
+    "Dai Stablecoin"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-  //   18,
-  //   "DAI",
-  //   "Dai Stablecoin"
-  // ),
-  // [ChainId.AVALANCHE]: new Token(
-  //   ChainId.AVALANCHE,
-  //   "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
-  //   18,
-  //   "DAI.e",
-  //   "Dai Stablecoin"
-  // )
 }
 
-export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+export const GNO: Record<
+  Exclude<ChainId, ChainId.BASE | ChainId.AVALANCHE>,
+  Token
+> = {
   [ChainId.ETHEREUM]: new Token(
     ChainId.ETHEREUM,
     "0x6810e776880c02933d47db1b9fc05908e5386b96",
@@ -203,13 +209,13 @@ export const GNO: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
     "0xa0b862F60edEf4452F25B4160F177db44DeB6Cf1",
     18,
     "GNO"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x5FFD62D3C3eE2E81C00A7b9079FB248e7dF024A8",
+    18,
+    "GNO"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x5FFD62D3C3eE2E81C00A7b9079FB248e7dF024A8",
-  //   18,
-  //   "GNO"
-  // )
 }
 
 export const WBTC: Readonly<Record<ChainId, Token>> = {
@@ -236,23 +242,26 @@ export const WBTC: Readonly<Record<ChainId, Token>> = {
     "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252",
     8,
     "WBTC"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    8,
+    "WBTC",
+    "Wrapped BTC"
+  ),
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
+    "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    8,
+    "WBTC.e"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-  //   8,
-  //   "WBTC",
-  //   "Wrapped BTC"
-  // ),
-  // [ChainId.AVALANCHE]: new Token(
-  //   ChainId.AVALANCHE,
-  //   "0x50b7545627a5162F82A992c33b87aDc75187B218",
-  //   8,
-  //   "WBTC.e"
-  // )
 }
 
-export const DPI: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
+export const DPI: Record<
+  Exclude<ChainId, ChainId.BASE | ChainId.AVALANCHE>,
+  Token
+> = {
   [ChainId.ETHEREUM]: new Token(
     ChainId.ETHEREUM,
     "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
@@ -270,13 +279,13 @@ export const DPI: Record<Exclude<ChainId, ChainId.BASE>, Token> = {
     "0x9737C658272e66Faad39D7AD337789Ee6D54F500",
     18,
     "DPI"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
+    18,
+    "DPI"
   )
-  // [ChainId.POLYGON]: new Token(
-  //   ChainId.POLYGON,
-  //   "0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369",
-  //   18,
-  //   "DPI"
-  // )
 }
 
 export const STETH = new Token(

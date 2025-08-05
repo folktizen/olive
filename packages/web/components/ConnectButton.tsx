@@ -2,9 +2,9 @@
 
 import {
   ChainId,
-  // WAVAX,
+  WAVAX,
   WETH,
-  // WPOL,
+  WPOL,
   WXDAI
 } from "@useolive/sdk"
 import { ConnectKitButton } from "connectkit"
@@ -33,9 +33,9 @@ const CustomConnectButton = ({
     [ChainId.ETHEREUM]: WETH[ChainId.ETHEREUM].address,
     [ChainId.ARBITRUM]: WETH[ChainId.ARBITRUM].address,
     [ChainId.BASE]: WETH[ChainId.BASE].address,
-    [ChainId.GNOSIS]: WXDAI.address
-    // [ChainId.POLYGON]: WPOL.address,
-    // [ChainId.AVALANCHE]: WAVAX.address
+    [ChainId.GNOSIS]: WXDAI.address,
+    [ChainId.POLYGON]: WPOL.address,
+    [ChainId.AVALANCHE]: WAVAX.address
   }
 
   const { data: balance } = useBalance({

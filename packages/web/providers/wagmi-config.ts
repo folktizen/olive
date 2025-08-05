@@ -3,25 +3,18 @@ import { getDefaultConfig } from "connectkit"
 import { createConfig, fallback, http } from "wagmi"
 import {
   arbitrum,
-  // avalanche,
+  avalanche,
   base,
   gnosis,
-  mainnet
-  // polygon
+  mainnet,
+  polygon
 } from "wagmi/chains"
 import { safe } from "wagmi/connectors"
 
 import { RPC_LIST } from "@/constants"
 
 const defaultConfig = getDefaultConfig({
-  chains: [
-    mainnet,
-    arbitrum,
-    base,
-    gnosis
-    // polygon,
-    // avalanche
-  ],
+  chains: [mainnet, arbitrum, base, gnosis, polygon, avalanche],
   walletConnectProjectId:
     process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ||
     "a726dd64b978014250465ce1eb8f3da3",
@@ -29,9 +22,9 @@ const defaultConfig = getDefaultConfig({
     [mainnet.id]: fallback([http(RPC_LIST[ChainId.ETHEREUM]), http()]),
     [arbitrum.id]: fallback([http(RPC_LIST[ChainId.ARBITRUM]), http()]),
     [base.id]: fallback([http(RPC_LIST[ChainId.BASE]), http()]),
-    [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()])
-    // [polygon.id]: fallback([http(RPC_LIST[ChainId.POLYGON]), http()]),
-    // [avalanche.id]: fallback([http(RPC_LIST[ChainId.AVALANCHE]), http()])
+    [gnosis.id]: fallback([http(RPC_LIST[ChainId.GNOSIS]), http()]),
+    [polygon.id]: fallback([http(RPC_LIST[ChainId.POLYGON]), http()]),
+    [avalanche.id]: fallback([http(RPC_LIST[ChainId.AVALANCHE]), http()])
   },
   appName: "Olive",
   appDescription:
