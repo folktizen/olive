@@ -84,7 +84,7 @@ const BASE_SUBGRAPH_ENDPOINT_URL =
   `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-base/version/v1.5.0-blankon/api`
 const GNOSIS_SUBGRAPH_ENDPOINT_URL =
   process.env.GNOSIS_SUBGRAPH_API_URL ??
-  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-gnosis/version/v1.5.0-blankon/api`
+  `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-gnosis/v1.5.0-blankon/gn`
 
 export const SUBGRAPH_ENDPOINT_LIST: Readonly<Record<ChainId, string>> = {
   [ChainId.ETHEREUM]: ETHEREUM_SUBGRAPH_ENDPOINT_URL,
