@@ -9,10 +9,10 @@ import { config } from "./config"
  */
 const SUPPORTED_NETWORKS = [
   "mainnet",
-  "matic",
+  "polygon",
   "arbitrum-one",
   "base",
-  "xdai",
+  "gnosis",
   "avalanche"
 ]
 

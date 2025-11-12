@@ -69,9 +69,13 @@ const THEGRAPH_API_BASE_URL =
 const THEGRAPH_API_KEY =
   process.env.OLIVE_THEGRAPH_API_KEY ?? "a5be5b982b0198a9e5f7b005a9eee7a6"
 
+const ORMI_API_BASE_URL = "https://api.subgraph.ormilabs.com/api/public"
+const ORMI_API_KEY =
+  process.env.OLIVE_ORMI_API_KEY ?? "4244dbd1-8f0c-44f9-a171-d85bdb524e4a"
+
 const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ETHEREUM_SUBGRAPH_API_URL ??
-  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-ethereum/version/v1.5.0-blankon/api`
+  `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-ethereum/v1.5.0-blankon/gn`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL ??
   `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-arbitrum-one/version/v1.5.0-blankon/api`
