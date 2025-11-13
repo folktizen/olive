@@ -78,10 +78,10 @@ const ETHEREUM_SUBGRAPH_ENDPOINT_URL =
   `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-ethereum/v1.5.0-blankon/gn`
 const ARBITRUM_SUBGRAPH_ENDPOINT_URL =
   process.env.ARBITRUM_SUBGRAPH_API_URL ??
-  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-arbitrum-one/version/v1.5.0-blankon/api`
+  `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-arbitrum-one/v1.5.0-blankon/gn`
 const BASE_SUBGRAPH_ENDPOINT_URL =
   process.env.BASE_SUBGRAPH_API_URL ??
-  `${ALCHEMY_API_BASE_URL}/${ALCHEMY_PROJECT_ID}/funtend--3839364/olv-on-base/version/v1.5.0-blankon/api`
+  `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-base/v1.5.0-blankon/gn`
 const GNOSIS_SUBGRAPH_ENDPOINT_URL =
   process.env.GNOSIS_SUBGRAPH_API_URL ??
   `${ORMI_API_BASE_URL}/${ORMI_API_KEY}/subgraphs/olv-on-gnosis/v1.5.0-blankon/gn`
